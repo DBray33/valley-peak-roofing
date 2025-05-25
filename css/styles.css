@@ -2288,7 +2288,7 @@ body {
 
 .cta-buttons .btn-secondary:hover {
   background: var(--white);
-  color: black;
+  color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 

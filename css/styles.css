@@ -28,6 +28,27 @@ body {
 
 /**
  * =====================================================
+ * PREVENT OVERSCROLL BOUNCE
+ * =====================================================
+ */
+html {
+  overscroll-behavior: none;
+}
+
+body {
+  overscroll-behavior: none;
+  /* Remove any fixed positioning or explicit overflow settings */
+}
+
+/* Optional: If you still see bounce on iOS */
+html,
+body {
+  position: relative;
+  overscroll-behavior-y: none;
+}
+
+/**
+ * =====================================================
  * CSS VARIABLES
  * =====================================================
  */

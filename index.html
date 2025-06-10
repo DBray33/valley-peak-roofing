@@ -10,6 +10,13 @@
       name="description"
       content="Bethlehem PA roofing contractor - Free inspection within 1 week, guaranteed. Licensed & insured with lifetime warranty. Emergency repairs, metal roofs, shingles. 100+ 5-star reviews. Call (484) 602-6863 for instant quote." />
     <link rel="icon" type="image/png" href="assets/images/logo.png" />
+
+    <!-- Bootstrap CSS - Added before your custom styles -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+
+    <!-- Your existing stylesheets - These come after Bootstrap to allow overrides -->
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link
@@ -702,93 +709,166 @@
           </p>
         </div>
 
-        <div class="testimonials-carousel">
-          <div class="testimonial-item active slide-up-delay">
-            <div class="testimonial-content">
-              <div class="testimonial-top">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+        <!-- Bootstrap Carousel -->
+        <div
+          id="testimonialCarousel"
+          class="carousel slide carousel-fade testimonial-carousel-wrapper"
+          data-bs-ride="carousel"
+          data-bs-interval="6000">
+          <!-- Indicators -->
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"></button>
+            <button
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+
+          <!-- Carousel Items -->
+          <div class="carousel-inner">
+            <!-- First Testimonial -->
+            <div class="carousel-item active">
+              <div class="testimonial-slide">
+                <div class="testimonial-content-wrapper">
+                  <div class="testimonial-text-column">
+                    <div class="stars mb-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="carousel-caption position-relative d-block">
+                      <p class="testimonial-text">
+                        "We had an excellent experience with Valley Peak
+                        Roofing! Gunnar showed a genuine commitment to customer
+                        service. The work was done on time, on budget, and looks
+                        fantastic. Highly recommend!"
+                      </p>
+                      <h5 class="testimonial-author">Robert Welles</h5>
+                      <p class="testimonial-location">Bethlehem, PA</p>
+                      <button
+                        class="see-more-reviews-btn"
+                        onclick="window.open('https://www.google.com/search?sca_esv=ea7b27f3c7f5bbf6&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E8Iqo5k8kco9MbwRxt-LYBK-ZhdD_EEKJ6Gz5oImkvDgUG65a3rWbrZDXsQlGjEWwrNJsTPKT8dCUWK-x5-cK6LrxnfUWf1ExCkMbQe0zy1nV_SwJA%3D%3D&q=Valley+Peak+Roofing+Co.+Reviews&sa=X&ved=2ahUKEwjZ6-DruOeNAxVBkokEHS4KEb8Q0bkNegQIKxAE&cshid=1749578814973062&biw=1918&bih=914&dpr=1', '_blank')">
+                        See More Reviews
+                      </button>
+                    </div>
+                  </div>
+                  <div class="testimonial-image-column">
+                    <img
+                      src="assets/images/testimonial-project-1.jpg"
+                      alt="Robert Welles roofing project"
+                      class="testimonial-project-image" />
+                  </div>
                 </div>
-                <p>
-                  "We had an excellent experience with Valley Peak Roofing!
-                  Gunnar showed a genuine commitment to customer service. The
-                  work was done on time, on budget, and looks fantastic. Highly
-                  recommend!"
-                </p>
               </div>
-              <div class="testimonial-author">
-                <strong>Robert Welles</strong>
-                <span>Bethlehem, PA</span>
-                <button class="see-more-reviews-btn">See More Reviews</button>
+            </div>
+
+            <!-- Second Testimonial -->
+            <div class="carousel-item">
+              <div class="testimonial-slide">
+                <div class="testimonial-content-wrapper">
+                  <div class="testimonial-text-column">
+                    <div class="stars mb-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="carousel-caption position-relative d-block">
+                      <p class="testimonial-text">
+                        "Not only did we have a finished roof within a week of
+                        our first phone call, we also had constant communication
+                        throughout the process. The team brings quality,
+                        communication, hard work, and fair pricing to the
+                        table!"
+                      </p>
+                      <h5 class="testimonial-author">Zach Roper</h5>
+                      <p class="testimonial-location">Lehigh Valley, PA</p>
+                      <button
+                        class="see-more-reviews-btn"
+                        onclick="window.open('https://www.google.com/search?sca_esv=ea7b27f3c7f5bbf6&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E8Iqo5k8kco9MbwRxt-LYBK-ZhdD_EEKJ6Gz5oImkvDgUG65a3rWbrZDXsQlGjEWwrNJsTPKT8dCUWK-x5-cK6LrxnfUWf1ExCkMbQe0zy1nV_SwJA%3D%3D&q=Valley+Peak+Roofing+Co.+Reviews&sa=X&ved=2ahUKEwjZ6-DruOeNAxVBkokEHS4KEb8Q0bkNegQIKxAE&cshid=1749578814973062&biw=1918&bih=914&dpr=1', '_blank')">
+                        See More Reviews
+                      </button>
+                    </div>
+                  </div>
+                  <div class="testimonial-image-column">
+                    <img
+                      src="assets/images/testimonial-project-2.jpg"
+                      alt="Zach Roper roofing project"
+                      class="testimonial-project-image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Third Testimonial -->
+            <div class="carousel-item">
+              <div class="testimonial-slide">
+                <div class="testimonial-content-wrapper">
+                  <div class="testimonial-text-column">
+                    <div class="stars mb-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="carousel-caption position-relative d-block">
+                      <p class="testimonial-text">
+                        "Very happy with whole job done in one day. Cleanup was
+                        great, employees were very courteous and great workers.
+                        Highly recommend Valley Peak Roofing!"
+                      </p>
+                      <h5 class="testimonial-author">Michael Revitt</h5>
+                      <p class="testimonial-location">Bethlehem, PA</p>
+                      <button
+                        class="see-more-reviews-btn"
+                        onclick="window.open('https://www.google.com/search?sca_esv=ea7b27f3c7f5bbf6&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E8Iqo5k8kco9MbwRxt-LYBK-ZhdD_EEKJ6Gz5oImkvDgUG65a3rWbrZDXsQlGjEWwrNJsTPKT8dCUWK-x5-cK6LrxnfUWf1ExCkMbQe0zy1nV_SwJA%3D%3D&q=Valley+Peak+Roofing+Co.+Reviews&sa=X&ved=2ahUKEwjZ6-DruOeNAxVBkokEHS4KEb8Q0bkNegQIKxAE&cshid=1749578814973062&biw=1918&bih=914&dpr=1', '_blank')">
+                        See More Reviews
+                      </button>
+                    </div>
+                  </div>
+                  <div class="testimonial-image-column">
+                    <img
+                      src="assets/images/aframe-roof.jpg"
+                      alt="Michael Revitt roofing project"
+                      class="testimonial-project-image" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="testimonial-item slide-up-delay-2">
-            <div class="testimonial-content">
-              <div class="testimonial-top">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <p>
-                  "Not only did we have a finished roof within a week of our
-                  first phone call, we also had constant communication
-                  throughout the process. The team brings quality,
-                  communication, hard work, and fair pricing to the table!"
-                </p>
-              </div>
-              <div class="testimonial-author">
-                <strong>Zach Roper</strong>
-                <span>Lehigh Valley, PA</span>
-                <button class="see-more-reviews-btn">See More Reviews</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-item slide-up-delay-3">
-            <div class="testimonial-content">
-              <div class="testimonial-top">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <p>
-                  "Very happy with whole job done in one day. Cleanup was great,
-                  employees were very courteous and great workers. Highly
-                  recommend Valley Peak Roofing!"
-                </p>
-              </div>
-              <div class="testimonial-author">
-                <strong>Michael Revitt</strong>
-                <span>Bethlehem, PA</span>
-                <button class="see-more-reviews-btn">See More Reviews</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-nav">
-          <button class="testimonial-prev" aria-label="Previous testimonial">
-            <i class="fas fa-chevron-left"></i>
+          <!-- Controls -->
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
           </button>
-          <div class="testimonial-dots">
-            <span class="dot active" data-slide="0"></span>
-            <span class="dot" data-slide="1"></span>
-            <span class="dot" data-slide="2"></span>
-          </div>
-          <button class="testimonial-next" aria-label="Next testimonial">
-            <i class="fas fa-chevron-right"></i>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
           </button>
         </div>
       </div>
@@ -1085,6 +1165,8 @@
       </div>
     </div>
 
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="scripts.js"></script>
   </body>
 </html>

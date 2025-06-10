@@ -254,163 +254,43 @@ const ScrollAnimations = {
 
 /**
  * =====================================================
- * TESTIMONIAL CAROUSEL MODULE
+ * TESTIMONIAL CAROUSEL MODULE (Bootstrap Version)
  * =====================================================
  */
 const TestimonialCarousel = {
   init: function () {
-    this.testimonialItems = document.querySelectorAll('.testimonial-item');
-    this.testimonialDots = document.querySelectorAll('.dot');
-    this.prevBtn = document.querySelector('.testimonial-prev');
-    this.nextBtn = document.querySelector('.testimonial-next');
-    this.currentTestimonial = 0;
-
-    if (this.testimonialItems.length === 0) return;
-
-    // Initialize testimonial truncation first
-    this.truncateTestimonials();
-
-    // Initialize all review button handlers
+    // Initialize review button handlers
     this.initReviewButtonHandlers();
 
-    this.initEventListeners();
-    this.startAutoRotation();
+    // Optional: Add event listeners for Bootstrap carousel events
+    const carousel = document.getElementById('testimonialCarousel');
+    if (carousel) {
+      // Log carousel events (optional - remove in production)
+      carousel.addEventListener('slide.bs.carousel', (event) => {
+        console.log('Testimonial sliding from:', event.from, 'to:', event.to);
+      });
+
+      // You can add more event handlers here if needed
+      carousel.addEventListener('slid.bs.carousel', (event) => {
+        console.log('Testimonial slide complete:', event.to);
+      });
+    }
   },
 
-  // Function to truncate testimonial text if over 250 characters
-  truncateTestimonials: function () {
-    const testimonialParagraphs = document.querySelectorAll(
-      '.testimonial-content p'
-    );
-
-    testimonialParagraphs.forEach((p) => {
-      const fullText = p.textContent;
-      const characterLimit = 250;
-
-      if (fullText.length > characterLimit) {
-        // Find the last space before the character limit to avoid cutting mid-word
-        let truncateAt = fullText.lastIndexOf(' ', characterLimit);
-        if (truncateAt === -1) truncateAt = characterLimit;
-
-        const truncatedText = fullText.substring(0, truncateAt) + '...';
-        p.textContent = truncatedText;
-
-        // Show the "See More Reviews" button for this testimonial
-        const testimonialAuthor = p
-          .closest('.testimonial-content')
-          .querySelector('.testimonial-author');
-        if (!testimonialAuthor.querySelector('.see-more-reviews-btn')) {
-          const seeMoreBtn = document.createElement('button');
-          seeMoreBtn.className = 'see-more-reviews-btn';
-          seeMoreBtn.textContent = 'See More Reviews';
-          testimonialAuthor.appendChild(seeMoreBtn);
-        }
-      }
-    });
-  },
-
-  // Initialize all "See More Reviews" button handlers
   initReviewButtonHandlers: function () {
     const reviewsUrl =
-      'https://www.google.com/search?sca_esv=c2c2afdb17022264&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzR9N41eEw3gu2a51ZEaevndZxADVND6941LF5BjIvq-IvY1NZS8pkj19VcPWzl491LldnTMZKPhM6jPiMc3bzcqzi1D8v0-ZBAde449r84A12hPs4A%3D%3D&q=Valley+Peak+Roofing+Co.+Reviews&sa=X&ved=2ahUKEwiKvfqR5LmNAxWeFFkFHaJHPYgQ0bkNegQILRAE&biw=1801&bih=934&dpr=1';
+      'https://www.google.com/search?q=Valley+Peak+Roofing+Co.+Reviews';
 
-    // Handle all "See More Reviews" buttons (both existing HTML buttons and dynamically created ones)
-    const handleReviewButtonClick = (button) => {
-      button.addEventListener('click', () => {
-        window.open(reviewsUrl, '_blank');
-      });
-    };
-
-    // Apply to existing buttons in HTML
-    const existingReviewButtons = document.querySelectorAll(
-      '.see-more-reviews-btn'
-    );
-    existingReviewButtons.forEach(handleReviewButtonClick);
-
-    // Use MutationObserver to handle dynamically added buttons
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            // Check if the added node is a review button
-            if (
-              node.classList &&
-              node.classList.contains('see-more-reviews-btn')
-            ) {
-              handleReviewButtonClick(node);
-            }
-            // Check if the added node contains review buttons
-            const reviewButtons = node.querySelectorAll
-              ? node.querySelectorAll('.see-more-reviews-btn')
-              : [];
-            reviewButtons.forEach(handleReviewButtonClick);
-          }
+    // Handle any programmatically added buttons (since we're using onclick in HTML, this is optional)
+    const reviewButtons = document.querySelectorAll('.see-more-reviews-btn');
+    reviewButtons.forEach((button) => {
+      // Only add listener if button doesn't have onclick attribute
+      if (!button.hasAttribute('onclick')) {
+        button.addEventListener('click', () => {
+          window.open(reviewsUrl, '_blank');
         });
-      });
+      }
     });
-
-    // Start observing for dynamically added buttons
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-  },
-
-  initEventListeners: function () {
-    // Navigation buttons
-    if (this.nextBtn) {
-      this.nextBtn.addEventListener('click', () => this.nextTestimonial());
-    }
-
-    if (this.prevBtn) {
-      this.prevBtn.addEventListener('click', () => this.prevTestimonial());
-    }
-
-    // Dot navigation
-    this.testimonialDots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        this.currentTestimonial = index;
-        this.showTestimonial(this.currentTestimonial);
-      });
-    });
-  },
-
-  showTestimonial: function (index) {
-    // Hide all testimonials
-    this.testimonialItems.forEach((item) => {
-      item.classList.remove('active');
-    });
-
-    // Remove active class from all dots
-    this.testimonialDots.forEach((dot) => {
-      dot.classList.remove('active');
-    });
-
-    // Show current testimonial and activate dot
-    if (this.testimonialItems[index]) {
-      this.testimonialItems[index].classList.add('active');
-    }
-    if (this.testimonialDots[index]) {
-      this.testimonialDots[index].classList.add('active');
-    }
-  },
-
-  nextTestimonial: function () {
-    this.currentTestimonial =
-      (this.currentTestimonial + 1) % this.testimonialItems.length;
-    this.showTestimonial(this.currentTestimonial);
-  },
-
-  prevTestimonial: function () {
-    this.currentTestimonial =
-      (this.currentTestimonial - 1 + this.testimonialItems.length) %
-      this.testimonialItems.length;
-    this.showTestimonial(this.currentTestimonial);
-  },
-
-  startAutoRotation: function () {
-    // Auto-rotate testimonials every 6 seconds
-    setInterval(() => this.nextTestimonial(), 6000);
   },
 };
 

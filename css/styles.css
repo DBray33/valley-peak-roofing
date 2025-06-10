@@ -31,20 +31,18 @@ body {
  * PREVENT OVERSCROLL BOUNCE
  * =====================================================
  */
-html {
-  overscroll-behavior: none;
-}
-
-body {
-  overscroll-behavior: none;
-  /* Remove any fixed positioning or explicit overflow settings */
-}
-
-/* Optional: If you still see bounce on iOS */
 html,
 body {
-  position: relative;
+  /* Only prevent vertical overscroll, preserve horizontal for navigation gestures */
+  overscroll-behavior-y: contain;
+  /* Keep horizontal behavior default for swipe navigation */
+  overscroll-behavior-x: auto;
+}
+
+html,
+body {
   overscroll-behavior-y: none;
+  overscroll-behavior-x: auto;
 }
 
 /**

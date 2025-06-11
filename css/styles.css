@@ -1664,7 +1664,7 @@ body {
 
 /**
  * =====================================================
- * BOOTSTRAP TESTIMONIAL CAROUSEL STYLES
+ * BOOTSTRAP TESTIMONIAL CAROUSEL STYLES - SLIDE VERSION
  * =====================================================
  */
 
@@ -1711,7 +1711,14 @@ body {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   padding: 40px;
-  position: relative; /* For absolute positioning of indicators */
+  position: relative;
+  /* Remove overflow: hidden from wrapper */
+}
+
+/* Add a separate inner container for overflow control */
+.testimonial-carousel-wrapper .carousel-inner {
+  overflow: hidden;
+  border-radius: var(--border-radius);
 }
 
 @media (max-width: 768px) {
@@ -1728,10 +1735,10 @@ body {
   }
 }
 
-/* Fix for fade overlap issue and consistent height */
+/* Carousel inner container for slide transition */
 #testimonialCarousel .carousel-inner {
   overflow: hidden;
-  height: 400px !important; /* FIXED height */
+  height: 400px !important;
   min-height: 400px;
   max-height: 400px;
   position: relative;
@@ -1739,7 +1746,7 @@ body {
 
 @media (max-width: 768px) {
   #testimonialCarousel .carousel-inner {
-    height: 600px !important; /* FIXED height for mobile */
+    height: 600px !important;
     min-height: 600px;
     max-height: 600px;
   }
@@ -1747,28 +1754,26 @@ body {
 
 @media (max-width: 480px) {
   #testimonialCarousel .carousel-inner {
-    height: 650px !important; /* FIXED height for small screens */
+    height: 650px !important;
     min-height: 650px;
     max-height: 650px;
   }
 }
 
+/* Carousel items for slide transition */
 #testimonialCarousel .carousel-item {
-  transition: opacity 0.6s ease-in-out;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 400px !important; /* FIXED height */
+  height: 400px !important;
   min-height: 400px;
   max-height: 400px;
+  /* Remove absolute positioning for slide transition */
+  position: relative;
+  display: none;
 }
 
-#testimonialCarousel .carousel-item.active {
-  opacity: 1;
-  position: relative;
+#testimonialCarousel .carousel-item.active,
+#testimonialCarousel .carousel-item-next,
+#testimonialCarousel .carousel-item-prev {
+  display: block;
 }
 
 @media (max-width: 768px) {
@@ -1790,12 +1795,12 @@ body {
 /* Testimonial Slide */
 .testimonial-slide {
   padding: 20px;
-  height: 400px !important; /* FIXED height */
+  height: 400px !important;
   min-height: 400px;
   max-height: 400px;
   display: flex;
   align-items: center;
-  overflow: hidden; /* Hide any overflow */
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
@@ -1972,14 +1977,15 @@ body {
   opacity: 1;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 2; /* Ensure controls are above content */
 }
 
 .testimonial-carousel-wrapper .carousel-control-prev {
-  left: -20px;
+  left: 10px; /* Changed from -20px to keep inside bounds */
 }
 
 .testimonial-carousel-wrapper .carousel-control-next {
-  right: -20px;
+  right: 10px; /* Changed from -20px to keep inside bounds */
 }
 
 .testimonial-carousel-wrapper .carousel-control-prev:hover,
@@ -1996,11 +2002,11 @@ body {
   }
 
   .testimonial-carousel-wrapper .carousel-control-prev {
-    left: -15px;
+    left: 10px; /* Changed from -15px */
   }
 
   .testimonial-carousel-wrapper .carousel-control-next {
-    right: -15px;
+    right: 10px; /* Changed from -15px */
   }
 }
 
@@ -2021,6 +2027,7 @@ body {
   margin-right: auto;
   margin-bottom: 0;
   justify-content: center;
+  z-index: 2; /* Ensure indicators are above content */
 }
 
 .testimonial-carousel-wrapper .carousel-indicators [data-bs-target] {
@@ -2231,6 +2238,19 @@ body {
   padding: 0 0 25px 0;
   color: var(--text-light);
   line-height: 1.6;
+}
+
+/* FAQ Section Header Link Styles */
+.faq-section .section-header p a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.faq-section .section-header p a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
 }
 
 /**

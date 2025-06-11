@@ -51,6 +51,11 @@
   flex-direction: column;
   align-items: center; /* Centers both children */
   gap: 15px;
+  text-decoration: none; /* Remove underline from link */
+}
+
+a.footer-logo-wrapper:hover {
+  text-decoration: none; /* Ensure no underline on hover */
 }
 
 .footer-company-name {
@@ -60,7 +65,13 @@
   color: var(--white);
   text-transform: uppercase;
   letter-spacing: 1px;
+  transition: var(--transition);
   /* No need for align-self anymore */
+}
+
+/* Add hover effect for company name when inside the link */
+a.footer-logo-wrapper:hover .footer-company-name {
+  color: var(--primary-color);
 }
 
 @media (max-width: 480px) {
@@ -80,7 +91,13 @@
   width: auto;
   max-width: 300px;
   object-fit: contain;
+  transition: var(--transition);
   /* No need for align-self anymore */
+}
+
+/* Add hover effect for logo when inside the link */
+a.footer-logo-wrapper:hover .footer-logo {
+  transform: scale(1.05);
 }
 
 @media (max-width: 480px) {

@@ -2571,13 +2571,22 @@ body {
 
 /* FAQ Hero Section */
 .faq-hero {
-  background: linear-gradient(135deg, var(--primary-color), #000000);
+  background: linear-gradient(
+      135deg,
+      rgba(179, 168, 133, 0.85),
+      rgba(0, 0, 0, 0.85)
+    ),
+    url('../assets/images/faq-page-hero-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   padding: 140px 0 60px;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
+/* Spinning effect overlay */
 .faq-hero::before {
   content: '';
   position: absolute;
@@ -2587,10 +2596,30 @@ body {
   height: 200%;
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.03) 40%,
     transparent 70%
   );
   animation: rotate 30s linear infinite;
+  z-index: 1;
+}
+
+/* Additional decorative spinning elements */
+.faq-hero::after {
+  content: '';
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(
+    circle,
+    transparent 30%,
+    rgba(179, 168, 133, 0.05) 50%,
+    transparent 70%
+  );
+  animation: rotate-reverse 45s linear infinite;
+  z-index: 1;
 }
 
 @keyframes rotate {
@@ -2602,9 +2631,81 @@ body {
   }
 }
 
+@keyframes rotate-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
 .faq-hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+}
+
+.faq-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.faq-hero h5 {
+  font-size: 20px;
+  color: var(--white);
+  opacity: 0.95;
+  margin-bottom: 30px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-hero-logo {
+  max-width: 400px;
+  height: auto;
+  opacity: 0.9;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .faq-hero {
+    padding: 120px 0 50px;
+  }
+
+  .faq-hero h1 {
+    font-size: 36px;
+  }
+
+  .faq-hero h5 {
+    font-size: 18px;
+  }
+
+  .faq-hero-logo {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-hero {
+    padding: 110px 0 40px;
+  }
+
+  .faq-hero h1 {
+    font-size: 28px;
+  }
+
+  .faq-hero h5 {
+    font-size: 16px;
+  }
+
+  .faq-hero-logo {
+    max-width: 250px;
+  }
 }
 
 .faq-hero h1 {

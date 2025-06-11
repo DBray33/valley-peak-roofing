@@ -18,6 +18,7 @@
 
     <!-- Your existing stylesheets - These come after Bootstrap to allow overrides -->
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -30,20 +31,21 @@
     <link rel="stylesheet" href="https://use.typekit.net/icu5zaz.css" />
   </head>
   <body>
+    <!-- Floating Logo - Place this BEFORE the Navigation -->
+    <div class="floating-logo">
+      <a href="/">
+        <img src="assets/images/logo.png" alt="Valley Peak Roofing Logo" />
+        <span class="company-name">
+          <span class="large-letter">V</span>alley
+          <span class="large-letter">P</span>eak
+          <span class="large-letter">R</span>oofing Co.
+        </span>
+      </a>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
-        <div class="nav-logo">
-          <a href="/">
-            <img src="assets/images/logo.png" alt="Valley Peak Roofing Logo" />
-            <span class="company-name">
-              <span class="large-letter">V</span>alley
-              <span class="large-letter">P</span>eak
-              <span class="large-letter">R</span>oofing Co.
-            </span>
-          </a>
-        </div>
-
         <div class="nav-menu">
           <div class="nav-item dropdown">
             <a href="#" class="nav-link"
@@ -768,7 +770,7 @@
                   </div>
                   <div class="testimonial-image-column">
                     <img
-                      src="assets/images/testimonial-project-1.jpg"
+                      src="assets/images/clean-yard.jpg"
                       alt="Robert Welles roofing project"
                       class="testimonial-project-image" />
                   </div>
@@ -807,7 +809,7 @@
                   </div>
                   <div class="testimonial-image-column">
                     <img
-                      src="assets/images/testimonial-project-2.jpg"
+                      src="assets/images/architectural-shingles.jpg"
                       alt="Zach Roper roofing project"
                       class="testimonial-project-image" />
                   </div>

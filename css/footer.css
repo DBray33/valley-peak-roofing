@@ -243,13 +243,21 @@ address {
   line-height: 1.6;
 }
 
-/* Navigation Lists */
+/* Navigation Lists - FIXED HOVER */
 .footer-nav-section ul,
 .footer-services-section ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding-left: 0;
+}
+
+.footer-nav-section ul li,
+.footer-services-section ul li {
+  /* Add padding to the li to create a larger hover area */
+  padding-left: 0;
+  transition: padding-left 0.3s ease;
 }
 
 .footer-nav-section ul li a,
@@ -258,13 +266,20 @@ address {
   text-decoration: none;
   font-size: 15px;
   transition: var(--transition);
+  display: inline-block;
+  position: relative;
 }
 
-.footer-nav-section ul li a:hover,
-.footer-services-section ul li a:hover {
+/* On hover, move the li padding instead of transforming the link */
+.footer-nav-section ul li:hover,
+.footer-services-section ul li:hover {
+  padding-left: 5px;
+}
+
+.footer-nav-section ul li:hover a,
+.footer-services-section ul li:hover a {
   color: var(--primary-color);
-  transform: translateX(5px);
-  display: inline-block;
+  /* Remove the transform that was causing the issue */
 }
 
 /* Bottom Row */

@@ -31,6 +31,7 @@ const App = {
       BackToTopButton,
       PortfolioLightbox,
       FAQPageModule,
+      ContactPage,
     ]);
   },
 
@@ -1335,6 +1336,286 @@ const FAQPageModule = {
 
 /**
  * =====================================================
+ * CONTACT PAGE MODULE
+ * =====================================================
+ */
+const ContactPage = {
+  init: function () {
+    // Only initialize on contact pages
+    if (!document.querySelector('.contact-page')) return;
+
+    this.initContactForm();
+    this.initMapInteraction();
+    this.initFormValidation();
+  },
+
+  /**
+   * Initialize contact form handling
+   */
+  initContactForm: function () {
+    const contactForm = document.getElementById('contact-estimate-form');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) =>
+        this.handleContactSubmission(e)
+      );
+    }
+  },
+
+  /**
+   * Handle contact form submission
+   */
+  handleContactSubmission: function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+
+    // Validate form
+    if (!this.validateContactForm(form, data)) {
+      this.showMessage(
+        'Please fill in all required fields correctly.',
+        'error'
+      );
+      return;
+    }
+
+    // Show loading state
+    this.setFormLoadingState(form, true);
+
+    // Simulate form submission (replace with actual API call)
+    setTimeout(() => {
+      this.showSuccessState(form);
+      this.showMessage(
+        "Thank you! We'll contact you within 24 hours.",
+        'success'
+      );
+
+      // Reset form after delay
+      setTimeout(() => {
+        this.resetContactForm(form);
+      }, 3000);
+    }, 1500);
+
+    // Log form data (for debugging - remove in production)
+    console.log('Contact form submitted:', data);
+  },
+
+  /**
+   * Validate contact form
+   */
+  validateContactForm: function (form, data) {
+    const requiredFields = [
+      'firstName',
+      'lastName',
+      'email',
+      'phone',
+      'service',
+    ];
+    let isValid = true;
+
+    // Check required fields
+    requiredFields.forEach((field) => {
+      const input = form.querySelector(`[name="${field}"]`);
+      if (!data[field] || data[field].trim() === '') {
+        this.setFieldError(input, true);
+        isValid = false;
+      } else {
+        this.setFieldError(input, false);
+      }
+    });
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailInput = form.querySelector('[name="email"]');
+    if (data.email && !emailRegex.test(data.email)) {
+      this.setFieldError(emailInput, true);
+      isValid = false;
+    }
+
+    // Phone validation
+    const phoneInput = form.querySelector('[name="phone"]');
+    const cleanPhone = data.phone ? data.phone.replace(/\D/g, '') : '';
+    if (data.phone && cleanPhone.length < 10) {
+      this.setFieldError(phoneInput, true);
+      isValid = false;
+    }
+
+    return isValid;
+  },
+
+  /**
+   * Set field error state
+   */
+  setFieldError: function (input, hasError) {
+    if (!input) return;
+
+    if (hasError) {
+      input.style.borderColor = '#e74c3c';
+      input.classList.add('error');
+    } else {
+      input.style.borderColor = '#e9ecef';
+      input.classList.remove('error');
+    }
+  },
+
+  /**
+   * Set form loading state
+   */
+  setFormLoadingState: function (form, isLoading) {
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    if (isLoading) {
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      submitBtn.disabled = true;
+    } else {
+      submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send';
+      submitBtn.disabled = false;
+    }
+  },
+
+  /**
+   * Show success state
+   */
+  showSuccessState: function (form) {
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+    submitBtn.style.backgroundColor = '#27ae60';
+    submitBtn.disabled = true;
+  },
+
+  /**
+   * Reset contact form
+   */
+  resetContactForm: function (form) {
+    form.reset();
+    this.setFormLoadingState(form, false);
+
+    // Reset field borders
+    const inputs = form.querySelectorAll('input, textarea, select');
+    inputs.forEach((input) => {
+      this.setFieldError(input, false);
+    });
+
+    // Reset button style
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.style.backgroundColor = '';
+  },
+
+  /**
+   * Show message to user
+   */
+  showMessage: function (message, type = 'info') {
+    // Create message element
+    const messageEl = document.createElement('div');
+    messageEl.className = `contact-message contact-message-${type}`;
+    messageEl.innerHTML = `
+      <div class="message-content">
+        <i class="fas fa-${
+          type === 'error' ? 'exclamation-circle' : 'check-circle'
+        }"></i>
+        <span>${message}</span>
+      </div>
+    `;
+
+    // Add to page
+    document.body.appendChild(messageEl);
+
+    // Show with animation
+    setTimeout(() => messageEl.classList.add('show'), 100);
+
+    // Remove after delay
+    setTimeout(() => {
+      messageEl.classList.remove('show');
+      setTimeout(() => messageEl.remove(), 300);
+    }, 4000);
+  },
+
+  /**
+   * Initialize map interaction
+   */
+  initMapInteraction: function () {
+    const mapContainer = document.querySelector('.contact-map');
+    const mapIframe = document.querySelector('.contact-map iframe');
+
+    if (!mapContainer || !mapIframe) return;
+
+    // Prevent scrolling when hovering over map
+    mapContainer.addEventListener('mouseenter', function () {
+      mapIframe.style.pointerEvents = 'auto';
+    });
+
+    mapContainer.addEventListener('mouseleave', function () {
+      mapIframe.style.pointerEvents = 'none';
+    });
+
+    // Enable pointer events on click
+    mapContainer.addEventListener('click', function () {
+      mapIframe.style.pointerEvents = 'auto';
+    });
+  },
+
+  /**
+   * Initialize real-time form validation
+   */
+  initFormValidation: function () {
+    const form = document.getElementById('contact-estimate-form');
+    if (!form) return;
+
+    const inputs = form.querySelectorAll('input[required], select[required]');
+
+    inputs.forEach((input) => {
+      input.addEventListener('blur', () => {
+        this.validateField(input);
+      });
+
+      input.addEventListener('input', () => {
+        // Clear error state when user starts typing
+        if (input.classList.contains('error')) {
+          this.setFieldError(input, false);
+        }
+      });
+    });
+  },
+
+  /**
+   * Validate individual field
+   */
+  validateField: function (input) {
+    const value = input.value.trim();
+    const type = input.type;
+    let isValid = true;
+
+    // Check if required field is empty
+    if (input.hasAttribute('required') && !value) {
+      isValid = false;
+    }
+
+    // Email validation
+    if (type === 'email' && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        isValid = false;
+      }
+    }
+
+    // Phone validation
+    if (type === 'tel' && value) {
+      const cleanPhone = value.replace(/\D/g, '');
+      if (cleanPhone.length < 10) {
+        isValid = false;
+      }
+    }
+
+    this.setFieldError(input, !isValid);
+    return isValid;
+  },
+};
+
+/**
+ * =====================================================
  * BACK TO TOP BUTTON MODULE
  * =====================================================
  */
@@ -1387,6 +1668,65 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Log successful initialization
 console.log('Valley Peak Roofing website initialized successfully!');
+
+// Add CSS for contact messages
+const contactMessageStyles = `
+  .contact-message {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    padding: 15px 20px;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    max-width: 300px;
+  }
+
+  .contact-message.show {
+    transform: translateX(0);
+  }
+
+  .contact-message-success {
+    border-left: 4px solid #27ae60;
+  }
+
+  .contact-message-error {
+    border-left: 4px solid #e74c3c;
+  }
+
+  .message-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contact-message-success .fas {
+    color: #27ae60;
+  }
+
+  .contact-message-error .fas {
+    color: #e74c3c;
+  }
+
+  @media (max-width: 768px) {
+    .contact-message {
+      right: 10px;
+      left: 10px;
+      max-width: none;
+    }
+  }
+`;
+
+// Inject styles
+if (!document.querySelector('#contact-message-styles')) {
+  const styleSheet = document.createElement('style');
+  styleSheet.id = 'contact-message-styles';
+  styleSheet.textContent = contactMessageStyles;
+  document.head.appendChild(styleSheet);
+}
 
 /**
  * =====================================================

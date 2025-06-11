@@ -30,6 +30,7 @@ const App = {
       MobileButtonDelay,
       BackToTopButton,
       PortfolioLightbox,
+      FAQPageModule,
     ]);
   },
 
@@ -297,20 +298,23 @@ const TestimonialCarousel = {
 
 /**
  * =====================================================
- * FAQ ACCORDION MODULE
+ * FAQ ACCORDION MODULE - FIXED VERSION
  * =====================================================
  */
 const FAQAccordion = {
   init: function () {
-    const faqQuestions = document.querySelectorAll('.faq-question');
+    // Only initialize for FAQ items NOT in the dedicated FAQ page
+    const homepageFaqQuestions = document.querySelectorAll(
+      '.faq-section .faq-question:not(.faq-service-section .faq-question)'
+    );
 
-    faqQuestions.forEach((question) => {
+    homepageFaqQuestions.forEach((question) => {
       question.addEventListener('click', function () {
         const answer = this.nextElementSibling;
         const isActive = this.classList.contains('active');
 
-        // Close all other FAQ items
-        faqQuestions.forEach((otherQuestion) => {
+        // Close all other FAQ items (only homepage ones)
+        homepageFaqQuestions.forEach((otherQuestion) => {
           if (otherQuestion !== this) {
             otherQuestion.classList.remove('active');
             otherQuestion.nextElementSibling.classList.remove('active');
@@ -942,6 +946,388 @@ const PortfolioLightbox = {
       } else {
         // Swipe right - previous image
         this.changeImage(-1);
+      }
+    }
+  },
+};
+
+/**
+ * =====================================================
+ * FAQ PAGE MODULE - FIXED VERSION
+ * =====================================================
+ */
+const FAQPageModule = {
+  searchInput: null,
+  clearButton: null,
+  resultsCount: null,
+  faqItems: null,
+  categoryTabs: null,
+  serviceSections: null,
+  currentCategory: 'all',
+  searchTimeout: null,
+
+  init: function () {
+    // Only initialize on FAQ pages
+    if (!document.querySelector('.faq-hero')) return;
+
+    console.log('Initializing FAQ Page Module');
+
+    // Get DOM elements
+    this.searchInput = document.getElementById('faq-search-input');
+    this.clearButton = document.getElementById('clear-search');
+    this.resultsCount = document.getElementById('search-results-count');
+    this.faqItems = document.querySelectorAll('.faq-service-section .faq-item');
+    this.categoryTabs = document.querySelectorAll('.faq-tab');
+    this.serviceSections = document.querySelectorAll('.faq-service-section');
+
+    // Initialize components
+    this.initSearch();
+    this.initTabs();
+    this.initFAQAccordion();
+    this.initScrollToSection();
+  },
+
+  // Search Functionality
+  initSearch: function () {
+    if (!this.searchInput) return;
+
+    // Search input handler
+    this.searchInput.addEventListener('input', (e) => {
+      clearTimeout(this.searchTimeout);
+      this.searchTimeout = setTimeout(() => {
+        this.performSearch(e.target.value);
+      }, 300);
+
+      // Show/hide clear button
+      if (e.target.value.length > 0) {
+        this.clearButton.classList.add('visible');
+      } else {
+        this.clearButton.classList.remove('visible');
+      }
+    });
+
+    // Clear button handler
+    this.clearButton.addEventListener('click', () => {
+      this.searchInput.value = '';
+      this.clearButton.classList.remove('visible');
+      this.performSearch('');
+      this.searchInput.focus();
+    });
+
+    // Handle enter key
+    this.searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        this.performSearch(e.target.value);
+      }
+    });
+  },
+
+  performSearch: function (query) {
+    const searchTerm = query.toLowerCase().trim();
+    let visibleCount = 0;
+    let totalCount = this.faqItems.length;
+
+    // Reset all items first
+    this.faqItems.forEach((item) => {
+      item.classList.remove('hidden', 'highlight');
+      const question = item.querySelector('.faq-question span');
+      const answer = item.querySelector('.faq-answer p');
+
+      // Remove existing highlights
+      if (question) question.innerHTML = question.textContent;
+      if (answer) answer.innerHTML = answer.textContent;
+    });
+
+    if (searchTerm === '') {
+      // No search term - show based on current category
+      this.filterByCategory(this.currentCategory);
+      this.updateResultsCount('');
+      return;
+    }
+
+    // Search through questions and answers
+    this.faqItems.forEach((item) => {
+      const questionText = item
+        .querySelector('.faq-question span')
+        .textContent.toLowerCase();
+      const answerText = item
+        .querySelector('.faq-answer p')
+        .textContent.toLowerCase();
+      const category = item.dataset.category;
+
+      // Check if search term exists in question or answer
+      const matchesSearch =
+        questionText.includes(searchTerm) || answerText.includes(searchTerm);
+      const matchesCategory =
+        this.currentCategory === 'all' || category === this.currentCategory;
+
+      if (matchesSearch && matchesCategory) {
+        item.classList.remove('hidden');
+        item.classList.add('highlight');
+        visibleCount++;
+
+        // Highlight search terms
+        this.highlightSearchTerm(item, searchTerm);
+
+        // Auto-expand if search term is in answer
+        if (
+          answerText.includes(searchTerm) &&
+          !questionText.includes(searchTerm)
+        ) {
+          this.expandItem(item);
+        }
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+
+    // Update sections visibility
+    this.updateSectionsVisibility();
+
+    // Update results count
+    if (searchTerm) {
+      this.updateResultsCount(
+        `Found ${visibleCount} result${
+          visibleCount !== 1 ? 's' : ''
+        } for "${query}"`
+      );
+    } else {
+      this.updateResultsCount('');
+    }
+
+    // Show no results message if needed
+    this.handleNoResults(visibleCount, searchTerm);
+  },
+
+  highlightSearchTerm: function (item, searchTerm) {
+    const question = item.querySelector('.faq-question span');
+    const answer = item.querySelector('.faq-answer p');
+
+    // Create regex for case-insensitive search
+    const regex = new RegExp(`(${searchTerm})`, 'gi');
+
+    // Highlight in question
+    if (question) {
+      const highlightedText = question.textContent.replace(
+        regex,
+        '<span class="highlight-text">$1</span>'
+      );
+      question.innerHTML = highlightedText;
+    }
+
+    // Highlight in answer
+    if (answer) {
+      const highlightedText = answer.innerHTML.replace(
+        regex,
+        '<span class="highlight-text">$1</span>'
+      );
+      answer.innerHTML = highlightedText;
+    }
+  },
+
+  expandItem: function (item) {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    const icon = question.querySelector('i');
+
+    if (!question.classList.contains('active')) {
+      question.classList.add('active');
+      answer.classList.add('active');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      icon.classList.remove('fa-plus');
+      icon.classList.add('fa-minus');
+    }
+  },
+
+  updateResultsCount: function (text) {
+    if (this.resultsCount) {
+      this.resultsCount.textContent = text;
+    }
+  },
+
+  updateSectionsVisibility: function () {
+    this.serviceSections.forEach((section) => {
+      const visibleItems = section.querySelectorAll('.faq-item:not(.hidden)');
+      if (visibleItems.length === 0) {
+        section.classList.add('hidden');
+      } else {
+        section.classList.remove('hidden');
+      }
+    });
+  },
+
+  handleNoResults: function (count, searchTerm) {
+    const existingMessage = document.querySelector('.no-results-message');
+
+    if (count === 0 && searchTerm) {
+      if (!existingMessage) {
+        const message = document.createElement('div');
+        message.className = 'no-results-message';
+        message.innerHTML = `
+          <i class="fas fa-search"></i>
+          <h3>No results found</h3>
+          <p>We couldn't find any FAQs matching "${searchTerm}"</p>
+          <p>Try different keywords or browse all FAQs</p>
+          <button class="btn btn-primary" onclick="FAQPageModule.clearSearch()">
+            Clear Search
+          </button>
+        `;
+
+        const container = document.querySelector(
+          '.faq-content-section .container'
+        );
+        container.appendChild(message);
+      }
+    } else if (existingMessage) {
+      existingMessage.remove();
+    }
+  },
+
+  clearSearch: function () {
+    this.searchInput.value = '';
+    this.clearButton.classList.remove('visible');
+    this.performSearch('');
+    this.searchInput.focus();
+  },
+
+  // Tab Navigation
+  initTabs: function () {
+    this.categoryTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        // Update active tab
+        this.categoryTabs.forEach((t) => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Filter by category
+        const category = tab.dataset.category;
+        this.currentCategory = category;
+        this.filterByCategory(category);
+
+        // Re-run search if there's a search term
+        if (this.searchInput.value) {
+          this.performSearch(this.searchInput.value);
+        }
+      });
+    });
+  },
+
+  filterByCategory: function (category) {
+    if (category === 'all') {
+      // Show all sections and items
+      this.serviceSections.forEach((section) => {
+        section.classList.remove('hidden');
+      });
+      this.faqItems.forEach((item) => {
+        item.classList.remove('hidden');
+      });
+    } else {
+      // Show only matching category
+      this.serviceSections.forEach((section) => {
+        if (section.dataset.service === category) {
+          section.classList.remove('hidden');
+        } else {
+          section.classList.add('hidden');
+        }
+      });
+
+      this.faqItems.forEach((item) => {
+        if (item.dataset.category === category) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    this.updateSectionsVisibility();
+  },
+
+  // FAQ Accordion Functionality - FIXED VERSION
+  initFAQAccordion: function () {
+    // Use event delegation to handle dynamically added content
+    const faqContainers = document.querySelectorAll('.faq-items-container');
+
+    faqContainers.forEach((container) => {
+      container.addEventListener('click', (e) => {
+        // Check if clicked element is a question or child of question
+        const question = e.target.closest('.faq-question');
+
+        if (question) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const answer = question.nextElementSibling;
+          const icon = question.querySelector('i');
+
+          console.log('FAQ Question clicked:', question); // Debug log
+          console.log('Answer element:', answer); // Debug log
+
+          // Toggle active state
+          if (question.classList.contains('active')) {
+            // Close
+            question.classList.remove('active');
+            answer.classList.remove('active');
+            answer.style.maxHeight = '0';
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+            console.log('Closing FAQ item'); // Debug log
+          } else {
+            // Close other open items first (optional - remove if you want multiple open)
+            const otherQuestions = container.querySelectorAll(
+              '.faq-question.active'
+            );
+            otherQuestions.forEach((otherQ) => {
+              if (otherQ !== question) {
+                const otherAnswer = otherQ.nextElementSibling;
+                const otherIcon = otherQ.querySelector('i');
+                otherQ.classList.remove('active');
+                otherAnswer.classList.remove('active');
+                otherAnswer.style.maxHeight = '0';
+                otherIcon.classList.remove('fa-minus');
+                otherIcon.classList.add('fa-plus');
+              }
+            });
+
+            // Open current item
+            question.classList.add('active');
+            answer.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+            console.log(
+              'Opening FAQ item, maxHeight set to:',
+              answer.scrollHeight + 'px'
+            ); // Debug log
+          }
+        }
+      });
+    });
+  },
+
+  // Scroll to section from URL hash
+  initScrollToSection: function () {
+    // Check if there's a hash in the URL
+    if (window.location.hash) {
+      const targetId = window.location.hash.substring(1);
+      const targetTab = document.querySelector(`[data-category="${targetId}"]`);
+
+      if (targetTab) {
+        // Simulate tab click
+        targetTab.click();
+
+        // Scroll to section after a delay
+        setTimeout(() => {
+          const targetSection = document.querySelector(
+            `[data-service="${targetId}"]`
+          );
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          }
+        }, 300);
       }
     }
   },

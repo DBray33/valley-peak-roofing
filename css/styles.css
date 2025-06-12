@@ -1261,10 +1261,16 @@ body {
 }
 
 .services-subtitle {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--white);
   margin-bottom: 15px;
+}
+
+.services-subtitle strong {
+  color: var(--primary-color) !important;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .tap-for-details {
@@ -1525,7 +1531,7 @@ body {
 
 .card-back .btn:hover {
   background: var(--light-bg) !important;
-  color: var(--text-dark) !important;
+  color: var(--white) !important;
   transform: translateY(-2px);
 }
 
@@ -1671,12 +1677,12 @@ body {
 
 /**
  * =====================================================
- * PORTFOLIO PREVIEW SECTION STYLES
+ * PORTFOLIO PREVIEW SECTION STYLES - GRAY BACKGROUND
  * =====================================================
  */
 .portfolio-section {
   padding: 80px 0;
-  background: var(--white);
+  background: var(--light-bg);
 }
 
 .portfolio-grid {
@@ -1762,7 +1768,7 @@ body {
   right: 20px;
   width: 40px;
   height: 40px;
-  background: var(--primary-color);
+  background: var(--orange-accent);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1774,7 +1780,7 @@ body {
 
 .portfolio-item:hover .view-project {
   transform: scale(1.1);
-  background: var(--primary-dark);
+  background: var(--orange-light);
 }
 
 .portfolio-cta {
@@ -1847,7 +1853,7 @@ body {
 
 .lightbox-close:hover,
 .lightbox-close:focus {
-  color: var(--primary-color);
+  color: var(--orange-accent);
 }
 
 .lightbox-prev,
@@ -1878,7 +1884,7 @@ body {
 
 .lightbox-prev:hover,
 .lightbox-next:hover {
-  background-color: rgba(179, 168, 133, 0.8);
+  background-color: rgba(229, 96, 8, 0.8);
 }
 
 /* Responsive adjustments */
@@ -1981,14 +1987,23 @@ body {
 
 /**
  * =====================================================
- * BOOTSTRAP TESTIMONIAL/SOCIAL PROOF CAROUSEL STYLES - SLIDE VERSION
+ * BOOTSTRAP TESTIMONIAL/SOCIAL PROOF CAROUSEL STYLES - BLACK BACKGROUND
  * =====================================================
  */
 
 /* Section Background & Spacing */
 .testimonials-section {
   padding: 80px 0;
-  background: #f8f9fa;
+  background: #000000;
+}
+
+/* Section Header Adjustments for Black Background */
+.testimonials-section .section-header h2 {
+  color: var(--white);
+}
+
+.testimonials-section .section-header p {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (max-width: 768px) {
@@ -2026,10 +2041,9 @@ body {
   margin: 0 auto 60px;
   background: var(--white);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
   padding: 40px;
   position: relative;
-  /* Remove overflow: hidden from wrapper */
 }
 
 /* Add a separate inner container for overflow control */
@@ -2082,7 +2096,6 @@ body {
   height: 400px !important;
   min-height: 400px;
   max-height: 400px;
-  /* Remove absolute positioning for slide transition */
   position: relative;
   display: none;
 }
@@ -2199,7 +2212,7 @@ body {
 }
 
 .testimonial-slide .stars i {
-  color: #ffd700;
+  color: var(--orange-accent);
   font-size: 18px;
 }
 
@@ -2258,8 +2271,8 @@ body {
 /* See More Reviews button */
 .see-more-reviews-btn {
   background: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 2px solid var(--orange-accent);
+  color: var(--orange-accent);
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 12px;
@@ -2272,7 +2285,7 @@ body {
 }
 
 .see-more-reviews-btn:hover {
-  background: var(--primary-color);
+  background: var(--orange-accent);
   color: var(--white);
   transform: translateY(-1px);
 }
@@ -2289,25 +2302,25 @@ body {
 .testimonial-carousel-wrapper .carousel-control-next {
   width: 40px;
   height: 40px;
-  background: var(--primary-color);
+  background: var(--orange-accent);
   border-radius: 50%;
   opacity: 1;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2; /* Ensure controls are above content */
+  z-index: 2;
 }
 
 .testimonial-carousel-wrapper .carousel-control-prev {
-  left: 10px; /* Changed from -20px to keep inside bounds */
+  left: 10px;
 }
 
 .testimonial-carousel-wrapper .carousel-control-next {
-  right: 10px; /* Changed from -20px to keep inside bounds */
+  right: 10px;
 }
 
 .testimonial-carousel-wrapper .carousel-control-prev:hover,
 .testimonial-carousel-wrapper .carousel-control-next:hover {
-  background: var(--primary-dark);
+  background: var(--orange-light);
   opacity: 1;
 }
 
@@ -2319,11 +2332,11 @@ body {
   }
 
   .testimonial-carousel-wrapper .carousel-control-prev {
-    left: 10px; /* Changed from -15px */
+    left: 10px;
   }
 
   .testimonial-carousel-wrapper .carousel-control-next {
-    right: 10px; /* Changed from -15px */
+    right: 10px;
   }
 }
 
@@ -2344,7 +2357,7 @@ body {
   margin-right: auto;
   margin-bottom: 0;
   justify-content: center;
-  z-index: 2; /* Ensure indicators are above content */
+  z-index: 2;
 }
 
 .testimonial-carousel-wrapper .carousel-indicators [data-bs-target] {
@@ -2358,7 +2371,7 @@ body {
 }
 
 .testimonial-carousel-wrapper .carousel-indicators .active {
-  background-color: var(--primary-color);
+  background-color: var(--orange-accent);
 }
 
 /**

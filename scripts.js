@@ -33,6 +33,7 @@ const App = {
       FAQPageModule,
       ContactPage,
       ActiveNavigation,
+      RoofDesignPage,
     ]);
   },
 
@@ -1854,6 +1855,353 @@ const ActiveNavigation = {
     this.setActiveByPage(pageName);
   },
 };
+
+/**
+ * =====================================================
+ * DESIGN YOUR ROOF - JAVASCRIPT FUNCTIONALITY
+ * =====================================================
+ */
+
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+  RoofDesignPage.init();
+});
+
+const RoofDesignPage = {
+  init: function () {
+    this.initGalleryCarousel();
+    this.initExternalLinks();
+    this.initScrollAnimations();
+    this.initAnalytics();
+  },
+
+  // Initialize Gallery Carousel
+  initGalleryCarousel: function () {
+    const carousel = document.getElementById('inspirationCarousel');
+
+    if (carousel) {
+      // Track carousel interactions
+      carousel.addEventListener('slide.bs.carousel', (event) => {
+        this.trackEvent('gallery_slide', `slide_${event.to}`);
+      });
+
+      // Add click tracking to carousel images
+      const galleryImages = carousel.querySelectorAll('.gallery-image');
+      galleryImages.forEach((img, index) => {
+        img.addEventListener('click', () => {
+          this.trackEvent('gallery_image_click', `image_${index}`);
+        });
+      });
+
+      // Track when user manually controls carousel
+      const prevButton = carousel.querySelector('.carousel-control-prev');
+      const nextButton = carousel.querySelector('.carousel-control-next');
+
+      if (prevButton) {
+        prevButton.addEventListener('click', () => {
+          this.trackEvent('carousel_control', 'prev_button');
+        });
+      }
+
+      if (nextButton) {
+        nextButton.addEventListener('click', () => {
+          this.trackEvent('carousel_control', 'next_button');
+        });
+      }
+
+      // Track indicator clicks
+      const indicators = carousel.querySelectorAll(
+        '.carousel-indicators button'
+      );
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          this.trackEvent('carousel_indicator', `indicator_${index}`);
+        });
+      });
+    }
+  },
+
+  // Initialize External Links Tracking
+  initExternalLinks: function () {
+    // Track all external links to Owens Corning visualizer
+    const externalLinks = document.querySelectorAll(
+      'a[href*="roofvisualizer.owenscorning.com"]'
+    );
+
+    externalLinks.forEach((link, index) => {
+      link.addEventListener('click', () => {
+        const linkText = link.textContent.trim();
+        this.trackEvent(
+          'external_link_click',
+          `owens_corning_visualizer_${index}`,
+          linkText
+        );
+
+        // Optional: Show a brief message before redirect
+        this.showExternalLinkMessage();
+      });
+    });
+
+    // Track estimate modal links
+    const estimateLinks = document.querySelectorAll('a[href="#estimate"]');
+    estimateLinks.forEach((link, index) => {
+      link.addEventListener('click', () => {
+        this.trackEvent('estimate_link_click', `design_page_${index}`);
+      });
+    });
+  },
+
+  // Show message when user clicks external link
+  showExternalLinkMessage: function () {
+    // Create and show temporary message
+    const message = document.createElement('div');
+    message.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      z-index: 1000;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      max-width: 300px;
+    `;
+    message.innerHTML = `
+      <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i>
+      Opening Owens Corning Roof Visualizer...
+    `;
+
+    document.body.appendChild(message);
+
+    // Animate in
+    setTimeout(() => {
+      message.style.transform = 'translateX(0)';
+    }, 100);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+      message.style.transform = 'translateX(100%)';
+      setTimeout(() => {
+        if (document.body.contains(message)) {
+          document.body.removeChild(message);
+        }
+      }, 300);
+    }, 3000);
+  },
+
+  // Initialize Scroll Animations
+  initScrollAnimations: function () {
+    if ('IntersectionObserver' in window) {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements that should animate on scroll
+      const animatedElements = document.querySelectorAll(
+        '.step-card, .color-option'
+      );
+
+      animatedElements.forEach((el) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    }
+  },
+
+  // Initialize Analytics and User Behavior Tracking
+  initAnalytics: function () {
+    // Track page view
+    this.trackEvent('page_view', 'design_your_roof');
+
+    // Track time spent on page
+    this.startTime = Date.now();
+
+    // Track when user leaves page
+    window.addEventListener('beforeunload', () => {
+      const timeSpent = Math.round((Date.now() - this.startTime) / 1000);
+      this.trackEvent('time_on_page', 'design_your_roof', timeSpent);
+    });
+
+    // Track scroll depth
+    this.initScrollDepthTracking();
+
+    // Track video interactions
+    this.initVideoTracking();
+  },
+
+  // Track scroll depth to measure engagement
+  initScrollDepthTracking: function () {
+    let maxScrollDepth = 0;
+    const scrollMilestones = [25, 50, 75, 90, 100];
+    const trackedMilestones = new Set();
+
+    const trackScrollDepth = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const documentHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = Math.round((scrollTop / documentHeight) * 100);
+
+      if (scrollPercent > maxScrollDepth) {
+        maxScrollDepth = scrollPercent;
+
+        // Track milestones
+        scrollMilestones.forEach((milestone) => {
+          if (scrollPercent >= milestone && !trackedMilestones.has(milestone)) {
+            trackedMilestones.add(milestone);
+            this.trackEvent('scroll_depth', `${milestone}_percent`);
+          }
+        });
+      }
+    };
+
+    // Throttle scroll events
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          trackScrollDepth();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  },
+
+  // Track video interactions
+  initVideoTracking: function () {
+    // Since we're using YouTube embed, we can track iframe clicks
+    const videoWrapper = document.querySelector('.video-wrapper');
+
+    if (videoWrapper) {
+      videoWrapper.addEventListener('click', () => {
+        this.trackEvent('video_interaction', 'youtube_embed_click');
+      });
+    }
+  },
+
+  // Analytics tracking function
+  trackEvent: function (eventName, eventValue, additionalData = '') {
+    // Log for debugging
+    console.log(
+      `Design Your Roof: ${eventName} - ${eventValue}${
+        additionalData ? ` - ${additionalData}` : ''
+      }`
+    );
+
+    // Send to Google Analytics if available
+    if (typeof gtag !== 'undefined') {
+      gtag('event', eventName, {
+        event_category: 'Design Your Roof',
+        event_label: eventValue,
+        value: additionalData,
+      });
+    }
+
+    // Send to Google Tag Manager if available
+    if (typeof dataLayer !== 'undefined') {
+      dataLayer.push({
+        event: 'design_roof_interaction',
+        interaction_type: eventName,
+        interaction_value: eventValue,
+        additional_data: additionalData,
+        page_section: 'design_your_roof',
+      });
+    }
+
+    // Custom tracking for lead generation
+    if (
+      eventName === 'external_link_click' &&
+      eventValue.includes('owens_corning')
+    ) {
+      // Track as a qualified lead action
+      if (typeof dataLayer !== 'undefined') {
+        dataLayer.push({
+          event: 'qualified_lead_action',
+          lead_source: 'design_visualizer',
+          action_type: 'external_tool_usage',
+        });
+      }
+    }
+  },
+};
+
+// Smooth scrolling for anchor links (if not already handled globally)
+document.addEventListener('DOMContentLoaded', function () {
+  const anchorLinks = document.querySelectorAll(
+    'a[href^="#"]:not([href="#estimate"])'
+  );
+
+  anchorLinks.forEach((link) => {
+    link.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      const target = document.querySelector(href);
+
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    });
+  });
+});
+
+// Add hover effects to color swatches
+document.addEventListener('DOMContentLoaded', function () {
+  const colorSwatches = document.querySelectorAll('.swatch-image');
+
+  colorSwatches.forEach((swatch) => {
+    swatch.addEventListener('mouseenter', function () {
+      this.parentElement.style.transform = 'scale(1.1)';
+      this.parentElement.style.transition = 'transform 0.3s ease';
+    });
+
+    swatch.addEventListener('mouseleave', function () {
+      this.parentElement.style.transform = 'scale(1)';
+    });
+  });
+});
+
+// Performance optimization: Lazy load carousel images
+document.addEventListener('DOMContentLoaded', function () {
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+            observer.unobserve(img);
+          }
+        }
+      });
+    });
+
+    // If you want to implement lazy loading, change src to data-src in HTML
+    // and uncomment the following:
+    // const lazyImages = document.querySelectorAll('img[data-src]');
+    // lazyImages.forEach(img => imageObserver.observe(img));
+  }
+});
 
 // =====================================================
 // UPDATE YOUR App.init SECTION

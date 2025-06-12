@@ -159,6 +159,18 @@
   color: #000000;
 }
 
+/* ACTIVE STATE FOR NAV LINKS */
+.nav-link.active {
+  background: var(--primary-color);
+  color: #000000;
+  font-weight: 600;
+}
+
+.nav-link.active:hover {
+  background: var(--primary-dark);
+  color: #000000;
+}
+
 .nav-link i {
   font-size: 12px;
   transition: var(--transition);
@@ -205,6 +217,19 @@
   background: var(--primary-color);
   color: #000000;
   border-left-color: #000000;
+}
+
+/* ACTIVE STATE FOR DROPDOWN LINKS */
+.dropdown-content a.active {
+  background: var(--primary-color);
+  color: #000000;
+  border-left-color: #000000;
+  font-weight: 600;
+}
+
+.dropdown-content a.active:hover {
+  background: var(--primary-dark);
+  color: #000000;
 }
 
 /* Hamburger Menu */
@@ -349,6 +374,12 @@
   color: var(--primary-color);
 }
 
+/* ACTIVE STATE FOR MOBILE NAV LINKS */
+.mobile-nav-item > a.active {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
 .mobile-dropdown-toggle {
   width: 100%;
   background: none;
@@ -400,6 +431,12 @@
 
 .mobile-dropdown-content a:hover {
   color: var(--primary-color);
+}
+
+/* ACTIVE STATE FOR MOBILE DROPDOWN LINKS */
+.mobile-dropdown-content a.active {
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 .mobile-phone {

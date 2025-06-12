@@ -32,6 +32,7 @@ const App = {
       PortfolioLightbox,
       FAQPageModule,
       ContactPage,
+      ActiveNavigation,
     ]);
   },
 
@@ -1667,6 +1668,221 @@ const BackToTopButton = {
 document.addEventListener('DOMContentLoaded', function () {
   BackToTopButton.init();
 });
+
+/**
+ * =====================================================
+ * ACTIVE NAVIGATION MODULE
+ * Add this to your scripts.js file before the App.init section
+ * =====================================================
+ */
+const ActiveNavigation = {
+  init: function () {
+    this.setActiveNavigation();
+  },
+
+  setActiveNavigation: function () {
+    const currentPath = window.location.pathname;
+    const currentPage = this.getCurrentPageName(currentPath);
+
+    // Remove existing active classes
+    this.clearActiveStates();
+
+    // Set active state based on current page
+    this.setActiveByPage(currentPage);
+  },
+
+  getCurrentPageName: function (path) {
+    // Handle homepage cases
+    if (
+      path === '/' ||
+      path === '/index.html' ||
+      path === '' ||
+      path === './'
+    ) {
+      return 'home';
+    }
+
+    // Remove leading slash and file extension
+    let pageName = path.replace(/^\//, '').replace(/\.html$/, '');
+    return pageName;
+  },
+
+  clearActiveStates: function () {
+    // Clear all active classes from navigation elements
+    const selectors = [
+      '.nav-link',
+      '.dropdown-content a',
+      '.mobile-nav-item > a',
+      '.mobile-dropdown-content a',
+    ];
+
+    selectors.forEach((selector) => {
+      document.querySelectorAll(selector).forEach((link) => {
+        link.classList.remove('active');
+      });
+    });
+  },
+
+  setActiveByPage: function (pageName) {
+    console.log('Setting active navigation for page:', pageName); // Debug log
+
+    // Handle homepage specially
+    if (pageName === 'home') {
+      this.setHomeActive();
+      return;
+    }
+
+    // For other pages, find matching navigation links
+    this.setPageActive(pageName);
+
+    // Handle parent dropdown highlighting
+    this.highlightParentDropdowns(pageName);
+  },
+
+  setHomeActive: function () {
+    // Find home/root links in navigation
+    const homeSelectors = [
+      'a[href="/"]',
+      'a[href="./"]',
+      'a[href="index.html"]',
+      'a[href="./index.html"]',
+      'a[href="#home"]',
+    ];
+
+    homeSelectors.forEach((selector) => {
+      const links = document.querySelectorAll(selector);
+      links.forEach((link) => {
+        // Only activate if it's a navigation link
+        if (this.isNavigationLink(link)) {
+          link.classList.add('active');
+          console.log('Added active to home link:', link); // Debug log
+        }
+      });
+    });
+  },
+
+  setPageActive: function (pageName) {
+    const fileName = pageName + '.html';
+
+    // Look for links with matching href
+    const possibleHrefs = [fileName, './' + fileName, '/' + fileName];
+
+    possibleHrefs.forEach((href) => {
+      const links = document.querySelectorAll(`a[href="${href}"]`);
+      links.forEach((link) => {
+        if (this.isNavigationLink(link)) {
+          link.classList.add('active');
+          console.log(
+            'Added active to page link:',
+            link,
+            'for page:',
+            pageName
+          ); // Debug log
+        }
+      });
+    });
+  },
+
+  isNavigationLink: function (link) {
+    // Check if the link is part of the navigation system
+    return (
+      link.classList.contains('nav-link') ||
+      link.closest('.dropdown-content') ||
+      link.closest('.mobile-dropdown-content') ||
+      link.closest('.mobile-nav-item')
+    );
+  },
+
+  highlightParentDropdowns: function (pageName) {
+    // Define which pages belong to which dropdown sections
+    const pageGroups = {
+      services: [
+        'roof-replacement-installation',
+        'residential-roof-repairs',
+        'commercial-roofing',
+        'siding-installation',
+        'gutter-services',
+        'home-installation',
+        'home-repairs',
+        'commercial',
+        'siding',
+        'gutters',
+      ],
+      about: ['our-company', 'service-areas', 'story'],
+      faqs: [
+        'roofing-faq',
+        'siding-faq',
+        'gutters-faq',
+        'roofing-siding-gutter-faqs',
+      ],
+    };
+
+    // Check if current page belongs to any group
+    Object.keys(pageGroups).forEach((groupName) => {
+      if (pageGroups[groupName].includes(pageName)) {
+        this.highlightDropdownParent(groupName);
+      }
+    });
+  },
+
+  highlightDropdownParent: function (groupName) {
+    // Find dropdown parent links by their text content
+    const dropdownMappings = {
+      services: ['Roofing Services', 'Services'],
+      about: ['About'],
+      faqs: ['FAQs', 'FAQ'],
+    };
+
+    if (dropdownMappings[groupName]) {
+      dropdownMappings[groupName].forEach((text) => {
+        // Find links containing this text
+        const parentLinks = Array.from(
+          document.querySelectorAll('.nav-link')
+        ).filter((link) => link.textContent.trim().includes(text));
+
+        parentLinks.forEach((link) => {
+          link.classList.add('active');
+          console.log('Added active to parent dropdown:', link); // Debug log
+        });
+      });
+    }
+  },
+
+  // Public method to manually set active page (useful for single-page apps)
+  setActive: function (pageName) {
+    this.clearActiveStates();
+    this.setActiveByPage(pageName);
+  },
+};
+
+// =====================================================
+// UPDATE YOUR App.init SECTION
+// =====================================================
+// Find this section in your scripts.js and add ActiveNavigation:
+
+/*
+const App = {
+  init: function () {
+    this.registerModules([
+      MobileNavigation,
+      NavigationBehavior,
+      ScrollAnimations,
+      TestimonialCarousel,
+      FAQAccordion,
+      EstimateModal,
+      FormHandling,
+      PhoneFormatting,
+      ImageHandling,
+      PerformanceOptimization,
+      AnalyticsTracking,
+      MobileButtonDelay,
+      BackToTopButton,
+      ActiveNavigation, // <- ADD THIS LINE
+    ]);
+  },
+  // ... rest of your App object
+};
+*/
 
 /**
  * =====================================================

@@ -168,10 +168,18 @@ const NavigationBehavior = {
             MobileNavigation.closeMobileMenu();
           }
 
-          // Smooth scroll to target
-          target.scrollIntoView({
+          // Get the target's position relative to the document
+          const targetRect = target.getBoundingClientRect();
+          const currentScrollY =
+            window.pageYOffset || document.documentElement.scrollTop;
+          const headerHeight = 80;
+
+          // Calculate the final scroll position
+          const targetPosition = targetRect.top + currentScrollY - headerHeight;
+
+          window.scrollTo({
+            top: targetPosition,
             behavior: 'smooth',
-            block: 'start',
           });
         }
       });

@@ -3195,11 +3195,7 @@ body {
   padding-top: 80px; /* Account for fixed navbar */
 }
 
-/**
- * =====================================================
- * CONTACT HERO SECTION
- * =====================================================
- */
+/* Contact Hero Section */
 .contact-hero {
   background: linear-gradient(
       135deg,
@@ -3260,11 +3256,7 @@ body {
   }
 }
 
-/**
- * =====================================================
- * MAIN CONTACT SECTION
- * =====================================================
- */
+/* Main Contact Section */
 .contact-main {
   padding: 80px 0;
   background: var(--white);
@@ -3294,11 +3286,7 @@ body {
   }
 }
 
-/**
- * =====================================================
- * CONTACT INFO SECTION
- * =====================================================
- */
+/* Contact Info Section */
 .contact-info h2 {
   font-size: 32px;
   font-weight: 700;
@@ -3389,11 +3377,7 @@ body {
   font-style: italic;
 }
 
-/**
- * =====================================================
- * CONTACT MAP
- * =====================================================
- */
+/* Contact Map */
 .contact-map {
   position: relative;
   border-radius: var(--border-radius);
@@ -3424,11 +3408,7 @@ body {
   }
 }
 
-/**
- * =====================================================
- * CONTACT FORM SECTION
- * =====================================================
- */
+/* Contact Form Section */
 .form-card {
   background: var(--white);
   border-radius: var(--border-radius);
@@ -3504,7 +3484,7 @@ body {
   color: var(--text-light);
   font-size: 14px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 8px;
   margin-top: 15px;
@@ -3512,6 +3492,7 @@ body {
 
 .form-guarantee i {
   color: var(--primary-color);
+  margin-top: 2px;
 }
 
 @media (max-width: 768px) {
@@ -3529,11 +3510,7 @@ body {
   }
 }
 
-/**
- * =====================================================
- * WHY CHOOSE US SECTION
- * =====================================================
- */
+/* Why Choose Us Section */
 .contact-why-choose {
   padding: 80px 0;
   background: var(--light-bg);
@@ -3639,11 +3616,7 @@ body {
   }
 }
 
-/**
- * =====================================================
- * EMERGENCY CTA SECTION
- * =====================================================
- */
+/* Emergency CTA Section */
 .contact-emergency {
   padding: 60px 0;
   background: linear-gradient(135deg, var(--accent-color), #c0392b);
@@ -4057,21 +4030,6 @@ body {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(179, 168, 133, 0.1);
-}
-
-.form-guarantee {
-  text-align: center;
-  color: var(--text-light);
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 15px;
-}
-
-.form-guarantee i {
-  color: var(--primary-color);
 }
 
 /* Form Media Queries */

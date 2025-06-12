@@ -56,6 +56,9 @@ body {
   --primary-light: #c7bda0;
   --secondary-color: #2c3e50;
   --accent-color: #e74c3c;
+  --orange-accent: #e56008;
+  --orange-light: #ff7518;
+  --dark-blue: #2d3e50;
   --text-dark: #2c3e50;
   --text-light: #666;
   --white: #ffffff;
@@ -852,7 +855,7 @@ body {
 
 /**
 * =====================================================
-* PROBLEM SECTION STYLES
+* PROBLEM SECTION STYLES - WITH ORANGE ICON CIRCLES
 * =====================================================
 */
 .problem-section {
@@ -917,7 +920,7 @@ body {
 .problem-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, var(--accent-color), #c0392b);
+  background: linear-gradient(135deg, var(--orange-accent), #d14d00);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -944,7 +947,7 @@ body {
 }
 
 .problem-item:hover h3 {
-  color: var(--primary-color); /* Change heading color on hover */
+  color: var(--orange-accent); /* Change heading color to orange on hover */
 }
 
 .problem-item p {
@@ -1149,14 +1152,14 @@ body {
 
 .solution-about .quote-text {
   font-size: 24px;
-  color: var(--primary-color);
+  color: var(--dark-blue);
   margin-bottom: 25px;
   font-style: italic;
   font-weight: 600;
   text-align: center;
   padding: 20px;
-  background: rgba(179, 168, 133, 0.1);
-  border-left: 4px solid var(--primary-color);
+  background: rgba(229, 96, 8, 0.1);
+  border-left: 4px solid var(--orange-accent);
   border-radius: var(--border-radius);
 }
 
@@ -1240,18 +1243,27 @@ body {
 
 /**
  * =====================================================
- * ROOFING SERVICES SECTION STYLES
+ * ROOFING SERVICES SECTION STYLES - DARK BLUE WITH ORANGE ICONS
  * =====================================================
  */
 .services-section {
   padding: 80px 0;
-  background: var(--white);
+  background: var(--dark-blue);
+}
+
+/* Section Header Adjustments for Dark Background */
+.services-section .section-header h2 {
+  color: var(--white);
+}
+
+.services-section .section-header p {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .services-subtitle {
   font-size: 20px;
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--white);
   margin-bottom: 15px;
 }
 
@@ -1260,7 +1272,7 @@ body {
   text-align: center;
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 30px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1269,7 +1281,7 @@ body {
   text-align: center;
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 30px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1325,7 +1337,7 @@ body {
 }
 
 .card-front {
-  border: 2px solid var(--border-color);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Background Images for Each Service Card */
@@ -1419,11 +1431,7 @@ body {
 }
 
 .card-back {
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--primary-dark)
-  );
+  background: linear-gradient(135deg, var(--orange-accent), #d14d00);
   color: var(--white);
   transform: rotateY(180deg);
   text-align: left;
@@ -1434,20 +1442,16 @@ body {
 .service-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--primary-dark)
-  );
+  background: linear-gradient(135deg, var(--orange-accent), #d14d00);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 25px;
   box-shadow: var(--shadow);
-  flex-shrink: 0; /* Add this */
-  min-width: 80px; /* Add this */
-  min-height: 80px; /* Add this */
+  flex-shrink: 0;
+  min-width: 80px;
+  min-height: 80px;
 }
 
 .service-icon i {
@@ -1521,7 +1525,7 @@ body {
 
 .card-back .btn:hover {
   background: var(--light-bg) !important;
-  color: white !important;
+  color: var(--text-dark) !important;
   transform: translateY(-2px);
 }
 
@@ -2490,12 +2494,21 @@ body {
 
 /**
  * =====================================================
- * FAQ SECTION STYLES
+ * FAQ SECTION STYLES - USING CSS VARIABLES
  * =====================================================
  */
 .faq-section {
   padding: 80px 0;
-  background: var(--white);
+  background: var(--dark-blue);
+}
+
+/* Section Header Adjustments for Dark Background */
+.faq-section .section-header h2 {
+  color: var(--white);
+}
+
+.faq-section .section-header p {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .faq-grid {
@@ -2504,7 +2517,7 @@ body {
 }
 
 .faq-item {
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   margin-bottom: 20px;
 }
 
@@ -2516,7 +2529,7 @@ body {
   text-align: left;
   font-size: 18px;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--white);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -2525,16 +2538,22 @@ body {
 }
 
 .faq-question:hover {
-  color: var(--primary-color);
+  color: var(--orange-accent);
 }
 
 .faq-question i {
   font-size: 16px;
   transition: var(--transition);
+  color: var(--orange-accent);
+}
+
+.faq-question.active {
+  color: var(--orange-accent);
 }
 
 .faq-question.active i {
   transform: rotate(45deg);
+  color: var(--orange-accent);
 }
 
 .faq-answer {
@@ -2549,21 +2568,49 @@ body {
 
 .faq-answer p {
   padding: 0 0 25px 0;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
 }
 
 /* FAQ Section Header Link Styles */
 .faq-section .section-header p a {
-  color: var(--primary-color);
+  color: var(--orange-accent);
   text-decoration: none;
   font-weight: 600;
   transition: var(--transition);
 }
 
 .faq-section .section-header p a:hover {
-  color: var(--primary-dark);
+  color: var(--orange-light);
   text-decoration: underline;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 60px 0;
+  }
+
+  .faq-question {
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .faq-answer p {
+    font-size: 14px;
+    padding: 0 0 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-section {
+    padding: 50px 0;
+  }
+
+  .faq-question {
+    font-size: 15px;
+    padding: 18px 0;
+  }
 }
 
 /**
@@ -3955,17 +4002,6 @@ body {
   text-align: center;
   position: relative;
   overflow: hidden;
-}
-
-.design-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="roof-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M0,20 L10,0 L20,20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23roof-pattern)"/></svg>');
-  opacity: 0.3;
 }
 
 .design-hero-content {

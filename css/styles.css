@@ -3673,7 +3673,8 @@ body {
   flex-shrink: 0;
 }
 
-.emergency-btn {
+/* Emergency Button - Higher Specificity */
+.emergency-btn.btn-primary {
   background: var(--white) !important;
   color: var(--accent-color) !important;
   border-color: var(--white) !important;
@@ -3682,9 +3683,42 @@ body {
   letter-spacing: 1px;
 }
 
-.emergency-btn:hover {
-  background: var(--light-bg) !important;
-  color: var(--accent-color) !important;
+/* Emergency Button After Element Override */
+.emergency-btn.btn-primary::after {
+  background: #2d3e50 !important;
+}
+
+/* Emergency Button Hover - Higher Specificity */
+.emergency-btn.btn-primary:hover {
+  background: #2d3e50 !important;
+  color: var(--white) !important;
+  border-color: #2d3e50 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Alternative approach without !important - even higher specificity */
+.contact-emergency .emergency-actions .emergency-btn.btn-primary.btn-large {
+  background: var(--white);
+  color: var(--accent-color);
+  border-color: var(--white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-emergency
+  .emergency-actions
+  .emergency-btn.btn-primary.btn-large::after {
+  background: #2d3e50;
+}
+
+.contact-emergency
+  .emergency-actions
+  .emergency-btn.btn-primary.btn-large:hover {
+  background: #2d3e50;
+  color: var(--white);
+  border-color: #2d3e50;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }

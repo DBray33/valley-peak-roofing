@@ -473,6 +473,7 @@
             </div>
           </div>
 
+          <!-- #region Architectural Shingles Section -->
           <!-- Architectural Shingles Card -->
           <div class="service-card slide-up-delay-3">
             <div class="card-inner">
@@ -491,7 +492,8 @@
                   for your home.
                 </p>
                 <a
-                  href="#architectural-shingles"
+                  href="#"
+                  onclick="openArchitecturalShinglesModal(event)"
                   class="btn btn-secondary btn-small">
                   Explore Shingle Options
                 </a>
@@ -499,6 +501,372 @@
             </div>
           </div>
 
+          <!-- ARCHITECTURAL SHINGLES MODAL -->
+          <div class="modal" id="architectural-shingles-modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3>
+                  <i class="fas fa-layer-group"></i>
+                  Architectural Shingles
+                </h3>
+                <button
+                  class="close-shingles-modal"
+                  onclick="closeArchitecturalShinglesModal()">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="modal-content-grid">
+                  <!-- Image Section -->
+                  <div class="modal-image-section">
+                    <img
+                      src="assets/images/placeholder1.jpg"
+                      alt="Premium Architectural Shingles Installation"
+                      class="modal-image" />
+                    <div class="image-overlay">
+                      <h4>Premium Quality Materials</h4>
+                      <p>Professional installation with lifetime warranty</p>
+                    </div>
+                  </div>
+
+                  <!-- Text Content Section -->
+                  <div class="modal-text-section">
+                    <div class="shingles-content">
+                      <h4>Premium Architectural Shingles</h4>
+                      <p>
+                        Transform your home with our premium architectural
+                        shingles that combine superior durability with enhanced
+                        curb appeal. These dimensional shingles provide
+                        long-lasting protection while adding depth and character
+                        to your roofline.
+                      </p>
+
+                      <div class="shingles-features">
+                        <h5>Key Benefits:</h5>
+                        <ul class="features-list">
+                          <li>
+                            <i class="fas fa-shield-alt"></i>
+                            <span
+                              >Superior weather resistance and durability</span
+                            >
+                          </li>
+                          <li>
+                            <i class="fas fa-home"></i>
+                            <span>Enhanced curb appeal and property value</span>
+                          </li>
+                          <li>
+                            <i class="fas fa-snowflake"></i>
+                            <span>Excellent wind and impact resistance</span>
+                          </li>
+                          <li>
+                            <i class="fas fa-palette"></i>
+                            <span>Wide variety of colors and styles</span>
+                          </li>
+                          <li>
+                            <i class="fas fa-leaf"></i>
+                            <span>Energy-efficient options available</span>
+                          </li>
+                          <li>
+                            <i class="fas fa-clock"></i>
+                            <span
+                              >Faster installation than traditional
+                              shingles</span
+                            >
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="warranty-highlight">
+                        <h5>
+                          <i class="fas fa-certificate"></i>
+                          Lifetime Warranty
+                        </h5>
+                        <p>
+                          All our architectural shingle installations come with
+                          our comprehensive lifetime warranty for complete peace
+                          of mind.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="modal-actions">
+                      <a
+                        href="#estimate"
+                        class="btn btn-primary"
+                        onclick="closeArchitecturalShinglesModal()">
+                        <i class="fas fa-calculator"></i>
+                        Get Free Estimate
+                      </a>
+                      <a href="tel:484-602-6863" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i>
+                        Call Now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <style>
+            /* Additional Modal Styles for Architectural Shingles */
+            #architectural-shingles-modal .modal-content {
+              max-width: 1200px;
+              width: 95%;
+            }
+
+            .modal-content-grid {
+              display: grid;
+              grid-template-columns: 1.2fr 1fr;
+              gap: 0;
+              min-height: 500px;
+            }
+
+            .modal-image-section {
+              position: relative;
+              overflow: hidden;
+            }
+
+            .modal-image {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              min-height: 500px;
+            }
+
+            .image-overlay {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              background: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.8),
+                transparent
+              );
+              padding: 20px;
+              color: white;
+            }
+
+            .image-overlay h4 {
+              font-size: 18px;
+              font-weight: 600;
+              margin: 0 0 5px 0;
+            }
+
+            .image-overlay p {
+              font-size: 14px;
+              margin: 0;
+              opacity: 0.9;
+            }
+
+            .modal-text-section {
+              padding: 40px;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+
+            .shingles-content h4 {
+              font-size: 20px;
+              font-weight: 700;
+              color: var(--text-dark);
+              margin-bottom: 15px;
+              border-bottom: 2px solid var(--primary-color);
+              padding-bottom: 8px;
+            }
+
+            .shingles-content p {
+              color: var(--text-light);
+              line-height: 1.7;
+              margin-bottom: 20px;
+              font-size: 16px;
+            }
+
+            .shingles-features {
+              margin-bottom: 25px;
+            }
+
+            .shingles-features h5 {
+              font-size: 16px;
+              font-weight: 600;
+              color: var(--text-dark);
+              margin-bottom: 12px;
+            }
+
+            .features-list {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+            }
+
+            .features-list li {
+              display: flex;
+              align-items: flex-start;
+              gap: 10px;
+              margin-bottom: 8px;
+              font-size: 15px;
+              color: var(--text-light);
+            }
+
+            .features-list li i {
+              color: var(--primary-color);
+              font-size: 16px;
+              margin-top: 2px;
+              flex-shrink: 0;
+            }
+
+            .warranty-highlight {
+              background: linear-gradient(
+                135deg,
+                rgba(179, 168, 133, 0.1),
+                rgba(179, 168, 133, 0.05)
+              );
+              padding: 20px;
+              border-radius: var(--border-radius);
+              border-left: 4px solid var(--primary-color);
+              margin-bottom: 25px;
+            }
+
+            .warranty-highlight h5 {
+              font-size: 16px;
+              font-weight: 700;
+              color: var(--text-dark);
+              margin-bottom: 8px;
+              display: flex;
+              align-items: center;
+              gap: 8px;
+            }
+
+            .warranty-highlight p {
+              margin: 0;
+              font-size: 14px;
+              color: var(--text-light);
+            }
+
+            .modal-actions {
+              display: flex;
+              gap: 15px;
+              margin-top: auto;
+            }
+
+            /* Style the new close button class - SAME AS .close-modal */
+            .close-shingles-modal {
+              background: none;
+              border: none;
+              font-size: 24px;
+              color: var(--text-light);
+              cursor: pointer;
+              padding: 5px;
+              transition: var(--transition);
+              position: relative;
+              z-index: 9999;
+              pointer-events: auto;
+            }
+
+            .close-shingles-modal:hover {
+              color: var(--text-dark);
+            }
+
+            /* Mobile Responsive */
+            @media (max-width: 768px) {
+              .modal-content-grid {
+                grid-template-columns: 1fr;
+              }
+
+              .modal-image {
+                min-height: 250px;
+              }
+
+              .modal-text-section {
+                padding: 25px 20px;
+              }
+
+              .modal-actions {
+                flex-direction: column;
+              }
+
+              .modal-actions .btn {
+                width: 100%;
+                justify-content: center;
+              }
+            }
+
+            @media (max-width: 480px) {
+              .modal-text-section {
+                padding: 20px 15px;
+              }
+
+              .shingles-content h4 {
+                font-size: 18px;
+              }
+
+              .shingles-content p {
+                font-size: 15px;
+              }
+            }
+          </style>
+
+          <script>
+            // Architectural Shingles Modal Functions
+            function openArchitecturalShinglesModal(event) {
+              event.preventDefault();
+              console.log('Opening architectural shingles modal'); // Debug log
+              const modal = document.getElementById(
+                'architectural-shingles-modal'
+              );
+              if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                document.body.classList.add('modal-open');
+              }
+            }
+
+            function closeArchitecturalShinglesModal() {
+              console.log('Closing architectural shingles modal'); // Debug log
+              const modal = document.getElementById(
+                'architectural-shingles-modal'
+              );
+              if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                document.body.classList.remove('modal-open');
+              }
+            }
+
+            // Wait for DOM to be ready
+            document.addEventListener('DOMContentLoaded', function () {
+              const modal = document.getElementById(
+                'architectural-shingles-modal'
+              );
+
+              if (modal) {
+                // Close modal when clicking outside
+                modal.addEventListener('click', function (e) {
+                  if (e.target === this) {
+                    closeArchitecturalShinglesModal();
+                  }
+                });
+
+                // Close modal with Escape key
+                document.addEventListener('keydown', function (e) {
+                  if (e.key === 'Escape') {
+                    if (modal.classList.contains('active')) {
+                      closeArchitecturalShinglesModal();
+                    }
+                  }
+                });
+
+                console.log(
+                  'Architectural shingles modal event listeners added'
+                ); // Debug log
+              }
+            });
+          </script>
+          <!-- #endregion -->
+
+          <!-- #region Metal Roofs Section -->
           <!-- Metal Roofs Card -->
           <div class="service-card slide-up-delay-4">
             <div class="card-inner">
@@ -516,12 +884,269 @@
                   durability, weather resistance, and modern aesthetics. Perfect
                   for both residential and commercial properties.
                 </p>
-                <a href="#metal-roofing" class="btn btn-secondary btn-small">
+                <a
+                  href="#"
+                  onclick="openMetalRoofModal(event)"
+                  class="btn btn-secondary btn-small">
                   See Metal Roof Benefits
                 </a>
               </div>
             </div>
           </div>
+
+          <!-- METAL ROOF MODAL -->
+          <div class="modal" id="metal-roof-modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3>
+                  <i class="fas fa-industry"></i>
+                  Metal Roofs
+                </h3>
+                <button
+                  class="close-metal-roof-modal"
+                  onclick="closeMetalRoofModal()">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="modal-content-grid">
+                  <!-- Image Section -->
+                  <div class="modal-image-section">
+                    <img
+                      src="assets/images/placeholder1.jpg"
+                      alt="Premium Metal Roof Installation"
+                      class="modal-image" />
+                    <div class="image-overlay">
+                      <h4>Maximum Durability & Longevity</h4>
+                      <p>50+ year lifespan with superior weather protection</p>
+                    </div>
+                  </div>
+
+                  <!-- Text Content Section -->
+                  <div class="modal-text-section">
+                    <div class="metal-roof-content">
+                      <h4>Premium Metal Roofing Systems</h4>
+                      <p>
+                        For homeowners looking for
+                        <strong>maximum durability and longevity</strong>, metal
+                        roofing is an excellent choice. With
+                        <strong
+                          >proper installation, metal roofs can last 50+
+                          years</strong
+                        >, providing
+                        <strong
+                          >superior protection against harsh weather
+                          conditions</strong
+                        >. Valley Peak Roofing installs
+                        <strong
+                          >high-quality metal roofing sourced from Union
+                          Corrugating Company</strong
+                        >, a trusted name in the industry since 1946.
+                      </p>
+
+                      <div class="metal-roof-features">
+                        <h5>Why Choose a Metal Roof?</h5>
+                        <ul class="features-list">
+                          <li>
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Exceptional longevity (50+ years)</span>
+                          </li>
+                          <li>
+                            <i class="fas fa-bolt"></i>
+                            <span
+                              >Energy-efficient, reflecting heat to lower
+                              cooling costs</span
+                            >
+                          </li>
+                          <li>
+                            <i class="fas fa-fire-extinguisher"></i>
+                            <span>Fire-resistant and low maintenance</span>
+                          </li>
+                          <li>
+                            <i class="fas fa-palette"></i>
+                            <span
+                              >Available in a variety of styles and
+                              finishes</span
+                            >
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="supplier-highlight">
+                        <h5>
+                          <i class="fas fa-award"></i>
+                          Trusted Materials
+                        </h5>
+                        <p>
+                          We source our metal roofing from
+                          <strong>Union Corrugating Company</strong>, a trusted
+                          industry leader since 1946, ensuring premium quality
+                          and reliability.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="modal-actions">
+                      <a
+                        href="#estimate"
+                        class="btn btn-primary"
+                        onclick="closeMetalRoofModal()">
+                        <i class="fas fa-calculator"></i>
+                        Get Free Estimate
+                      </a>
+                      <a href="tel:484-602-6863" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i>
+                        Call Now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <style>
+            /* Additional Modal Styles for Metal Roof */
+            #metal-roof-modal .modal-content {
+              max-width: 1200px;
+              width: 95%;
+            }
+
+            .metal-roof-content h4 {
+              font-size: 20px;
+              font-weight: 700;
+              color: var(--text-dark);
+              margin-bottom: 15px;
+              border-bottom: 2px solid var(--primary-color);
+              padding-bottom: 8px;
+            }
+
+            .metal-roof-content p {
+              color: var(--text-light);
+              line-height: 1.7;
+              margin-bottom: 20px;
+              font-size: 16px;
+            }
+
+            .metal-roof-features {
+              margin-bottom: 25px;
+            }
+
+            .metal-roof-features h5 {
+              font-size: 16px;
+              font-weight: 600;
+              color: var(--text-dark);
+              margin-bottom: 12px;
+            }
+
+            .supplier-highlight {
+              background: linear-gradient(
+                135deg,
+                rgba(179, 168, 133, 0.1),
+                rgba(179, 168, 133, 0.05)
+              );
+              padding: 20px;
+              border-radius: var(--border-radius);
+              border-left: 4px solid var(--primary-color);
+              margin-bottom: 25px;
+            }
+
+            .supplier-highlight h5 {
+              font-size: 16px;
+              font-weight: 700;
+              color: var(--text-dark);
+              margin-bottom: 8px;
+              display: flex;
+              align-items: center;
+              gap: 8px;
+            }
+
+            .supplier-highlight p {
+              margin: 0;
+              font-size: 14px;
+              color: var(--text-light);
+            }
+
+            /* Style the new close button class */
+            .close-metal-roof-modal {
+              background: none;
+              border: none;
+              font-size: 24px;
+              color: var(--text-light);
+              cursor: pointer;
+              padding: 5px;
+              transition: var(--transition);
+              position: relative;
+              z-index: 9999;
+              pointer-events: auto;
+            }
+
+            .close-metal-roof-modal:hover {
+              color: var(--text-dark);
+            }
+
+            /* Mobile Responsive */
+            @media (max-width: 768px) {
+              .metal-roof-content h4 {
+                font-size: 18px;
+              }
+
+              .metal-roof-content p {
+                font-size: 15px;
+              }
+            }
+          </style>
+
+          <script>
+            // Metal Roof Modal Functions
+            function openMetalRoofModal(event) {
+              event.preventDefault();
+              console.log('Opening metal roof modal'); // Debug log
+              const modal = document.getElementById('metal-roof-modal');
+              if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                document.body.classList.add('modal-open');
+              }
+            }
+
+            function closeMetalRoofModal() {
+              console.log('Closing metal roof modal'); // Debug log
+              const modal = document.getElementById('metal-roof-modal');
+              if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                document.body.classList.remove('modal-open');
+              }
+            }
+
+            // Wait for DOM to be ready
+            document.addEventListener('DOMContentLoaded', function () {
+              const modal = document.getElementById('metal-roof-modal');
+
+              if (modal) {
+                // Close modal when clicking outside
+                modal.addEventListener('click', function (e) {
+                  if (e.target === this) {
+                    closeMetalRoofModal();
+                  }
+                });
+
+                // Close modal with Escape key
+                document.addEventListener('keydown', function (e) {
+                  if (e.key === 'Escape') {
+                    if (modal.classList.contains('active')) {
+                      closeMetalRoofModal();
+                    }
+                  }
+                });
+
+                console.log('Metal roof modal event listeners added'); // Debug log
+              }
+            });
+          </script>
+          <!-- #endregion -->
 
           <!-- Commercial Roofing Card -->
           <div class="service-card slide-up-delay-5">
@@ -1079,9 +1704,10 @@
           <p>
             These are some of our most common general questions. For more
             specific FAQs, visit our
-            <a href="roofing-faq.html">Roofing FAQ</a>,
-            <a href="siding-faq.html">Siding FAQ</a>, or
-            <a href="gutter-faq.html">Gutter FAQ</a> pages.
+            <a href="roofing-siding-gutter-faqs.html"
+              >Roofing, Siding, & Gutter FAQ</a
+            >
+            page.
           </p>
         </div>
 

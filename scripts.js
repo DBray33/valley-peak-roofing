@@ -34,6 +34,7 @@ const App = {
       ContactPage,
       ActiveNavigation,
       RoofDesignPage,
+      PortfolioGallery,
     ]);
   },
 
@@ -1858,6 +1859,202 @@ const ActiveNavigation = {
 
 /**
  * =====================================================
+ * PORTFOLIO GALLERY MODULE
+ * =====================================================
+ */
+const PortfolioGallery = {
+  init: function () {
+    // Only initialize if we're on the portfolio page
+    if (document.querySelector('.portfolio-sections')) {
+      this.initRoofingGallery();
+      this.initSidingGallery();
+      this.initVideoHandling();
+    }
+  },
+
+  // Initialize Roofing Gallery
+  initRoofingGallery: function () {
+    const roofingThumbnails = document.querySelectorAll(
+      '#roofing-section .thumbnail-item'
+    );
+    const roofingMainImage = document.getElementById('roofing-main-image');
+    const roofingTitle = document.getElementById('roofing-image-title');
+    const roofingDescription = document.getElementById(
+      'roofing-image-description'
+    );
+
+    if (roofingThumbnails.length > 0 && roofingMainImage) {
+      this.setupGallery(
+        roofingThumbnails,
+        roofingMainImage,
+        roofingTitle,
+        roofingDescription
+      );
+    }
+  },
+
+  // Initialize Siding Gallery
+  initSidingGallery: function () {
+    const sidingThumbnails = document.querySelectorAll(
+      '#siding-section .thumbnail-item'
+    );
+    const sidingMainImage = document.getElementById('siding-main-image');
+    const sidingTitle = document.getElementById('siding-image-title');
+    const sidingDescription = document.getElementById(
+      'siding-image-description'
+    );
+
+    if (sidingThumbnails.length > 0 && sidingMainImage) {
+      this.setupGallery(
+        sidingThumbnails,
+        sidingMainImage,
+        sidingTitle,
+        sidingDescription
+      );
+    }
+  },
+
+  // Setup gallery functionality
+  setupGallery: function (
+    thumbnails,
+    mainImage,
+    titleElement,
+    descriptionElement
+  ) {
+    thumbnails.forEach((thumbnail, index) => {
+      thumbnail.addEventListener('click', () => {
+        // Remove active class from all thumbnails in this gallery
+        thumbnails.forEach((t) => t.classList.remove('active'));
+
+        // Add active class to clicked thumbnail
+        thumbnail.classList.add('active');
+
+        // Get data from thumbnail
+        const imageSrc = thumbnail.getAttribute('data-image');
+        const imageTitle = thumbnail.getAttribute('data-title');
+        const imageDescription = thumbnail.getAttribute('data-description');
+
+        // Update main image with loading effect
+        this.updateMainImage(
+          mainImage,
+          imageSrc,
+          titleElement,
+          imageTitle,
+          descriptionElement,
+          imageDescription
+        );
+      });
+
+      // Add keyboard support
+      thumbnail.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          thumbnail.click();
+        }
+      });
+
+      // Make thumbnails focusable
+      thumbnail.setAttribute('tabindex', '0');
+      thumbnail.setAttribute('role', 'button');
+      thumbnail.setAttribute(
+        'aria-label',
+        `View ${thumbnail.getAttribute('data-title')}`
+      );
+    });
+  },
+
+  // Update main image with smooth transition
+  updateMainImage: function (
+    mainImage,
+    imageSrc,
+    titleElement,
+    imageTitle,
+    descriptionElement,
+    imageDescription
+  ) {
+    // Add loading class
+    mainImage.classList.add('loading');
+
+    // Create new image to preload
+    const newImage = new Image();
+
+    newImage.onload = () => {
+      // Update main image source with fade effect
+      setTimeout(() => {
+        mainImage.src = imageSrc;
+        mainImage.alt = imageTitle;
+
+        // Update text content
+        if (titleElement) titleElement.textContent = imageTitle;
+        if (descriptionElement)
+          descriptionElement.textContent = imageDescription;
+
+        // Remove loading class and add loaded class
+        mainImage.classList.remove('loading');
+        mainImage.classList.add('loaded');
+
+        // Remove loaded class after animation
+        setTimeout(() => {
+          mainImage.classList.remove('loaded');
+        }, 300);
+      }, 150);
+    };
+
+    // Handle image load error
+    newImage.onerror = () => {
+      console.error('Failed to load image:', imageSrc);
+      mainImage.classList.remove('loading');
+
+      // Optional: Show error state or fallback image
+      if (titleElement) titleElement.textContent = 'Image unavailable';
+      if (descriptionElement)
+        descriptionElement.textContent = 'Please try another image';
+    };
+
+    // Start preloading
+    newImage.src = imageSrc;
+  },
+
+  // Initialize video handling
+  initVideoHandling: function () {
+    const video = document.getElementById('roofing-video');
+
+    if (video) {
+      // Add play/pause on click
+      video.addEventListener('click', function () {
+        if (this.paused) {
+          this.play();
+        } else {
+          this.pause();
+        }
+      });
+
+      // Handle video loading errors
+      video.addEventListener('error', function () {
+        console.error('Video failed to load');
+        // Hide video container if it fails to load
+        this.style.display = 'none';
+      });
+
+      // Optional: Add custom controls or styling
+      video.addEventListener('loadedmetadata', function () {
+        console.log('Portfolio video loaded successfully');
+      });
+
+      // Add loading indicator
+      video.addEventListener('loadstart', function () {
+        this.style.opacity = '0.7';
+      });
+
+      video.addEventListener('canplay', function () {
+        this.style.opacity = '1';
+      });
+    }
+  },
+};
+
+/**
+ * =====================================================
  * DESIGN YOUR ROOF - JAVASCRIPT FUNCTIONALITY
  * =====================================================
  */
@@ -2202,35 +2399,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // lazyImages.forEach(img => imageObserver.observe(img));
   }
 });
-
-// =====================================================
-// UPDATE YOUR App.init SECTION
-// =====================================================
-// Find this section in your scripts.js and add ActiveNavigation:
-
-/*
-const App = {
-  init: function () {
-    this.registerModules([
-      MobileNavigation,
-      NavigationBehavior,
-      ScrollAnimations,
-      TestimonialCarousel,
-      FAQAccordion,
-      EstimateModal,
-      FormHandling,
-      PhoneFormatting,
-      ImageHandling,
-      PerformanceOptimization,
-      AnalyticsTracking,
-      MobileButtonDelay,
-      BackToTopButton,
-      ActiveNavigation, // <- ADD THIS LINE
-    ]);
-  },
-  // ... rest of your App object
-};
-*/
 
 /**
  * =====================================================

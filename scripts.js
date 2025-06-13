@@ -1859,7 +1859,7 @@ const ActiveNavigation = {
 
 /**
  * =====================================================
- * PORTFOLIO GALLERY MODULE - FIXED AND CONSOLIDATED
+ * PORTFOLIO PAGE GALLERY MODULE - FIXED AND CONSOLIDATED
  * =====================================================
  */
 const PortfolioGallery = {
@@ -1901,6 +1901,13 @@ const PortfolioGallery = {
         mainImageId: 'siding-main',
         titleId: 'siding-title',
         descriptionId: 'siding-description',
+      },
+      // NEW GALLERY ADDED
+      {
+        projectId: 'project-gallery-work',
+        mainImageId: 'gallery-work-main',
+        titleId: 'gallery-work-title',
+        descriptionId: 'gallery-work-description',
       },
     ];
 

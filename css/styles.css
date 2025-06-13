@@ -4005,9 +4005,13 @@ body {
 
 /* Hero Section */
 .portfolio-hero {
-  padding: 120px 0 60px;
+  padding: 145px 0 60px; /* Changed from 120px to 145px (25px taller) */
   background: var(--light-bg);
   text-align: center;
+}
+
+.portfolio-hero-content {
+  margin-top: 20px; /* Added 20px top margin to move content down */
 }
 
 .portfolio-hero-content h1 {
@@ -4233,7 +4237,11 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
   .portfolio-hero {
-    padding: 100px 0 40px;
+    padding: 125px 0 40px; /* Adjusted mobile padding (increased by 25px) */
+  }
+
+  .portfolio-hero-content {
+    margin-top: 20px; /* Keep the 20px margin on mobile too */
   }
 
   .portfolio-hero-content h1 {

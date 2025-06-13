@@ -4379,7 +4379,123 @@ body {
 .portfolio-thumbnail-item:focus img {
   transform: scale(1.03);
 }
-visualizer-container {
+
+/**
+ * =====================================================
+ * DESIGN YOUR ROOF PAGE - COMPLETE CSS
+ * Valley Peak Roofing - Roof Visualizer Page Styles
+ * =====================================================
+ */
+
+/* Design Hero Section */
+.design-hero {
+  background: linear-gradient(
+      135deg,
+      rgba(179, 168, 133, 0.85),
+      rgba(0, 0, 0, 0.85)
+    ),
+    url('../assets/images/design-your-roof-page/design-your-roof-hero-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 165px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+}
+
+/* Spinning effect overlay */
+.design-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.03) 40%,
+    transparent 70%
+  );
+  animation: rotate 30s linear infinite;
+  z-index: 1;
+}
+
+/* Additional decorative spinning elements */
+.design-hero::after {
+  content: '';
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(
+    circle,
+    transparent 30%,
+    rgba(179, 168, 133, 0.05) 50%,
+    transparent 70%
+  );
+  animation: rotate-reverse 45s linear infinite;
+  z-index: 1;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.design-hero-content {
+  position: relative;
+  z-index: 2;
+  margin-top: 20px;
+}
+
+.design-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.design-hero p {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.design-hero p strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* Owens Corning Visualizer Section */
+.visualizer-section {
+  padding: 80px 0;
+  background: var(--light-bg);
+}
+
+.visualizer-container {
   max-width: 1000px;
   margin: 0 auto;
   background: var(--white);
@@ -4501,7 +4617,13 @@ visualizer-container {
   border-radius: 50%;
 }
 
-/* Remove old gradient swatch styles - keeping for fallback */
+.color-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Fallback gradient swatches */
 .terra-cotta-swatch {
   background: linear-gradient(45deg, #d2691e, #cd853f);
 }
@@ -4524,12 +4646,6 @@ visualizer-container {
 
 .bourbon-swatch {
   background: linear-gradient(45deg, #8b4513, #654321);
-}
-
-.color-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-dark);
 }
 
 /* How It Works Section */
@@ -4610,7 +4726,7 @@ visualizer-container {
   line-height: 1.6;
 }
 
-/* Inspiration Gallery */
+/* Inspiration Gallery Section */
 .inspiration-gallery {
   padding: 80px 0;
   background: var(--white);
@@ -4743,19 +4859,54 @@ visualizer-container {
   justify-content: center;
 }
 
-/* Responsive Design */
+/* Fix for CTA buttons */
+.cta-section .btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), #000000) !important;
+  color: var(--white) !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cta-section .btn-primary::after {
+  background: linear-gradient(135deg, var(--primary-dark), #1a1a1a) !important;
+}
+
+.cta-section .btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #1a1a1a) !important;
+  color: var(--white) !important;
+  border-color: var(--primary-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(179, 168, 133, 0.4);
+}
+
+.cta-section .btn-secondary {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--white) !important;
+  border-color: var(--white) !important;
+  backdrop-filter: blur(10px);
+}
+
+.cta-section .btn-secondary::after {
+  background: var(--white) !important;
+}
+
+.cta-section .btn-secondary:hover {
+  background: var(--white) !important;
+  color: var(--text-dark) !important;
+  border-color: var(--white) !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design - Mobile & Tablet */
 @media (max-width: 768px) {
+  /* Hero Section */
   .design-hero {
-    padding: 120px 0 80px; /* Adjusted for mobile - still increased from original */
-    background-attachment: scroll; /* Remove fixed attachment on mobile for better performance */
+    padding: 120px 0 80px;
+    background-attachment: scroll;
   }
 
   .design-hero-content {
-    margin-top: 20px; /* Maintain the 20px spacing on mobile */
-  }
-
-  .how-it-works {
-    background-attachment: scroll; /* Remove fixed attachment on mobile for better performance */
+    margin-top: 20px;
   }
 
   .design-hero h1 {
@@ -4766,10 +4917,17 @@ visualizer-container {
     font-size: 18px;
   }
 
+  /* How It Works Section */
+  .how-it-works {
+    background-attachment: scroll;
+  }
+
+  /* Visualizer Section */
   .visualizer-content {
     padding: 20px;
   }
 
+  /* Color Grid */
   .color-grid {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 15px;
@@ -4780,25 +4938,15 @@ visualizer-container {
     height: 80px;
   }
 
-  .swatch-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
+  /* Steps Grid */
   .steps-grid {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
+  /* Gallery */
   .gallery-slide {
     height: 300px;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
   }
 
   .gallery-carousel .carousel-control-prev,
@@ -4814,21 +4962,32 @@ visualizer-container {
   .gallery-carousel .carousel-control-next {
     right: -15px;
   }
+
+  /* CTA Section */
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
+/* Mobile Styles */
 @media (max-width: 480px) {
+  /* Hero Section */
   .design-hero h1 {
     font-size: 28px;
   }
 
+  /* Section Headers */
   .section-header h2 {
     font-size: 28px;
   }
 
+  /* Visualizer */
   .visualizer-header {
     padding: 20px;
   }
 
+  /* Gallery */
   .gallery-carousel-wrapper {
     padding: 20px;
   }
@@ -4838,10 +4997,12 @@ visualizer-container {
     display: none;
   }
 
+  /* Color Preview */
   .color-preview-section h4 {
     font-size: 18px;
   }
 
+  /* Video */
   .video-caption {
     font-size: 14px;
   }

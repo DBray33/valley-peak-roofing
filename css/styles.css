@@ -3999,7 +3999,7 @@ body {
 
 /**
  * =====================================================
- * PORTFOLIO PAGE STYLES - UPDATED FOR NEW STRUCTURE
+ * PORTFOLIO/OUR WORK PAGE STYLES - UPDATED FOR NEW STRUCTURE
  * =====================================================
  */
 
@@ -4080,7 +4080,7 @@ body {
 
 .portfolio-section-header {
   text-align: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 100px; */
 }
 
 .portfolio-section-header h2 {
@@ -4166,10 +4166,10 @@ body {
   margin: 0;
 }
 
-/* Thumbnail Grid */
+/* Thumbnail Grid - UPDATED TO 6 COLUMNS */
 .portfolio-thumbnail-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(6, 1fr); /* Fixed 6 columns */
   gap: 12px;
 }
 
@@ -4204,34 +4204,71 @@ body {
   transform: scale(1.03);
 }
 
+/* Gallery Showcase Section - NEW STYLES */
+.portfolio-gallery-showcase {
+  background: var(--text-dark);
+  padding: 80px 0;
+}
+
+/* Override the generic .container width for this section */
+.portfolio-gallery-showcase .container {
+  max-width: 1000px !important; /* Force narrower width */
+}
+
+.portfolio-showcase-container {
+  max-width: 100%; /* Use full width of parent container */
+  margin: 0 auto;
+  padding: 0 20px; /* Add padding for mobile */
+}
+
+.portfolio-gallery-showcase .portfolio-section-header h2 {
+  color: var(--white);
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.portfolio-gallery-showcase .portfolio-section-header h2 i {
+  color: var(--primary-color);
+}
+
+.portfolio-gallery-showcase .portfolio-main-image-container {
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Taller main image for gallery showcase - with !important to override */
+.portfolio-gallery-showcase .portfolio-main-image {
+  height: 450px !important; /* Force taller height */
+}
+
+.portfolio-gallery-showcase .portfolio-thumbnail-item {
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-gallery-showcase .portfolio-thumbnail-item:hover {
+  border-color: var(--primary-color);
+}
+
+.portfolio-gallery-showcase .portfolio-thumbnail-item.active {
+  border-color: var(--primary-color);
+}
+
+/* Wider thumbnail grid for showcase - UPDATED TO 6 COLUMNS */
+.gallery-showcase-grid {
+  grid-template-columns: repeat(6, 1fr); /* Fixed 6 columns */
+}
+
 /* Portfolio Bottom CTA */
 .portfolio-bottom-cta {
-  background: var(--text-dark);
-  color: var(--white);
+  background: var(--white);
   padding: 80px 0;
   text-align: center;
 }
 
 .portfolio-cta-content {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 40px;
-}
-
-.portfolio-cta-logo h2 {
-  font-family: 'trajan-pro', serif;
-  font-size: 36px;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin-bottom: 10px;
-  letter-spacing: 2px;
-}
-
-.portfolio-cta-logo p {
-  font-size: 20px;
-  font-weight: 600;
-  margin: 0;
 }
 
 .portfolio-cta-buttons {
@@ -4305,7 +4342,7 @@ body {
   }
 
   .portfolio-thumbnail-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(6, 1fr); /* Keep 6 columns on tablet */
     gap: 10px;
   }
 
@@ -4317,6 +4354,23 @@ body {
     flex-direction: column;
     width: 100%;
     max-width: 300px;
+  }
+
+  .portfolio-gallery-showcase .portfolio-section-header h2 {
+    font-size: 28px;
+  }
+
+  .portfolio-gallery-showcase .portfolio-main-image {
+    height: 350px !important; /* Force height with !important */
+  }
+
+  .gallery-showcase-grid {
+    grid-template-columns: repeat(6, 1fr); /* Keep 6 columns on tablet */
+  }
+
+  /* Maintain narrower width on tablet */
+  .portfolio-gallery-showcase .container {
+    max-width: 1000px !important;
   }
 }
 
@@ -4338,7 +4392,7 @@ body {
   }
 
   .portfolio-thumbnail-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr); /* Keep 6 columns on mobile */
     gap: 8px;
   }
 
@@ -4352,6 +4406,28 @@ body {
 
   .portfolio-overlay-content p {
     font-size: 12px;
+  }
+
+  .portfolio-gallery-showcase .portfolio-section-header h2 {
+    font-size: 20px; /* Same size as other mobile gallery headings */
+  }
+
+  .portfolio-gallery-showcase .portfolio-main-image {
+    height: 250px !important; /* Force height with !important */
+  }
+
+  .portfolio-showcase-container {
+    padding: 0 15px; /* Less padding on mobile */
+  }
+
+  .gallery-showcase-grid {
+    grid-template-columns: repeat(6, 1fr); /* Keep 6 columns on mobile */
+  }
+
+  /* Maintain narrower width on mobile */
+  .portfolio-gallery-showcase .container {
+    max-width: 100%; /* Full width on mobile but still contained */
+    padding: 0 15px;
   }
 }
 

@@ -1859,71 +1859,92 @@ const ActiveNavigation = {
 
 /**
  * =====================================================
- * PORTFOLIO GALLERY MODULE
+ * PORTFOLIO GALLERY MODULE - FIXED AND CONSOLIDATED
  * =====================================================
  */
 const PortfolioGallery = {
   init: function () {
     // Only initialize if we're on the portfolio page
-    if (document.querySelector('.portfolio-sections')) {
-      this.initRoofingGallery();
-      this.initSidingGallery();
-      this.initVideoHandling();
+    if (!document.querySelector('.portfolio-main-sections')) {
+      console.log('Not on portfolio page, skipping portfolio gallery init');
+      return;
     }
+
+    console.log('Initializing Portfolio Gallery');
+    this.initAllProjectGalleries();
+    this.initVideoHandling();
   },
 
-  // Initialize Roofing Gallery
-  initRoofingGallery: function () {
-    const roofingThumbnails = document.querySelectorAll(
-      '#roofing-section .thumbnail-item'
-    );
-    const roofingMainImage = document.getElementById('roofing-main-image');
-    const roofingTitle = document.getElementById('roofing-image-title');
-    const roofingDescription = document.getElementById(
-      'roofing-image-description'
-    );
+  // Initialize all project galleries
+  initAllProjectGalleries: function () {
+    const projects = [
+      {
+        projectId: 'project-residential-roof',
+        mainImageId: 'residential-roof-main',
+        titleId: 'residential-roof-title',
+        descriptionId: 'residential-roof-description',
+      },
+      {
+        projectId: 'project-commercial-roof',
+        mainImageId: 'commercial-roof-main',
+        titleId: 'commercial-roof-title',
+        descriptionId: 'commercial-roof-description',
+      },
+      {
+        projectId: 'project-metal-roof',
+        mainImageId: 'metal-roof-main',
+        titleId: 'metal-roof-title',
+        descriptionId: 'metal-roof-description',
+      },
+      {
+        projectId: 'project-siding',
+        mainImageId: 'siding-main',
+        titleId: 'siding-title',
+        descriptionId: 'siding-description',
+      },
+    ];
 
-    if (roofingThumbnails.length > 0 && roofingMainImage) {
-      this.setupGallery(
-        roofingThumbnails,
-        roofingMainImage,
-        roofingTitle,
-        roofingDescription
-      );
-    }
+    projects.forEach((project) => {
+      this.initProjectGallery(project);
+    });
   },
 
-  // Initialize Siding Gallery
-  initSidingGallery: function () {
-    const sidingThumbnails = document.querySelectorAll(
-      '#siding-section .thumbnail-item'
-    );
-    const sidingMainImage = document.getElementById('siding-main-image');
-    const sidingTitle = document.getElementById('siding-image-title');
-    const sidingDescription = document.getElementById(
-      'siding-image-description'
-    );
-
-    if (sidingThumbnails.length > 0 && sidingMainImage) {
-      this.setupGallery(
-        sidingThumbnails,
-        sidingMainImage,
-        sidingTitle,
-        sidingDescription
-      );
+  // Initialize individual project gallery
+  initProjectGallery: function (config) {
+    const projectContainer = document.getElementById(config.projectId);
+    if (!projectContainer) {
+      console.warn(`Project container not found: ${config.projectId}`);
+      return;
     }
-  },
 
-  // Setup gallery functionality
-  setupGallery: function (
-    thumbnails,
-    mainImage,
-    titleElement,
-    descriptionElement
-  ) {
+    const thumbnails = projectContainer.querySelectorAll(
+      '.portfolio-thumbnail-item'
+    );
+    const mainImage = document.getElementById(config.mainImageId);
+    const titleElement = document.getElementById(config.titleId);
+    const descriptionElement = document.getElementById(config.descriptionId);
+
+    if (thumbnails.length === 0) {
+      console.warn(`No thumbnails found for project: ${config.projectId}`);
+      return;
+    }
+
+    if (!mainImage) {
+      console.warn(`Main image not found for project: ${config.projectId}`);
+      return;
+    }
+
+    console.log(
+      `Setting up gallery for ${config.projectId} with ${thumbnails.length} thumbnails`
+    );
+
+    // Setup thumbnail click handlers
     thumbnails.forEach((thumbnail, index) => {
-      thumbnail.addEventListener('click', () => {
-        // Remove active class from all thumbnails in this gallery
+      thumbnail.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(`Thumbnail ${index} clicked for ${config.projectId}`);
+
+        // Remove active class from all thumbnails in THIS project only
         thumbnails.forEach((t) => t.classList.remove('active'));
 
         // Add active class to clicked thumbnail
@@ -1934,14 +1955,17 @@ const PortfolioGallery = {
         const imageTitle = thumbnail.getAttribute('data-title');
         const imageDescription = thumbnail.getAttribute('data-description');
 
-        // Update main image with loading effect
-        this.updateMainImage(
+        console.log('Updating image to:', imageSrc, imageTitle);
+
+        // Update main image
+        this.updateProjectImage(
           mainImage,
           imageSrc,
           titleElement,
           imageTitle,
           descriptionElement,
-          imageDescription
+          imageDescription,
+          config.projectId
         );
       });
 
@@ -1958,57 +1982,71 @@ const PortfolioGallery = {
       thumbnail.setAttribute('role', 'button');
       thumbnail.setAttribute(
         'aria-label',
-        `View ${thumbnail.getAttribute('data-title')}`
+        `View ${thumbnail.getAttribute('data-title')} in gallery`
       );
     });
+
+    console.log(`Successfully initialized gallery for ${config.projectId}`);
   },
 
-  // Update main image with smooth transition
-  updateMainImage: function (
+  // Update project image with smooth transition
+  updateProjectImage: function (
     mainImage,
     imageSrc,
     titleElement,
     imageTitle,
     descriptionElement,
-    imageDescription
+    imageDescription,
+    projectId
   ) {
-    // Add loading class
+    console.log(`Updating image for ${projectId}:`, {
+      imageSrc,
+      imageTitle,
+      imageDescription,
+    });
+
+    // Add loading state
     mainImage.classList.add('loading');
 
     // Create new image to preload
     const newImage = new Image();
 
     newImage.onload = () => {
-      // Update main image source with fade effect
+      console.log(`Image loaded successfully for ${projectId}`);
+
+      // Update main image source
+      mainImage.src = imageSrc;
+      mainImage.alt = imageTitle || 'Portfolio image';
+
+      // Update text content if elements exist
+      if (titleElement && imageTitle) {
+        titleElement.textContent = imageTitle;
+      }
+      if (descriptionElement && imageDescription) {
+        descriptionElement.textContent = imageDescription;
+      }
+
+      // Remove loading class and add loaded class
+      mainImage.classList.remove('loading');
+      mainImage.classList.add('loaded');
+
+      // Remove loaded class after animation
       setTimeout(() => {
-        mainImage.src = imageSrc;
-        mainImage.alt = imageTitle;
-
-        // Update text content
-        if (titleElement) titleElement.textContent = imageTitle;
-        if (descriptionElement)
-          descriptionElement.textContent = imageDescription;
-
-        // Remove loading class and add loaded class
-        mainImage.classList.remove('loading');
-        mainImage.classList.add('loaded');
-
-        // Remove loaded class after animation
-        setTimeout(() => {
-          mainImage.classList.remove('loaded');
-        }, 300);
-      }, 150);
+        mainImage.classList.remove('loaded');
+      }, 300);
     };
 
     // Handle image load error
     newImage.onerror = () => {
-      console.error('Failed to load image:', imageSrc);
+      console.error(`Failed to load image for ${projectId}:`, imageSrc);
       mainImage.classList.remove('loading');
 
-      // Optional: Show error state or fallback image
+      // Show error state
       if (titleElement) titleElement.textContent = 'Image unavailable';
-      if (descriptionElement)
-        descriptionElement.textContent = 'Please try another image';
+      if (descriptionElement) {
+        descriptionElement.textContent =
+          'Please try another image from this project';
+      }
     };
 
     // Start preloading
@@ -2017,9 +2055,11 @@ const PortfolioGallery = {
 
   // Initialize video handling
   initVideoHandling: function () {
-    const video = document.getElementById('roofing-video');
+    const video = document.getElementById('residential-roof-video');
 
     if (video) {
+      console.log('Initializing video handling');
+
       // Add play/pause on click
       video.addEventListener('click', function () {
         if (this.paused) {
@@ -2031,17 +2071,14 @@ const PortfolioGallery = {
 
       // Handle video loading errors
       video.addEventListener('error', function () {
-        console.error('Video failed to load');
-        // Hide video container if it fails to load
-        this.style.display = 'none';
+        console.error('Portfolio project video failed to load');
+        const videoContainer = this.closest('.portfolio-video-container');
+        if (videoContainer) {
+          videoContainer.style.display = 'none';
+        }
       });
 
-      // Optional: Add custom controls or styling
-      video.addEventListener('loadedmetadata', function () {
-        console.log('Portfolio video loaded successfully');
-      });
-
-      // Add loading indicator
+      // Add loading state handling
       video.addEventListener('loadstart', function () {
         this.style.opacity = '0.7';
       });
@@ -2049,10 +2086,45 @@ const PortfolioGallery = {
       video.addEventListener('canplay', function () {
         this.style.opacity = '1';
       });
+
+      video.addEventListener('loadedmetadata', function () {
+        console.log('Portfolio project video loaded successfully');
+      });
     }
   },
-};
 
+  // Utility method to reset all galleries to first image
+  resetAllGalleries: function () {
+    const projects = document.querySelectorAll('.portfolio-gallery-section');
+    projects.forEach((project) => {
+      const firstThumbnail = project.querySelector('.portfolio-thumbnail-item');
+      if (firstThumbnail) {
+        firstThumbnail.click();
+      }
+    });
+  },
+
+  // Debug method to check gallery state
+  debugGalleryState: function () {
+    const projects = document.querySelectorAll('.portfolio-gallery-section');
+    projects.forEach((project) => {
+      const projectId = project.id;
+      const thumbnails = project.querySelectorAll('.portfolio-thumbnail-item');
+      const mainImage = project.querySelector('.portfolio-main-image');
+
+      console.log(`Project ${projectId}:`, {
+        thumbnailCount: thumbnails.length,
+        hasMainImage: !!mainImage,
+        thumbnailsHaveData: Array.from(thumbnails).every(
+          (t) =>
+            t.hasAttribute('data-image') &&
+            t.hasAttribute('data-title') &&
+            t.hasAttribute('data-description')
+        ),
+      });
+    });
+  },
+};
 /**
  * =====================================================
  * DESIGN YOUR ROOF - JAVASCRIPT FUNCTIONALITY

@@ -2635,6 +2635,79 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /**
  * =====================================================
+ * SERVICE AREA PAGE JAVASCRIPT
+ * =====================================================
+ */
+// County Filter Functionality
+document.addEventListener('DOMContentLoaded', function () {
+  const countyBtns = document.querySelectorAll('.county-btn');
+  const areaCards = document.querySelectorAll('.area-card');
+
+  countyBtns.forEach((btn) => {
+    btn.addEventListener('click', function () {
+      // Update active button
+      countyBtns.forEach((b) => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const county = this.dataset.county;
+
+      // Filter cards
+      areaCards.forEach((card) => {
+        if (county === 'all') {
+          card.style.display = 'block';
+        } else {
+          card.style.display =
+            card.dataset.area === county || card.dataset.area === 'extended'
+              ? 'block'
+              : 'none';
+        }
+      });
+    });
+  });
+
+  // Popup Functionality
+  const popupTriggers = document.querySelectorAll('.popup-trigger');
+  const popupCloses = document.querySelectorAll('.popup-close');
+
+  popupTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      const popupId = this.dataset.popup + '-popup';
+      document.getElementById(popupId).style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  popupCloses.forEach((close) => {
+    close.addEventListener('click', function () {
+      this.closest('.service-popup').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+  });
+
+  // Close popup on outside click
+  document.querySelectorAll('.service-popup').forEach((popup) => {
+    popup.addEventListener('click', function (e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  });
+
+  // Form Submission
+  const form = document.getElementById('service-area-form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Add your form submission logic here
+      alert("Thank you for your interest! We'll contact you within 24 hours.");
+    });
+  }
+});
+
+/**
+ * =====================================================
  * INITIALIZATION COMPLETE
  * =====================================================
  */

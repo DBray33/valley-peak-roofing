@@ -1859,6 +1859,160 @@ const ActiveNavigation = {
 
 /**
  * =====================================================
+ * OUR COMPANY PAGE JAVASCRIPT
+ * =====================================================
+ */
+
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+  // Initialize page-specific modules
+  OurCompanyPage.init();
+});
+
+// Our Company Page Module
+const OurCompanyPage = {
+  init: function () {
+    // Initialize all page-specific functionality
+    this.initAnimations();
+    this.initImageEffects();
+    this.initCounterAnimation();
+  },
+
+  // Initialize scroll animations
+  initAnimations: function () {
+    // Set up Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px',
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+
+          // If it's a benefit card, stagger the animations
+          if (entry.target.classList.contains('benefit-card')) {
+            const cards = document.querySelectorAll('.benefit-card');
+            cards.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add('visible');
+              }, index * 100);
+            });
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    const animatedElements = document.querySelectorAll(
+      '.fade-in, .fade-in-delay, .slide-up, .slide-up-delay, .slide-up-delay-2, .slide-up-delay-3, .slide-up-delay-4, .slide-up-delay-5, .slide-in-left, .slide-in-right'
+    );
+
+    animatedElements.forEach((element) => {
+      observer.observe(element);
+    });
+  },
+
+  // Initialize image hover effects
+  initImageEffects: function () {
+    const images = document.querySelectorAll(
+      '.story-image img, .founder-images img'
+    );
+
+    images.forEach((img) => {
+      img.addEventListener('mouseenter', function () {
+        this.style.transform = 'scale(1.05)';
+      });
+
+      img.addEventListener('mouseleave', function () {
+        this.style.transform = 'scale(1)';
+      });
+    });
+  },
+
+  // Initialize counter animation for stats (if added in future)
+  initCounterAnimation: function () {
+    const counters = document.querySelectorAll('.counter');
+
+    if (counters.length === 0) return;
+
+    const animateCounter = (counter) => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const duration = 2000; // 2 seconds
+      const step = target / (duration / 16); // 60 FPS
+      let current = 0;
+
+      const updateCounter = () => {
+        current += step;
+        if (current < target) {
+          counter.textContent = Math.floor(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target;
+        }
+      };
+
+      updateCounter();
+    };
+
+    // Use Intersection Observer to trigger counters when visible
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (
+            entry.isIntersecting &&
+            !entry.target.classList.contains('animated')
+          ) {
+            entry.target.classList.add('animated');
+            animateCounter(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach((counter) => {
+      counterObserver.observe(counter);
+    });
+  },
+};
+
+// Smooth scroll enhancement for CTA buttons
+document.addEventListener('click', function (e) {
+  // Handle estimate modal trigger
+  if (e.target.closest('a[href="#estimate"]')) {
+    e.preventDefault();
+    // This will be handled by the main scripts.js file
+    // Just ensuring smooth behavior
+  }
+});
+
+// Add parallax effect to page header
+window.addEventListener('scroll', function () {
+  const scrolled = window.pageYOffset;
+  const pageHeader = document.querySelector('.page-header');
+
+  if (pageHeader) {
+    pageHeader.style.transform = `translateY(${scrolled * 0.5}px)`;
+  }
+});
+
+// Mobile menu enhancement for active page
+document.addEventListener('DOMContentLoaded', function () {
+  // Highlight current page in navigation
+  const currentPage = 'our-company.html';
+  const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-item a');
+
+  navLinks.forEach((link) => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active-page');
+    }
+  });
+});
+
+/**
+ * =====================================================
  * PORTFOLIO PAGE GALLERY MODULE - FIXED AND CONSOLIDATED
  * =====================================================
  */

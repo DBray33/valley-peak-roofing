@@ -7754,33 +7754,56 @@ body {
 
 /**
  * =====================================================
- * ANIMATION CLASSES - FIXED
+ * ANIMATION CLASSES - SCROLL-TRIGGERED VERSION
  * =====================================================
  */
+
+/* Fade-in animations - Initial state (no auto-animation) */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
-  animation: fadeInUp 0.8s ease forwards;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .fade-in-delay {
   opacity: 0;
   transform: translateY(30px);
-  animation: fadeInUp 0.8s ease 0.2s forwards;
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.fade-in-delay.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .fade-in-delay-2 {
   opacity: 0;
   transform: translateY(30px);
-  animation: fadeInUp 0.8s ease 0.4s forwards;
+  transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+}
+
+.fade-in-delay-2.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .fade-in-delay-3 {
   opacity: 0;
   transform: translateY(30px);
-  animation: fadeInUp 0.8s ease 0.6s forwards;
+  transition: opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s;
 }
 
+.fade-in-delay-3.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide animations remain the same */
 .slide-up {
   opacity: 0;
   transform: translateY(50px);
@@ -7910,10 +7933,91 @@ body {
   transform: translateX(0);
 }
 
+/* Optional: Keep the keyframe animation for special cases where you want immediate animation */
 @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Use this class for elements that should animate immediately on page load */
+.fade-in-immediate {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Staggered animations for groups of elements */
+.stagger-animation > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.stagger-animation.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add delays to each child */
+.stagger-animation.visible > *:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.stagger-animation.visible > *:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.stagger-animation.visible > *:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.stagger-animation.visible > *:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.stagger-animation.visible > *:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.stagger-animation.visible > *:nth-child(6) {
+  transition-delay: 0.6s;
+}
+.stagger-animation.visible > *:nth-child(7) {
+  transition-delay: 0.7s;
+}
+.stagger-animation.visible > *:nth-child(8) {
+  transition-delay: 0.8s;
+}
+
+/* Performance optimization: disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .fade-in,
+  .fade-in-delay,
+  .fade-in-delay-2,
+  .fade-in-delay-3,
+  .slide-up,
+  .slide-up-delay,
+  .slide-up-delay-2,
+  .slide-up-delay-3,
+  .slide-up-delay-4,
+  .slide-up-delay-5,
+  .slide-up-delay-6,
+  .slide-up-delay-7,
+  .slide-up-delay-8,
+  .slide-in-left,
+  .slide-in-right {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

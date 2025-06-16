@@ -233,7 +233,7 @@ const NavigationBehavior = {
 
 /**
  * =====================================================
- * SCROLL ANIMATIONS MODULE
+ * SCROLL ANIMATIONS MODULE - UPDATED VERSION
  * =====================================================
  */
 const ScrollAnimations = {
@@ -244,24 +244,41 @@ const ScrollAnimations = {
   initIntersectionObserver: function () {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px 0px 0px', // Trigger when entering viewport
+      rootMargin: '0px 0px -50px 0px', // Trigger when element is 50px into viewport
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+
+          // Optional: unobserve after animation to improve performance
+          // observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    // Observe elements for animation
+    // Updated selector to include fade-in classes
     const animatedElements = document.querySelectorAll(
-      '.slide-up, .slide-up-delay, .slide-up-delay-2, .slide-up-delay-3, .slide-up-delay-4, .slide-up-delay-5, .slide-up-delay-6, .slide-up-delay-7, .slide-up-delay-8, .slide-in-left, .slide-in-right'
+      '.fade-in, .fade-in-delay, .fade-in-delay-2, .fade-in-delay-3, ' +
+        '.slide-up, .slide-up-delay, .slide-up-delay-2, .slide-up-delay-3, ' +
+        '.slide-up-delay-4, .slide-up-delay-5, .slide-up-delay-6, ' +
+        '.slide-up-delay-7, .slide-up-delay-8, .slide-in-left, .slide-in-right, ' +
+        '.stagger-animation'
     );
 
     animatedElements.forEach((element) => {
       observer.observe(element);
+    });
+
+    // Special handling for staggered animations
+    const staggerContainers = document.querySelectorAll('.stagger-animation');
+    staggerContainers.forEach((container) => {
+      // Ensure children don't trigger individually
+      const children = container.children;
+      Array.from(children).forEach((child) => {
+        child.style.transitionDelay = ''; // Will be set by CSS
+      });
     });
   },
 };

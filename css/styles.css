@@ -4320,7 +4320,7 @@ body {
   line-height: 1.5;
 }
 
-/* Founder Section */
+/* Updated Founder Section */
 .founder-section {
   padding: 80px 0;
   background: linear-gradient(
@@ -4336,71 +4336,89 @@ body {
 }
 
 .founder-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.founder-message h3 {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 30px;
-}
-
-.founder-quote {
-  background: var(--white);
-  padding: 40px;
-  border-radius: var(--border-radius);
-  border-left: 4px solid var(--primary-color);
-  box-shadow: var(--shadow);
-  position: relative;
-}
-
-.founder-quote::before {
-  content: '"';
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 60px;
-  color: var(--primary-color);
-  opacity: 0.2;
-  line-height: 1;
-}
-
-.founder-quote p {
-  font-size: 18px;
-  line-height: 1.8;
-  color: var(--text-dark);
-  font-style: italic;
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 1;
-}
-
-.founder-quote footer {
-  text-align: right;
-}
-
-.founder-quote cite {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--primary-color);
-  font-style: normal;
-}
-
-.founder-images {
+.founder-image-wrapper {
   display: flex;
-  gap: 20px;
-  align-items: center;
+  gap: 30px;
+  align-items: stretch;
 }
 
 .founder-image-main {
   flex: 2;
+  position: relative;
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+}
+
+.founder-image-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.founder-message-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.85) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  padding: 40px;
+  color: var(--white);
+}
+
+.founder-message-overlay h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.founder-message-overlay .founder-quote {
+  background: transparent;
+  padding: 0;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 20px;
+  box-shadow: none;
+}
+
+.founder-message-overlay .founder-quote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  font-size: 60px;
+  color: var(--primary-color);
+  opacity: 0.4;
+  line-height: 1;
+}
+
+.founder-message-overlay .founder-quote p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95);
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.founder-message-overlay .founder-quote footer {
+  text-align: right;
+}
+
+.founder-message-overlay .founder-quote cite {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-style: normal;
 }
 
 .founder-image-secondary {
@@ -4410,14 +4428,15 @@ body {
   box-shadow: var(--shadow);
 }
 
-.founder-images img {
+.founder-image-secondary img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
   transition: var(--transition);
 }
 
-.founder-images img:hover {
+.founder-image-secondary img:hover {
   transform: scale(1.05);
 }
 
@@ -4514,6 +4533,10 @@ body {
   .founder-content {
     gap: 40px;
   }
+
+  .founder-message-overlay {
+    padding: 30px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -4530,14 +4553,12 @@ body {
     padding: 30px 20px;
   }
 
-  .story-content,
-  .founder-content {
+  .story-content {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
-  .story-text h3,
-  .founder-message h3 {
+  .story-text h3 {
     font-size: 28px;
   }
 
@@ -4550,12 +4571,45 @@ body {
     gap: 20px;
   }
 
-  .founder-images {
+  .founder-image-wrapper {
     flex-direction: column;
   }
 
-  .founder-quote {
-    padding: 30px 20px;
+  /* Move message below image on mobile */
+  .founder-image-main {
+    position: static;
+  }
+
+  .founder-message-overlay {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    background: var(--white);
+    color: var(--text-dark);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    margin-top: -30px;
+    box-shadow: var(--shadow);
+  }
+
+  .founder-message-overlay h3 {
+    font-size: 24px;
+    color: var(--text-dark);
+  }
+
+  .founder-message-overlay .founder-quote {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 20px;
+  }
+
+  .founder-message-overlay .founder-quote p {
+    font-size: 16px;
+    color: var(--text-dark);
+  }
+
+  .founder-message-overlay .founder-quote cite {
+    color: var(--primary-color);
   }
 
   .company-cta h2 {
@@ -4593,8 +4647,7 @@ body {
     font-size: 16px;
   }
 
-  .story-text p,
-  .founder-quote p {
+  .story-text p {
     font-size: 16px;
   }
 
@@ -4609,6 +4662,31 @@ body {
 
   .benefit-icon i {
     font-size: 24px;
+  }
+
+  /* Ensure message stays below image on small mobile */
+  .founder-image-main {
+    position: static;
+  }
+
+  .founder-message-overlay {
+    position: relative;
+    padding: 20px;
+    margin-top: -20px;
+  }
+
+  .founder-message-overlay h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .founder-message-overlay .founder-quote p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .founder-message-overlay .founder-quote cite {
+    font-size: 16px;
   }
 }
 

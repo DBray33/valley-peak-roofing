@@ -2725,6 +2725,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /**
  * =====================================================
+ * ROOF REPLACEMENT VIDEO CONTROL
+ * Add this to your scripts.js file
+ * =====================================================
+ */
+
+// Initialize roof replacement page video
+document.addEventListener('DOMContentLoaded', function () {
+  const roofVideo = document.querySelector('.roof-hero-video');
+
+  if (roofVideo) {
+    // Skip first 2 seconds when video loads
+    roofVideo.addEventListener('loadedmetadata', function () {
+      this.currentTime = 2;
+    });
+
+    // If video ends and loops, skip first 2 seconds again
+    roofVideo.addEventListener('ended', function () {
+      this.currentTime = 2;
+      this.play();
+    });
+
+    // Ensure video starts at 2 seconds if it was already loaded
+    if (roofVideo.readyState >= 2) {
+      roofVideo.currentTime = 2;
+    }
+
+    // Handle video loading errors gracefully
+    roofVideo.addEventListener('error', function (e) {
+      console.error('Video failed to load:', e);
+      // Optionally hide video wrapper and show fallback
+      const videoWrapper = document.querySelector('.roof-hero-video-wrapper');
+      if (videoWrapper) {
+        videoWrapper.style.display = 'none';
+      }
+    });
+  }
+});
+
+/**
+ * =====================================================
  * INITIALIZATION COMPLETE
  * =====================================================
  */

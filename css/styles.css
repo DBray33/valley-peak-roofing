@@ -2441,20 +2441,6 @@ body {
   margin-bottom: 30px;
 }
 
-.cta-buttons .btn-primary {
-  background: var(--white);
-  color: black;
-  border-color: var(--white);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.cta-buttons .btn-primary:hover {
-  background: var(--light-bg);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  color: white;
-}
-
 .cta-buttons .btn-secondary {
   color: var(--white);
   border-color: var(--white);

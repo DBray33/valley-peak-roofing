@@ -5473,7 +5473,7 @@ body {
 
 /**
  * =====================================================
- * BLOG PAGE STYLES 
+ * OUR BLOG PAGE STYLES 
  * =====================================================
  */
 .blog-page-hero {
@@ -5722,6 +5722,787 @@ body {
 
   .blog-page-link {
     font-size: 15px;
+  }
+}
+
+/**
+ * =====================================================
+ * ROOF REPLACEMENT & INSTALLATION PAGE STYLES
+ * =====================================================
+ */
+
+/* Hero Section */
+.roof-replacement-hero {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(44, 62, 80, 0.95) 0%,
+    rgba(52, 73, 94, 0.9) 100%
+  );
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 160px 0 80px;
+  color: white;
+  overflow: hidden;
+}
+
+.roof-hero-content {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.roof-hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.roof-hero-subtitle {
+  font-size: 1.8rem;
+  font-weight: 300;
+  opacity: 0.9;
+  display: block;
+  margin-top: 1rem;
+}
+
+/* Introduction Section */
+.roof-replacement-intro {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.roof-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.roof-intro-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.roof-intro-header h2 {
+  font-size: 1.2rem;
+  color: #b3a885;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.roof-intro-header h3 {
+  font-size: 2rem;
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.roof-intro-text {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.8;
+}
+
+.roof-intro-text strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.roof-why-choose h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.roof-benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.roof-benefits-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: #666;
+}
+
+.roof-benefits-list i {
+  color: #b3a885;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.roof-intro-image {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.roof-showcase-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 400px;
+}
+
+/* Signs Section */
+.roof-signs-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.roof-signs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.roof-sign-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.roof-sign-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(231, 76, 60, 0.3);
+}
+
+.roof-sign-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(
+    135deg,
+    rgba(231, 76, 60, 0.1),
+    rgba(231, 76, 60, 0.2)
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #e74c3c;
+}
+
+.roof-sign-card h3 {
+  font-size: 1.375rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.roof-sign-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.roof-sign-card li {
+  padding: 0.5rem 0;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.roof-sign-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Process Section */
+.roof-process-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.roof-process-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.8;
+}
+
+.roof-process-intro strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.roof-process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.roof-process-step {
+  text-align: center;
+  position: relative;
+  padding: 2rem 1.5rem;
+}
+
+.roof-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: #b3a885;
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.roof-process-step h3 {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.roof-process-step p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Gallery Carousel */
+.roof-gallery-carousel-wrapper {
+  max-width: 1000px;
+  margin: 3rem auto;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.roof-gallery-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.roof-gallery-carousel-wrapper .carousel-control-prev,
+.roof-gallery-carousel-wrapper .carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background: rgba(231, 76, 60, 0.9);
+  border-radius: 50%;
+  opacity: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.roof-gallery-carousel-wrapper .carousel-control-prev {
+  left: 20px;
+}
+
+.roof-gallery-carousel-wrapper .carousel-control-next {
+  right: 20px;
+}
+
+.roof-gallery-carousel-wrapper .carousel-control-prev:hover,
+.roof-gallery-carousel-wrapper .carousel-control-next:hover {
+  background: #e74c3c;
+}
+
+.roof-gallery-carousel-wrapper .carousel-indicators {
+  bottom: 20px;
+}
+
+.roof-gallery-carousel-wrapper .carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  margin: 0 4px;
+}
+
+.roof-gallery-carousel-wrapper .carousel-indicators .active {
+  background-color: white;
+}
+
+/* Materials Section */
+.roof-materials-section {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 2px solid #f0f0f0;
+}
+
+.roof-materials-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.roof-materials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.roof-material-card {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.roof-material-card:hover {
+  background: white;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  border-color: #e0e0e0;
+  transform: translateY(-3px);
+}
+
+.roof-material-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #b3a885, #9a8d6f);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.roof-material-card:hover .roof-material-icon {
+  background: linear-gradient(135deg, #e74c3c, #d43f2f);
+}
+
+.roof-material-card h4 {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.roof-material-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.roof-material-card li {
+  padding: 0.5rem 0;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.roof-material-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #b3a885;
+  font-weight: bold;
+}
+
+/* Services Section */
+.roof-services-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.roof-services-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.roof-service-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.roof-service-item:hover {
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.roof-service-item:hover .roof-service-icon {
+  background: linear-gradient(135deg, #e74c3c, #d43f2f);
+}
+
+.roof-service-icon {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #b3a885, #9a8d6f);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.roof-service-content h3 {
+  font-size: 1.375rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.roof-service-content p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.roof-service-link {
+  color: #b3a885;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.roof-service-link:hover {
+  color: #e74c3c;
+  gap: 0.5rem;
+}
+
+/* Financing Section */
+.roof-financing-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.roof-financing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.roof-financing-card,
+.roof-budget-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.roof-financing-card:hover,
+.roof-budget-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.roof-financing-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.roof-financing-header h3,
+.roof-budget-card h3 {
+  font-size: 1.8rem;
+  color: white;
+  margin: 0;
+}
+
+.roof-finance-logo {
+  max-width: 200px;
+  height: auto;
+}
+
+.roof-financing-text,
+.roof-budget-card p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+/* Contact Section */
+.roof-contact-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.roof-contact-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.roof-form-container {
+  background: #f8f9fa;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.roof-form-header h3 {
+  font-size: 1.2rem;
+  color: #b3a885;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.roof-form-header h4 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.roof-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.roof-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.roof-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.roof-form-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.roof-form-group input,
+.roof-form-group select,
+.roof-form-group textarea {
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.roof-form-group input:focus,
+.roof-form-group select:focus,
+.roof-form-group textarea:focus {
+  outline: none;
+  border-color: #b3a885;
+  box-shadow: 0 0 0 3px rgba(179, 168, 133, 0.1);
+}
+
+.roof-form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.roof-submit-btn {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+.roof-why-choose-sidebar h3 {
+  font-size: 1.2rem;
+  color: #b3a885;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.roof-why-choose-sidebar h4 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.roof-difference-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.roof-difference-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: #666;
+}
+
+.roof-difference-list i {
+  color: #e74c3c;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.roof-difference-text {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.8;
+}
+
+.roof-difference-text strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .roof-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .roof-intro-image {
+    order: -1;
+  }
+
+  .roof-financing-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .roof-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .roof-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .roof-hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .roof-signs-grid,
+  .roof-process-steps,
+  .roof-materials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .roof-services-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .roof-gallery-image {
+    height: 300px;
+  }
+
+  .roof-gallery-carousel-wrapper .carousel-control-prev,
+  .roof-gallery-carousel-wrapper .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .roof-form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .roof-form-container {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .roof-replacement-hero {
+    padding: 140px 0 60px;
+  }
+
+  .roof-hero-title {
+    font-size: 2rem;
+  }
+
+  .roof-hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .roof-replacement-intro,
+  .roof-signs-section,
+  .roof-process-section,
+  .roof-services-section,
+  .roof-financing-section,
+  .roof-contact-section {
+    padding: 60px 0;
+  }
+
+  .roof-sign-card,
+  .roof-material-card,
+  .roof-service-item {
+    padding: 1.5rem;
+  }
+
+  .roof-financing-card,
+  .roof-budget-card {
+    padding: 2rem;
+  }
+
+  .roof-gallery-carousel-wrapper .carousel-control-prev,
+  .roof-gallery-carousel-wrapper .carousel-control-next {
+    display: none;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
   }
 }
 

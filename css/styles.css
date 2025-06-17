@@ -470,7 +470,43 @@ body {
 
 /**
  * =====================================================
- * HERO SECTION STYLES - FULL WIDTH LEFT ALIGNED WITH LEFT-TO-RIGHT GRADIENT
+ * SECTION HEADER STYLES
+ * =====================================================
+ */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.section-header p {
+  font-size: 18px;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .section-header h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header h2 {
+    font-size: 24px;
+  }
+}
+
+/**
+ * =====================================================
+ * INDEX.HTML HERO SECTION STYLES - FULL WIDTH LEFT ALIGNED WITH LEFT-TO-RIGHT GRADIENT
  * =====================================================
  */
 .hero {
@@ -483,7 +519,7 @@ body {
       rgba(20, 22, 23, 0.1) 90%,
       transparent 100%
     ),
-    url('../assets/images/testhero.jpeg');
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/valley-peak-roofing-homepage-hero-background.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -701,7 +737,7 @@ body {
         rgba(20, 22, 23, 0.7) 60%,
         rgba(20, 22, 23, 0.4) 100%
       ),
-      url('../assets/images/testhero.jpeg');
+      url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/valley-peak-roofing-homepage-hero-background.webp');
     background-position: center center; /* Show center of image on mobile */
   }
 
@@ -815,42 +851,6 @@ body {
     width: 34px;
     height: 34px;
     font-size: 15px;
-  }
-}
-
-/**
- * =====================================================
- * SECTION HEADER STYLES
- * =====================================================
- */
-.section-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.section-header h2 {
-  font-size: 36px;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 20px;
-}
-
-.section-header p {
-  font-size: 18px;
-  color: var(--text-light);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .section-header h2 {
-    font-size: 28px;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-header h2 {
-    font-size: 24px;
   }
 }
 
@@ -1350,7 +1350,7 @@ body {
 /* Background Images for Each Service Card */
 .roof-replacement-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../assets/images/roof-replacement.jpg');
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/roof-replacement-services.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1358,7 +1358,7 @@ body {
 
 .residential-repairs-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../assets/images/residential-repairs.jpg');
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/residential-roof-repairs.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1366,7 +1366,7 @@ body {
 
 .architectural-shingles-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../assets/images/architectural-shingles.jpg');
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/architectural-shingles.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1374,7 +1374,7 @@ body {
 
 .metal-roof-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../assets/images/metal-roof.jpg');
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/metal-roof.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1382,15 +1382,15 @@ body {
 
 .commercial-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../assets/images/commercial.jpg');
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/commercial-roofing.webp');
   background-size: cover;
-  background-position: center center;
+  background-position: bottom center;
   background-repeat: no-repeat;
 }
 
 .siding-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../assets/images/siding.jpg');
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/siding-installation.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1398,7 +1398,7 @@ body {
 
 .gutter-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../assets/images/gutter.jpg');
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/gutter-installation.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1406,7 +1406,7 @@ body {
 
 .skylight-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../assets/images/skylight.jpg');
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/skylight-installation.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -2396,7 +2396,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('../assets/images/cta-bg.jpg');
+  background: url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/valley-peak-homepage-cta-bg.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -4051,7 +4051,7 @@ body {
 .company-intro {
   padding: 80px 0;
   position: relative;
-  background-image: url('../assets/images/our-company-page/our-company-page-bg.jpeg');
+  background-image: url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/b.%20our-company.html/our-company-page-bg.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

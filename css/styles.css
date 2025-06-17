@@ -2288,11 +2288,11 @@ body {
   margin-bottom: 15px;
 }
 
-/* See More Reviews button */
+/* See More Reviews button - Enhanced contrast */
 .see-more-reviews-btn {
   background: transparent;
-  border: 2px solid var(--orange-accent);
-  color: var(--orange-accent);
+  border: 2px solid #c44a00; /* Darker orange for better contrast */
+  color: #c44a00; /* Darker orange for better contrast */
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 12px;
@@ -2305,9 +2305,15 @@ body {
 }
 
 .see-more-reviews-btn:hover {
-  background: var(--orange-accent);
+  background: #c44a00; /* Use the darker orange for hover */
   color: var(--white);
   transform: translateY(-1px);
+  border-color: #c44a00;
+}
+
+.see-more-reviews-btn:focus {
+  outline: 2px solid #c44a00;
+  outline-offset: 2px;
 }
 
 @media (max-width: 480px) {

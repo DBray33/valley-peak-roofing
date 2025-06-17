@@ -488,6 +488,7 @@
 
 .mobile-menu-header img {
   height: 40px;
+  width: auto;
 }
 
 .close-menu {

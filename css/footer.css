@@ -327,14 +327,21 @@ address {
 }
 
 .copyright a {
-  color: var(--primary-color);
-  text-decoration: none;
+  color: #e8d5b7; /* Light tan/beige for better contrast */
+  text-decoration: underline; /* Always show underline for distinguishability */
   transition: var(--transition);
+  font-weight: 600; /* Make text slightly bolder for better readability */
 }
 
 .copyright a:hover {
-  color: var(--primary-light);
-  text-decoration: underline;
+  color: #f5e6d3; /* Even lighter on hover */
+  text-decoration: underline; /* Maintain underline on hover */
+}
+
+.copyright a:focus {
+  outline: 2px solid #e8d5b7;
+  outline-offset: 2px;
+  color: #f5e6d3;
 }
 
 .footer-legal {

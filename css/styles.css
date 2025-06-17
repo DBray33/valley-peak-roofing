@@ -2006,10 +2006,10 @@ body {
 }
 
 /**
- * =====================================================
- * BOOTSTRAP TESTIMONIAL/SOCIAL PROOF CAROUSEL STYLES - BLACK BACKGROUND
- * =====================================================
- */
+* =====================================================
+* BOOTSTRAP TESTIMONIAL/SOCIAL PROOF CAROUSEL STYLES - BLACK BACKGROUND
+* =====================================================
+*/
 
 /* Section Background & Spacing */
 .testimonials-section {
@@ -2320,8 +2320,8 @@ body {
 /* Carousel Controls Styling */
 .testimonial-carousel-wrapper .carousel-control-prev,
 .testimonial-carousel-wrapper .carousel-control-next {
-  width: 40px;
-  height: 40px;
+  width: 44px; /* Increased from 40px for better touch targets */
+  height: 44px; /* Increased from 40px for better touch targets */
   background: var(--orange-accent);
   border-radius: 50%;
   opacity: 1;
@@ -2347,8 +2347,8 @@ body {
 @media (max-width: 768px) {
   .testimonial-carousel-wrapper .carousel-control-prev,
   .testimonial-carousel-wrapper .carousel-control-next {
-    width: 35px;
-    height: 35px;
+    width: 44px; /* Keep 44px minimum even on tablet */
+    height: 44px; /* Keep 44px minimum even on tablet */
   }
 
   .testimonial-carousel-wrapper .carousel-control-prev {
@@ -2367,7 +2367,7 @@ body {
   }
 }
 
-/* Carousel Indicators (dots) */
+/* Carousel Indicators (dots) - FIXED FOR TOUCH TARGETS */
 .testimonial-carousel-wrapper .carousel-indicators {
   position: absolute;
   bottom: 20px;
@@ -2378,20 +2378,38 @@ body {
   margin-bottom: 0;
   justify-content: center;
   z-index: 2;
+  gap: 4px; /* Add gap between indicators */
 }
 
 .testimonial-carousel-wrapper .carousel-indicators [data-bs-target] {
-  width: 12px;
-  height: 12px;
+  width: 44px; /* Increased from 12px to meet 44px minimum */
+  height: 44px; /* Increased from 12px to meet 44px minimum */
   border-radius: 50%;
-  background-color: var(--border-color);
+  background-color: transparent; /* Remove background from container */
   border: none;
   opacity: 1;
   transition: var(--transition);
+  margin: 0 8px; /* Increased spacing between indicators */
+  position: relative;
+  cursor: pointer;
 }
 
-.testimonial-carousel-wrapper .carousel-indicators .active {
-  background-color: var(--orange-accent);
+/* Visual indicator inside the larger touch target */
+.testimonial-carousel-wrapper .carousel-indicators [data-bs-target]::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px; /* Keep visual size small */
+  height: 12px; /* Keep visual size small */
+  border-radius: 50%;
+  background-color: var(--border-color);
+  transition: var(--transition);
+}
+
+.testimonial-carousel-wrapper .carousel-indicators .active::before {
+  background-color: var(--orange-accent); /* Apply color to visual indicator */
 }
 
 /**

@@ -1,3 +1,9 @@
+/* Add to your CSS */
+.company-name,
+.footer-company-name {
+  transition: font-family 0.3s ease;
+}
+
 /**
  * =====================================================
  * FLOATING LOGO STYLES

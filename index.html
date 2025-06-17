@@ -10,6 +10,14 @@
       name="description"
       content="Bethlehem PA roofing contractor - Free inspection within 1 week, guaranteed. Licensed & insured with lifetime warranty. Emergency repairs, metal roofs, shingles. 100+ 5-star reviews. Call (484) 602-6863 for instant quote." />
 
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://use.typekit.net" />
+
+    <!-- Preload LCP image -->
     <link
       rel="preload"
       as="image"
@@ -54,15 +62,26 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/footer.css" />
+
+    <!-- Font Awesome - Load asynchronously -->
     <link
+      rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    </noscript>
+
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.typekit.net/icu5zaz.css" />
+
+    <!-- Adobe TypeKit -->
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/icu5zaz.css" /> -->
   </head>
   <body>
     <!-- Floating Logo - Place this BEFORE the Navigation -->
@@ -2259,11 +2278,20 @@
     </div>
 
     <script src="scripts.js"></script>
+    <!-- Load TypeKit after page loads to improve performance -->
+    <script>
+      window.addEventListener('load', function () {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://use.typekit.net/icu5zaz.css';
+        document.head.appendChild(link);
+      });
+    </script>
     <!-- Bootstrap JS Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- YouTube Video Lazy Loading - Loads iframe only when thumbnail is clicked -->
     <script>
-      // YouTube Video Lazy Loading - Loads iframe only when thumbnail is clicked
       function loadYouTubeVideo(element) {
         const videoWrapper = element;
         // Remove onclick to prevent multiple clicks

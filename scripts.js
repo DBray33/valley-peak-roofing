@@ -606,7 +606,23 @@ const ImageHandling = {
           if (entry.isIntersecting) {
             const img = entry.target;
             if (img.dataset.src) {
-              img.src = img.dataset.src;
+              let imageUrl = img.dataset.src;
+
+              // Add mobile optimization for Google Cloud Storage images
+              if (
+                window.innerWidth <= 768 &&
+                imageUrl.includes('storage.googleapis.com')
+              ) {
+                const params =
+                  window.innerWidth <= 480
+                    ? 'w=400&h=300&fit=crop'
+                    : 'w=600&h=400&fit=crop';
+                imageUrl = imageUrl.includes('?')
+                  ? `${imageUrl}&${params}`
+                  : `${imageUrl}?${params}`;
+              }
+
+              img.src = imageUrl;
               img.removeAttribute('data-src');
               observer.unobserve(img);
             }

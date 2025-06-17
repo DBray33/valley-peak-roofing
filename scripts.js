@@ -843,7 +843,7 @@ const MobileButtonDelay = {
 
 /**
  * =====================================================
- * PORTFOLIO LIGHTBOX MODULE
+ * PORTFOLIO LIGHTBOX MODULE - OPTIMIZED
  * =====================================================
  */
 const PortfolioLightbox = {
@@ -895,18 +895,26 @@ const PortfolioLightbox = {
       }
     });
 
-    // Touch gestures for mobile
+    // Touch gestures for mobile - OPTIMIZED WITH PASSIVE LISTENERS
     let touchStartX = 0;
     let touchEndX = 0;
 
-    this.lightbox.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
+    this.lightbox.addEventListener(
+      'touchstart',
+      (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      },
+      { passive: true }
+    ); // ← ADDED PASSIVE: TRUE
 
-    this.lightbox.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      this.handleSwipe(touchStartX, touchEndX);
-    });
+    this.lightbox.addEventListener(
+      'touchend',
+      (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        this.handleSwipe(touchStartX, touchEndX);
+      },
+      { passive: true }
+    ); // ← ADDED PASSIVE: TRUE
   },
 
   openLightbox: function (item) {

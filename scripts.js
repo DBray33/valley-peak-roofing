@@ -258,12 +258,13 @@ const ScrollAnimations = {
       });
     }, observerOptions);
 
-    // Updated selector to include fade-in classes
+    // Select all elements with animation classes
     const animatedElements = document.querySelectorAll(
       '.fade-in, .fade-in-delay, .fade-in-delay-2, .fade-in-delay-3, ' +
         '.slide-up, .slide-up-delay, .slide-up-delay-2, .slide-up-delay-3, ' +
         '.slide-up-delay-4, .slide-up-delay-5, .slide-up-delay-6, ' +
         '.slide-up-delay-7, .slide-up-delay-8, .slide-in-left, .slide-in-right, ' +
+        '.slide-in-right-delay, .slide-in-right-delay-2, .slide-in-right-delay-3, ' +
         '.stagger-animation'
     );
 

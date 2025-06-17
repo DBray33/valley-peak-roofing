@@ -22,6 +22,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="preconnect" href="https://use.typekit.net" />
+    <link rel="preconnect" href="https://p.typekit.net" />
 
     <!-- Preload LCP image -->
     <link
@@ -863,7 +864,7 @@
     </noscript>
 
     <!-- Adobe TypeKit -->
-    <!-- <link rel="stylesheet" href="https://use.typekit.net/icu5zaz.css" /> -->
+    <link rel="stylesheet" href="https://use.typekit.net/icu5zaz.css" />
   </head>
   <body>
     <!-- Floating Logo - Place this BEFORE the Navigation -->
@@ -3063,12 +3064,21 @@
     <script src="scripts.js"></script>
     <!-- Load TypeKit after page loads to improve performance -->
     <script>
-      window.addEventListener('load', function () {
+      function loadTypeKit() {
+        if (document.querySelector('link[href*="typekit"]')) return;
+
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.href = 'https://use.typekit.net/icu5zaz.css';
         document.head.appendChild(link);
-      });
+      }
+
+      // Load faster on mobile devices
+      if (window.innerWidth <= 768) {
+        document.addEventListener('DOMContentLoaded', loadTypeKit);
+      } else {
+        window.addEventListener('load', loadTypeKit);
+      }
     </script>
     <!-- Bootstrap JS Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

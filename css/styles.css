@@ -26,6 +26,23 @@ body {
   overflow-x: hidden;
 }
 
+/* Fix for deprecated H2 sizing warning - add to existing styles */
+section h2 {
+  font-size: 32px;
+}
+
+@media (max-width: 768px) {
+  section h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  section h2 {
+    font-size: 24px;
+  }
+}
+
 /**
  * =====================================================
  * PREVENT OVERSCROLL BOUNCE

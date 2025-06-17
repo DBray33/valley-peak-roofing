@@ -59,6 +59,7 @@ body {
   --orange-accent: #e56008;
   --orange-light: #ff7518;
   --dark-blue: #2d3e50;
+  --dark-blue-rgb: 26, 59, 92;
   --text-dark: #2c3e50;
   --text-light: #666;
   --white: #ffffff;
@@ -5950,7 +5951,14 @@ body {
 /* Introduction Section */
 .roof-replacement-intro {
   padding: 80px 0;
-  background: #fff;
+  background: linear-gradient(
+    120deg,
+    #f5f5f5 0%,
+    #e8e6e1 25%,
+    #f0ede8 50%,
+    #e8e6e1 75%,
+    #f5f5f5 100%
+  );
 }
 
 .roof-intro-grid {
@@ -6039,7 +6047,21 @@ body {
 /* Signs Section */
 .roof-signs-section {
   padding: 80px 0;
-  background: #f8f9fa;
+  background-image: url('../assets/images/roof-replacement-installation-page/roof-texture-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Ensure content stays above overlay */
+.roof-signs-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.roof-signs-section h2 {
+  color: white;
 }
 
 .roof-signs-grid {
@@ -6252,6 +6274,47 @@ body {
   border-radius: 12px;
   transition: all 0.3s ease;
   border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image setup for each material card */
+.roof-material-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 0;
+}
+
+/* Specific background images for each card */
+.roof-material-card:nth-child(1)::before {
+  background-image: url('../assets/images/roof-replacement-installation-page/asphalt-shingles.jpg');
+}
+
+.roof-material-card:nth-child(2)::before {
+  background-image: url('../assets/images/roof-replacement-installation-page/metal-roof.jpg');
+}
+
+.roof-material-card:nth-child(3)::before {
+  background-image: url('../assets/images/roof-replacement-installation-page/architectural-shingles.jpg');
+}
+
+.roof-material-card:nth-child(4)::before {
+  background-image: url('../assets/images/roof-replacement-installation-page/specialty-roof.jpg');
+}
+
+/* Ensure content stays above background */
+.roof-material-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .roof-material-card:hover {
@@ -6259,6 +6322,20 @@ body {
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
   border-color: #e0e0e0;
   transform: translateY(-3px);
+}
+
+/* On hover, make background image prominent */
+.roof-material-card:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Adjust text visibility on hover */
+.roof-material-card:hover .roof-material-icon,
+.roof-material-card:hover h4,
+.roof-material-card:hover ul {
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .roof-material-icon {
@@ -6272,22 +6349,21 @@ body {
   color: white;
   font-size: 1.5rem;
   margin-bottom: 1rem;
-}
-
-.roof-material-card:hover .roof-material-icon {
-  background: linear-gradient(135deg, #e74c3c, #d43f2f);
+  transition: all 0.3s ease;
 }
 
 .roof-material-card h4 {
   font-size: 1.25rem;
   color: #2c3e50;
   margin-bottom: 1rem;
+  transition: all 0.3s ease;
 }
 
 .roof-material-card ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  transition: all 0.3s ease;
 }
 
 .roof-material-card li {
@@ -6384,7 +6460,11 @@ body {
 /* Financing Section */
 .roof-financing-section {
   padding: 80px 0;
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  background-image: url('../assets/images/roof-replacement-installation-page/financing-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional: creates parallax effect */
 }
 
 .roof-financing-grid {
@@ -6396,7 +6476,7 @@ body {
 
 .roof-financing-card,
 .roof-budget-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--dark-blue);
   padding: 3rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -6406,9 +6486,9 @@ body {
 
 .roof-financing-card:hover,
 .roof-budget-card:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(var(--dark-blue-rgb), 0.85);
   transform: translateY(-5px);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .roof-financing-header {
@@ -8106,6 +8186,43 @@ body {
 }
 
 .slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Add these to your animation classes */
+.slide-in-right-delay {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: var(--transition);
+  transition-delay: 0.2s;
+}
+
+.slide-in-right-delay.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right-delay-2 {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: var(--transition);
+  transition-delay: 0.4s;
+}
+
+.slide-in-right-delay-2.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right-delay-3 {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: var(--transition);
+  transition-delay: 0.6s;
+}
+
+.slide-in-right-delay-3.visible {
   opacity: 1;
   transform: translateX(0);
 }

@@ -2290,9 +2290,9 @@ body {
 
 /* See More Reviews button - Enhanced contrast */
 .see-more-reviews-btn {
-  background: transparent;
-  border: 2px solid #c44a00; /* Darker orange for better contrast */
-  color: #c44a00; /* Darker orange for better contrast */
+  background: #c44a00;
+  border: 2px solid var(--dark-blue); /* Darker orange for better contrast */
+  color: white; /* Darker orange for better contrast */
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 12px;
@@ -2305,8 +2305,8 @@ body {
 }
 
 .see-more-reviews-btn:hover {
-  background: #c44a00; /* Use the darker orange for hover */
-  color: var(--white);
+  background: white; /* Use the darker orange for hover */
+  color: var(--dark-blue); /* Darker orange for better contrast */
   transform: translateY(-1px);
   border-color: #c44a00;
 }

@@ -883,7 +883,7 @@ body {
 
 .problem-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Force 4 columns on desktop */
+  grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
   gap: 40px;
 }
 
@@ -974,19 +974,10 @@ body {
 }
 
 /* Responsive breakpoints for problem grid */
+/* Skip 3-column layout entirely - go straight from 4 to 2 */
 @media (max-width: 1200px) {
   .problem-grid {
-    grid-template-columns: repeat(
-      3,
-      1fr
-    ); /* 3 columns on medium-large screens */
-    gap: 35px;
-  }
-}
-
-@media (max-width: 900px) {
-  .problem-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    grid-template-columns: repeat(2, 1fr); /* Jump directly to 2 columns */
     gap: 30px;
   }
 }
@@ -1086,11 +1077,20 @@ body {
   margin-bottom: 80px;
 }
 
+/* Change to flexbox for better wrapping behavior */
 .solution-video-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 60px;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* Set flex basis for each item */
+.solution-video,
+.solution-about {
+  flex: 1 1 45%; /* Grow, shrink, and take up 45% width */
+  min-width: 300px; /* Minimum width before wrapping */
 }
 
 .solution-text h2 {
@@ -1134,13 +1134,34 @@ body {
   height: auto;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-lg);
-  max-width: 600px; /* Add this to match your HTML width attribute */
-  object-fit: cover; /* Add this to prevent stretching */
+  max-width: 600px;
+  object-fit: cover;
+}
+
+/* Add section header styling for centered heading */
+.solution-section .section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  margin-top: 60px;
+}
+
+.solution-section .section-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 /* Video Section Styles */
 .solution-video {
   position: relative;
+}
+
+/* Remove extra margin from h3 above video */
+.solution-video h3 {
+  margin-top: 0;
 }
 
 .video-wrapper {
@@ -1162,12 +1183,9 @@ body {
   border-radius: var(--border-radius);
 }
 
-.solution-about h2 {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 20px;
-  letter-spacing: 1px;
+/* Adjust the about section */
+.solution-about {
+  text-align: center;
 }
 
 .solution-about .quote-text {
@@ -1188,13 +1206,21 @@ body {
   color: var(--text-light);
   line-height: 1.7;
   margin-bottom: 20px;
+  text-align: left;
 }
 
+/* Center the button container */
 .solution-about .btn {
   margin-top: 30px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
+  display: inline-block;
+}
+
+/* Override text alignment for paragraphs */
+.solution-about p:not(.quote-text) {
+  text-align: left;
 }
 
 @media (max-width: 1024px) {
@@ -1206,29 +1232,76 @@ body {
   .solution-content {
     margin-bottom: 60px;
   }
+
+  /* Adjust flex basis for medium screens */
+  .solution-video,
+  .solution-about {
+    flex: 1 1 48%;
+  }
+}
+
+/* Add padding for wrapped content between 700px and 1024px */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .solution-video-content {
+    padding: 0 60px; /* Add 60px padding on each side */
+  }
+
+  /* Make items take less width when wrapped */
+  .solution-video,
+  .solution-about {
+    flex: 1 1 100%; /* Full width of padded container */
+    max-width: 600px; /* Limit max width */
+    margin: 0 auto; /* Center the content */
+  }
+
+  /* Handle the first row image when it wraps */
+  .solution-content {
+    padding: 0 60px; /* Add same padding to first row */
+  }
+
+  .solution-image {
+    margin: 0 auto; /* Center the image container */
+    max-width: 450px; /* Make image smaller when wrapped */
+  }
+
+  .solution-image picture {
+    max-width: 100% !important; /* Override inline style */
+  }
 }
 
 @media (max-width: 768px) {
-  .solution-content,
-  .solution-video-content {
+  .solution-content {
     grid-template-columns: 1fr;
     gap: 40px;
     text-align: center;
   }
 
-  /* Change order on mobile - text first, then video */
+  /* Center and size the image on mobile */
+  .solution-image {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  .solution-image picture {
+    max-width: 100% !important;
+  }
+
+  /* Stack items vertically on mobile */
   .solution-video-content {
-    grid-template-areas:
-      'text'
-      'video';
+    flex-direction: column;
+    gap: 30px;
   }
 
+  /* Full width on mobile */
+  .solution-video,
   .solution-about {
-    grid-area: text;
+    flex: 1 1 100%;
+    min-width: auto;
   }
 
-  .solution-video {
-    grid-area: video;
+  /* Ensure text comes first on mobile */
+  .solution-about {
+    order: -1; /* Move text above video */
   }
 
   .solution-content {
@@ -1236,18 +1309,23 @@ body {
   }
 
   .solution-text h2,
-  .solution-about h2 {
+  .solution-section .section-header h2 {
     font-size: 28px;
   }
 
   .solution-about .quote-text {
     font-size: 20px;
   }
+
+  /* Center all text on mobile */
+  .solution-about p:not(.quote-text) {
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
   .solution-text h2,
-  .solution-about h2 {
+  .solution-section .section-header h2 {
     font-size: 24px;
   }
 

@@ -68,7 +68,7 @@ body {
  * =====================================================
  */
 :root {
-  --primary-color: #b3a885;
+  --primary-color: #b5a881;
   --primary-dark: #9a916f;
   --primary-light: #c7bda0;
   --secondary-color: #2c3e50;
@@ -5789,6 +5789,18 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .roof-replacement-hero {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .roof-replacement-hero {
+    padding: 140px 0 60px;
+  }
+}
+
 /* Video Background Wrapper */
 .roof-hero-video-wrapper {
   position: absolute;
@@ -5798,6 +5810,13 @@ body {
   height: 100%;
   z-index: -2;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  /* Keep video visible on mobile */
+  .roof-hero-video-wrapper {
+    display: block;
+  }
 }
 
 /* Video Element */
@@ -5819,6 +5838,13 @@ body {
   will-change: transform;
 }
 
+@media (max-width: 768px) {
+  /* Ensure video doesn't cause horizontal scroll */
+  .roof-hero-video {
+    max-width: 100vw;
+  }
+}
+
 /* Content stays on top */
 .roof-hero-content {
   position: relative;
@@ -5837,6 +5863,18 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+@media (max-width: 768px) {
+  .roof-hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .roof-hero-title {
+    font-size: 2rem;
+  }
+}
+
 .roof-hero-subtitle {
   color: #000000; /* Black text */
   font-size: 1.8rem;
@@ -5848,6 +5886,18 @@ body {
   position: relative;
   z-index: 1;
   transition: text-shadow 0.3s ease 1.5s;
+}
+
+@media (max-width: 768px) {
+  .roof-hero-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .roof-hero-subtitle {
+    font-size: 1.2rem;
+  }
 }
 
 /* Remove text shadow after background appears */
@@ -5957,42 +6007,6 @@ body {
   }
 }
 
-/* Mobile optimization for video */
-@media (max-width: 768px) {
-  .roof-replacement-hero {
-    min-height: 400px;
-  }
-
-  /* Keep video visible on mobile */
-  .roof-hero-video-wrapper {
-    display: block;
-  }
-
-  /* Ensure video doesn't cause horizontal scroll */
-  .roof-hero-video {
-    max-width: 100vw;
-  }
-
-  /* Responsive text sizes */
-  .roof-hero-title {
-    font-size: 2.5rem;
-  }
-
-  .roof-hero-subtitle {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .roof-hero-title {
-    font-size: 2rem;
-  }
-
-  .roof-hero-subtitle {
-    font-size: 1.2rem;
-  }
-}
-
 /* Introduction Section */
 .roof-replacement-intro {
   padding: 80px 0;
@@ -6006,11 +6020,24 @@ body {
   );
 }
 
+@media (max-width: 480px) {
+  .roof-replacement-intro {
+    padding: 60px 0;
+  }
+}
+
 .roof-intro-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .roof-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
 }
 
 .roof-intro-content {
@@ -6035,10 +6062,30 @@ body {
   margin-bottom: 1.5rem;
 }
 
+@media (max-width: 480px) {
+  .roof-intro-header h3 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .roof-intro-header {
+    text-align: center;
+  }
+}
+
 .roof-intro-text {
   font-size: 1.1rem;
   color: #666;
   line-height: 1.8;
+}
+
+@media (max-width: 1024px) {
+  .roof-intro-text {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
 }
 
 .roof-intro-text strong {
@@ -6052,6 +6099,19 @@ body {
   margin-bottom: 1rem;
 }
 
+@media (max-width: 1024px) {
+  .roof-why-choose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .roof-why-choose h3 {
+    text-align: center;
+  }
+}
+
 .roof-benefits-list {
   list-style: none;
   padding: 0;
@@ -6061,12 +6121,38 @@ body {
   gap: 0.75rem;
 }
 
+@media (max-width: 1024px) {
+  .roof-benefits-list {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
 .roof-benefits-list li {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   font-size: 1rem;
   color: #666;
+}
+
+@media (max-width: 1024px) {
+  .roof-benefits-list li {
+    width: fit-content;
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .roof-benefits-list li {
+    padding: 0 15px;
+    font-size: 0.95rem;
+  }
 }
 
 .roof-benefits-list i {
@@ -6082,11 +6168,57 @@ body {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 1024px) {
+  .roof-intro-image {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
 .roof-showcase-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   min-height: 400px;
+}
+
+@media (max-width: 1024px) {
+  .roof-showcase-image {
+    min-height: 300px;
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .roof-showcase-image {
+    min-height: 250px;
+    max-height: 300px;
+  }
+}
+
+/* Hide mobile image on desktop */
+.roof-intro-image-mobile {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  /* Show mobile image */
+  .roof-intro-image-mobile {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Hide desktop image */
+  .roof-intro-image {
+    display: none;
+  }
 }
 
 /* Signs Section */
@@ -6099,30 +6231,91 @@ body {
   position: relative;
 }
 
+@media (max-width: 480px) {
+  .roof-signs-section {
+    padding: 60px 0;
+  }
+}
+
 /* Ensure content stays above overlay */
 .roof-signs-section .container {
   position: relative;
   z-index: 1;
 }
 
+/* Signs Section Title with Background Effect */
 .roof-signs-section h2 {
-  color: white;
+  color: #2c3e50; /* Secondary color (dark blue) */
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #b3a885 0%, #c7bda0 50%, #b3a885 100%);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(179, 168, 133, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 2px 2px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Wrapper for the highlight effect */
+.roof-signs-title-highlight {
+  position: relative;
+  padding: 0.3em 0.6em;
+  display: inline-block;
+  background: linear-gradient(135deg, #b3a885 0%, #c7bda0 50%, #b3a885 100%);
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(179, 168, 133, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 2px 2px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 2px rgba(0, 0, 0, 0.1);
+  transform: skewX(-2deg);
+}
+
+/* Make sure the text inside stays straight */
+.roof-signs-title-highlight span {
+  display: inline-block;
+  transform: skewX(2deg);
+}
+
+/* Hover effect */
+.roof-signs-title-highlight:hover {
+  transform: skewX(-2deg) translateY(-2px);
+  box-shadow: 0 6px 25px rgba(179, 168, 133, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 2px 2px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 2px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 .roof-signs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin-top: 3rem;
 }
 
+@media (max-width: 1200px) {
+  .roof-signs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .roof-signs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .roof-sign-card {
   background: white;
-  padding: 2.5rem;
+  padding: 20px;
   border-radius: 12px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   border: 1px solid #e0e0e0;
+}
+
+@media (max-width: 480px) {
+  .roof-sign-card {
+    padding: 20px;
+  }
 }
 
 .roof-sign-card:hover {
@@ -6149,9 +6342,15 @@ body {
 }
 
 .roof-sign-card h3 {
-  font-size: 1.375rem;
+  font-size: 22px;
   color: #2c3e50;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .roof-sign-card h3 {
+    font-size: 18px;
+  }
 }
 
 .roof-sign-card ul {
@@ -6163,10 +6362,16 @@ body {
 .roof-sign-card li {
   padding: 0.5rem 0;
   color: #666;
-  font-size: 0.95rem;
+  font-size: 16px;
   line-height: 1.6;
   position: relative;
   padding-left: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .roof-sign-card li {
+    font-size: 14px;
+  }
 }
 
 .roof-sign-card li::before {
@@ -6176,11 +6381,16 @@ body {
   color: #e74c3c;
   font-weight: bold;
 }
-
 /* Process Section */
 .roof-process-section {
   padding: 80px 0;
   background: white;
+}
+
+@media (max-width: 480px) {
+  .roof-process-section {
+    padding: 60px 0;
+  }
 }
 
 .roof-process-intro {
@@ -6202,6 +6412,12 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .roof-process-steps {
+    grid-template-columns: 1fr;
+  }
 }
 
 .roof-process-step {
@@ -6252,6 +6468,12 @@ body {
   object-fit: cover;
 }
 
+@media (max-width: 768px) {
+  .roof-gallery-image {
+    height: 300px;
+  }
+}
+
 .roof-gallery-carousel-wrapper .carousel-control-prev,
 .roof-gallery-carousel-wrapper .carousel-control-next {
   width: 50px;
@@ -6261,6 +6483,21 @@ body {
   opacity: 1;
   top: 50%;
   transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  .roof-gallery-carousel-wrapper .carousel-control-prev,
+  .roof-gallery-carousel-wrapper .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .roof-gallery-carousel-wrapper .carousel-control-prev,
+  .roof-gallery-carousel-wrapper .carousel-control-next {
+    display: none;
+  }
 }
 
 .roof-gallery-carousel-wrapper .carousel-control-prev {
@@ -6313,6 +6550,12 @@ body {
   gap: 2rem;
 }
 
+@media (max-width: 768px) {
+  .roof-materials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .roof-material-card {
   background: #f8f9fa;
   padding: 2rem;
@@ -6321,6 +6564,12 @@ body {
   border: 1px solid transparent;
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .roof-material-card {
+    padding: 1.5rem;
+  }
 }
 
 /* Background image setup for each material card */
@@ -6434,11 +6683,23 @@ body {
   background: #f8f9fa;
 }
 
+@media (max-width: 480px) {
+  .roof-services-section {
+    padding: 60px 0;
+  }
+}
+
 .roof-services-showcase {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .roof-services-showcase {
+    grid-template-columns: 1fr;
+  }
 }
 
 .roof-service-item {
@@ -6449,6 +6710,12 @@ body {
   border-radius: 12px;
   transition: all 0.3s ease;
   border: 1px solid #e0e0e0;
+}
+
+@media (max-width: 480px) {
+  .roof-service-item {
+    padding: 1.5rem;
+  }
 }
 
 .roof-service-item:hover {
@@ -6512,11 +6779,24 @@ body {
   background-attachment: fixed; /* Optional: creates parallax effect */
 }
 
+@media (max-width: 480px) {
+  .roof-financing-section {
+    padding: 60px 0;
+  }
+}
+
 .roof-financing-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .roof-financing-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 .roof-financing-card,
@@ -6527,6 +6807,13 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
   transition: all 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .roof-financing-card,
+  .roof-budget-card {
+    padding: 2rem;
+  }
 }
 
 .roof-financing-card:hover,
@@ -6569,6 +6856,12 @@ body {
   background: white;
 }
 
+@media (max-width: 480px) {
+  .roof-contact-section {
+    padding: 60px 0;
+  }
+}
+
 .roof-contact-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -6576,11 +6869,24 @@ body {
   margin-top: 3rem;
 }
 
+@media (max-width: 1024px) {
+  .roof-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
 .roof-form-container {
   background: #f8f9fa;
   padding: 3rem;
   border-radius: 12px;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .roof-form-container {
+    padding: 2rem;
+  }
 }
 
 .roof-form-header h3 {
@@ -6608,6 +6914,13 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .roof-form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 .roof-form-group {
@@ -6700,105 +7013,8 @@ body {
   font-weight: 600;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .roof-intro-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .roof-intro-image {
-    order: -1;
-  }
-
-  .roof-financing-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .roof-contact-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .roof-hero-title {
-    font-size: 2.5rem;
-  }
-
-  .roof-hero-subtitle {
-    font-size: 1.5rem;
-  }
-
-  .roof-signs-grid,
-  .roof-process-steps,
-  .roof-materials-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .roof-services-showcase {
-    grid-template-columns: 1fr;
-  }
-
-  .roof-gallery-image {
-    height: 300px;
-  }
-
-  .roof-gallery-carousel-wrapper .carousel-control-prev,
-  .roof-gallery-carousel-wrapper .carousel-control-next {
-    width: 40px;
-    height: 40px;
-  }
-
-  .roof-form-row {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .roof-form-container {
-    padding: 2rem;
-  }
-}
-
+/* Global text adjustments for mobile */
 @media (max-width: 480px) {
-  .roof-replacement-hero {
-    padding: 140px 0 60px;
-  }
-
-  .roof-hero-title {
-    font-size: 2rem;
-  }
-
-  .roof-hero-subtitle {
-    font-size: 1.2rem;
-  }
-
-  .roof-replacement-intro,
-  .roof-signs-section,
-  .roof-process-section,
-  .roof-services-section,
-  .roof-financing-section,
-  .roof-contact-section {
-    padding: 60px 0;
-  }
-
-  .roof-sign-card,
-  .roof-material-card,
-  .roof-service-item {
-    padding: 1.5rem;
-  }
-
-  .roof-financing-card,
-  .roof-budget-card {
-    padding: 2rem;
-  }
-
-  .roof-gallery-carousel-wrapper .carousel-control-prev,
-  .roof-gallery-carousel-wrapper .carousel-control-next {
-    display: none;
-  }
-
   .section-title {
     font-size: 1.8rem;
   }

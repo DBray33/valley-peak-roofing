@@ -2365,11 +2365,23 @@
             data-title="Siding Installation"
             data-location="Emmaus, PA">
             <div class="portfolio-image">
-              <img
-                src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/placeholders/placeholder5.webp"
-                alt="Siding Installation Project"
-                width="400"
-                height="300" />
+              <picture>
+                <source
+                  media="(max-width: 768px)"
+                  srcset="
+                    https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/placeholders/placeholder5-mobile.webp
+                  " />
+                <source
+                  media="(min-width: 769px)"
+                  srcset="
+                    https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/placeholders/placeholder5-desktop.webp
+                  " />
+                <img
+                  src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/placeholders/placeholder5-mobile.webp"
+                  alt="Siding Installation Project"
+                  width="400"
+                  height="300" />
+              </picture>
               <div class="portfolio-overlay">
                 <div class="portfolio-info">
                   <h3>Siding Installation</h3>

@@ -1420,12 +1420,24 @@
                 <div class="modal-content-grid">
                   <!-- Image Section -->
                   <div class="modal-image-section">
-                    <img
-                      src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/architectural-shingles-popup.webp?v=2"
-                      alt="Premium Architectural Shingles Installation"
-                      class="modal-image"
-                      width="720"
-                      height="500" />
+                    <picture>
+                      <source
+                        media="(max-width: 768px)"
+                        srcset="
+                          https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/architectural-shingles-popup-mobile.webp
+                        " />
+                      <source
+                        media="(min-width: 769px)"
+                        srcset="
+                          https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/architectural-shingles-popup.webp?v=2
+                        " />
+                      <img
+                        src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/architectural-shingles-popup-mobile.webp"
+                        alt="Premium Architectural Shingles Installation"
+                        class="modal-image"
+                        width="720"
+                        height="500" />
+                    </picture>
                     <div class="image-overlay">
                       <h4>Premium Quality Materials</h4>
                       <p>Professional installation with lifetime warranty</p>

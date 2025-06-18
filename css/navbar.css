@@ -31,10 +31,10 @@
 }
 
 .company-name {
-  font-family: 'trajan-pro', serif;
-  font-size: 20px;
+  font-family: 'girassol', serif;
+  font-size: 28px;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 1px;
   white-space: nowrap;
@@ -80,7 +80,7 @@
   }
 
   .company-name {
-    font-size: 14px;
+    font-size: 20px;
   }
 }
 
@@ -94,7 +94,7 @@
   }
 
   .company-name {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 

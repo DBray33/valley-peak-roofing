@@ -7914,7 +7914,7 @@ body {
 
 /**
  * =====================================================
- * MODAL STYLES
+ * UNIFIED MODAL STYLES - ONE STYLE FOR ALL MODALS
  * =====================================================
  */
 .modal {
@@ -7942,7 +7942,7 @@ body {
   background: var(--white);
   border-radius: var(--border-radius);
   width: 90%;
-  max-width: 600px;
+  max-width: 900px; /* Wider for service modals */
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: var(--shadow-lg);
@@ -7966,6 +7966,14 @@ body {
   font-size: 24px;
   font-weight: 600;
   color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-header h3 i {
+  color: var(--primary-color);
+  font-size: 28px;
 }
 
 .close-modal {
@@ -7986,23 +7994,151 @@ body {
   padding: 30px;
 }
 
-/* Modal Media Queries */
-@media (max-width: 768px) {
-  .modal-content {
-    width: 95%;
-  }
-
-  .modal-header,
-  .modal-body {
-    padding: 20px;
-  }
+/* Service Modal Specific Styles */
+.service-modal-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-/**
- * =====================================================
- * FORM STYLES
- * =====================================================
- */
+.service-modal-content {
+  text-align: center;
+}
+
+.service-modal-content h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.service-modal-content > p {
+  font-size: 16px;
+  color: var(--text-light);
+  margin-bottom: 25px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-modal-image {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.service-modal-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.image-overlay h4 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.image-overlay p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Benefits and Warranty Row */
+.benefits-warranty-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Benefits get more space than warranty */
+  gap: 30px;
+  align-items: start;
+  margin: 30px auto;
+  max-width: 900px;
+}
+
+.benefits-list {
+  margin: 0; /* Remove vertical margins */
+  text-align: left;
+}
+
+.benefits-list h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.benefits-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.benefits-list li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text-light);
+}
+
+.benefits-list li i {
+  color: var(--primary-color);
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.warranty-badge {
+  background: #f8f7f4;
+  border-left: 4px solid var(--primary-color);
+  padding: 20px;
+  margin: 0; /* Remove auto margins */
+  height: 100%; /* Make it fill the height of the row */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: var(--border-radius);
+}
+
+.warranty-badge i {
+  font-size: 36px;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.warranty-badge strong {
+  font-size: 18px;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.warranty-badge p {
+  font-size: 14px;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.modal-cta-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+/* Form Styles (for estimate modal) */
 .estimate-form {
   display: flex;
   flex-direction: column;
@@ -8044,8 +8180,64 @@ body {
   box-shadow: 0 0 0 3px rgba(179, 168, 133, 0.1);
 }
 
-/* Form Media Queries */
+.form-guarantee {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 14px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.form-guarantee i {
+  color: var(--primary-color);
+}
+
+/* Modal Media Queries */
 @media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    max-width: none;
+  }
+
+  .modal-header,
+  .modal-body {
+    padding: 20px;
+  }
+
+  .modal-header h3 {
+    font-size: 20px;
+  }
+
+  .modal-header h3 i {
+    font-size: 24px;
+  }
+
+  .service-modal-content h2 {
+    font-size: 24px;
+  }
+
+  /* Stack benefits and warranty on mobile */
+  .benefits-warranty-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .benefits-list {
+    margin-bottom: 0;
+  }
+
+  .warranty-badge {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+
+  .modal-cta-buttons {
+    flex-direction: column;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
     gap: 15px;

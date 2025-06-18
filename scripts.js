@@ -21,6 +21,7 @@ const App = {
       ScrollAnimations,
       TestimonialCarousel,
       FAQAccordion,
+      ModalManager, // ← Changed from ServiceModals
       EstimateModal,
       FormHandling,
       PhoneFormatting,
@@ -361,53 +362,151 @@ const FAQAccordion = {
 
 /**
  * =====================================================
- * ESTIMATE MODAL MODULE
+ * UNIFIED MODAL SYSTEM - REPLACE ALL MODAL CODE WITH THIS
+ * =====================================================
+ */
+
+// Simple Universal Modal Manager
+const ModalManager = {
+  init: function () {
+    console.log('ModalManager: Initializing unified system...');
+    this.setupCloseButtons();
+    this.setupClickOutside();
+    this.setupEscapeKey();
+  },
+
+  setupCloseButtons: function () {
+    // Wait for DOM to be ready, then attach close button handlers
+    setTimeout(() => {
+      const closeButtons = [
+        { selector: '.close-modal', modalId: 'estimate-modal' },
+        {
+          selector: '.close-shingles-modal',
+          modalId: 'architectural-shingles-modal',
+        },
+        { selector: '.close-metal-roof-modal', modalId: 'metal-roof-modal' },
+      ];
+
+      closeButtons.forEach((config) => {
+        const buttons = document.querySelectorAll(config.selector);
+        buttons.forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log(`Close button clicked: ${config.selector}`);
+            this.closeModal(config.modalId);
+          });
+        });
+        console.log(`✅ Close buttons setup: ${config.selector}`);
+      });
+    }, 500);
+  },
+
+  setupClickOutside: function () {
+    const modals = [
+      'estimate-modal',
+      'architectural-shingles-modal',
+      'metal-roof-modal',
+    ];
+
+    modals.forEach((modalId) => {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          // Only close if clicking directly on the modal background
+          if (e.target === modal) {
+            console.log(`Click outside detected: ${modalId}`);
+            this.closeModal(modalId);
+          }
+        });
+      }
+    });
+  },
+
+  setupEscapeKey: function () {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const activeModal = document.querySelector('.modal.active');
+        if (activeModal) {
+          console.log('Escape key pressed');
+          this.closeModal(activeModal.id);
+        }
+      }
+    });
+  },
+
+  openModal: function (modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.add('active');
+      document.body.classList.add('modal-open');
+      document.body.style.overflow = 'hidden';
+      console.log(`Modal opened: ${modalId}`);
+    }
+  },
+
+  closeModal: function (modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+      document.body.style.overflow = '';
+      console.log(`Modal closed: ${modalId}`);
+    }
+  },
+};
+
+/**
+ * =====================================================
+ * ESTIMATE MODAL - SIMPLIFIED
  * =====================================================
  */
 const EstimateModal = {
   init: function () {
-    this.modal = document.getElementById('estimate-modal');
-    this.closeBtn = document.querySelector('.close-modal');
-    this.body = document.body;
-
-    if (!this.modal) return;
-
-    this.initEventListeners();
-  },
-
-  initEventListeners: function () {
-    // Close modal events
-    if (this.closeBtn) {
-      this.closeBtn.addEventListener('click', () => this.close());
-    }
-
-    // Close modal when clicking outside
-    this.modal.addEventListener('click', (e) => {
-      if (e.target === this.modal) {
-        this.close();
-      }
-    });
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.modal.classList.contains('active')) {
-        this.close();
-      }
-    });
+    console.log('EstimateModal: Ready');
   },
 
   open: function () {
-    this.modal.classList.add('active');
-    this.body.classList.add('modal-open');
-    this.body.style.overflow = 'hidden';
+    ModalManager.openModal('estimate-modal');
   },
 
   close: function () {
-    this.modal.classList.remove('active');
-    this.body.classList.remove('modal-open');
-    this.body.style.overflow = '';
+    ModalManager.closeModal('estimate-modal');
   },
 };
+
+/**
+ * =====================================================
+ * GLOBAL FUNCTIONS FOR SERVICE MODALS
+ * Keep these - your HTML onclick attributes need them
+ * =====================================================
+ */
+function openArchitecturalShinglesModal(event) {
+  event.preventDefault();
+  console.log('Opening architectural shingles modal');
+  ModalManager.openModal('architectural-shingles-modal');
+}
+
+function closeArchitecturalShinglesModal() {
+  console.log('Closing architectural shingles modal');
+  ModalManager.closeModal('architectural-shingles-modal');
+}
+
+function openMetalRoofModal(event) {
+  event.preventDefault();
+  console.log('Opening metal roof modal');
+  ModalManager.openModal('metal-roof-modal');
+}
+
+function closeMetalRoofModal() {
+  console.log('Closing metal roof modal');
+  ModalManager.closeModal('metal-roof-modal');
+}
+
+// Initialize everything when DOM is ready
+document.addEventListener('DOMContentLoaded', function () {
+  ModalManager.init();
+  EstimateModal.init();
+});
 
 /**
  * =====================================================

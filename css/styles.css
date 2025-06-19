@@ -72,8 +72,7 @@ body {
   --primary-dark: #9a916f;
   --primary-light: #c7bda0;
   --secondary-color: #2c3e50;
-  --accent-color: #e74c3c;
-  --orange-accent: #e56008;
+  --orange-accent: #f1620a;
   --orange-light: #ff7518;
   --dark-blue: #2d3e50;
   --dark-blue-rgb: 26, 59, 92;
@@ -3806,7 +3805,7 @@ body {
 /* Emergency CTA Section */
 .contact-emergency {
   padding: 60px 0;
-  background: linear-gradient(135deg, var(--accent-color), #c0392b);
+  background: linear-gradient(135deg, var(--orange-accent), #c0392b);
   color: var(--white);
 }
 
@@ -3863,7 +3862,7 @@ body {
 /* Emergency Button - Higher Specificity */
 .emergency-btn.btn-primary {
   background: var(--white) !important;
-  color: var(--accent-color) !important;
+  color: var(--orange-accent) !important;
   border-color: var(--white) !important;
   font-weight: 700;
   text-transform: uppercase;
@@ -3887,7 +3886,7 @@ body {
 /* Alternative approach without !important - even higher specificity */
 .contact-emergency .emergency-actions .emergency-btn.btn-primary.btn-large {
   background: var(--white);
-  color: var(--accent-color);
+  color: var(--orange-accent);
   border-color: var(--white);
   font-weight: 700;
   text-transform: uppercase;
@@ -6499,49 +6498,269 @@ body {
   font-weight: 600;
 }
 
-.roof-process-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 4rem;
-}
-
-@media (max-width: 768px) {
-  .roof-process-steps {
-    grid-template-columns: 1fr;
-  }
-}
-
-.roof-process-step {
-  text-align: center;
+/* Roof process timeline */
+.roof-process-timeline {
   position: relative;
-  padding: 2rem 1.5rem;
+  padding: 20px 0;
+  margin: 2rem 0;
 }
 
-.roof-step-number {
+/* Vertical timeline line - now with gradient including orange */
+.roof-process-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    var(--orange-accent, #ff6b35),
+    #b3a885 20%,
+    #b3a885 80%,
+    var(--orange-accent, #ff6b35) 95%,
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+/* Timeline items */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+/* Alternate sides */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  padding-right: 40px;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  padding-left: 40px;
+}
+
+/* Content container - added orange accent border on hover */
+.timeline-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+/* Hover effect with orange accent */
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 25px rgba(255, 107, 53, 0.15);
+  border-color: var(--orange-accent, #ff6b35);
+}
+
+/* Arrow pointing to timeline */
+.timeline-item:nth-child(odd) .timeline-content::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 30px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid white;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 30px;
+  width: 0;
+  height: 0;
+  border-right: 10px solid white;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+/* Arrow border on hover */
+.timeline-item:nth-child(odd) .timeline-content:hover::after {
+  border-left-color: var(--orange-accent, #ff6b35);
+}
+
+.timeline-item:nth-child(even) .timeline-content:hover::after {
+  border-right-color: var(--orange-accent, #ff6b35);
+}
+
+/* Timeline dot/circle - alternating colors */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  width: 20px;
+  height: 20px;
+  background: #b3a885;
+  border: 4px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #b3a885;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+/* Orange accent on even numbered items */
+.timeline-item:nth-child(even)::before {
+  background: var(--orange-accent, #ff6b35);
+  box-shadow: 0 0 0 3px var(--orange-accent, #ff6b35);
+}
+
+/* Pulse animation on hover */
+.timeline-item:hover::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 5px rgba(255, 107, 53, 0.3);
+}
+
+.timeline-item:nth-child(odd)::before {
+  right: -10px;
+}
+
+.timeline-item:nth-child(even)::before {
+  left: -10px;
+}
+
+/* Step number - gradient background */
+.timeline-number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: #b3a885;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--orange-accent, #ff6b35), #b3a885);
   color: white;
   border-radius: 50%;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
+  position: relative;
+  overflow: hidden;
 }
 
-.roof-process-step h3 {
+/* Shimmer effect on number */
+.timeline-number::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s;
+  opacity: 0;
+}
+
+.timeline-content:hover .timeline-number::before {
+  animation: shimmer 0.6s ease-out;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Text styling - add orange accent to heading on hover */
+.timeline-content h3 {
   font-size: 1.25rem;
   color: #2c3e50;
   margin-bottom: 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
-.roof-process-step p {
+.timeline-content:hover h3 {
+  color: var(--orange-accent, #ff6b35);
+}
+
+.timeline-content p {
   font-size: 1rem;
   color: #666;
   line-height: 1.6;
+  margin: 0;
+}
+
+/* Removed decorative top border element */
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .roof-process-timeline::before {
+    left: 30px;
+    background: linear-gradient(
+      to bottom,
+      var(--orange-accent, #ff6b35),
+      #b3a885 10%,
+      #b3a885 90%,
+      transparent
+    );
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 80px !important;
+    padding-right: 20px !important;
+    left: 0 !important;
+  }
+
+  .timeline-item::before {
+    left: 20px !important;
+    right: auto !important;
+  }
+
+  .timeline-content::after {
+    left: -10px !important;
+    right: auto !important;
+    border-left: none !important;
+    border-right: 10px solid white !important;
+  }
+
+  .timeline-content:hover::after {
+    border-right-color: var(--orange-accent, #ff6b35) !important;
+  }
+
+  .timeline-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .timeline-content {
+    padding: 1.5rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.95rem;
+  }
 }
 
 /* Gallery Carousel */

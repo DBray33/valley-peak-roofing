@@ -27,12 +27,15 @@
 .company-name {
   font-family: 'girassol', serif;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 700; /* Increased from 600 */
   color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 1px;
   white-space: nowrap;
   margin-top: 5px;
+  /* Subtle shadow + slight darkening */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  filter: brightness(0.9);
 }
 
 .large-letter {

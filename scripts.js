@@ -259,13 +259,14 @@ const ScrollAnimations = {
       });
     }, observerOptions);
 
-    // Select all elements with animation classes
+    // Select all elements with animation classes - INCLUDING the new slide-in-left-delay classes
     const animatedElements = document.querySelectorAll(
       '.fade-in, .fade-in-delay, .fade-in-delay-2, .fade-in-delay-3, ' +
         '.slide-up, .slide-up-delay, .slide-up-delay-2, .slide-up-delay-3, ' +
         '.slide-up-delay-4, .slide-up-delay-5, .slide-up-delay-6, ' +
         '.slide-up-delay-7, .slide-up-delay-8, .slide-in-left, .slide-in-right, ' +
         '.slide-in-right-delay, .slide-in-right-delay-2, .slide-in-right-delay-3, ' +
+        '.slide-in-left-delay, .slide-in-left-delay-2, .slide-in-left-delay-3, ' +
         '.stagger-animation'
     );
 
@@ -2850,7 +2851,6 @@ document.addEventListener('DOMContentLoaded', function () {
 /**
  * =====================================================
  * ROOF REPLACEMENT VIDEO CONTROL
- * Add this to your scripts.js file
  * =====================================================
  */
 
@@ -2885,6 +2885,83 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+});
+
+/**
+ * =====================================================
+ * ROOF REPLACEMENT TIMELINE ANIMMATION
+ * =====================================================
+ */
+// Timeline Animation Script
+document.addEventListener('DOMContentLoaded', function () {
+  // Get the timeline element
+  const timeline = document.querySelector('.roof-process-timeline');
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  // Remove any existing slide-in classes that might interfere
+  timelineItems.forEach((item) => {
+    // Remove all classes that start with 'slide-in'
+    const classesToRemove = Array.from(item.classList).filter((className) =>
+      className.startsWith('slide-in')
+    );
+    classesToRemove.forEach((className) => item.classList.remove(className));
+  });
+
+  // Options for the Intersection Observer
+  const observerOptions = {
+    root: null,
+    rootMargin: '-100px',
+    threshold: 0.1,
+  };
+
+  // Create the observer
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // First animate the timeline line
+        timeline.classList.add('timeline-visible');
+
+        // Then animate the timeline items
+        timelineItems.forEach((item, index) => {
+          // Clear any existing animations
+          item.classList.remove('slide-in-active');
+
+          // Force a reflow to ensure the animation restarts
+          void item.offsetWidth;
+
+          // Add the class after the appropriate delay
+          setTimeout(() => {
+            item.classList.add('slide-in-active');
+          }, 0); // Rely on CSS transition-delay for timing
+        });
+
+        // Optional: Stop observing after animation triggers
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Start observing the timeline
+  if (timeline) {
+    observer.observe(timeline);
+  }
+
+  // Optional: Reset animations when scrolling far away
+  window.addEventListener('scroll', function () {
+    const rect = timeline.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // If timeline is far out of view (above or below)
+    if (rect.bottom < -windowHeight || rect.top > windowHeight * 2) {
+      timeline.classList.remove('timeline-visible');
+      timelineItems.forEach((item) => {
+        item.classList.remove('slide-in-active');
+      });
+
+      // Re-observe for next time
+      observer.observe(timeline);
+    }
+  });
 });
 
 /**

@@ -6498,14 +6498,14 @@ body {
   font-weight: 600;
 }
 
-/* Roof process timeline */
+/* ROOF PROCESS TIMELINE */
 .roof-process-timeline {
   position: relative;
   padding: 20px 0;
   margin: 2rem 0;
 }
 
-/* Vertical timeline line - now with gradient including orange */
+/* Vertical timeline line - with animation */
 .roof-process-timeline::before {
   content: '';
   position: absolute;
@@ -6521,25 +6521,61 @@ body {
     var(--orange-accent, #ff6b35) 95%,
     transparent
   );
-  transform: translateX(-50%);
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Timeline items */
+/* Active state for timeline line */
+.roof-process-timeline.timeline-visible::before {
+  transform: translateX(-50%) scaleY(1);
+}
+
+/* Timeline items - initially hidden */
 .timeline-item {
   position: relative;
   width: 50%;
   margin-bottom: 30px;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Alternate sides */
+/* Alternate sides with initial transform */
 .timeline-item:nth-child(odd) {
   left: 0;
   padding-right: 40px;
+  transform: translateX(-50px);
 }
 
 .timeline-item:nth-child(even) {
   left: 50%;
   padding-left: 40px;
+  transform: translateX(50px);
+}
+
+/* Active state for timeline items */
+.timeline-item.slide-in-active {
+  opacity: 1;
+  transform: translateX(0) !important;
+}
+
+/* Staggered delays for items (after line animation completes) */
+.timeline-item:nth-child(1) {
+  transition-delay: 0.6s; /* Start immediately after line (0.6s) */
+}
+.timeline-item:nth-child(2) {
+  transition-delay: 0.7s; /* 0.1s after first item */
+}
+.timeline-item:nth-child(3) {
+  transition-delay: 0.8s; /* 0.1s after second item */
+}
+.timeline-item:nth-child(4) {
+  transition-delay: 0.9s; /* 0.1s after third item */
+}
+
+/* Reset delays when not active to prevent delay on scroll out */
+.roof-process-timeline:not(.timeline-visible) .timeline-item {
+  transition-delay: 0s !important;
 }
 
 /* Content container - added orange accent border on hover */
@@ -6609,6 +6645,12 @@ body {
   box-shadow: 0 0 0 3px #b3a885;
   z-index: 1;
   transition: all 0.3s ease;
+  opacity: 0; /* Hide dots initially */
+}
+
+/* Show dots when active */
+.timeline-item.slide-in-active::before {
+  opacity: 1;
 }
 
 /* Orange accent on even numbered items */
@@ -6705,8 +6747,6 @@ body {
   line-height: 1.6;
   margin: 0;
 }
-
-/* Removed decorative top border element */
 
 /* Mobile responsive */
 @media (max-width: 768px) {
@@ -8987,6 +9027,43 @@ body {
 }
 
 .slide-in-right-delay-3.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Add slide-in-left delay variations for timeline */
+.slide-in-left-delay {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: var(--transition);
+  transition-delay: 0.2s;
+}
+
+.slide-in-left-delay.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-left-delay-2 {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: var(--transition);
+  transition-delay: 0.4s;
+}
+
+.slide-in-left-delay-2.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-left-delay-3 {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: var(--transition);
+  transition-delay: 0.6s;
+}
+
+.slide-in-left-delay-3.visible {
   opacity: 1;
   transform: translateX(0);
 }

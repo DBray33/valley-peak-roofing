@@ -5864,7 +5864,7 @@ body {
 
 /**
  * =====================================================
- * ROOF REPLACEMENT & INSTALLATION PAGE STYLES
+ * HOME ROOF REPLACEMENT & INSTALLATION PAGE STYLES
  * =====================================================
  */
 
@@ -6535,7 +6535,7 @@ body {
 .timeline-item {
   position: relative;
   width: 50%;
-  margin-bottom: 30px;
+  margin-bottom: 5px; /* Reduced from 15px - very close spacing */
   opacity: 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -7373,6 +7373,1394 @@ body {
   .section-subtitle {
     font-size: 1rem;
   }
+}
+
+/**
+ * =====================================================
+ * RESIDENTIAL ROOF REPAIRS PAGE
+ * =====================================================
+ */
+
+/* Hero Section */
+.repairs-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/f.%20residential-roof-repairs.html/home-roof-repairs-hero.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 140px 0 100px;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .repairs-hero {
+    padding: 120px 0 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-hero {
+    padding: 100px 0 60px;
+    background-attachment: scroll;
+  }
+}
+
+.repairs-hero-content {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.repairs-hero-tagline {
+  font-size: 1.125rem;
+  color: #b3a885;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .repairs-hero-tagline {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-hero-tagline {
+    font-size: 0.875rem;
+  }
+}
+
+.repairs-hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .repairs-hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-hero-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.repairs-hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .repairs-hero-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-hero-subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.repairs-hero-features {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .repairs-hero-features {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-hero-features {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.repairs-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-feature-item {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-feature-item {
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+}
+
+.repairs-feature-item i {
+  font-size: 1.5rem;
+  color: #b3a885;
+}
+
+@media (max-width: 480px) {
+  .repairs-feature-item i {
+    font-size: 1.25rem;
+  }
+}
+
+.repairs-hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .repairs-hero-cta {
+    gap: 1rem;
+  }
+}
+
+/* Introduction Section */
+.repairs-intro-section {
+  padding: 80px 0;
+  background: white;
+}
+
+@media (max-width: 480px) {
+  .repairs-intro-section {
+    padding: 60px 0;
+  }
+}
+
+.repairs-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .repairs-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.repairs-intro-content h2 {
+  font-size: 2.25rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .repairs-intro-content h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-intro-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.repairs-intro-content .lead {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .repairs-intro-content .lead {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-intro-content .lead {
+    font-size: 1rem;
+  }
+}
+
+.repairs-intro-content p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.8;
+}
+
+@media (max-width: 480px) {
+  .repairs-intro-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* Timeline List */
+.repairs-timeline-list {
+  margin-top: 2rem;
+}
+
+.repairs-timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  .repairs-timeline-item {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.repairs-timeline-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 50px;
+  bottom: -25px;
+  width: 2px;
+  background: #e0e0e0;
+}
+
+@media (max-width: 480px) {
+  .repairs-timeline-item:not(:last-child)::after {
+    left: 20px;
+    top: 40px;
+    bottom: -20px;
+  }
+}
+
+.repairs-timeline-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #b3a885, #c7bda0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(179, 168, 133, 0.3);
+}
+
+@media (max-width: 480px) {
+  .repairs-timeline-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.repairs-timeline-icon i {
+  color: white;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 480px) {
+  .repairs-timeline-icon i {
+    font-size: 1rem;
+  }
+}
+
+.repairs-timeline-content h4 {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-timeline-content h4 {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-timeline-content h4 {
+    font-size: 1rem;
+  }
+}
+
+.repairs-timeline-content p {
+  color: #666;
+  margin: 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .repairs-timeline-content p {
+    font-size: 0.875rem;
+  }
+}
+
+.repairs-showcase-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Accordion Section - Dark Blue with Wavy Background */
+.repairs-issues-section {
+  padding: 80px 0;
+  background: linear-gradient(rgba(0, 27, 61, 0.85), rgba(0, 27, 61, 0.85)),
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/wavy-services-bg.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .repairs-issues-section {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-issues-section {
+    padding: 60px 0;
+  }
+}
+
+.repairs-issues-section .section-header h2 {
+  color: white;
+  font-size: 2.25rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-issues-section .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-issues-section .section-header h2 {
+    font-size: 1.75rem;
+  }
+}
+
+.repairs-issues-section .section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-issues-section .section-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-issues-section .section-subtitle {
+    font-size: 0.875rem;
+  }
+}
+
+.repairs-issues-visual {
+  max-width: 800px;
+  margin: 2rem auto 3rem;
+  text-align: center;
+}
+
+.repairs-diagram-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.repairs-accordion {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.repairs-accordion-item {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .repairs-accordion-item {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.repairs-accordion-item:hover {
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.repairs-accordion-header {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .repairs-accordion-header {
+    padding: 1rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-accordion-header {
+    padding: 0.875rem 1rem;
+  }
+}
+
+.repairs-accordion-header:hover {
+  background: #f8f9fa;
+}
+
+.repairs-accordion-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.25rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .repairs-accordion-icon {
+    width: 45px;
+    height: 45px;
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-accordion-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 0.75rem;
+  }
+}
+
+.repairs-accordion-icon i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .repairs-accordion-icon i {
+    font-size: 1.375rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-accordion-icon i {
+    font-size: 1.25rem;
+  }
+}
+
+.repairs-accordion-header h3 {
+  flex: 1;
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin: 0;
+  line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+  .repairs-accordion-header h3 {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-accordion-header h3 {
+    font-size: 1rem;
+  }
+}
+
+.repairs-accordion-arrow {
+  font-size: 1.125rem;
+  color: #999;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .repairs-accordion-arrow {
+    font-size: 1rem;
+  }
+}
+
+.repairs-accordion-item.active .repairs-accordion-arrow {
+  transform: rotate(180deg);
+}
+
+.repairs-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.repairs-accordion-item.active .repairs-accordion-content {
+  max-height: 800px;
+}
+
+.repairs-accordion-inner {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-accordion-inner {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-accordion-inner {
+    padding: 0 1rem 1rem 1rem;
+  }
+}
+
+.repairs-accordion-details {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .repairs-accordion-details {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.repairs-accordion-text {
+  flex: 1;
+}
+
+.repairs-accordion-image {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .repairs-accordion-image {
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+  }
+}
+
+.repairs-accordion-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.repairs-accordion-inner h4 {
+  color: #e74c3c;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-accordion-inner h4 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-accordion-inner h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.repairs-service-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .repairs-service-list {
+    margin-bottom: 1rem;
+  }
+}
+
+.repairs-service-list li {
+  padding: 0.5rem 0;
+  color: #666;
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .repairs-service-list li {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-service-list li {
+    font-size: 0.875rem;
+    padding: 0.375rem 0;
+    padding-left: 1.25rem;
+  }
+}
+
+.repairs-service-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.repairs-inline-cta {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.3s ease;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-inline-cta {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-inline-cta {
+    font-size: 0.875rem;
+  }
+}
+
+.repairs-inline-cta:hover {
+  gap: 0.75rem;
+}
+
+/* Benefits Grid - Light Gold Gradient Background */
+.repairs-why-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f9f7f4 0%, #f5f1eb 100%);
+}
+
+@media (max-width: 480px) {
+  .repairs-why-section {
+    padding: 60px 0;
+  }
+}
+
+.repairs-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .repairs-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .repairs-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.repairs-benefit-item {
+  text-align: center;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .repairs-benefit-item {
+    padding: 1.5rem;
+  }
+}
+
+.repairs-benefit-item:hover {
+  transform: translateY(-5px);
+}
+
+.repairs-benefit-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #b3a885, #c7bda0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+  color: white;
+  box-shadow: 0 5px 20px rgba(179, 168, 133, 0.3);
+}
+
+@media (max-width: 768px) {
+  .repairs-benefit-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-benefit-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.repairs-benefit-item h3 {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-benefit-item h3 {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-benefit-item h3 {
+    font-size: 1rem;
+  }
+}
+
+.repairs-benefit-item p {
+  color: #666;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .repairs-benefit-item p {
+    font-size: 0.875rem;
+  }
+}
+
+.repairs-trust-badges {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.repairs-badges-image {
+  max-width: 600px;
+  height: auto;
+}
+
+/* Process Timeline - White Background */
+.repairs-process-section {
+  padding: 80px 0;
+  background: white;
+}
+
+@media (max-width: 480px) {
+  .repairs-process-section {
+    padding: 60px 0;
+  }
+}
+
+.repairs-process-intro {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .repairs-process-intro {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-process-intro {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+.repairs-process-intro strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.repairs-process-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .repairs-process-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.repairs-process-timeline {
+  position: relative;
+}
+
+.repairs-process-timeline::before {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 25px;
+  bottom: 25px;
+  width: 3px;
+  background: linear-gradient(to bottom, #e74c3c, #b3a885);
+  transform: translateX(-1.5px);
+}
+
+@media (max-width: 768px) {
+  .repairs-process-timeline::before {
+    display: none;
+  }
+}
+
+.repairs-step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .repairs-step {
+    margin-bottom: 2rem;
+  }
+}
+
+.repairs-step-number {
+  width: 50px;
+  height: 50px;
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .repairs-step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
+
+.repairs-step-content {
+  margin-left: 2rem;
+  flex: 1;
+}
+
+@media (max-width: 480px) {
+  .repairs-step-content {
+    margin-left: 1.5rem;
+  }
+}
+
+.repairs-step-content h3 {
+  font-size: 1.375rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-step-content h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-step-content h3 {
+    font-size: 1.125rem;
+  }
+}
+
+.repairs-step-content p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-step-content p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-step-content p {
+    font-size: 0.875rem;
+  }
+}
+
+.repairs-step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+}
+
+.repairs-step-list li {
+  color: #666;
+  padding: 0.25rem 0;
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 480px) {
+  .repairs-step-list li {
+    font-size: 0.875rem;
+  }
+}
+
+.repairs-step-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #b3a885;
+  font-weight: bold;
+}
+
+.repairs-process-image {
+  position: relative;
+}
+
+.repairs-team-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.repairs-process-note {
+  max-width: 900px;
+  margin: 3rem auto 0;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #b3a885;
+}
+
+@media (max-width: 768px) {
+  .repairs-process-note {
+    margin: 2rem auto 0;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-process-note {
+    margin: 2rem 1rem 0;
+    padding: 1.25rem;
+  }
+}
+
+.repairs-process-note p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 480px) {
+  .repairs-process-note p {
+    font-size: 0.875rem;
+  }
+}
+
+.repairs-process-note p:last-child {
+  margin-bottom: 0;
+}
+
+.repairs-process-note strong {
+  color: #2c3e50;
+}
+
+/* Gallery Section - Orange Gradient Background */
+.repairs-gallery-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+@media (max-width: 480px) {
+  .repairs-gallery-section {
+    padding: 60px 0;
+  }
+}
+
+.repairs-gallery-section .section-header h2,
+.repairs-gallery-section .section-subtitle {
+  color: white;
+}
+
+.repairs-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .repairs-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-gallery-grid {
+    gap: 1rem;
+  }
+}
+
+.repairs-gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  height: 250px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .repairs-gallery-item {
+    height: 200px;
+  }
+}
+
+.repairs-gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.repairs-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.repairs-gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.repairs-gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .repairs-gallery-overlay {
+    padding: 1rem;
+  }
+}
+
+.repairs-gallery-item:hover .repairs-gallery-overlay {
+  transform: translateY(0);
+}
+
+.repairs-gallery-overlay h4 {
+  color: white;
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 480px) {
+  .repairs-gallery-overlay h4 {
+    font-size: 1rem;
+  }
+}
+
+.repairs-gallery-overlay p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .repairs-gallery-overlay p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Contact Section */
+.repairs-contact-section {
+  padding: 80px 0;
+  background: white;
+}
+
+@media (max-width: 480px) {
+  .repairs-contact-section {
+    padding: 60px 0;
+  }
+}
+
+.repairs-contact-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .repairs-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.repairs-form-container {
+  background: #f8f9fa;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .repairs-form-container {
+    padding: 2rem;
+  }
+}
+
+.repairs-form-header h3 {
+  font-size: 1.2rem;
+  color: #b3a885;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+  .repairs-form-header h3 {
+    font-size: 1rem;
+  }
+}
+
+.repairs-form-header h4 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-form-header h4 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-form-header h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.repairs-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .repairs-contact-form {
+    gap: 1rem;
+  }
+}
+
+.repairs-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.repairs-form-group input,
+.repairs-form-group select,
+.repairs-form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .repairs-form-group input,
+  .repairs-form-group select,
+  .repairs-form-group textarea {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+}
+
+.repairs-form-group input:focus,
+.repairs-form-group select:focus,
+.repairs-form-group textarea:focus {
+  outline: none;
+  border-color: #b3a885;
+  box-shadow: 0 0 0 3px rgba(179, 168, 133, 0.1);
+}
+
+.repairs-info-card {
+  background: #2c3e50;
+  color: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .repairs-info-card {
+    padding: 2rem;
+  }
+}
+
+.repairs-info-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .repairs-info-card h3 {
+    font-size: 1.375rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-info-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.repairs-features-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.repairs-features-list li {
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .repairs-features-list li {
+    font-size: 0.875rem;
+    padding: 0.5rem 0;
+  }
+}
+
+.repairs-features-list i {
+  color: #b3a885;
+}
+
+.repairs-tagline {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 480px) {
+  .repairs-tagline {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.repairs-company-image {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.repairs-company-image img {
+  width: 100%;
+  height: auto;
 }
 
 /**
@@ -8864,6 +10252,107 @@ body {
   transform: translateY(0);
 }
 
+/* Fade-in stagger animations for list items */
+.fade-in-stagger-1 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
+}
+
+.fade-in-stagger-1.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger-2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+}
+
+.fade-in-stagger-2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger-3 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.fade-in-stagger-3.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger-4 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
+}
+
+.fade-in-stagger-4.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger-5 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
+}
+
+.fade-in-stagger-5.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade-in grid animations for grid items */
+.fade-in-grid {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in-grid.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Add stagger effect when parent has visible class */
+.repairs-benefits-grid.visible .fade-in-grid:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.repairs-benefits-grid.visible .fade-in-grid:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.repairs-benefits-grid.visible .fade-in-grid:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.repairs-benefits-grid.visible .fade-in-grid:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.repairs-benefits-grid.visible .fade-in-grid:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.repairs-benefits-grid.visible .fade-in-grid:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+.repairs-gallery-grid.visible .fade-in-grid:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.repairs-gallery-grid.visible .fade-in-grid:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.repairs-gallery-grid.visible .fade-in-grid:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.repairs-gallery-grid.visible .fade-in-grid:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
 /* Slide animations remain the same */
 .slide-up {
   opacity: 0;
@@ -9068,6 +10557,69 @@ body {
   transform: translateX(0);
 }
 
+/* Icon animations */
+.icon-pop {
+  transition: transform 0.3s ease;
+}
+
+.icon-pop:hover {
+  transform: scale(1.1);
+}
+
+/* Zoom animations */
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.zoom-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Timeline specific animations */
+.timeline-animate {
+  position: relative;
+}
+
+.timeline-animate .repairs-step {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-animate.visible .repairs-step {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-animate.visible .repairs-step:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.timeline-animate.visible .repairs-step:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.timeline-animate.visible .repairs-step:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.timeline-animate.visible .repairs-step:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.timeline-animate.visible .repairs-step:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
 /* Optional: Keep the keyframe animation for special cases where you want immediate animation */
 @keyframes fadeInUp {
   from {
@@ -9140,6 +10692,12 @@ body {
   .fade-in-delay,
   .fade-in-delay-2,
   .fade-in-delay-3,
+  .fade-in-stagger-1,
+  .fade-in-stagger-2,
+  .fade-in-stagger-3,
+  .fade-in-stagger-4,
+  .fade-in-stagger-5,
+  .fade-in-grid,
   .slide-up,
   .slide-up-delay,
   .slide-up-delay-2,
@@ -9150,7 +10708,15 @@ body {
   .slide-up-delay-7,
   .slide-up-delay-8,
   .slide-in-left,
-  .slide-in-right {
+  .slide-in-right,
+  .slide-in-right-delay,
+  .slide-in-right-delay-2,
+  .slide-in-right-delay-3,
+  .slide-in-left-delay,
+  .slide-in-left-delay-2,
+  .slide-in-left-delay-3,
+  .zoom-in,
+  .timeline-animate .repairs-step {
     opacity: 1 !important;
     transform: none !important;
   }

@@ -36,6 +36,7 @@ const App = {
       ActiveNavigation,
       RoofDesignPage,
       PortfolioGallery,
+      ResidentialRoofRepairs,
     ]);
   },
 
@@ -234,7 +235,7 @@ const NavigationBehavior = {
 
 /**
  * =====================================================
- * SCROLL ANIMATIONS MODULE - UPDATED VERSION
+ * SCROLL ANIMATION CLASSES MODULE - UPDATED VERSION
  * =====================================================
  */
 const ScrollAnimations = {
@@ -259,19 +260,31 @@ const ScrollAnimations = {
       });
     }, observerOptions);
 
-    // Select all elements with animation classes - INCLUDING the new slide-in-left-delay classes
+    // Select all elements with animation classes - INCLUDING all new animation classes
     const animatedElements = document.querySelectorAll(
       '.fade-in, .fade-in-delay, .fade-in-delay-2, .fade-in-delay-3, ' +
+        '.fade-in-stagger-1, .fade-in-stagger-2, .fade-in-stagger-3, ' +
+        '.fade-in-stagger-4, .fade-in-stagger-5, .fade-in-grid, ' +
         '.slide-up, .slide-up-delay, .slide-up-delay-2, .slide-up-delay-3, ' +
         '.slide-up-delay-4, .slide-up-delay-5, .slide-up-delay-6, ' +
         '.slide-up-delay-7, .slide-up-delay-8, .slide-in-left, .slide-in-right, ' +
         '.slide-in-right-delay, .slide-in-right-delay-2, .slide-in-right-delay-3, ' +
         '.slide-in-left-delay, .slide-in-left-delay-2, .slide-in-left-delay-3, ' +
-        '.stagger-animation'
+        '.zoom-in, .timeline-animate, .stagger-animation, ' +
+        '.repairs-benefits-grid, .repairs-gallery-grid' // Added these for grid animations
     );
 
     animatedElements.forEach((element) => {
       observer.observe(element);
+    });
+
+    // Special handling for grid containers to add visible class
+    const gridContainers = document.querySelectorAll(
+      '.repairs-benefits-grid, .repairs-gallery-grid'
+    );
+
+    gridContainers.forEach((container) => {
+      observer.observe(container);
     });
 
     // Special handling for staggered animations
@@ -2963,6 +2976,40 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+/**
+ * =====================================================
+ * RESIDENTIAL ROOF REPAIRS PAGE MODULE
+ * =====================================================
+ */
+const ResidentialRoofRepairs = {
+  init: function () {
+    this.initAccordions();
+  },
+
+  initAccordions: function () {
+    const accordionHeaders = document.querySelectorAll(
+      '.repairs-accordion-header'
+    );
+
+    accordionHeaders.forEach((header) => {
+      header.addEventListener('click', function () {
+        const accordionItem = this.parentElement;
+        const isActive = accordionItem.classList.contains('active');
+
+        // Close all accordion items
+        document.querySelectorAll('.repairs-accordion-item').forEach((item) => {
+          item.classList.remove('active');
+        });
+
+        // Open clicked item if it wasn't already active
+        if (!isActive) {
+          accordionItem.classList.add('active');
+        }
+      });
+    });
+  },
+};
 
 /**
  * =====================================================

@@ -3013,6 +3013,163 @@ const ResidentialRoofRepairs = {
 
 /**
  * =====================================================
+ * COMMERCIAL ROOFING PAGE JAVASCRIPT
+ * =====================================================
+ */
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Initialize lazy loading for images (same as other pages)
+  if (typeof App !== 'undefined' && App.LazyLoading) {
+    App.LazyLoading.init();
+  }
+
+  // Initialize animations (same as other pages)
+  if (typeof App !== 'undefined' && App.AnimationModule) {
+    App.AnimationModule.init();
+  }
+
+  // Smooth scroll to form
+  const scrollLinks = document.querySelectorAll('.scroll-to');
+  scrollLinks.forEach((link) => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        const offset = 100; // Account for fixed header
+        const targetPosition = targetElement.offsetTop - offset;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth',
+        });
+      }
+    });
+  });
+
+  // Form submission handler
+  const commercialForm = document.getElementById('commercial-form');
+  if (commercialForm) {
+    commercialForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Get form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+
+      // Log form data (replace with actual submission logic)
+      console.log('Commercial form submitted:', data);
+
+      // Show success message
+      alert("Thank you for your inquiry! We'll contact you within 24 hours.");
+
+      // Reset form
+      this.reset();
+    });
+  }
+
+  // Animate timeline on scroll
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px',
+  };
+
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const timeline = entry.target.querySelector('.timeline-line');
+        if (timeline) {
+          timeline.style.animation = 'lineGrow 1s ease forwards';
+        }
+
+        const featureItems = entry.target.querySelectorAll('.feature-item');
+        featureItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+          }, index * 150);
+        });
+
+        timelineObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const featureTimeline = document.querySelector('.feature-timeline');
+  if (featureTimeline) {
+    // Set initial states
+    const featureItems = featureTimeline.querySelectorAll('.feature-item');
+    featureItems.forEach((item) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateX(-20px)';
+      item.style.transition = 'all 0.5s ease';
+    });
+
+    timelineObserver.observe(featureTimeline);
+  }
+
+  // Add hover effect to material items
+  const materialItems = document.querySelectorAll('.material-item');
+  materialItems.forEach((item) => {
+    item.addEventListener('mouseenter', function () {
+      this.style.background = '#ffffff';
+    });
+
+    item.addEventListener('mouseleave', function () {
+      this.style.background = '#f8f9fa';
+    });
+  });
+
+  // Animate process cards on hover
+  const processCards = document.querySelectorAll('.process-card');
+  processCards.forEach((card) => {
+    card.addEventListener('mouseenter', function () {
+      const number = this.querySelector('.process-number');
+      if (number) {
+        number.style.transform = 'scale(1.1) rotate(5deg)';
+      }
+    });
+
+    card.addEventListener('mouseleave', function () {
+      const number = this.querySelector('.process-number');
+      if (number) {
+        number.style.transform = 'scale(1) rotate(0deg)';
+      }
+    });
+  });
+
+  // Add CSS for timeline animation
+  if (!document.getElementById('commercial-animations')) {
+    const style = document.createElement('style');
+    style.id = 'commercial-animations';
+    style.textContent = `
+      @keyframes lineGrow {
+        from {
+          transform: scaleY(0);
+          transform-origin: top;
+        }
+        to {
+          transform: scaleY(1);
+          transform-origin: top;
+        }
+      }
+      
+      .process-number {
+        transition: transform 0.3s ease;
+      }
+      
+      .timeline-line {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+});
+
+/**
+ * =====================================================
  * INITIALIZATION COMPLETE
  * =====================================================
  */

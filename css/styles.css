@@ -8765,6 +8765,638 @@ body {
 
 /**
  * =====================================================
+ * COMMERCIAL ROOFING PAGE STYLES
+ * =====================================================
+ */
+
+/* Hero Section */
+.commercial-hero {
+  background: linear-gradient(
+      135deg,
+      rgba(179, 168, 133, 0.85),
+      rgba(0, 0, 0, 0.85)
+    ),
+    url('../assets/images/commercial-roofing-hero-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 180px 0 100px;
+  text-align: center;
+  position: relative;
+  color: white;
+}
+
+.commercial-hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.commercial-hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.hero-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #b3a885;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.hero-trust-badge i {
+  font-size: 1.5rem;
+  color: #b3a885;
+}
+
+/* Introduction Section */
+.commercial-intro-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.commercial-intro-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.commercial-features {
+  margin-top: 3rem;
+}
+
+.commercial-features h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+/* Feature Timeline - Unique List Style */
+.feature-timeline {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    #b3a885 0%,
+    #b3a885 90%,
+    transparent 100%
+  );
+}
+
+.feature-item {
+  position: relative;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.feature-marker {
+  position: absolute;
+  left: -3rem;
+  width: 2rem;
+  height: 2rem;
+  background: #b3a885;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 10px rgba(179, 168, 133, 0.3);
+  z-index: 2;
+}
+
+.feature-content h4 {
+  font-size: 1.125rem;
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 600;
+}
+
+.commercial-intro-image {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.commercial-intro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 400px;
+}
+
+/* Warranty Section */
+.commercial-warranty-section {
+  padding: 60px 0;
+  background: white;
+}
+
+.warranty-card {
+  background: #2c3e50;
+  color: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.warranty-icon {
+  font-size: 4rem;
+  color: #b3a885;
+  flex-shrink: 0;
+}
+
+.warranty-content h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.warranty-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.warranty-list li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.warranty-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #b3a885;
+  font-weight: bold;
+}
+
+/* Process Section */
+.commercial-process-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #b3a885;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.process-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.process-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-color: #b3a885;
+}
+
+.process-number {
+  width: 50px;
+  height: 50px;
+  background: #b3a885;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.process-content h3 {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 0.75rem;
+}
+
+.process-content p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Materials Section */
+.commercial-materials-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.materials-accordion {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.material-item {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  border: 2px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.material-item:hover {
+  border-color: #b3a885;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.material-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.material-icon {
+  width: 60px;
+  height: 60px;
+  background: #b3a885;
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.material-header h3 {
+  font-size: 1.375rem;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.material-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.feature-tag {
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.875rem;
+  color: #666;
+  border: 1px solid #e0e0e0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feature-tag i {
+  color: #b3a885;
+  font-size: 0.75rem;
+}
+
+/* Drone Feature Section */
+.commercial-drone-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e8e6e1 100%);
+}
+
+.drone-feature-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.drone-content {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.drone-icon {
+  font-size: 3rem;
+  color: #b3a885;
+  margin-bottom: 1.5rem;
+}
+
+.drone-content h3 {
+  font-size: 1.75rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.drone-content p {
+  font-size: 1.125rem;
+  color: #666;
+  line-height: 1.8;
+}
+
+.drone-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.drone-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CTA Section */
+.commercial-cta-section {
+  padding: 80px 0;
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* Contact Section */
+.commercial-contact-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+}
+
+.contact-form-container {
+  background: #f8f9fa;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+  margin-bottom: 2rem;
+}
+
+.form-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #b3a885;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.form-header h3 {
+  font-size: 1.75rem;
+  color: #2c3e50;
+}
+
+.commercial-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #b3a885;
+  box-shadow: 0 0 0 3px rgba(179, 168, 133, 0.1);
+}
+
+.why-choose-card {
+  background: #2c3e50;
+  color: white;
+  padding: 3rem;
+  border-radius: 12px;
+  height: 100%;
+}
+
+.why-choose-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #b3a885;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.why-choose-card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.benefits-list li {
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.benefits-list li:last-child {
+  border-bottom: none;
+}
+
+.benefits-list i {
+  color: #b3a885;
+  width: 20px;
+  text-align: center;
+}
+
+.trust-statement {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .commercial-intro-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .process-cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .drone-feature-card {
+    grid-template-columns: 1fr;
+  }
+
+  .drone-content {
+    order: 2;
+  }
+
+  .drone-image {
+    order: 1;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .commercial-hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .commercial-hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .warranty-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .material-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .feature-timeline {
+    padding-left: 2rem;
+  }
+
+  .feature-marker {
+    left: -2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .commercial-hero {
+    padding: 140px 0 60px;
+  }
+
+  .commercial-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .process-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-form-container,
+  .why-choose-card {
+    padding: 2rem;
+  }
+
+  .materials-accordion {
+    gap: 1rem;
+  }
+
+  .material-item {
+    padding: 1.5rem;
+  }
+}
+
+/**
+ * =====================================================
  * PORTFOLIO/OUR WORK PAGE STYLES 
  * =====================================================
  */

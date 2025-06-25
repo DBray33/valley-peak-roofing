@@ -37,6 +37,7 @@ const App = {
       RoofDesignPage,
       PortfolioGallery,
       ResidentialRoofRepairs,
+      SkylightPage,
     ]);
   },
 
@@ -3167,6 +3168,70 @@ document.addEventListener('DOMContentLoaded', function () {
     document.head.appendChild(style);
   }
 });
+
+/**
+ * =====================================================
+ * SKYLIGHT PAGE MODULE
+ * =====================================================
+ */
+const SkylightPage = {
+  init: function () {
+    // Only initialize if we're on the skylight page
+    if (this.isSkylightPage()) {
+      this.initAccordion();
+    }
+  },
+
+  isSkylightPage: function () {
+    // Check if we're on the skylight page
+    return (
+      window.location.pathname.includes('skylight-installation-and-repair') ||
+      document.querySelector('.skylight-hero') !== null
+    );
+  },
+
+  initAccordion: function () {
+    const accordionHeaders = document.querySelectorAll(
+      '.materials-accordion .accordion-header'
+    );
+
+    if (accordionHeaders.length === 0) return;
+
+    accordionHeaders.forEach((header) => {
+      header.addEventListener('click', () => {
+        const accordionItem = header.parentElement;
+        const accordionContent =
+          accordionItem.querySelector('.accordion-content');
+        const isActive = header.classList.contains('active');
+
+        // Close all accordion items
+        document
+          .querySelectorAll('.materials-accordion .accordion-header')
+          .forEach((h) => {
+            h.classList.remove('active');
+            h.parentElement
+              .querySelector('.accordion-content')
+              .classList.remove('active');
+          });
+
+        // If this item wasn't active, open it
+        if (!isActive) {
+          header.classList.add('active');
+          accordionContent.classList.add('active');
+        }
+      });
+    });
+
+    // Open first item by default
+    const firstHeader = accordionHeaders[0];
+    if (firstHeader) {
+      firstHeader.classList.add('active');
+      firstHeader.parentElement
+        .querySelector('.accordion-content')
+        .classList.add('active');
+    }
+  },
+};
 
 /**
  * =====================================================

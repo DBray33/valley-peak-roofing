@@ -400,6 +400,10 @@ const ModalManager = {
           modalId: 'architectural-shingles-modal',
         },
         { selector: '.close-metal-roof-modal', modalId: 'metal-roof-modal' },
+        {
+          selector: '.close-gutter-guard-modal',
+          modalId: 'gutter-guard-modal',
+        }, // ADD THIS LINE
       ];
 
       closeButtons.forEach((config) => {
@@ -421,6 +425,7 @@ const ModalManager = {
       'estimate-modal',
       'architectural-shingles-modal',
       'metal-roof-modal',
+      'gutter-guard-modal', // ADD THIS LINE
     ];
 
     modals.forEach((modalId) => {
@@ -515,6 +520,18 @@ function openMetalRoofModal(event) {
 function closeMetalRoofModal() {
   console.log('Closing metal roof modal');
   ModalManager.closeModal('metal-roof-modal');
+}
+
+// ADD THESE TWO FUNCTIONS
+function openGutterGuardModal(event) {
+  event.preventDefault();
+  console.log('Opening gutter guard modal');
+  ModalManager.openModal('gutter-guard-modal');
+}
+
+function closeGutterGuardModal() {
+  console.log('Closing gutter guard modal');
+  ModalManager.closeModal('gutter-guard-modal');
 }
 
 // Initialize everything when DOM is ready

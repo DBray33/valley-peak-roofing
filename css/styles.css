@@ -9844,616 +9844,567 @@ body {
 }
 
 /* =====================================================
- * GUTTER SERVICES PAGE STYLES
- * ===================================================== */
+   GUTTER PAGE SPECIFIC STYLES - UPDATED COLORS
+   ===================================================== */
 
 /* Hero Section */
 .gutter-hero {
-  background: linear-gradient(
-      135deg,
-      rgba(179, 168, 133, 0.85),
-      rgba(0, 0, 0, 0.85)
-    ),
-    url('../assets/images/gutter-services-hero-bg.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  padding: 140px 0 100px;
-  text-align: center;
   position: relative;
-  color: white;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--dark-blue);
+  padding: 80px 0 60px;
 }
 
-@media (max-width: 768px) {
-  .gutter-hero {
-    padding: 120px 0 80px;
-  }
+.gutter-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(45, 62, 80, 0.95) 0%,
+    rgba(45, 62, 80, 0.8) 100%
+  );
+  z-index: 1;
 }
 
-@media (max-width: 480px) {
-  .gutter-hero {
-    padding: 100px 0 60px;
-    background-attachment: scroll;
-  }
+.gutter-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/placeholders/gutter-hero-bg.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1;
 }
 
 .gutter-hero-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  max-width: 900px;
-  margin: 2rem auto 0;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .gutter-hero-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: var(--white);
+  margin-bottom: 1rem;
   line-height: 1.2;
 }
 
-@media (max-width: 768px) {
-  .gutter-hero-title {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .gutter-hero-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-}
-
 .gutter-hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  opacity: 0.95;
-  line-height: 1.4;
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--orange-accent);
+  margin-top: 0.5rem;
 }
 
-@media (max-width: 768px) {
-  .gutter-hero-subtitle {
-    font-size: 1.25rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .gutter-hero-subtitle {
-    font-size: 1.125rem;
-    margin-bottom: 1.5rem;
-  }
-}
-
-.gutter-hero-features {
+.gutter-hero-logo {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 3rem;
-  margin-bottom: 2.5rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.gutter-hero-logo img {
+  filter: brightness(0) invert(1);
+}
+
+.gutter-hero-desc {
+  font-size: 1.125rem;
+  color: var(--white);
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.gutter-hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
-  .gutter-hero-features {
-    gap: 2rem;
-  }
+/* Introduction Section */
+.gutter-intro {
+  padding: 60px 0;
+  background: var(--white);
 }
 
-@media (max-width: 480px) {
-  .gutter-hero-features {
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
+.gutter-intro-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gutter-intro-text {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.gutter-intro-text h2 {
+  color: var(--dark-blue);
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.gutter-intro-text p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+}
+
+.gutter-why-choose {
+  background: var(--light-bg);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.gutter-why-title {
+  text-align: center;
+  color: var(--dark-blue);
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.gutter-features-list {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .gutter-feature-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 1.1rem;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .gutter-feature-item {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .gutter-feature-item {
-    font-size: 0.9rem;
-    gap: 0.5rem;
-  }
+.gutter-feature-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .gutter-feature-item i {
   font-size: 1.5rem;
-  color: #b3a885;
+  color: var(--orange-accent);
+  width: 40px;
+  text-align: center;
+  flex-shrink: 0;
 }
 
-@media (max-width: 480px) {
-  .gutter-feature-item i {
-    font-size: 1.25rem;
-  }
+.gutter-feature-item span {
+  color: var(--text-dark);
+  font-weight: 500;
 }
 
-.gutter-hero-cta {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+/* Signs Section */
+.gutter-signs {
+  padding: 60px 0;
+  background: var(--light-bg);
 }
 
-@media (max-width: 480px) {
-  .gutter-hero-cta {
-    gap: 1rem;
-  }
-}
-
-/* Introduction Section */
-.gutter-intro-section {
-  padding: 80px 0;
-  background: #f8f9fa;
-}
-
-@media (max-width: 480px) {
-  .gutter-intro-section {
-    padding: 60px 0;
-  }
-}
-
-.gutter-intro-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-@media (max-width: 1024px) {
-  .gutter-intro-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-}
-
-.gutter-features {
-  margin-top: 3rem;
-}
-
-.gutter-features h3 {
-  font-size: 1.5rem;
-  color: #2c3e50;
-  margin-bottom: 2rem;
-}
-
-.gutter-intro-image {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-}
-
-.gutter-intro-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  min-height: 400px;
-}
-
-/* Warning Signs Section */
-.gutter-signs-section {
-  padding: 80px 0;
-  background: white;
-}
-
-@media (max-width: 480px) {
-  .gutter-signs-section {
-    padding: 60px 0;
-  }
+.gutter-section-title {
+  color: var(--dark-blue);
+  font-size: 2.25rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
 }
 
 .gutter-signs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
-}
-
-@media (max-width: 768px) {
-  .gutter-signs-grid {
-    grid-template-columns: 1fr;
-  }
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .gutter-sign-card {
-  text-align: center;
-  padding: 2.5rem 2rem;
-  background: #f8f9fa;
+  background: var(--white);
+  padding: 2rem;
   border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  cursor: pointer;
 }
 
 .gutter-sign-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border-color: var(--orange-accent);
-  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.gutter-sign-card:hover .gutter-sign-icon {
+  transform: scale(1.1);
+  background: var(--orange-accent);
+  color: var(--white);
 }
 
 .gutter-sign-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(
-    135deg,
-    var(--orange-accent),
-    var(--orange-light)
-  );
+  margin: 0 auto 1.5rem;
+  background: rgba(241, 98, 10, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.5rem;
-  color: white;
+  transition: all 0.3s ease;
+}
+
+.gutter-sign-icon i {
   font-size: 2rem;
+  color: var(--orange-accent);
 }
 
 .gutter-sign-card h3 {
-  font-size: 1.5rem;
-  color: #2c3e50;
+  color: var(--dark-blue);
+  font-size: 1.25rem;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .gutter-sign-card p {
-  color: #666;
+  color: var(--text-light);
   line-height: 1.6;
 }
 
-/* Services Section */
-.gutter-services-section {
-  padding: 80px 0;
-  background: #f8f9fa;
-}
-
-@media (max-width: 480px) {
-  .gutter-services-section {
-    padding: 60px 0;
-  }
-}
-
-.gutter-services-showcase {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 3rem;
-  margin-top: 3rem;
-}
-
-@media (max-width: 768px) {
-  .gutter-services-showcase {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-
-.gutter-service-block {
-  background: white;
-  border-radius: 12px;
-  padding: 2.5rem;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-}
-
-@media (max-width: 480px) {
-  .gutter-service-block {
-    padding: 2rem;
-  }
-}
-
-.gutter-service-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 2px solid #f0f0f0;
-}
-
-.gutter-service-icon {
-  width: 60px;
-  height: 60px;
-  background: #b3a885;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.75rem;
-}
-
-.gutter-service-header h3 {
-  font-size: 1.75rem;
-  color: #2c3e50;
-  margin: 0;
-}
-
-.gutter-service-features {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.gutter-service-item {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.gutter-service-item i {
-  color: #b3a885;
-  font-size: 1.25rem;
-  margin-top: 0.25rem;
-}
-
-.gutter-service-item h4 {
-  font-size: 1.125rem;
-  color: #2c3e50;
-  margin-bottom: 0.25rem;
-}
-
-.gutter-service-item p {
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* Gutter Guard Feature */
-.gutter-guard-feature {
-  margin-top: 3rem;
-  background: linear-gradient(135deg, #2c3e50, #34495e);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-}
-
-.gutter-guard-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch;
-  min-height: 400px;
-}
-
-@media (max-width: 1024px) {
-  .gutter-guard-content {
-    grid-template-columns: 1fr;
-  }
-}
-
-.gutter-guard-icon {
-  display: none; /* Remove the icon to streamline the design */
-}
-
-.gutter-guard-text {
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-@media (max-width: 480px) {
-  .gutter-guard-text {
-    padding: 2rem;
-  }
-}
-
-.gutter-guard-text h3 {
-  font-size: 2rem;
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.gutter-guard-text p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.125rem;
-  margin-bottom: 1.5rem;
-}
-
-.gutter-guard-benefits {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.gutter-guard-benefits li {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.gutter-guard-benefits i {
-  color: var(--primary-color);
-}
-
-.gutter-guard-image {
-  position: relative;
-  overflow: hidden;
-}
-
-@media (max-width: 1024px) {
-  .gutter-guard-image {
-    height: 300px;
-  }
-}
-
-.gutter-guard-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
 /* Process Section */
-.gutter-process-section {
-  padding: 80px 0;
-  background: white;
+.gutter-process {
+  padding: 60px 0;
+  background: var(--white);
 }
 
-@media (max-width: 480px) {
-  .gutter-process-section {
-    padding: 60px 0;
-  }
-}
-
-.gutter-process-timeline {
-  max-width: 800px;
-  margin: 3rem auto 0;
-  position: relative;
-}
-
-.gutter-process-timeline::before {
-  content: '';
-  position: absolute;
-  left: 25px;
-  top: 25px;
-  bottom: 25px;
-  width: 3px;
-  background: linear-gradient(
-    to bottom,
-    var(--primary-color),
-    var(--orange-accent)
-  );
-  transform: translateX(-1.5px);
-}
-
-@media (max-width: 768px) {
-  .gutter-process-timeline::before {
-    display: none;
-  }
-}
-
-.gutter-process-step {
-  display: flex;
-  align-items: flex-start;
+.gutter-process-header {
   margin-bottom: 3rem;
-  position: relative;
 }
 
-@media (max-width: 768px) {
-  .gutter-process-step {
-    margin-bottom: 2rem;
-  }
+.gutter-label {
+  display: inline-block;
+  color: var(--orange-accent);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.gutter-process-intro {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+}
+
+.gutter-process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gutter-step {
+  position: relative;
+  background: var(--light-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.gutter-step:hover {
+  background: var(--white);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.gutter-step:hover .gutter-step-number {
+  background: var(--orange-accent);
+  color: var(--white);
+  transform: scale(1.1);
 }
 
 .gutter-step-number {
-  width: 50px;
-  height: 50px;
-  background: #b3a885;
-  color: white;
+  width: 60px;
+  height: 60px;
+  background: var(--dark-blue);
+  color: var(--white);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(179, 168, 133, 0.3);
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 480px) {
-  .gutter-step-number {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
-  }
-}
-
-.gutter-step-content {
-  margin-left: 2rem;
-  flex: 1;
-}
-
-@media (max-width: 480px) {
-  .gutter-step-content {
-    margin-left: 1.5rem;
-  }
+  margin: 0 auto 1.5rem;
+  transition: all 0.3s ease;
 }
 
 .gutter-step-content h3 {
-  font-size: 1.375rem;
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
-}
-
-@media (max-width: 480px) {
-  .gutter-step-content h3 {
-    font-size: 1.25rem;
-  }
+  color: var(--dark-blue);
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
 }
 
 .gutter-step-content p {
-  color: #666;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Services Section */
+.gutter-services {
+  padding: 60px 0;
+  background: var(--light-bg);
+}
+
+.gutter-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gutter-service-card {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.gutter-service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.gutter-service-icon {
+  width: 70px;
+  height: 70px;
+  background: rgba(241, 98, 10, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.gutter-service-icon i {
+  font-size: 2rem;
+  color: var(--orange-accent);
+}
+
+.gutter-service-card h3 {
+  color: var(--dark-blue);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.gutter-service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.gutter-service-list li {
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--text-dark);
   line-height: 1.6;
 }
 
-/* Media Queries for Intro Section */
+.gutter-service-list i {
+  color: #27ae60;
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+/* CTA Section */
+.gutter-cta {
+  padding: 80px 0;
+  background: linear-gradient(
+    135deg,
+    var(--dark-blue) 0%,
+    var(--secondary-color) 100%
+  );
+  color: var(--white);
+  text-align: center;
+}
+
+.gutter-cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.gutter-cta-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.gutter-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Button Overrides for Gutter Page */
+.gutter-hero .btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), #000000);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+.gutter-hero .btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #1a1a1a);
+  border-color: var(--primary-dark);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(179, 168, 133, 0.4);
+}
+
+.gutter-hero .btn-secondary,
+.gutter-cta .btn-secondary {
+  background: var(--white);
+  color: var(--dark-blue);
+  border: 2px solid var(--white);
+}
+
+.gutter-hero .btn-secondary:hover,
+.gutter-cta .btn-secondary:hover {
+  background: transparent;
+  color: var(--white);
+}
+
+.gutter-cta .btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), #000000);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+.gutter-cta .btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #1a1a1a);
+  border-color: var(--primary-dark);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(179, 168, 133, 0.4);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .gutter-intro-content h2 {
+  .gutter-hero-title {
     font-size: 2rem;
   }
 
-  .gutter-feature-timeline {
-    padding-left: 2rem;
+  .gutter-hero-subtitle {
+    font-size: 1.1rem;
   }
 
-  .gutter-feature-marker {
-    left: -2rem;
+  .gutter-hero-logo {
+    flex-direction: column;
+    font-size: 0.9rem;
   }
 
-  /* Add more spacing for feature content on mobile */
-  .feature-timeline {
-    padding-left: 2.5rem;
-  }
-
-  .feature-marker {
-    left: -2.5rem;
-  }
-
-  .feature-content {
-    margin-left: 0.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .gutter-intro-content h2 {
+  .gutter-section-title {
     font-size: 1.75rem;
   }
 
-  .gutter-features h3 {
-    font-size: 1.25rem;
+  .gutter-why-choose {
+    padding: 2rem 1.5rem;
   }
 
-  /* Even more spacing on very small screens */
-  .feature-timeline {
-    padding-left: 2rem;
+  .gutter-process-steps {
+    grid-template-columns: 1fr;
   }
 
-  .feature-marker {
-    left: -2rem;
-    width: 1.75rem;
-    height: 1.75rem;
-    font-size: 0.75rem;
+  .gutter-services-grid {
+    grid-template-columns: 1fr;
   }
 
-  .feature-content {
-    margin-left: 0.75rem;
+  .gutter-service-card {
+    padding: 2rem;
   }
 
-  .feature-content h4 {
-    font-size: 1rem;
+  .gutter-cta-content h2 {
+    font-size: 2rem;
   }
+}
+
+/* Animation Classes Specific to Gutter Page */
+.gutter-hero .slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: gutterSlideInLeft 0.8s ease forwards;
+}
+
+.gutter-hero .fade-in {
+  opacity: 0;
+  animation: gutterFadeIn 0.8s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.gutter-hero .fade-in-delay {
+  opacity: 0;
+  animation: gutterFadeIn 0.8s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.gutter-hero .fade-in-delay-2 {
+  opacity: 0;
+  animation: gutterFadeIn 0.8s ease forwards;
+  animation-delay: 0.7s;
+}
+
+@keyframes gutterSlideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gutterFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Stagger animations for feature items */
+.gutter-feature-item.fade-in-stagger-1 {
+  animation-delay: 0.1s;
+}
+.gutter-feature-item.fade-in-stagger-2 {
+  animation-delay: 0.2s;
+}
+.gutter-feature-item.fade-in-stagger-3 {
+  animation-delay: 0.3s;
+}
+.gutter-feature-item.fade-in-stagger-4 {
+  animation-delay: 0.4s;
+}
+.gutter-feature-item.fade-in-stagger-5 {
+  animation-delay: 0.5s;
 }
 
 /**

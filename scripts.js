@@ -3096,7 +3096,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const timelineObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const timeline = entry.target.querySelector('.timeline-line');
+        const timeline = entry.target.querySelector(
+          '.commercial-timeline-line'
+        );
         if (timeline) {
           timeline.style.animation = 'lineGrow 1s ease forwards';
         }
@@ -3177,7 +3179,7 @@ document.addEventListener('DOMContentLoaded', function () {
         transition: transform 0.3s ease;
       }
       
-      .timeline-line {
+      .commercial-timeline-line {
         transform: scaleY(0);
         transform-origin: top;
       }

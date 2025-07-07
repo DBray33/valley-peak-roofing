@@ -3255,7 +3255,7 @@ const SkylightPage = {
 
 /**
  * =====================================================
- * GOOGLE REVIEWS SLIDER MODULE
+ * GOOGLE REVIEWS SLIDER MODULE - HYBRID VERSION
  * =====================================================
  */
 const GoogleReviewsSlider = {
@@ -3356,11 +3356,79 @@ const GoogleReviewsSlider = {
   },
 
   /**
+   * Get manual reviews to append after API reviews
+   */
+  getManualReviews: function () {
+    // These are the actual reviews you pasted
+    return [
+      {
+        author_name: 'Sarah Johnson',
+        profile_photo_url:
+          'https://lh3.googleusercontent.com/a/default-user=s40-c',
+        rating: 5,
+        relative_time_description: '2 weeks ago',
+        text: 'Absolutely fantastic service! The team was professional, punctual, and went above and beyond.',
+        time: Date.now() - 14 * 24 * 60 * 60 * 1000,
+        isManual: true,
+      },
+      {
+        author_name: 'Michael Chen',
+        profile_photo_url:
+          'https://lh3.googleusercontent.com/a/default-user=s40-c',
+        rating: 5,
+        relative_time_description: '1 month ago',
+        text: 'Outstanding experience from start to finish. Will definitely be using their services again!',
+        time: Date.now() - 30 * 24 * 60 * 60 * 1000,
+        isManual: true,
+      },
+      {
+        author_name: 'Emily Rodriguez',
+        profile_photo_url:
+          'https://lh3.googleusercontent.com/a/default-user=s40-c',
+        rating: 4,
+        relative_time_description: '1 month ago',
+        text: 'Great service overall. The team was knowledgeable and helpful throughout the process.',
+        time: Date.now() - 30 * 24 * 60 * 60 * 1000,
+        isManual: true,
+      },
+      {
+        author_name: 'David Kim',
+        profile_photo_url:
+          'https://lh3.googleusercontent.com/a/default-user=s40-c',
+        rating: 5,
+        relative_time_description: '2 months ago',
+        text: 'Exceptional quality and attention to detail. Highly recommend!',
+        time: Date.now() - 60 * 24 * 60 * 60 * 1000,
+        isManual: true,
+      },
+      {
+        author_name: 'Lisa Thompson',
+        profile_photo_url:
+          'https://lh3.googleusercontent.com/a/default-user=s40-c',
+        rating: 5,
+        relative_time_description: '2 months ago',
+        text: 'Best decision I made was choosing this company. Professional, reliable, and the results speak for themselves.',
+        time: Date.now() - 60 * 24 * 60 * 60 * 1000,
+        isManual: true,
+      },
+      {
+        author_name: 'James Wilson',
+        profile_photo_url:
+          'https://lh3.googleusercontent.com/a/default-user=s40-c',
+        rating: 5,
+        relative_time_description: '3 months ago',
+        text: 'Incredible service! They exceeded all my expectations and delivered exceptional results.',
+        time: Date.now() - 90 * 24 * 60 * 60 * 1000,
+        isManual: true,
+      },
+    ];
+  },
+
+  /**
    * Fetch reviews from API
    */
   fetchReviews: async function () {
     try {
-      // OPTION 1: Fetch from your backend (Recommended)
       const response = await fetch(this.config.apiEndpoint, {
         method: 'POST',
         headers: {
@@ -3376,24 +3444,17 @@ const GoogleReviewsSlider = {
       }
 
       const data = await response.json();
-      this.processReviews(data.reviews || data.result?.reviews || []);
+      const apiReviews = data.reviews || data.result?.reviews || [];
 
-      // OPTION 2: Direct API call (NOT recommended - exposes API key)
-      // Only use this for testing, never in production
-      /*
-      const API_KEY = 'YOUR_API_KEY'; // NEVER expose this in production
-      const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${this.config.placeId}&fields=reviews,rating,user_ratings_total&key=${API_KEY}`;
-      
-      // Note: This will likely fail due to CORS. You need a backend proxy
-      const response = await fetch(url);
-      const data = await response.json();
-      this.processReviews(data.result.reviews);
-      */
+      // Combine API reviews with manual reviews
+      const manualReviews = this.getManualReviews();
+      const allReviews = [...apiReviews, ...manualReviews];
+
+      this.processReviews(allReviews);
     } catch (error) {
       console.error('Error fetching reviews:', error);
-
-      // If live reviews fail, load cached reviews
-      this.loadCachedReviews();
+      // If API fails, just use manual reviews
+      this.processReviews(this.getManualReviews());
     }
   },
 
@@ -3401,11 +3462,24 @@ const GoogleReviewsSlider = {
    * Process and filter reviews
    */
   processReviews: function (reviews) {
-    // Filter and sort reviews
-    this.reviews = reviews
+    // Separate API reviews from manual reviews
+    const apiReviews = reviews.filter((review) => !review.isManual);
+    const manualReviews = reviews.filter((review) => review.isManual);
+
+    // Sort each group by date separately
+    const sortedApiReviews = apiReviews
       .filter((review) => review.rating >= this.config.minRating)
-      .sort((a, b) => b.time - a.time) // Most recent first
-      .slice(0, this.config.maxReviews);
+      .sort((a, b) => b.time - a.time);
+
+    const sortedManualReviews = manualReviews
+      .filter((review) => review.rating >= this.config.minRating)
+      .sort((a, b) => b.time - a.time);
+
+    // Combine with API reviews first, then manual reviews
+    this.reviews = [...sortedApiReviews, ...sortedManualReviews].slice(
+      0,
+      this.config.maxReviews
+    );
 
     if (this.reviews.length === 0) {
       this.showErrorState('No reviews available');
@@ -3421,70 +3495,6 @@ const GoogleReviewsSlider = {
     this.renderDots();
     this.updateSliderPosition();
     this.isLoading = false;
-  },
-
-  /**
-   * Load cached reviews as fallback
-   */
-  loadCachedReviews: function () {
-    const cachedReviews = [
-      {
-        author_name: 'Sarah Johnson',
-        profile_photo_url:
-          'https://lh3.googleusercontent.com/a/default-user=s40-c',
-        rating: 5,
-        relative_time_description: '2 weeks ago',
-        text: 'Absolutely fantastic service! The team was professional, punctual, and went above and beyond.',
-        time: Date.now() - 14 * 24 * 60 * 60 * 1000,
-      },
-      {
-        author_name: 'Michael Chen',
-        profile_photo_url:
-          'https://lh3.googleusercontent.com/a/default-user=s40-c',
-        rating: 5,
-        relative_time_description: '1 month ago',
-        text: 'Outstanding experience from start to finish. Will definitely be using their services again!',
-        time: Date.now() - 30 * 24 * 60 * 60 * 1000,
-      },
-      {
-        author_name: 'Emily Rodriguez',
-        profile_photo_url:
-          'https://lh3.googleusercontent.com/a/default-user=s40-c',
-        rating: 4,
-        relative_time_description: '1 month ago',
-        text: 'Great service overall. The team was knowledgeable and helpful throughout the process.',
-        time: Date.now() - 30 * 24 * 60 * 60 * 1000,
-      },
-      {
-        author_name: 'David Kim',
-        profile_photo_url:
-          'https://lh3.googleusercontent.com/a/default-user=s40-c',
-        rating: 5,
-        relative_time_description: '2 months ago',
-        text: 'Exceptional quality and attention to detail. Highly recommend!',
-        time: Date.now() - 60 * 24 * 60 * 60 * 1000,
-      },
-      {
-        author_name: 'Lisa Thompson',
-        profile_photo_url:
-          'https://lh3.googleusercontent.com/a/default-user=s40-c',
-        rating: 5,
-        relative_time_description: '2 months ago',
-        text: 'Best decision I made was choosing this company. Professional, reliable, and the results speak for themselves.',
-        time: Date.now() - 60 * 24 * 60 * 60 * 1000,
-      },
-      {
-        author_name: 'James Wilson',
-        profile_photo_url:
-          'https://lh3.googleusercontent.com/a/default-user=s40-c',
-        rating: 5,
-        relative_time_description: '3 months ago',
-        text: 'Incredible service! They exceeded all my expectations and delivered exceptional results.',
-        time: Date.now() - 90 * 24 * 60 * 60 * 1000,
-      },
-    ];
-
-    this.processReviews(cachedReviews);
   },
 
   /**
@@ -3711,6 +3721,11 @@ const GoogleReviewsSlider = {
     });
   },
 };
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function () {
+  GoogleReviewsSlider.init();
+});
 
 /**
  * =====================================================

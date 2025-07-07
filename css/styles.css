@@ -12425,6 +12425,311 @@ body {
 
 /**
  * =====================================================
+ * BUDGET YOUR ROOF PAGE STYLES
+ * =====================================================
+ */
+
+/* Budget Roof Widget Section Styles */
+#budget-roof-widget-section {
+  padding: 120px 0 80px 0; /* Increased top padding for navbar clearance */
+  background: #f8f9fa;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  #budget-roof-widget-section {
+    padding: 140px 0 50px 0; /* Extra space for mobile navbar and floating phone */
+  }
+}
+
+@media (max-width: 480px) {
+  #budget-roof-widget-section {
+    padding: 160px 0 50px 0; /* Even more space for small screens */
+  }
+}
+
+/* Header Styles */
+.budget-widget-header {
+  margin-bottom: 50px;
+  padding-top: 20px; /* Additional padding for safety */
+}
+
+.budget-widget-title {
+  font-family: 'Saira', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .budget-widget-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .budget-widget-title {
+    font-size: 1.8rem; /* Slightly smaller to prevent wrapping and overlap */
+  }
+}
+
+.budget-widget-subtitle {
+  font-family: 'Girassol', cursive;
+  font-size: 1.5rem;
+  color: #b3a885;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .budget-widget-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Widget Container */
+.budget-widget-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+/* Widget Intro Section */
+.budget-widget-intro {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 22, 23, 0.9) 0%,
+    rgba(20, 22, 23, 0.7) 100%
+  );
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .budget-widget-intro {
+    padding: 20px;
+  }
+}
+
+.widget-intro-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.widget-intro-bar::before,
+.widget-intro-bar::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: #b3a885;
+  margin: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .widget-intro-bar::before,
+  .widget-intro-bar::after {
+    margin: 0 10px;
+  }
+}
+
+.widget-company-text {
+  font-family: 'Saira', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #b3a885;
+}
+
+@media (max-width: 480px) {
+  .widget-company-text {
+    font-size: 0.875rem;
+  }
+}
+
+.widget-intro-title {
+  font-family: 'Saira', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .widget-intro-title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .widget-intro-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Owens Corning Widget Embed */
+#budget-your-roof-embed {
+  width: 100%;
+  min-height: 800px;
+  background: #ffffff;
+}
+
+@media (max-width: 768px) {
+  #budget-your-roof-embed {
+    min-height: 600px;
+  }
+}
+
+#budget-your-roof-embed iframe {
+  width: 100%;
+  border: none;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  #budget-your-roof-embed iframe {
+    height: 800px !important;
+  }
+}
+
+/* Additional Info Section */
+.budget-widget-info {
+  margin-top: 50px;
+}
+
+.budget-info-card {
+  text-align: center;
+  padding: 30px 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .budget-info-card {
+    margin-bottom: 20px;
+  }
+}
+
+.budget-info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.budget-info-icon {
+  font-size: 3rem;
+  color: #b3a885;
+  margin-bottom: 20px;
+}
+
+.budget-info-card h3 {
+  font-family: 'Saira', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.budget-info-card p {
+  color: #6c757d;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Loading State */
+.owens-corning-widget::before {
+  content: 'Loading calculator...';
+  display: block;
+  text-align: center;
+  padding: 50px;
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+.owens-corning-widget iframe {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.owens-corning-widget iframe[src] {
+  opacity: 1;
+}
+
+/* Animation Classes */
+.budget-widget-header,
+.budget-widget-container,
+.budget-info-card {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.budget-widget-header {
+  animation-delay: 0.1s;
+}
+
+.budget-widget-container {
+  animation-delay: 0.3s;
+}
+
+.budget-info-card:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.budget-info-card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.budget-info-card:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading Spinner for Widget */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.budget-widget-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  position: relative;
+}
+
+.budget-widget-loading::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #b3a885;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/**
+ * =====================================================
  * UNIFIED MODAL STYLES - ONE STYLE FOR ALL MODALS
  * =====================================================
  */

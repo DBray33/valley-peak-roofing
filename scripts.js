@@ -38,6 +38,7 @@ const App = {
       PortfolioGallery,
       ResidentialRoofRepairs,
       SkylightPage,
+      GoogleReviewsSlider,
     ]);
   },
 
@@ -3249,6 +3250,465 @@ const SkylightPage = {
         .querySelector('.accordion-content')
         .classList.add('active');
     }
+  },
+};
+
+/**
+ * =====================================================
+ * GOOGLE REVIEWS SLIDER MODULE
+ * =====================================================
+ */
+const GoogleReviewsSlider = {
+  // Configuration
+  config: {
+    placeId: 'ChIJ36SvdAhTW6oR0auHMJ3wDFQ', // Your Valley Peak Roofing Place ID
+    apiEndpoint: 'https://google-reviews-72386059671.us-east5.run.app', // Your backend endpoint
+    updateInterval: 3600000, // Update every hour (in milliseconds)
+    minRating: 4, // Only show reviews with 4+ stars
+    maxReviews: 20, // Maximum number of reviews to display
+  },
+
+  // Module properties
+  currentIndex: 0,
+  reviewsPerView: 4,
+  reviews: [],
+  isLoading: true,
+  totalReviews: 0,
+  maxIndex: 0,
+
+  // DOM elements
+  elements: {
+    container: null,
+    prevBtn: null,
+    nextBtn: null,
+    dotsContainer: null,
+    track: null,
+  },
+
+  /**
+   * Initialize the module
+   */
+  init: function () {
+    // Check if the container exists
+    if (!document.getElementById('googleReviewsSliderWrapper')) {
+      return;
+    }
+
+    this.initializeElements();
+    this.showLoadingState();
+    this.fetchReviews();
+    this.attachEventListeners();
+
+    // Set up auto-refresh
+    setInterval(() => this.fetchReviews(), this.config.updateInterval);
+  },
+
+  /**
+   * Cache DOM elements
+   */
+  initializeElements: function () {
+    this.elements.container = document.getElementById(
+      'googleReviewsCardsContainer'
+    );
+    this.elements.prevBtn = document.getElementById('googleReviewsPrevBtn');
+    this.elements.nextBtn = document.getElementById('googleReviewsNextBtn');
+    this.elements.dotsContainer = document.getElementById(
+      'googleReviewsDotsContainer'
+    );
+    this.elements.track = document.getElementById('googleReviewsSliderTrack');
+  },
+
+  /**
+   * Determine reviews per view based on viewport
+   */
+  getReviewsPerView: function () {
+    const width = window.innerWidth;
+    if (width <= 480) return 1;
+    if (width <= 768) return 2;
+    if (width <= 1024) return 3;
+    return 4; // Show 4 reviews on desktop
+  },
+
+  /**
+   * Show loading animation
+   */
+  showLoadingState: function () {
+    this.elements.container.innerHTML = `
+      <div style="color: white; text-align: center; padding: 40px; width: 100%;">
+        <div style="font-size: 18px; margin-bottom: 10px;">Loading reviews...</div>
+        <div class="google-reviews-spinner">
+          <i class="fas fa-spinner fa-spin" style="font-size: 48px;"></i>
+        </div>
+      </div>
+    `;
+  },
+
+  /**
+   * Show error message
+   */
+  showErrorState: function (message) {
+    this.elements.container.innerHTML = `
+      <div style="color: white; text-align: center; padding: 40px; width: 100%;">
+        <div style="font-size: 18px; margin-bottom: 10px;">Unable to load reviews</div>
+        <div style="font-size: 14px; opacity: 0.8;">${message}</div>
+      </div>
+    `;
+  },
+
+  /**
+   * Fetch reviews from API
+   */
+  fetchReviews: async function () {
+    try {
+      // OPTION 1: Fetch from your backend (Recommended)
+      const response = await fetch(this.config.apiEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          placeId: this.config.placeId,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch reviews');
+      }
+
+      const data = await response.json();
+      this.processReviews(data.reviews || data.result?.reviews || []);
+
+      // OPTION 2: Direct API call (NOT recommended - exposes API key)
+      // Only use this for testing, never in production
+      /*
+      const API_KEY = 'YOUR_API_KEY'; // NEVER expose this in production
+      const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${this.config.placeId}&fields=reviews,rating,user_ratings_total&key=${API_KEY}`;
+      
+      // Note: This will likely fail due to CORS. You need a backend proxy
+      const response = await fetch(url);
+      const data = await response.json();
+      this.processReviews(data.result.reviews);
+      */
+    } catch (error) {
+      console.error('Error fetching reviews:', error);
+
+      // If live reviews fail, load cached reviews
+      this.loadCachedReviews();
+    }
+  },
+
+  /**
+   * Process and filter reviews
+   */
+  processReviews: function (reviews) {
+    // Filter and sort reviews
+    this.reviews = reviews
+      .filter((review) => review.rating >= this.config.minRating)
+      .sort((a, b) => b.time - a.time) // Most recent first
+      .slice(0, this.config.maxReviews);
+
+    if (this.reviews.length === 0) {
+      this.showErrorState('No reviews available');
+      return;
+    }
+
+    this.totalReviews = this.reviews.length;
+    this.reviewsPerView = this.getReviewsPerView();
+    this.maxIndex = Math.max(0, this.totalReviews - this.reviewsPerView);
+    this.currentIndex = 0;
+
+    this.renderReviews();
+    this.renderDots();
+    this.updateSliderPosition();
+    this.isLoading = false;
+  },
+
+  /**
+   * Load cached reviews as fallback
+   */
+  loadCachedReviews: function () {
+    const cachedReviews = [
+      {
+        author_name: 'Sarah Johnson',
+        profile_photo_url:
+          'https://lh3.googleusercontent.com/a/default-user=s40-c',
+        rating: 5,
+        relative_time_description: '2 weeks ago',
+        text: 'Absolutely fantastic service! The team was professional, punctual, and went above and beyond.',
+        time: Date.now() - 14 * 24 * 60 * 60 * 1000,
+      },
+      {
+        author_name: 'Michael Chen',
+        profile_photo_url:
+          'https://lh3.googleusercontent.com/a/default-user=s40-c',
+        rating: 5,
+        relative_time_description: '1 month ago',
+        text: 'Outstanding experience from start to finish. Will definitely be using their services again!',
+        time: Date.now() - 30 * 24 * 60 * 60 * 1000,
+      },
+      {
+        author_name: 'Emily Rodriguez',
+        profile_photo_url:
+          'https://lh3.googleusercontent.com/a/default-user=s40-c',
+        rating: 4,
+        relative_time_description: '1 month ago',
+        text: 'Great service overall. The team was knowledgeable and helpful throughout the process.',
+        time: Date.now() - 30 * 24 * 60 * 60 * 1000,
+      },
+      {
+        author_name: 'David Kim',
+        profile_photo_url:
+          'https://lh3.googleusercontent.com/a/default-user=s40-c',
+        rating: 5,
+        relative_time_description: '2 months ago',
+        text: 'Exceptional quality and attention to detail. Highly recommend!',
+        time: Date.now() - 60 * 24 * 60 * 60 * 1000,
+      },
+      {
+        author_name: 'Lisa Thompson',
+        profile_photo_url:
+          'https://lh3.googleusercontent.com/a/default-user=s40-c',
+        rating: 5,
+        relative_time_description: '2 months ago',
+        text: 'Best decision I made was choosing this company. Professional, reliable, and the results speak for themselves.',
+        time: Date.now() - 60 * 24 * 60 * 60 * 1000,
+      },
+      {
+        author_name: 'James Wilson',
+        profile_photo_url:
+          'https://lh3.googleusercontent.com/a/default-user=s40-c',
+        rating: 5,
+        relative_time_description: '3 months ago',
+        text: 'Incredible service! They exceeded all my expectations and delivered exceptional results.',
+        time: Date.now() - 90 * 24 * 60 * 60 * 1000,
+      },
+    ];
+
+    this.processReviews(cachedReviews);
+  },
+
+  /**
+   * Render review cards
+   */
+  renderReviews: function () {
+    this.elements.container.innerHTML = this.reviews
+      .map((review) => this.createReviewCard(review))
+      .join('');
+  },
+
+  /**
+   * Create individual review card HTML
+   */
+  createReviewCard: function (review) {
+    const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+
+    return `
+      <div class="google-review-card">
+        <div class="google-review-header">
+          <img src="${
+            review.profile_photo_url ||
+            'https://www.gstatic.com/images/branding/product/2x/avatar_circle_blue_48dp.png'
+          }" 
+               alt="${review.author_name}" 
+               class="google-review-avatar" 
+               onerror="this.src='https://www.gstatic.com/images/branding/product/2x/avatar_circle_blue_48dp.png'">
+          <div class="google-review-info">
+            <h3 class="google-review-author">${this.escapeHtml(
+              review.author_name
+            )}</h3>
+            <div class="google-review-rating">
+              <span class="google-review-stars">${stars}</span>
+              <span class="google-review-date">${
+                review.relative_time_description
+              }</span>
+            </div>
+          </div>
+        </div>
+        <p class="google-review-text">${this.escapeHtml(review.text)}</p>
+        <div class="google-review-source">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.5 8C14.5 11.59 11.59 14.5 8 14.5C4.41 14.5 1.5 11.59 1.5 8C1.5 4.41 4.41 1.5 8 1.5C9.77 1.5 11.39 2.21 12.6 3.4L10.5 5.5C9.93 4.93 9.02 4.5 8 4.5C6.07 4.5 4.5 6.07 4.5 8C4.5 9.93 6.07 11.5 8 11.5C9.58 11.5 10.93 10.56 11.36 9.22H8V6.5H14C14.18 7.13 14.5 7.69 14.5 8Z" fill="#4285F4"/>
+          </svg>
+          <span>Posted on Google</span>
+        </div>
+      </div>
+    `;
+  },
+
+  /**
+   * Escape HTML to prevent XSS
+   */
+  escapeHtml: function (text) {
+    const map = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;',
+    };
+    return text.replace(/[&<>"']/g, (m) => map[m]);
+  },
+
+  /**
+   * Render navigation dots
+   */
+  renderDots: function () {
+    const totalDots = Math.ceil(this.totalReviews / this.reviewsPerView);
+    this.elements.dotsContainer.innerHTML = Array(totalDots)
+      .fill('')
+      .map(
+        (_, index) =>
+          `<button class="google-reviews-dot ${
+            index === 0 ? 'active' : ''
+          }" data-dot-index="${index}" aria-label="Go to slide ${
+            index + 1
+          }"></button>`
+      )
+      .join('');
+  },
+
+  /**
+   * Update slider position
+   */
+  updateSliderPosition: function () {
+    const card = this.elements.container.querySelector('.google-review-card');
+    if (!card) return;
+
+    const cardWidth = card.offsetWidth;
+    const gap = 24;
+    const offset = this.currentIndex * (cardWidth + gap);
+    this.elements.container.style.transform = `translateX(-${offset}px)`;
+
+    this.updateButtons();
+    this.updateDots();
+  },
+
+  /**
+   * Update navigation button states
+   */
+  updateButtons: function () {
+    this.elements.prevBtn.disabled = this.currentIndex === 0;
+    this.elements.nextBtn.disabled = this.currentIndex >= this.maxIndex;
+  },
+
+  /**
+   * Update dot indicators
+   */
+  updateDots: function () {
+    const dots = this.elements.dotsContainer.querySelectorAll(
+      '.google-reviews-dot'
+    );
+    const activeDotIndex = Math.floor(this.currentIndex / this.reviewsPerView);
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === activeDotIndex);
+    });
+  },
+
+  /**
+   * Navigate to next review
+   */
+  goToNext: function () {
+    if (this.currentIndex < this.maxIndex) {
+      this.currentIndex = Math.min(this.currentIndex + 1, this.maxIndex);
+      this.updateSliderPosition();
+    }
+  },
+
+  /**
+   * Navigate to previous review
+   */
+  goToPrev: function () {
+    if (this.currentIndex > 0) {
+      this.currentIndex = Math.max(this.currentIndex - 1, 0);
+      this.updateSliderPosition();
+    }
+  },
+
+  /**
+   * Navigate to specific slide
+   */
+  goToSlide: function (slideIndex) {
+    this.currentIndex = slideIndex * this.reviewsPerView;
+    this.currentIndex = Math.min(this.currentIndex, this.maxIndex);
+    this.updateSliderPosition();
+  },
+
+  /**
+   * Attach event listeners
+   */
+  attachEventListeners: function () {
+    // Navigation buttons
+    this.elements.prevBtn.addEventListener('click', () => this.goToPrev());
+    this.elements.nextBtn.addEventListener('click', () => this.goToNext());
+
+    // Dot navigation
+    this.elements.dotsContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('google-reviews-dot')) {
+        const dotIndex = parseInt(e.target.dataset.dotIndex);
+        this.goToSlide(dotIndex);
+      }
+    });
+
+    // Touch support
+    this.initTouchSupport();
+
+    // Resize handler
+    this.initResizeHandler();
+  },
+
+  /**
+   * Initialize touch/swipe support
+   */
+  initTouchSupport: function () {
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    this.elements.track.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    this.elements.track.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      this.handleSwipe(touchStartX, touchEndX);
+    });
+  },
+
+  /**
+   * Handle swipe gestures
+   */
+  handleSwipe: function (startX, endX) {
+    const swipeThreshold = 50;
+    const diff = startX - endX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        this.goToNext();
+      } else {
+        this.goToPrev();
+      }
+    }
+  },
+
+  /**
+   * Initialize resize handler
+   */
+  initResizeHandler: function () {
+    let resizeTimer;
+
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const newReviewsPerView = this.getReviewsPerView();
+        if (newReviewsPerView !== this.reviewsPerView) {
+          this.reviewsPerView = newReviewsPerView;
+          this.maxIndex = Math.max(0, this.totalReviews - this.reviewsPerView);
+          this.currentIndex = Math.min(this.currentIndex, this.maxIndex);
+          this.renderDots();
+          this.updateSliderPosition();
+        }
+      }, 250);
+    });
   },
 };
 

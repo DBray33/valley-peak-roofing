@@ -522,9 +522,17 @@ body {
 
 /**
  * =====================================================
- * INDEX.HTML HERO SECTION STYLES - FULL WIDTH LEFT ALIGNED WITH LEFT-TO-RIGHT GRADIENT
+ * INDEX.HTML HOMEPAGE HERO SECTION STYLES - FULL WIDTH LEFT ALIGNED WITH LEFT-TO-RIGHT GRADIENT
  * =====================================================
  */
+
+/* Hero wrapper to provide white background for slanted area */
+.hero-wrapper {
+  position: relative;
+  background: #ffffff; /* White background that shows through the clipped area */
+  overflow: hidden; /* Prevent any overflow issues */
+}
+
 .hero {
   background: linear-gradient(
       90deg,
@@ -544,6 +552,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center; /* Center the container */
+  position: relative;
+  /* Clip-path creates the slanted bottom - left side taller than right */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), 0 100%);
 }
 
 .hero-content {
@@ -755,6 +766,8 @@ body {
       ),
       url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/valley-peak-roofing-homepage-hero-background.webp');
     background-position: center center; /* Show center of image on mobile */
+    /* Adjust clip-path for mobile */
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), 0 100%);
   }
 
   .hero-content .container {
@@ -817,6 +830,8 @@ body {
     padding: 140px 0 40px; /* Increased top padding for navbar clearance */
     min-height: 60vh; /* Further reduced height */
     background-position: center center; /* Ensure center positioning on small screens */
+    /* Smaller slant on mobile */
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 0 100%);
   }
 
   .hero-content .container {
@@ -5282,18 +5297,23 @@ body {
  */
 .service-areas-hero {
   position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(44, 62, 80, 0.95) 0%,
-    rgba(52, 73, 94, 0.9) 100%
-  );
-  min-height: 500px;
+  background-image: linear-gradient(
+      135deg,
+      rgba(33, 33, 33, 0.7) 0%,
+      rgba(50, 50, 50, 0.65) 100%
+    ),
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/c.%20service-areas.html/bethlehem-steelstacks-services-areas-hero-bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 700px; /* Increased height */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 160px 0 80px;
+  padding: 160px 0 100px; /* Adjusted padding */
   color: white;
-  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  /* Creates slant: top-left and top-right at 0%, bottom-right at 85%, bottom-left at 100% */
 }
 
 .service-areas-hero .container {
@@ -5301,6 +5321,18 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+/* Add background color to the parent/wrapper or the next section */
+.service-areas-hero-wrapper {
+  background-color: #f8f9fa;
+}
+
+/* Or if the hero is followed by another section */
+.service-areas-hero + * {
+  background-color: #f8f9fa;
+  margin-top: -80px; /* Negative margin to fill the slanted gap */
+  padding-top: 80px; /* Add padding back to maintain content spacing */
 }
 
 .hero-content {
@@ -14185,6 +14217,10 @@ body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
+}
+
+body {
+  background-color: #f8f9fa;
 }
 
 /* Fix container widths on mobile */

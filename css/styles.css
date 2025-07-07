@@ -4448,7 +4448,7 @@ body {
     var(--dark-blue) 0%,
     var(--secondary-color) 100%
   );
-  padding: 200px 0 120px;
+  padding: 140px 0 80px; /* Reduced from 200px 0 120px */
   overflow: hidden;
 }
 
@@ -4523,7 +4523,7 @@ body {
 
 @media (max-width: 480px) {
   .page-header {
-    padding: 180px 0 100px;
+    padding: 120px 0 60px; /* Reduced from 180px 0 100px */
   }
 
   .page-title {
@@ -4552,8 +4552,8 @@ body {
 
 /* Company Introduction */
 .company-intro {
-  padding: 120px 0;
-  min-height: 600px;
+  padding: 80px 0; /* Reduced from 120px 0 */
+  min-height: 400px; /* Reduced from 600px */
   position: relative;
   background-image: url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/b.%20our-company.html/our-company-page-bg.webp');
   background-size: cover;
@@ -4637,8 +4637,8 @@ body {
 
 @media (max-width: 480px) {
   .company-intro {
-    padding: 60px 0;
-    min-height: 400px;
+    padding: 40px 0; /* Reduced from 60px 0 */
+    min-height: 300px; /* Reduced from 400px */
     background-image: none;
   }
 

@@ -4450,6 +4450,18 @@ body {
   );
   padding: 140px 0 80px; /* Reduced from 200px 0 120px */
   overflow: hidden;
+  /* Fade-in animation for the background */
+  animation: fadeInBackground 0.8s ease-in-out;
+}
+
+/* Keyframe animation for background fade-in */
+@keyframes fadeInBackground {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .page-header::before {
@@ -4461,6 +4473,17 @@ body {
   bottom: 0;
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><path fill="rgba(255,255,255,0.03)" d="M0,150 C200,100 400,200 600,150 C800,100 1000,200 1200,150 L1200,300 L0,300 Z"/></svg>');
   background-size: cover;
+  /* Delayed fade-in for the pattern overlay */
+  animation: fadeInPattern 1s ease-in-out 0.3s both;
+}
+
+@keyframes fadeInPattern {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .page-header-overlay {
@@ -4474,12 +4497,36 @@ body {
     transparent 0%,
     rgba(0, 0, 0, 0.4) 100%
   );
+  /* Delayed fade-in for the overlay */
+  animation: fadeInOverlay 1s ease-in-out 0.4s both;
+}
+
+@keyframes fadeInOverlay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .page-header-content {
   position: relative;
   z-index: 2;
   text-align: center;
+  /* Slide up animation for content */
+  animation: slideUpContent 0.6s ease-out 0.2s both;
+}
+
+@keyframes slideUpContent {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .page-title {
@@ -4518,6 +4565,17 @@ body {
       rgba(26, 41, 58, 0.5) 100%
     );
     z-index: 1;
+    /* Delayed fade-in for mobile gradient overlay */
+    animation: fadeInMobileOverlay 0.8s ease-in-out 0.3s both;
+  }
+}
+
+@keyframes fadeInMobileOverlay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

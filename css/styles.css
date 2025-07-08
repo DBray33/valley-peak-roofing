@@ -8972,7 +8972,7 @@ body {
 
 /* Benefits Grid - Light Gold Gradient Background */
 .repairs-why-section {
-  padding: 80px 0;
+  padding: 80px 0 0;
   background: linear-gradient(135deg, #f9f7f4 0%, #f5f1eb 100%);
 }
 
@@ -9082,7 +9082,6 @@ body {
 
 .repairs-trust-badges {
   text-align: center;
-  margin-top: 3rem;
 }
 
 .repairs-badges-image {

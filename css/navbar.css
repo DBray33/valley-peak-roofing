@@ -235,11 +235,39 @@
   position: relative;
 }
 
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 15px;
+  }
+}
+
 /* Navigation menu - now takes up more space */
 .nav-menu {
   display: flex;
   align-items: center;
   gap: 30px;
+}
+
+/* Adjust spacing as viewport narrows */
+@media (max-width: 1400px) {
+  .nav-menu {
+    gap: 20px;
+  }
+
+  .nav-link {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .nav-menu {
+    gap: 15px;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 15px;
+  }
 }
 
 /* Navigation items */
@@ -356,6 +384,59 @@
   border-radius: 2px;
 }
 
+/* Mobile breakpoint - UPDATED TO 1020px */
+@media (max-width: 1020px) {
+  .nav-container {
+    justify-content: space-between; /* Space between logo and controls */
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-mobile-controls {
+    display: flex;
+    margin-left: auto; /* Push to right side */
+  }
+
+  .home-button {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    margin-left: 0; /* Remove auto margin since parent handles positioning */
+  }
+
+  /* Hamburger animations */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+}
+
+/* Hide mobile controls on desktop - UPDATED TO 1021px */
+@media (min-width: 1021px) {
+  .nav-mobile-controls {
+    display: none;
+  }
+
+  .mobile-home-button {
+    display: none;
+  }
+
+  .home-button {
+    display: flex;
+  }
+}
+
 /**
  * =====================================================
  * BUTTON COLOR FIXES
@@ -415,89 +496,6 @@
 
 .floating-phone-link:active {
   color: var(--white) !important;
-}
-
-/* Responsive Styles */
-
-/* Adjust spacing as viewport narrows */
-@media (max-width: 1400px) {
-  .nav-menu {
-    gap: 20px;
-  }
-
-  .nav-link {
-    padding: 10px 12px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .nav-menu {
-    gap: 15px;
-  }
-
-  .nav-link {
-    padding: 8px 10px;
-    font-size: 15px;
-  }
-}
-
-/* Mobile breakpoint - UPDATED TO 1020px */
-@media (max-width: 1020px) {
-  .nav-container {
-    justify-content: space-between; /* Space between logo and controls */
-  }
-
-  .nav-menu {
-    display: none;
-  }
-
-  .nav-mobile-controls {
-    display: flex;
-    margin-left: auto; /* Push to right side */
-  }
-
-  .home-button {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-    margin-left: 0; /* Remove auto margin since parent handles positioning */
-  }
-
-  /* Hamburger animations */
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-  }
-}
-
-/* Hide mobile controls on desktop - UPDATED TO 1021px */
-@media (min-width: 1021px) {
-  .nav-mobile-controls {
-    display: none;
-  }
-
-  .mobile-home-button {
-    display: none;
-  }
-
-  .home-button {
-    display: flex;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-container {
-    padding: 0 15px;
-  }
 }
 
 /**

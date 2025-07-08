@@ -14785,12 +14785,12 @@ body {
 
 /**
  * =====================================================
- * FLOATING FINANCING BUTTON STYLES
+ * FLOATING FINANCING BUTTON STYLES - SUBTLE 3D
  * =====================================================
  */
 .floating-financing {
   position: fixed;
-  top: 100px; /* Same as floating-phone: 80px navbar + 20px spacing */
+  top: 100px;
   left: 20px;
   z-index: 999;
   animation: slideInLeft 0.8s ease-out;
@@ -14803,20 +14803,61 @@ body {
   background: var(--primary-color);
   color: var(--white) !important;
   padding: 12px 20px;
+  border: 2px solid #000000;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   white-space: nowrap;
+  position: relative;
+  /* Clean 3D with subtle depth */
+  box-shadow: 
+    /* Small highlight on top */ inset 0 1px 0
+      rgba(255, 255, 255, 0.3),
+    /* Black border shadow */ 0 1px 0 #000000,
+    /* Main shadow */ 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Simple bottom edge */
+.floating-financing-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 3px;
+  background: #000000;
+  border-radius: 50%;
+  opacity: 0.3;
+  transition: all 0.3s ease;
 }
 
 .floating-financing-link:hover {
   background: var(--primary-dark);
   color: var(--white) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 0 #000000,
+    0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.floating-financing-link:hover::after {
+  bottom: -4px;
+  width: 85%;
+  opacity: 0.25;
+}
+
+.floating-financing-link:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 0 #000000,
+    0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.floating-financing-link:active::after {
+  bottom: -2px;
+  width: 75%;
+  opacity: 0.4;
 }
 
 .floating-financing-link i {
@@ -14838,7 +14879,7 @@ body {
 /* Mobile responsiveness */
 @media (max-width: 1020px) {
   .floating-financing {
-    top: 90px; /* Adjust for mobile navbar if needed */
+    top: 90px;
     left: 15px;
   }
 
@@ -14857,6 +14898,8 @@ body {
     padding: 8px 14px;
     font-size: 13px;
     gap: 6px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 0 #000000,
+      0 3px 6px rgba(0, 0, 0, 0.15);
   }
 
   .floating-financing-link i {

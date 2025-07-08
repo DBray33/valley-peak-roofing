@@ -1,0 +1,72 @@
+.
+├── assets
+│   └── images
+│       ├── design-your-roof-page
+│       │   ├── design-your-roof-hero-bg.jpg
+│       │   └── owens-corning-samples
+│       │       ├── bourbon.webp
+│       │       ├── estate-gray.jpg
+│       │       ├── onyx-black.webp
+│       │       ├── summer-harvest.jpg
+│       │       ├── teak.webp
+│       │       └── terracotta.jpg
+│       ├── faq-page-hero-bg.jpg
+│       ├── our-company-page
+│       ├── our-work-page
+│       │   ├── flyover-placeholder.png
+│       │   └── flyover.mov
+│       └── roof-replacement-installation-page
+│           ├── SF-Logo-1.webp
+│           ├── architectural-shingles-2.jpg
+│           ├── architectural-shingles.jpg
+│           ├── asphalt-shingles.jpg
+│           ├── financing-bg.jpg
+│           ├── home-roof-installation-hero-bg-vid.mp4
+│           ├── metal-roof.jpg
+│           ├── roof-texture-bg.jpg
+│           └── specialty-roof.jpg
+├── blog
+│   ├── best-month-roof-replacement.html
+│   ├── black-streaks-on-roof-causes.html
+│   ├── choosing-roofing-contractor-bethlehem.html
+│   ├── does-your-home-need-roof-ventilation.html
+│   ├── hail-damage-roof-repair-steps.html
+│   ├── is-it-time-to-replace-your-roof.html
+│   ├── lehigh-valley-weather-roof-protection.html
+│   ├── replacing-your-roof-on-a-budget.html
+│   ├── roof-inspection-home-buying-bethlehem.html
+│   ├── roof-repair-or-replace-guide.html
+│   ├── roof-repairs-vs-replacement.html
+│   ├── roof-terms-to-know-when-working-with-a-roofing-company.html
+│   └── why-asphalt-shingles-are-the-best-choice-for-your-roof.html
+├── budget-roof-cost.html
+├── commercial-roofing.html
+├── contact.html
+├── css
+│   ├── footer.css
+│   ├── navbar.css
+│   └── styles.css
+├── design-your-roof.html
+├── gutter-maintenance-installation.html
+├── index.html
+├── james-hardie.html
+├── our-blog.html
+├── our-company.html
+├── our-services.html
+├── our-work.html
+├── privacy-policy.html
+├── residential-roof-repairs.html
+├── roof-replacement-installation.html
+├── roofing-services-in-berks-county.html
+├── roofing-services-in-lehigh-county.html
+├── roofing-services-in-northampton-county.html
+├── roofing-siding-gutter-faqs.html
+├── scripts.js
+├── service-areas.html
+├── siding-installation.html
+├── sitemap.txt
+├── sitemap.xml
+├── skylight-installation-and-repair.html
+└── terms.html
+
+10 directories, 60 files

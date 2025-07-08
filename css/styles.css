@@ -2174,6 +2174,28 @@ body {
 * GOOGLE REVIEWS SLIDER STYLES
 * =====================================================
 */
+.google-reviews-subtitle {
+  font-size: 1.1rem;
+  color: white;
+  margin: 1rem auto 1.5rem;
+  max-width: 700px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .google-reviews-subtitle {
+    font-size: 1rem;
+    margin: 0.75rem auto 1.25rem;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .google-reviews-subtitle {
+    font-size: 0.9rem;
+  }
+}
 /* Google Reviews Slider Styles */
 .google-reviews-slider-wrapper {
   background-color: #1e3a5f;

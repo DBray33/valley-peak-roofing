@@ -1,0 +1,64 @@
+# URL Structure Changes (trailing slashes to .html)
+/contact/                    /contact.html                    301
+/our-company/                /our-company.html                301
+/design-your-roof/           /design-your-roof.html           301
+/service-areas/              /service-areas.html              301
+/roof-cost/                  /budget-roof-cost.html           301
+/our-work/                   /our-work.html                   301
+/privacy-policy/             /privacy-policy.html             301
+/terms-and-conditions/       /terms.html                      301
+/our-services/               /our-services.html               301
+/james-hardie/               /james-hardie.html               301
+/our-blog/                   /our-blog.html                   301
+/roof-replacement-installation/     /roof-replacement-installation.html     301
+/residential-roof-repairs/          /residential-roof-repairs.html          301
+/commercial-roofing/                /commercial-roofing.html                301
+/siding-installation/               /siding-installation.html               301
+/gutter-maintenance-installation/   /gutter-maintenance-installation.html   301
+/skylight-installation-and-repair/  /skylight-installation-and-repair.html  301
+/back-the-blue/              /back-the-blue.html                 301
+
+# Service Area Pages
+/lehigh-county/              /roofing-services-in-lehigh-county.html        301
+/northampton-county/         /roofing-services-in-northampton-county.html   301
+/berks-county/               /roofing-services-in-berks-county.html         301
+
+# Blog Posts (moving to /blog/ folder)
+/7-tips-to-choose-the-best-roofing-contractor-in-bethlehem-pennsylvania/    /blog/choosing-roofing-contractor-bethlehem.html    301
+/how-to-know-whether-to-repair-or-replace-your-roof/                        /blog/roof-repair-or-replace-guide.html             301
+/roof-terms-to-know-when-working-with-a-roofing-company/                    /blog/roof-terms-to-know-when-working-with-a-roofing-company.html    301
+/does-your-home-need-roof-ventilation/                                      /blog/does-your-home-need-roof-ventilation.html     301
+/why-asphalt-shingles-are-the-best-choice-for-your-roof/                   /blog/why-asphalt-shingles-are-the-best-choice-for-your-roof.html    301
+/what-are-those-black-streaks-running-down-my-roof/                        /blog/black-streaks-on-roof-causes.html             301
+/replacing-your-roof-on-a-budget/                                          /blog/replacing-your-roof-on-a-budget.html          301
+/what-to-look-for-in-a-roof-when-buying-a-home-in-bethlehem-pennsylvania/  /blog/roof-inspection-home-buying-bethlehem.html    301
+/what-to-do-after-suffering-hail-damage-to-your-roof-next-steps/           /blog/hail-damage-roof-repair-steps.html            301
+/what-is-the-best-month-to-replace-your-roof/                              /blog/best-month-roof-replacement.html               301
+/is-it-time-to-replace-your-roof/                                          /blog/is-it-time-to-replace-your-roof.html          301
+/roof-repairs-vs-replacement/                                               /blog/roof-repairs-vs-replacement.html               301
+/how-lehigh-valleys-weather-affects-your-roof-and-what-you-can-do-about-it/    /blog/lehigh-valley-weather-roof-protection.html    301
+
+# FAQ Consolidation
+/roofing-faq/                /roofing-siding-gutter-faqs.html    301
+/siding-faq/                 /roofing-siding-gutter-faqs.html    301
+/gutter-faq/                 /roofing-siding-gutter-faqs.html    301
+
+# Removed/Deprecated Pages
+/roof-installation/          /roof-replacement-installation.html 301
+/thank-you/                  /contact.html                       301
+/budget-roof-cost/           /budget-roof-cost.html              301
+/architectural-shingles/     /our-services.html                  301
+/metal-roof-installation/    /roof-replacement-installation.html 301
+
+# City Pages (redirect to service areas)
+/allentown-pa/               /roofing-services-in-lehigh-county.html        301
+/bath-pa/                    /roofing-services-in-northampton-county.html   301
+/nazareth-pa/                /roofing-services-in-northampton-county.html   301
+/alburtis-pa/                /roofing-services-in-lehigh-county.html        301
+/bethlehem-pa/               /roofing-services-in-northampton-county.html   301
+/catasauqua-pa/              /roofing-services-in-lehigh-county.html        301
+/coopersburg-pa/             /roofing-services-in-lehigh-county.html        301
+/easton-pa/                  /roofing-services-in-northampton-county.html   301
+/emmaus-pa/                  /roofing-services-in-lehigh-county.html        301
+/hellertown-pa/              /roofing-services-in-northampton-county.html   301
+/macungie-pa/                /roofing-services-in-lehigh-county.html        301

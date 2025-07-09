@@ -7,15 +7,38 @@
 /* Blog Header */
 .blog-header {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 4rem 0 3rem; /* Increased top padding from 2rem to 4rem */
+  padding: 4rem 0 3rem;
   margin-bottom: 2rem;
 }
 
-/* Blog Header */
-.blog-header {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 6rem 0 3rem; /* Increased from 4rem to 6rem */
-  margin-bottom: 2rem;
+/* Desktop: 50/50 Split Layout */
+@media (min-width: 993px) {
+  /* Create wrapper for both sections */
+  .blog-header + .blog-hero-image {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    width: 50%;
+    height: 400px;
+    margin: 0;
+  }
+
+  /* Header takes left 50% */
+  .blog-header {
+    width: 50%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+  }
+
+  .blog-header .container {
+    padding: 0 3rem;
+  }
+
+  /* Add margin to content to account for absolute image */
+  .blog-content {
+    margin-top: 100px;
+  }
 }
 
 /* Breadcrumb Navigation */
@@ -83,7 +106,7 @@
   line-height: 1;
 }
 
-/* Hero Image */
+/* Hero Image - Mobile default */
 .blog-hero-image {
   width: 100%;
   max-height: 500px;
@@ -242,7 +265,7 @@
 /* Sidebar */
 .blog-sidebar {
   position: sticky;
-  top: 140px; /* Increased from 120px to account for floating buttons */
+  top: 140px;
   height: fit-content;
 }
 
@@ -394,6 +417,30 @@
 
 /* Responsive Design */
 @media (max-width: 992px) {
+  /* Reset desktop positioning */
+  .blog-header::before {
+    display: none;
+  }
+
+  .blog-header .container {
+    display: block;
+    max-width: 1200px;
+    padding: 0 15px;
+  }
+
+  .blog-header .container > * {
+    width: 100%;
+    padding: 0;
+    max-width: none;
+  }
+
+  .blog-hero-image {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+  }
+
   .blog-content .container {
     grid-template-columns: 1fr;
   }
@@ -410,7 +457,7 @@
 
 @media (max-width: 768px) {
   .blog-header {
-    padding: 5.5rem 0 2rem; /* Reduced from 7rem to 5.5rem */
+    padding: 6rem 0 2rem; /* Increased from 5.5rem to 6rem */
   }
 
   .blog-title {
@@ -459,7 +506,7 @@
   }
 
   .blog-header {
-    padding: 4.5rem 0 2rem; /* Reduced from 8rem to 4.5rem */
+    padding: 5.5rem 0 1.5rem; /* Increased from 4.5rem to 5.5rem */
   }
 
   .breadcrumb {

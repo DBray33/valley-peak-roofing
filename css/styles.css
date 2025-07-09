@@ -9889,6 +9889,7 @@ body {
   color: #2c3e50;
 }
 
+/* Repairs Gallery Section - Orange Gradient with Texture */
 .repairs-gallery-section {
   padding: 80px 0;
   background: linear-gradient(135deg, var(--orange-accent), var(--orange-light)),
@@ -9923,9 +9924,19 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .repairs-gallery-grid {
+    grid-template-columns: repeat(4, 1fr); /* Keep 4 columns on mobile */
+    gap: 0.5rem; /* Reduce gap for mobile */
+    overflow-x: auto; /* Allow horizontal scroll if needed */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+}
+
 @media (max-width: 480px) {
   .repairs-gallery-grid {
-    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on small mobile */
+    gap: 0.25rem; /* Even smaller gap */
   }
 }
 
@@ -9940,7 +9951,14 @@ body {
 
 @media (max-width: 768px) {
   .repairs-gallery-item {
-    height: 200px;
+    height: 150px; /* Smaller height on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-gallery-item {
+    height: 100px; /* Even smaller for small screens */
+    border-radius: 4px; /* Smaller border radius */
   }
 }
 
@@ -9962,14 +9980,27 @@ body {
   transition: transform 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  .repairs-gallery-overlay {
+    padding: 0.75rem; /* Smaller padding on mobile */
+  }
+}
+
 @media (max-width: 480px) {
   .repairs-gallery-overlay {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 }
 
 .repairs-gallery-item:hover .repairs-gallery-overlay {
   transform: translateY(0);
+}
+
+/* On mobile, show overlay on tap instead of hover */
+@media (max-width: 768px) {
+  .repairs-gallery-item:active .repairs-gallery-overlay {
+    transform: translateY(0);
+  }
 }
 
 .repairs-gallery-overlay h4 {
@@ -9978,9 +10009,15 @@ body {
   margin-bottom: 0.25rem;
 }
 
+@media (max-width: 768px) {
+  .repairs-gallery-overlay h4 {
+    font-size: 0.875rem; /* Smaller text on mobile */
+  }
+}
+
 @media (max-width: 480px) {
   .repairs-gallery-overlay h4 {
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -9990,9 +10027,16 @@ body {
   margin: 0;
 }
 
+@media (max-width: 768px) {
+  .repairs-gallery-overlay p {
+    font-size: 0.625rem; /* Smaller text on mobile */
+    display: none; /* Or hide description on mobile to save space */
+  }
+}
+
 @media (max-width: 480px) {
   .repairs-gallery-overlay p {
-    font-size: 0.75rem;
+    display: none; /* Hide description on small screens */
   }
 }
 

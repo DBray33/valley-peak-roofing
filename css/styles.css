@@ -9889,10 +9889,14 @@ body {
   color: #2c3e50;
 }
 
-/* Gallery Section - Orange Gradient Background */
 .repairs-gallery-section {
   padding: 80px 0;
-  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  background: linear-gradient(135deg, var(--orange-accent), var(--orange-light)),
+    url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto; /* keeps texture at original size */
+  color: var(--white);
 }
 
 @media (max-width: 480px) {

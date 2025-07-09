@@ -6778,6 +6778,14 @@ body {
   gap: 40px;
 }
 
+/* Blog Card Link Wrapper */
+.blog-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+}
+
 .blog-page-card {
   background: var(--white);
   border-radius: var(--border-radius);
@@ -6786,6 +6794,8 @@ body {
   transition: var(--transition);
   display: flex;
   flex-direction: column;
+  height: 100%;
+  cursor: pointer;
 }
 
 .blog-page-card:hover {
@@ -6850,18 +6860,19 @@ body {
   flex: 1;
 }
 
+/* Changed from anchor to span */
 .blog-page-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   color: var(--primary-color);
-  text-decoration: none;
   font-weight: 600;
   transition: var(--transition);
   margin-top: auto;
+  cursor: pointer;
 }
 
-.blog-page-link:hover {
+.blog-page-card:hover .blog-page-link {
   color: var(--primary-dark);
   gap: 12px;
 }
@@ -6956,9 +6967,28 @@ body {
     font-size: 13px;
   }
 
-  .blog-page-link {
+  span.blog-page-link {
     font-size: 15px;
   }
+}
+
+.blog-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure nothing inside is blocking the link */
+.blog-card-link * {
+  pointer-events: none;
+}
+
+/* But keep the card itself clickable */
+.blog-card-link .blog-page-card {
+  pointer-events: auto;
 }
 
 /**

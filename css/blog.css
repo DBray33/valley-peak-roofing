@@ -251,17 +251,6 @@
   content: none !important;
 }
 
-.cta-box .btn {
-  background: #fff !important;
-  color: #0d6efd !important;
-  border: 2px solid #fff !important;
-}
-
-.cta-box .btn:hover {
-  background: transparent !important;
-  color: #fff !important;
-}
-
 /* Sidebar */
 .blog-sidebar {
   position: sticky;

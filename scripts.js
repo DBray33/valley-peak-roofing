@@ -39,6 +39,7 @@ const App = {
       ResidentialRoofRepairs,
       SkylightPage,
       GoogleReviewsSlider,
+      RepairsCarousel,
     ]);
   },
 
@@ -3726,6 +3727,129 @@ const GoogleReviewsSlider = {
 document.addEventListener('DOMContentLoaded', function () {
   GoogleReviewsSlider.init();
 });
+
+/**
+ * =====================================================
+ * RESIDENTIAL ROOF COMMON ISSUES CAROUSEL
+ * =====================================================
+ */
+const RepairsCarousel = {
+  init: function () {
+    // Check if we're on a page with the repairs carousel
+    const carousel = document.querySelector('.repairs-carousel');
+    if (!carousel) return;
+
+    const slides = document.querySelectorAll('.repairs-carousel-slide');
+    const nextBtn = document.querySelector('.repairs-carousel-next');
+    const prevBtn = document.querySelector('.repairs-carousel-prev');
+    const indicators = document.querySelectorAll('.repairs-carousel-indicator');
+    let currentSlide = 0;
+    let autoPlayInterval = null; // Initialize as null
+
+    function showSlide(index) {
+      // Remove active class from all slides and indicators
+      slides.forEach((slide) => slide.classList.remove('active'));
+      indicators.forEach((indicator) => indicator.classList.remove('active'));
+
+      // Add active class to current slide and indicator
+      if (slides[index]) {
+        slides[index].classList.add('active');
+      }
+      if (indicators[index]) {
+        indicators[index].classList.add('active');
+      }
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      const nextIndex = (currentSlide + 1) % slides.length;
+      showSlide(nextIndex);
+    }
+
+    function prevSlide() {
+      const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(prevIndex);
+    }
+
+    function startAutoPlay() {
+      // Always clear existing interval before starting new one
+      stopAutoPlay();
+      autoPlayInterval = setInterval(nextSlide, 2000); // Change slide every 5 seconds
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = null;
+      }
+    }
+
+    // Event listeners
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        nextSlide();
+        startAutoPlay(); // This will clear and restart
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        prevSlide();
+        startAutoPlay(); // This will clear and restart
+      });
+    }
+
+    // Indicator clicks
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', function () {
+        showSlide(index);
+        startAutoPlay(); // This will clear and restart
+      });
+    });
+
+    // Pause auto-play on hover
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener(
+      'touchstart',
+      function (e) {
+        touchStartX = e.changedTouches[0].screenX;
+      },
+      { passive: true }
+    );
+
+    carousel.addEventListener(
+      'touchend',
+      function (e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      },
+      { passive: true }
+    );
+
+    function handleSwipe() {
+      if (touchEndX < touchStartX - 50) {
+        nextSlide(); // Swipe left
+        startAutoPlay(); // Restart timer
+      }
+      if (touchEndX > touchStartX + 50) {
+        prevSlide(); // Swipe right
+        startAutoPlay(); // Restart timer
+      }
+    }
+
+    // Make sure the first slide is shown
+    showSlide(0);
+
+    // Start auto-play only once
+    startAutoPlay();
+  },
+};
 
 /**
  * =====================================================

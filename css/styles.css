@@ -9091,6 +9091,147 @@ body {
   text-align: center;
 }
 
+/* Carousel Styles */
+.repairs-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.repairs-carousel {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .repairs-carousel {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .repairs-carousel {
+    height: 250px;
+  }
+}
+
+.repairs-carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.repairs-carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.repairs-carousel-slide.active {
+  opacity: 1;
+}
+
+.repairs-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.repairs-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+@media (max-width: 480px) {
+  .repairs-carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.repairs-carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.repairs-carousel-prev {
+  left: 20px;
+}
+
+.repairs-carousel-next {
+  right: 20px;
+}
+
+@media (max-width: 480px) {
+  .repairs-carousel-prev {
+    left: 10px;
+  }
+
+  .repairs-carousel-next {
+    right: 10px;
+  }
+}
+
+.repairs-carousel-btn i {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 480px) {
+  .repairs-carousel-btn i {
+    font-size: 1rem;
+  }
+}
+
+.repairs-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.repairs-carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.repairs-carousel-indicator.active {
+  background: white;
+  border-color: white;
+}
+
+.repairs-carousel-indicator:hover {
+  border-color: white;
+}
+
+/* End of Carousel Styles */
+
 .repairs-diagram-image {
   width: 100%;
   height: auto;
@@ -9799,19 +9940,11 @@ body {
   }
 }
 
-.repairs-gallery-item:hover {
-  transform: translateY(-5px);
-}
-
 .repairs-gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
-}
-
-.repairs-gallery-item:hover img {
-  transform: scale(1.1);
 }
 
 .repairs-gallery-overlay {

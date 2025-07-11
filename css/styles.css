@@ -835,10 +835,438 @@ body {
  * =====================================================
  */
 /* #region Homepage Hero */
-/* Hero wrapper to provide white background for slanted area */
+/* Hero wrapper to provide hexagon textured background for slanted area */
 .hero-wrapper {
   position: relative;
-  background: #ffffff; /* White background that shows through the clipped area */
+  background-color: var(--dark-blue);
+  background-image: url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-repeat: repeat;
+  background-size: auto;
+  overflow: hidden; /* Prevent any overflow issues */
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(
+      90deg,
+      rgba(20, 22, 23, 0.9) 0%,
+      rgba(20, 22, 23, 0.85) 40%,
+      rgba(20, 22, 23, 0.6) 65%,
+      rgba(20, 22, 23, 0.3) 80%,
+      rgba(20, 22, 23, 0.1) 90%,
+      transparent 100%
+    ),
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/valley-peak-roofing-homepage-hero-background.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 120px 0 80px;
+  min-height: 98vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the container */
+  position: relative;
+  /* Clip-path creates the slanted bottom - left side taller than right */
+  /* Increased from 100px to 200px for more dramatic slant */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 200px), 0 100%);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 0 50px; /* Increased top padding to account for navbar */
+    min-height: 98vh; /* Keep the same height as desktop */
+    background: linear-gradient(
+        90deg,
+        rgba(20, 22, 23, 0.85) 0%,
+        rgba(20, 22, 23, 0.7) 60%,
+        rgba(20, 22, 23, 0.4) 100%
+      ),
+      url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/valley-peak-roofing-homepage-hero-background.webp');
+    background-position: center center; /* Show center of image on mobile */
+    /* Adjust clip-path for mobile */
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), 0 100%);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 140px 0 40px; /* Increased top padding for navbar clearance */
+    min-height: 98vh; /* Keep the same height as desktop */
+    background-position: center center; /* Ensure center positioning on small screens */
+    /* Smaller slant on mobile */
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 0 100%);
+  }
+}
+
+/* Hero Content */
+.hero-content {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center the container */
+}
+
+.hero-content .container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 90px;
+  margin: 0 auto 0 30px; /* Left margin only on large screens */
+}
+
+@media (max-width: 768px) {
+  .hero-content .container {
+    justify-content: center; /* Center on mobile */
+    padding: 0 20px; /* Reduced padding */
+    margin: 0 auto; /* Remove left margin and center normally */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content .container {
+    padding: 0 10px; /* Minimal padding */
+    margin: 0 auto; /* Keep centered with no left margin */
+  }
+}
+
+/* Hero Text */
+.hero-text {
+  text-align: left; /* Left align all text */
+  max-width: 100%; /* Use full container width */
+  width: 100%; /* Take full width of container */
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    text-align: center; /* Center text container on mobile */
+  }
+}
+
+/* Hero Title */
+.hero-text h1 {
+  font-size: 60px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+
+@media (max-width: 1398px) {
+  .hero-text h1 {
+    font-size: 50px; /* Reduced from 60px */
+  }
+}
+
+@media (max-width: 974px) {
+  .hero-text h1 {
+    font-size: 42px; /* Further reduced from 50px */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 28px; /* Reduced from 36px */
+    margin-bottom: 15px; /* Reduced margin */
+    text-align: left; /* Keep h1 left aligned */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 26px; /* Further reduced */
+    margin-bottom: 12px; /* Reduced margin */
+  }
+}
+
+/* Hero Description Paragraph - First p element */
+.hero-text p.fade-in-delay {
+  font-size: 19px;
+  color: white;
+  margin-bottom: 30px;
+  line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  max-width: fit-content; /* Changed from 800px to fit-content to remove extra space */
+  width: auto; /* Allow width to adjust to content */
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 20px 24px;
+  backdrop-filter: blur(10px);
+  margin-top: 2rem;
+}
+
+@media (max-width: 1398px) {
+  .hero-text p.fade-in-delay {
+    font-size: 20px; /* Reduced from 19px - moved from .hero-description */
+  }
+}
+
+@media (max-width: 974px) {
+  .hero-text p.fade-in-delay {
+    font-size: 18px; /* Further reduced from 20px */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text p.fade-in-delay {
+    font-size: 16px; /* Reduced from 18px */
+    padding: 15px 18px; /* Reduced padding */
+    margin-bottom: 25px; /* Reduced margin */
+    margin-left: auto; /* Center the paragraph */
+    margin-right: auto; /* Center the paragraph */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text p.fade-in-delay {
+    font-size: 14px; /* Further reduced */
+    padding: 12px 15px; /* Minimal padding */
+    margin-bottom: 20px; /* Reduced margin */
+  }
+}
+
+/* Hero Guarantees */
+.hero-guarantees {
+  display: flex;
+  flex-direction: row; /* Change from column to row */
+  gap: 40px; /* Increase gap for better spacing between items */
+  margin-bottom: 40px;
+  margin-top: 3rem;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+@media (max-width: 768px) {
+  .hero-guarantees {
+    flex-direction: column;
+    gap: 12px; /* Reduced gap */
+    align-items: center; /* Center guarantees */
+    margin-bottom: 30px; /* Reduced margin */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-guarantees {
+    gap: 10px; /* Minimal gap */
+    margin-bottom: 25px; /* Reduced margin */
+  }
+}
+
+/* Guarantee Item */
+.guarantee-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  font-weight: 500;
+}
+
+@media (max-width: 1398px) {
+  .guarantee-item {
+    font-size: 14px; /* Reduced from 16px */
+  }
+}
+
+@media (max-width: 974px) {
+  .guarantee-item {
+    font-size: 13px; /* Further reduced from 14px */
+  }
+}
+
+@media (max-width: 480px) {
+  .guarantee-item {
+    font-size: 18px; /* Reduced font size */
+    gap: 8px; /* Reduced gap */
+  }
+}
+
+.guarantee-item i {
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+@media (max-width: 1398px) {
+  .guarantee-item i {
+    font-size: 16px; /* Reduced from 18px */
+  }
+}
+
+@media (max-width: 974px) {
+  .guarantee-item i {
+    font-size: 15px; /* Further reduced from 16px */
+  }
+}
+
+@media (max-width: 480px) {
+  .guarantee-item i {
+    font-size: 14px; /* Reduced icon size */
+  }
+}
+
+/* Hero CTA */
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start; /* Left align CTA elements */
+}
+
+@media (max-width: 768px) {
+  .hero-cta {
+    align-items: center; /* Center CTA */
+    gap: 15px; /* Reduced gap */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-cta {
+    gap: 12px; /* Minimal gap */
+  }
+}
+
+.hero-cta .btn-primary::before {
+  animation: hero-shimmer 3s infinite;
+}
+
+@keyframes hero-shimmer {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Trust Indicators Paragraph - Second p element */
+.hero-cta p.trust-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 14px;
+  color: var(--white);
+  justify-content: flex-start; /* Left align trust indicators */
+  margin-top: 2rem; /* Remove default paragraph margins */
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1398px) {
+  .hero-cta p.trust-indicators {
+    font-size: 13px; /* Reduced from 14px */
+  }
+}
+
+@media (max-width: 974px) {
+  .hero-cta p.trust-indicators {
+    font-size: 12px; /* Further reduced from 13px */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-cta p.trust-indicators {
+    justify-content: center; /* Center trust indicators */
+    gap: 15px; /* Reduced gap */
+    font-size: 12px; /* Reduced font size */
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-cta p.trust-indicators {
+    gap: 12px; /* Minimal gap */
+    font-size: 11px; /* Smallest font size */
+    margin-bottom: 1.5rem;
+  }
+}
+
+.trust-indicators span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-indicators i {
+  color: var(--primary-color);
+}
+
+/* Social Media Links */
+.hero-social-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start; /* Left align social links */
+}
+
+@media (max-width: 768px) {
+  .hero-social-links {
+    justify-content: center; /* Center social links on mobile */
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-social-links {
+    gap: 10px;
+  }
+}
+
+.hero-social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.hero-social-links a:hover {
+  background: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .hero-social-links a {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-social-links a {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+}
+/* #endregion */
+
+/**
+ * =====================================================
+ * INDEX.HTML HOMEPAGE HERO SECTION STYLES - FULL WIDTH LEFT ALIGNED WITH LEFT-TO-RIGHT GRADIENT
+ * =====================================================
+ */
+/* #region Homepage Hero */
+/* Hero wrapper to provide hexagon textured background for slanted area */
+.hero-wrapper {
+  position: relative;
+  background-color: var(--dark-blue);
+  background-image: url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-repeat: repeat;
+  background-size: auto;
   overflow: hidden; /* Prevent any overflow issues */
 }
 
@@ -1259,7 +1687,31 @@ body {
 /* #region Homepage Problem Section */
 .problem-section {
   padding: 20px 0 80px;
-  background: var(--white);
+  background-color: var(--dark-blue);
+  background-image: url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-repeat: repeat;
+  background-size: auto;
+  color: #ffffff; /* Make all text white by default */
+}
+
+.problem-section .section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.problem-section .section-header h2 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.problem-section .section-header p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.125rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .problem-grid {
@@ -1272,60 +1724,39 @@ body {
   text-align: center;
   padding: 30px 20px;
   border-radius: var(--border-radius);
-  transition: transform 0.2s ease; /* Only animate transform */
+  transition: all 0.3s ease;
   cursor: pointer; /* Make it clear items are interactive */
   box-shadow: var(--shadow); /* Default shadow always visible */
 }
 
-/* Gradient backgrounds for each problem item */
-.problem-item-red {
-  background: linear-gradient(
-    135deg,
-    rgba(231, 76, 60, 0.08),
-    rgba(192, 57, 43, 0.05)
-  );
-}
-
-.problem-item-blue {
-  background: linear-gradient(
-    135deg,
-    rgba(52, 152, 219, 0.08),
-    rgba(41, 128, 185, 0.05)
-  );
-}
-
-.problem-item-green {
-  background: linear-gradient(
-    135deg,
-    rgba(46, 204, 113, 0.08),
-    rgba(39, 174, 96, 0.05)
-  );
-}
-
+/* Orange accent gradient background for all problem items */
+.problem-item-red,
+.problem-item-blue,
+.problem-item-green,
 .problem-item-orange {
-  background: linear-gradient(
-    135deg,
-    rgba(230, 126, 34, 0.08),
-    rgba(211, 84, 0, 0.05)
-  );
+  background: linear-gradient(135deg, var(--orange-accent), #d14d00);
 }
 
+/* On hover, keep solid colors but add the lift effect */
 .problem-item:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow); /* Keep same shadow on hover */
-  transition: transform 0.2s ease;
 }
 
 .problem-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, var(--orange-accent), #d14d00);
+  background-color: var(--dark-blue);
+  background-image: url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-repeat: repeat;
+  background-size: auto;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
   transition: transform 0.2s ease; /* Add icon animation */
+  position: relative;
+  overflow: hidden; /* Ensure the pattern stays within the circle */
 }
 
 .problem-item:hover .problem-icon {
@@ -1340,18 +1771,19 @@ body {
 .problem-item h3 {
   font-size: 22px;
   font-weight: 600;
-  color: var(--text-dark);
+  color: #ffffff; /* White color for contrast on orange backgrounds */
   margin-bottom: 15px;
   transition: color 0.2s ease; /* Add text color transition */
 }
 
 .problem-item:hover h3 {
-  color: var(--orange-accent); /* Change heading color to orange on hover */
+  color: #ffffff; /* Keep white on hover */
 }
 
 .problem-item p {
-  color: var(--text-light);
+  color: #ffffff; /* White for good contrast on orange backgrounds */
   line-height: 1.6;
+  opacity: 0.9; /* Slight transparency for visual hierarchy */
 }
 
 /* Responsive breakpoints for problem grid */
@@ -1440,7 +1872,8 @@ body {
   }
 }
 /* #endregion */
-
+/* #endregion */
+/* #endregion */
 /**
  * =====================================================
  * HOMEPAGE SOLUTION SECTION STYLES

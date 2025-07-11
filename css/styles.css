@@ -7412,6 +7412,310 @@ body {
     font-size: 0.875rem;
   }
 }
+.plan-number {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Financing Modal Styles */
+.financing-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow-y: auto;
+  animation: financingFadeIn 0.3s ease;
+}
+
+.financing-modal.financing-active {
+  display: block;
+}
+
+.financing-modal-content {
+  background-color: #ffffff;
+  margin: 2% auto;
+  padding: 0;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: financingSlideUp 0.3s ease;
+}
+
+.financing-modal-header {
+  background: linear-gradient(135deg, var(--orange-accent), #d14d00);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.financing-modal-header h2 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.financing-modal-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.financing-modal-close:hover {
+  opacity: 0.8;
+}
+
+.financing-modal-body {
+  padding: 2rem;
+}
+
+/* Selected Plan Info */
+.financing-selected-plan-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.financing-selected-plan-info h3 {
+  margin: 0 0 1rem 0;
+  color: var(--dark-blue);
+}
+
+.financing-plan-details {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.financing-plan-details span {
+  color: #666;
+}
+
+.financing-plan-details strong {
+  color: var(--dark-blue);
+}
+
+/* Form Styles */
+.financing-application-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.financing-form-section {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
+}
+
+.financing-form-section:last-of-type {
+  border-bottom: none;
+}
+
+.financing-form-section h4 {
+  color: var(--dark-blue);
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+}
+
+.financing-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.financing-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.financing-form-group label {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.financing-form-group input,
+.financing-form-group select,
+.financing-form-group textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.financing-form-group input:focus,
+.financing-form-group select:focus,
+.financing-form-group textarea:focus {
+  outline: none;
+  border-color: var(--orange-accent);
+}
+
+.financing-checkbox-group {
+  margin-top: 0.5rem;
+}
+
+.financing-checkbox-group label {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.financing-checkbox-group input[type='checkbox'] {
+  margin-right: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+/* Form Actions */
+.financing-form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.financing-btn-primary,
+.financing-btn-secondary {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.financing-btn-primary {
+  background: linear-gradient(135deg, var(--orange-accent), #d14d00);
+  color: white;
+}
+
+.financing-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
+}
+
+.financing-btn-secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.financing-btn-secondary:hover {
+  background: #e0e0e0;
+}
+
+/* Additional button styling for CTA buttons */
+.open-financing-application-modal {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Plan Number Style */
+.plan-number {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Payment Note Style */
+.payment-note {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Animations */
+@keyframes financingFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes financingSlideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .financing-modal-content {
+    width: 95%;
+    margin: 5% auto;
+  }
+
+  .financing-modal-header {
+    padding: 1.5rem;
+  }
+
+  .financing-modal-body {
+    padding: 1.5rem;
+  }
+
+  .financing-plan-details {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .financing-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .financing-btn-primary,
+  .financing-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .financing-modal-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .financing-form-section h4 {
+    font-size: 1.1rem;
+  }
+
+  .financing-selected-plan-info {
+    padding: 1rem;
+  }
+
+  .financing-modal-body {
+    padding: 1rem;
+  }
+}
 
 /* How It Works Section */
 .how-it-works {

@@ -6569,14 +6569,18 @@ body {
 }
 
 /* =====================================================
-   ROOF FINANCING OPTIONS PAGE STYLES
+   ROOF FINANCING OPTIONS / FINANCING PAGE / FINANCE PAGE STYLES
    ===================================================== */
 
 /* Hero Section */
 .financing-hero {
   position: relative;
   padding: 160px 0 80px; /* Increased top padding for floating elements */
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%),
+    url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto;
   overflow: hidden;
 }
 
@@ -13030,15 +13034,24 @@ body {
   line-height: 1.8;
   opacity: 0.9;
 }
+
 /* =====================================================
  * SIDING INSTALLATION PAGE STYLES
  * =====================================================
  */
 /* Hero Section */
 .siding-hero-section {
-  padding: 100px 0 80px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 130px 0 80px;
   position: relative;
+  background: linear-gradient(
+      135deg,
+      var(--dark-blue) 0%,
+      var(--secondary-color) 100%
+    ),
+    url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto;
   overflow: hidden;
 }
 
@@ -13055,6 +13068,7 @@ body {
     rgba(241, 98, 10, 0.05) 100%
   );
   pointer-events: none;
+  z-index: 1;
 }
 
 .siding-hero-content {
@@ -13079,7 +13093,7 @@ body {
 .siding-hero-text h1 {
   font-size: 48px;
   font-weight: 700;
-  color: #2c3e50;
+  color: #ffffff;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
@@ -13098,10 +13112,10 @@ body {
 
 .siding-hero-subtitle {
   font-size: 24px;
-  color: var(--primary-color);
+  color: #f1620a;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 4px rgba(241, 98, 10, 0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -13112,7 +13126,7 @@ body {
 
 .siding-hero-description {
   font-size: 18px;
-  color: #6c757d;
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.7;
   margin-bottom: 2rem;
 }
@@ -13123,7 +13137,8 @@ body {
   flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
+/* Center buttons at 1024px and below */
+@media (max-width: 1024px) {
   .siding-hero-buttons {
     justify-content: center;
   }

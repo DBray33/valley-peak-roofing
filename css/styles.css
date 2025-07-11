@@ -18555,3 +18555,23 @@ body {
     font-size: 12px;
   }
 }
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.floating-financing-link:hover .arrow-icon {
+  transform: translateX(3px);
+}
+.floating-financing-link::before {
+  content: 'Click here';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff4444;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

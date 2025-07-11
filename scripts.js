@@ -3924,6 +3924,36 @@ const FinancingModal = {
       financingModal.classList.remove('financing-active');
       document.body.style.overflow = '';
       financingForm.reset();
+
+      // Remove success message if it exists
+      const successMessage = document.querySelector(
+        '.financing-success-wrapper'
+      );
+      if (successMessage) {
+        successMessage.remove();
+      }
+    }
+
+    // Show success message function
+    function showFinancingSuccessMessage() {
+      // Hide the form
+      financingForm.style.display = 'none';
+
+      // Create success message matching contact form style
+      const successDiv = document.createElement('div');
+      successDiv.className = 'financing-success-wrapper';
+      successDiv.innerHTML = `
+        <div class="financing-success-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <p class="form-guarantee">
+          <i class="fas fa-shield-alt"></i>
+          Thank you! We'll contact you within 24 hours.
+        </p>
+      `;
+
+      // Insert after the form
+      financingForm.parentNode.appendChild(successDiv);
     }
 
     // Close modal when X is clicked
@@ -4000,13 +4030,13 @@ const FinancingModal = {
         });
       }
 
-      // Show success message (you can customize this)
-      alert(
-        'Thank you for your financing application! We will contact you within 24 hours to discuss your options.'
-      );
+      // Show success message
+      showFinancingSuccessMessage();
 
-      // Close modal
-      closeFinancingModal();
+      // Close modal after a delay
+      setTimeout(function () {
+        closeFinancingModal();
+      }, 3000);
 
       // Optionally redirect to thank you page
       // window.location.href = '/thank-you-financing';

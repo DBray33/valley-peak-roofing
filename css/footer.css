@@ -194,20 +194,33 @@ a.footer-logo-wrapper:hover .footer-logo {
   }
 }
 
-/* Middle Row */
+/* Middle Row - Modified for 4 columns */
 .footer-middle-row {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 60px;
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 30px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .footer-middle-row {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
+  }
+
+  /* Navigation sections center aligned when map is above */
+  .footer-nav-section,
+  .footer-services-section,
+  .footer-counties-section {
+    text-align: center;
+  }
+
+  .footer-nav-section ul,
+  .footer-services-section ul,
+  .footer-counties-section ul {
+    align-items: center;
   }
 }
 
@@ -224,7 +237,7 @@ a.footer-logo-wrapper:hover .footer-logo {
   /* No default styles specific to this container */
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .footer-address-section {
     grid-column: 1 / -1;
   }
@@ -232,7 +245,8 @@ a.footer-logo-wrapper:hover .footer-logo {
 
 .footer-address-section h4,
 .footer-nav-section h4,
-.footer-services-section h4 {
+.footer-services-section h4,
+.footer-counties-section h4 {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -242,7 +256,8 @@ a.footer-logo-wrapper:hover .footer-logo {
 @media (max-width: 480px) {
   .footer-address-section h4,
   .footer-nav-section h4,
-  .footer-services-section h4 {
+  .footer-services-section h4,
+  .footer-counties-section h4 {
     font-size: 16px;
   }
 }
@@ -268,7 +283,8 @@ address {
 
 /* Navigation Lists - FIXED HOVER */
 .footer-nav-section ul,
-.footer-services-section ul {
+.footer-services-section ul,
+.footer-counties-section ul {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -277,14 +293,16 @@ address {
 }
 
 .footer-nav-section ul li,
-.footer-services-section ul li {
+.footer-services-section ul li,
+.footer-counties-section ul li {
   /* Add padding to the li to create a larger hover area */
   padding-left: 0;
   transition: padding-left 0.3s ease;
 }
 
 .footer-nav-section ul li a,
-.footer-services-section ul li a {
+.footer-services-section ul li a,
+.footer-counties-section ul li a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   font-size: 15px;
@@ -295,12 +313,14 @@ address {
 
 /* On hover, move the li padding instead of transforming the link */
 .footer-nav-section ul li:hover,
-.footer-services-section ul li:hover {
+.footer-services-section ul li:hover,
+.footer-counties-section ul li:hover {
   padding-left: 5px;
 }
 
 .footer-nav-section ul li:hover a,
-.footer-services-section ul li:hover a {
+.footer-services-section ul li:hover a,
+.footer-counties-section ul li:hover a {
   color: var(--primary-color);
   /* Remove the transform that was causing the issue */
 }

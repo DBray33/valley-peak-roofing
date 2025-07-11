@@ -5023,6 +5023,36 @@ body {
   margin-top: 2px;
 }
 
+.form-guarantee {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 14px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.form-guarantee i {
+  color: var(--primary-color);
+}
+
+.form-guarantee {
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.form-guarantee i {
+  color: #e74c3c;
+}
+
 @media (max-width: 768px) {
   .form-card {
     padding: 30px 20px;
@@ -7419,7 +7449,7 @@ body {
   font-weight: 600;
 }
 
-/* Financing Modal Styles */
+/* Financing form Modal Styles */
 .financing-modal {
   display: none;
   position: fixed;
@@ -7542,7 +7572,8 @@ body {
 }
 
 .financing-form-group label {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
+  margin-top: 0.5rem;
   color: #333;
   font-weight: 500;
 }
@@ -7644,6 +7675,35 @@ body {
   color: #666;
   margin-top: 0.5rem;
   font-style: italic;
+}
+
+/* Financing Success Message Styles - Matching Contact Form */
+.financing-success-wrapper {
+  text-align: center;
+  padding: 2rem 1rem;
+  animation: financingFadeIn 0.5s ease;
+}
+
+.financing-success-icon {
+  margin-bottom: 1rem;
+}
+
+.financing-success-icon i {
+  font-size: 3rem;
+  color: #28a745;
+}
+
+/* The form-guarantee class will use your existing global styles */
+/* No additional styling needed since it matches contact form */
+
+/* Hide form when showing success */
+.financing-application-form[style*='display: none']
+  + .financing-success-wrapper {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Animations */
@@ -9508,21 +9568,6 @@ body {
 .form-group textarea {
   resize: vertical;
   min-height: 120px;
-}
-
-.form-guarantee {
-  text-align: center;
-  color: #6c757d;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.form-guarantee i {
-  color: #e74c3c;
 }
 
 /* Service Popups */
@@ -17412,21 +17457,6 @@ body {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(179, 168, 133, 0.1);
-}
-
-.form-guarantee {
-  text-align: center;
-  color: var(--text-light);
-  font-size: 14px;
-  margin-top: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.form-guarantee i {
-  color: var(--primary-color);
 }
 
 /* Modal Media Queries */

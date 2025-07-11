@@ -40,6 +40,7 @@ const App = {
       SkylightPage,
       GoogleReviewsSlider,
       RepairsCarousel,
+      FinancingModal,
     ]);
   },
 
@@ -3848,6 +3849,210 @@ const RepairsCarousel = {
 
     // Start auto-play only once
     startAutoPlay();
+  },
+};
+
+// Financing Modal Module
+const FinancingModal = {
+  init: function () {
+    const financingModal = document.getElementById('financingApplicationModal');
+
+    // Only initialize if the modal exists on the page
+    if (!financingModal) return;
+
+    const financingOpenButtons = document.querySelectorAll(
+      '.open-financing-application-modal'
+    );
+    const financingCloseButton = document.querySelector(
+      '.financing-modal-close'
+    );
+    const financingCancelButton = document.querySelector(
+      '.financing-modal-cancel'
+    );
+    const financingForm = document.getElementById('financingApplicationForm');
+
+    // Open modal when buttons are clicked
+    financingOpenButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        // Get plan data from button attributes
+        const financingPlanName = this.getAttribute('data-financing-plan-name');
+        const financingPlanCode = this.getAttribute('data-financing-plan-code');
+        const financingInterest = this.getAttribute('data-financing-interest');
+        const financingTerm = this.getAttribute('data-financing-term');
+
+        // Update modal with selected plan info
+        document.getElementById('financingSelectedPlanName').textContent =
+          financingPlanName;
+        document.getElementById('financingSelectedPlanCode').textContent =
+          financingPlanCode;
+        document.getElementById('financingSelectedTerm').textContent =
+          financingTerm;
+        document.getElementById('financingSelectedInterest').textContent =
+          financingInterest;
+
+        // Set hidden form fields
+        document.getElementById('financingPlanCode').value = financingPlanCode;
+        document.getElementById('financingPlanName').value = financingPlanName;
+
+        // Set tracking data
+        const financingTimestamp = new Date().toISOString();
+        financingForm.querySelector('[name="financing_timestamp"]').value =
+          financingTimestamp;
+        financingForm.querySelector('[name="financing_page_url"]').value =
+          window.location.href;
+
+        // Get UTM parameters from URL if present
+        const financingUrlParams = new URLSearchParams(window.location.search);
+        financingForm.querySelector('[name="financing_utm_source"]').value =
+          financingUrlParams.get('utm_source') || '';
+        financingForm.querySelector('[name="financing_utm_medium"]').value =
+          financingUrlParams.get('utm_medium') || '';
+        financingForm.querySelector('[name="financing_utm_campaign"]').value =
+          financingUrlParams.get('utm_campaign') || '';
+
+        // Show modal
+        financingModal.classList.add('financing-active');
+        document.body.style.overflow = 'hidden';
+
+        // Focus on first input
+        document.getElementById('financingFirstName').focus();
+      });
+    });
+
+    // Close modal functions
+    function closeFinancingModal() {
+      financingModal.classList.remove('financing-active');
+      document.body.style.overflow = '';
+      financingForm.reset();
+    }
+
+    // Close modal when X is clicked
+    if (financingCloseButton) {
+      financingCloseButton.addEventListener('click', closeFinancingModal);
+    }
+
+    // Close modal when Cancel is clicked
+    if (financingCancelButton) {
+      financingCancelButton.addEventListener('click', closeFinancingModal);
+    }
+
+    // Close modal when clicking outside
+    financingModal.addEventListener('click', function (e) {
+      if (e.target === financingModal) {
+        closeFinancingModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (e) {
+      if (
+        e.key === 'Escape' &&
+        financingModal.classList.contains('financing-active')
+      ) {
+        closeFinancingModal();
+      }
+    });
+
+    // Handle form submission
+    financingForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Collect form data
+      const financingFormData = new FormData(financingForm);
+      const financingData = Object.fromEntries(financingFormData);
+
+      // Add additional tracking data
+      financingData.financing_referrer = document.referrer;
+      financingData.financing_user_agent = navigator.userAgent;
+      financingData.financing_screen_resolution = `${screen.width}x${screen.height}`;
+
+      // Log form data (replace with your actual submission logic)
+      console.log('Financing Application Submitted:', financingData);
+
+      // Here you would typically:
+      // 1. Send data to your server
+      // 2. Send to Google Analytics/Tag Manager
+      // 3. Send to your CRM
+      // 4. Send to email service
+
+      // Example Google Analytics event (if GA4 is installed)
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'financing_page_application', {
+          event_category: 'financing_lead',
+          event_label: financingData.financing_plan_name,
+          financing_plan_code: financingData.financing_plan_code,
+          financing_estimated_amount: financingData.financing_estimated_amount,
+          financing_project_type: financingData.financing_project_type,
+          financing_lead_source: 'financing_page',
+        });
+      }
+
+      // Example for Google Tag Manager
+      if (typeof dataLayer !== 'undefined') {
+        dataLayer.push({
+          event: 'financingPageFormSubmit',
+          formType: 'financing_page_application',
+          financingPlanCode: financingData.financing_plan_code,
+          financingPlanName: financingData.financing_plan_name,
+          financingEstimatedAmount: financingData.financing_estimated_amount,
+          financingProjectType: financingData.financing_project_type,
+          financingLeadSource: 'financing_page',
+        });
+      }
+
+      // Show success message (you can customize this)
+      alert(
+        'Thank you for your financing application! We will contact you within 24 hours to discuss your options.'
+      );
+
+      // Close modal
+      closeFinancingModal();
+
+      // Optionally redirect to thank you page
+      // window.location.href = '/thank-you-financing';
+    });
+
+    // Format phone number as user types
+    const financingPhoneInput = document.getElementById('financingPhone');
+    if (financingPhoneInput) {
+      financingPhoneInput.addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 0) {
+          if (value.length <= 3) {
+            value = value;
+          } else if (value.length <= 6) {
+            value = value.slice(0, 3) + '-' + value.slice(3);
+          } else {
+            value =
+              value.slice(0, 3) +
+              '-' +
+              value.slice(3, 6) +
+              '-' +
+              value.slice(6, 10);
+          }
+        }
+        e.target.value = value;
+      });
+    }
+
+    // Format currency input
+    const financingAmountInput = document.getElementById(
+      'financingEstimatedAmount'
+    );
+    if (financingAmountInput) {
+      financingAmountInput.addEventListener('blur', function (e) {
+        let value = e.target.value.replace(/[^\d.]/g, '');
+        if (value) {
+          value = parseFloat(value).toFixed(2);
+          e.target.value = '$' + value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+      });
+
+      // Remove $ when focusing on amount input
+      financingAmountInput.addEventListener('focus', function (e) {
+        e.target.value = e.target.value.replace(/[$,]/g, '');
+      });
+    }
   },
 };
 

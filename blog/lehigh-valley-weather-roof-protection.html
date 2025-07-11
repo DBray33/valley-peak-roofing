@@ -1458,7 +1458,7 @@
         <div class="footer-top-row">
           <!-- Logo Section -->
           <div class="footer-logo-section">
-            <a href="../" class="footer-logo-wrapper">
+            <a href="/" class="footer-logo-wrapper">
               <span class="footer-company-name">
                 <span class="large-letter">V</span>alley
                 <span class="large-letter">P</span>eak
@@ -1515,8 +1515,8 @@
           </div>
         </div>
 
-        <!-- Middle Row -->
-        <div class="footer-middle-row">
+        <!-- Middle Row - Modified to 4 columns -->
+        <div class="footer-middle-row footer-middle-row-extended">
           <!-- Address with Map -->
           <div class="footer-address-section">
             <h4>Our Location</h4>
@@ -1542,14 +1542,14 @@
           <div class="footer-nav-section">
             <h4>Site Navigation</h4>
             <ul>
-              <li><a href="../">Home</a></li>
-              <li><a href="../our-company.html">About Us</a></li>
-              <li><a href="../contact.html">Contact Us</a></li>
-              <li><a href="../service-areas.html">Service Areas</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="our-company.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="service-areas.html">Service Areas</a></li>
               <li>
-                <a href="../design-your-roof.html">Design Visualizer Tool</a>
+                <a href="design-your-roof.html">Design Visualizer Tool</a>
               </li>
-              <li><a href="../our-blog.html">Blog</a></li>
+              <li><a href="our-blog.html">Blog</a></li>
             </ul>
           </div>
 
@@ -1557,26 +1557,52 @@
           <div class="footer-services-section">
             <h4>Roofing Services</h4>
             <ul>
-              <li><a href="../roof-cost.html">Roof Inspection Services</a></li>
               <li>
-                <a href="../roof-replacement-installation.html"
+                <a href="roof-replacement-installation.html"
+                  >Roof Inspection Services</a
+                >
+              </li>
+              <li>
+                <a href="roof-replacement-installation.html"
                   >Home Roof Installation & Repair</a
                 >
               </li>
               <li>
-                <a href="../commercial-roofing.html"
+                <a href="commercial-roofing.html"
                   >Commercial Installation & Repair</a
                 >
               </li>
               <li>
-                <a href="../siding-installation.html"
+                <a href="siding-installation.html"
                   >Home Siding Installation & Repair</a
                 >
               </li>
               <li>
-                <a href="../gutter-faq.html"
+                <a href="gutter-maintenance-installation.html"
                   >Gutter Maintenance & Installation</a
                 >
+              </li>
+            </ul>
+          </div>
+
+          <!-- NEW: Service Areas by County -->
+          <div class="footer-counties-section">
+            <h4>Service Areas</h4>
+            <ul>
+              <li>
+                <a href="roofing-services-in-berks-county.html">
+                  Berks County Roofing
+                </a>
+              </li>
+              <li>
+                <a href="roofing-services-in-lehigh-county.html">
+                  Lehigh County Roofing
+                </a>
+              </li>
+              <li>
+                <a href="roofing-services-in-northampton-county.html">
+                  Northampton County Roofing
+                </a>
               </li>
             </ul>
           </div>
@@ -1585,7 +1611,11 @@
         <!-- Bottom Row -->
         <div class="footer-bottom-row">
           <p class="copyright">
-            © 2025 Valley Peak Roofing Company | Site by
+            ©
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            Valley Peak Roofing Company | Site by
             <a
               href="https://keystonewebsolutions.com"
               target="_blank"
@@ -1594,9 +1624,9 @@
             >
           </p>
           <div class="footer-legal">
-            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
             <span class="separator">|</span>
-            <a href="../terms.html">Terms & Conditions</a>
+            <a href="terms.html">Terms & Conditions</a>
           </div>
         </div>
       </div>

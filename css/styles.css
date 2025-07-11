@@ -6584,6 +6584,12 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .financing-hero {
+    padding: 160px 0 60px; /* Extra top padding for floating elements */
+  }
+}
+
 .financing-hero::before {
   content: '';
   position: absolute;
@@ -6620,6 +6626,12 @@ body {
   line-height: 1.2;
 }
 
+@media (max-width: 768px) {
+  .financing-hero-title {
+    font-size: 2rem;
+  }
+}
+
 .hero-accent {
   color: var(--primary-color);
   text-shadow: 0 0 30px rgba(93, 173, 226, 0.5);
@@ -6629,6 +6641,12 @@ body {
   font-size: 1.25rem;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .financing-hero-subtitle {
+    font-size: 1rem;
+  }
 }
 
 .hero-badge {
@@ -6646,6 +6664,17 @@ body {
 
 .hero-badge i {
   font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .hero-badge {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .hero-badge i {
+    font-size: 1rem;
+  }
 }
 
 /* Financing Options Section */
@@ -6671,12 +6700,28 @@ body {
   color: #666;
 }
 
+@media (max-width: 768px) {
+  .section-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .section-header p {
+    font-size: 1rem;
+  }
+}
+
 .financing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .financing-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Financing Cards */
@@ -6687,6 +6732,8 @@ body {
   overflow: hidden;
   transition: all 0.3s ease;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
 }
 
 .financing-card:hover {
@@ -6701,6 +6748,24 @@ body {
 
 .financing-card.featured:hover {
   transform: scale(1.05) translateY(-10px);
+}
+
+@media (max-width: 768px) {
+  .financing-card.featured {
+    transform: scale(1);
+  }
+}
+
+.financing-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.financing-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.financing-card:nth-child(3) {
+  animation-delay: 0.3s;
 }
 
 .card-glow {
@@ -6767,6 +6832,16 @@ body {
   letter-spacing: 1px;
 }
 
+@media (max-width: 768px) {
+  .plan-duration .number {
+    font-size: 2.5rem;
+  }
+
+  .plan-duration .text {
+    font-size: 0.875rem;
+  }
+}
+
 .interest-badge {
   display: flex;
   flex-direction: column;
@@ -6794,6 +6869,12 @@ body {
   margin-bottom: 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .financing-card h3 {
+    font-size: 1.25rem;
+  }
+}
+
 .plan-features {
   margin-bottom: 2rem;
 }
@@ -6810,6 +6891,12 @@ body {
   color: var(--primary-color);
   font-size: 1.125rem;
   flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .feature {
+    font-size: 0.875rem;
+  }
 }
 
 .plan-example {
@@ -6849,6 +6936,12 @@ body {
   color: #666;
 }
 
+@media (max-width: 768px) {
+  .payment-amount .amount {
+    font-size: 2rem;
+  }
+}
+
 .plan-cta {
   display: flex;
   align-items: center;
@@ -6881,6 +6974,12 @@ body {
   border-color: #2980b9;
 }
 
+@media (max-width: 768px) {
+  .plan-cta {
+    font-size: 0.875rem;
+  }
+}
+
 /* How It Works Section */
 .how-it-works {
   padding: 80px 0;
@@ -6904,6 +7003,12 @@ body {
   opacity: 0.3;
 }
 
+@media (max-width: 768px) {
+  .timeline-line {
+    display: none;
+  }
+}
+
 .process-step {
   display: flex;
   align-items: flex-start;
@@ -6911,6 +7016,27 @@ body {
   margin-bottom: 3rem;
   position: relative;
   padding-left: 0;
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.process-step:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.process-step:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.process-step:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.process-step:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@media (max-width: 768px) {
+  .process-step {
+    gap: 1.5rem;
+  }
 }
 
 .step-number {
@@ -6930,12 +7056,26 @@ body {
   z-index: 1;
 }
 
+@media (max-width: 768px) {
+  .step-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+}
+
 .step-content {
   flex: 1;
   background: #f8f9fa;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  .step-content {
+    padding: 1rem;
+  }
 }
 
 .step-content h3 {
@@ -6948,6 +7088,16 @@ body {
 .step-content p {
   color: #666;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .step-content h3 {
+    font-size: 1.125rem;
+  }
+
+  .step-content p {
+    font-size: 0.875rem;
+  }
 }
 
 /* Benefits Section */
@@ -6992,6 +7142,14 @@ body {
   box-shadow: 0 5px 20px rgba(93, 173, 226, 0.3);
 }
 
+@media (max-width: 768px) {
+  .benefit-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}
+
 .benefit-card h3 {
   font-size: 1.25rem;
   font-weight: 600;
@@ -7004,141 +7162,7 @@ body {
   margin: 0;
 }
 
-/* FAQ Section */
-.financing-faq {
-  padding: 80px 0;
-  background: #fff;
-}
-
-.faq-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.faq-item {
-  padding: 2rem;
-  background: #f8f9fa;
-  border-radius: 12px;
-  border-left: 4px solid var(--primary-color);
-}
-
-.faq-item h3 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 0.75rem;
-}
-
-.faq-item p {
-  color: #666;
-  margin: 0;
-}
-
-/* Remove the .financing-cta styles since we're using the existing .cta-block styles from the main CSS */
-
-/* Responsive Design */
 @media (max-width: 768px) {
-  /* Hero adjustments for floating buttons */
-  .financing-hero {
-    padding: 160px 0 60px; /* Extra top padding for floating elements */
-  }
-
-  .financing-hero-title {
-    font-size: 2rem;
-  }
-
-  .financing-hero-subtitle {
-    font-size: 1rem;
-  }
-
-  .hero-badge {
-    font-size: 0.875rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .hero-badge i {
-    font-size: 1rem;
-  }
-
-  /* Section headers */
-  .section-header h2 {
-    font-size: 1.75rem;
-  }
-
-  .section-header p {
-    font-size: 1rem;
-  }
-
-  /* Financing cards */
-  .financing-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .financing-card.featured {
-    transform: scale(1);
-  }
-
-  .plan-duration .number {
-    font-size: 2.5rem;
-  }
-
-  .plan-duration .text {
-    font-size: 0.875rem;
-  }
-
-  .financing-card h3 {
-    font-size: 1.25rem;
-  }
-
-  .feature {
-    font-size: 0.875rem;
-  }
-
-  .payment-amount .amount {
-    font-size: 2rem;
-  }
-
-  .plan-cta {
-    font-size: 0.875rem;
-  }
-
-  /* Process timeline */
-  .process-step {
-    gap: 1.5rem;
-  }
-
-  .timeline-line {
-    display: none;
-  }
-
-  .step-number {
-    width: 50px;
-    height: 50px;
-    font-size: 1.25rem;
-  }
-
-  .step-content {
-    padding: 1rem;
-  }
-
-  .step-content h3 {
-    font-size: 1.125rem;
-  }
-
-  .step-content p {
-    font-size: 0.875rem;
-  }
-
-  /* Benefits */
-  .benefit-icon {
-    width: 60px;
-    height: 60px;
-    font-size: 1.5rem;
-  }
-
   .benefit-card h3 {
     font-size: 1.125rem;
   }
@@ -7146,21 +7170,59 @@ body {
   .benefit-card p {
     font-size: 0.875rem;
   }
+}
 
-  /* FAQ */
-  .faq-grid {
+/* Financing FAQ Section - Renamed to avoid conflicts */
+.financing-faq-section {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.financing-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .financing-faq-grid {
     grid-template-columns: 1fr;
   }
+}
 
-  .faq-item h3 {
+.financing-faq-card {
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.financing-faq-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+}
+
+.financing-faq-card p {
+  color: #666;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .financing-faq-card h3 {
     font-size: 1rem;
   }
 
-  .faq-item p {
+  .financing-faq-card p {
     font-size: 0.875rem;
   }
+}
 
-  /* CTA buttons */
+/* CTA Section - Using existing styles */
+@media (max-width: 768px) {
   .cta-buttons {
     flex-direction: column;
     align-items: center;
@@ -7184,41 +7246,6 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.financing-card {
-  animation: fadeInUp 0.6s ease-out;
-  animation-fill-mode: both;
-}
-
-.financing-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.financing-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.financing-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.process-step {
-  animation: fadeInUp 0.6s ease-out;
-  animation-fill-mode: both;
-}
-
-.process-step:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.process-step:nth-child(3) {
-  animation-delay: 0.2s;
-}
-.process-step:nth-child(4) {
-  animation-delay: 0.3s;
-}
-.process-step:nth-child(5) {
-  animation-delay: 0.4s;
 }
 
 /* =====================================================

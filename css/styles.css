@@ -4845,7 +4845,7 @@ body {
 
 /**
  * =====================================================
- * OUR COMPANY PAGE STYLES
+ * OUR COMPANY/ABOUT US PAGE STYLES
  * =====================================================
  */
 
@@ -4853,11 +4853,15 @@ body {
 .page-header {
   position: relative;
   background: linear-gradient(
-    135deg,
-    var(--dark-blue) 0%,
-    var(--secondary-color) 100%
-  );
-  padding: 140px 0 80px; /* Reduced from 200px 0 120px */
+      135deg,
+      var(--dark-blue) 0%,
+      var(--secondary-color) 100%
+    ),
+    url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto; /* keeps texture at original size */
+  padding: 180px 0 80px; /* Increased from 140px to 180px to clear floating buttons */
   overflow: hidden;
   /* Fade-in animation for the background */
   animation: fadeInBackground 0.8s ease-in-out;
@@ -4880,7 +4884,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><path fill="rgba(255,255,255,0.03)" d="M0,150 C200,100 400,200 600,150 C800,100 1000,200 1200,150 L1200,300 L0,300 Z"/></svg>');
+  background: url('data:image/svg+xml,');
   background-size: cover;
   /* Delayed fade-in for the pattern overlay */
   animation: fadeInPattern 1s ease-in-out 0.3s both;
@@ -4954,11 +4958,13 @@ body {
 
 @media (max-width: 499px) {
   .page-header {
-    background-image: url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/b.%20our-company.html/our-company-page-bg.webp');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
+    background-image: url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/b.%20our-company.html/our-company-page-bg.webp'),
+      url('https://www.transparenttextures.com/patterns/hexellence.png');
+    background-size: cover, auto;
+    background-position: center center, 0 0;
+    background-repeat: no-repeat, repeat;
+    background-attachment: scroll, scroll;
+    background-blend-mode: normal, overlay;
   }
 
   .page-header::after {
@@ -4990,7 +4996,7 @@ body {
 
 @media (max-width: 480px) {
   .page-header {
-    padding: 120px 0 60px; /* Reduced from 180px 0 100px */
+    padding: 160px 0 60px; /* Increased from 120px to 160px for mobile */
   }
 
   .page-title {
@@ -8940,7 +8946,7 @@ body {
   }
 }
 
-/* Add the gradient as a pseudo-element that fades in */
+/* Add the gradient with hexellence texture as a pseudo-element that fades in */
 .blog-page-hero::after {
   content: '';
   position: absolute;
@@ -8949,10 +8955,14 @@ body {
   right: 0;
   bottom: 0;
   background: linear-gradient(
-    135deg,
-    var(--dark-blue) 0%,
-    var(--secondary-color) 100%
-  );
+      135deg,
+      var(--dark-blue) 0%,
+      var(--secondary-color) 100%
+    ),
+    url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto; /* keeps texture at original size */
   z-index: 1;
   opacity: 0;
   animation: heroFadeIn 0.6s ease-out 0.3s forwards;

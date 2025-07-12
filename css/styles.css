@@ -11124,7 +11124,7 @@ body {
 
 .roof-form-header h3 {
   font-size: 1.2rem;
-  color: #b3a885;
+  color: var(--orange-accent);
   font-weight: 600;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
@@ -11199,7 +11199,7 @@ body {
 
 .roof-why-choose-sidebar h3 {
   font-size: 1.2rem;
-  color: #b3a885;
+  color: var(--orange-accent);
   font-weight: 600;
   margin-bottom: 0.5rem;
   text-transform: uppercase;

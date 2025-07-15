@@ -3515,36 +3515,43 @@ const GoogleReviewsSlider = {
     const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
 
     return `
-      <div class="google-review-card">
-        <div class="google-review-header">
-          <img src="${
-            review.profile_photo_url ||
-            'https://www.gstatic.com/images/branding/product/2x/avatar_circle_blue_48dp.png'
-          }" 
-               alt="${review.author_name}" 
-               class="google-review-avatar" 
-               onerror="this.src='https://www.gstatic.com/images/branding/product/2x/avatar_circle_blue_48dp.png'">
-          <div class="google-review-info">
-            <h3 class="google-review-author">${this.escapeHtml(
-              review.author_name
-            )}</h3>
-            <div class="google-review-rating">
-              <span class="google-review-stars">${stars}</span>
-              <span class="google-review-date">${
-                review.relative_time_description
-              }</span>
-            </div>
+    <div class="google-review-card">
+      <div class="google-review-header">
+        <img src="${
+          review.profile_photo_url ||
+          'https://www.gstatic.com/images/branding/product/2x/avatar_circle_blue_48dp.png'
+        }" 
+             alt="${review.author_name}" 
+             class="google-review-avatar" 
+             onerror="this.src='https://www.gstatic.com/images/branding/product/2x/avatar_circle_blue_48dp.png'">
+        <div class="google-review-info">
+          <h3 class="google-review-author">${this.escapeHtml(
+            review.author_name
+          )}</h3>
+          <div class="google-review-rating">
+            <span class="google-review-stars">${stars}</span>
+            <span class="google-review-date">${
+              review.relative_time_description
+            }</span>
           </div>
         </div>
-        <p class="google-review-text">${this.escapeHtml(review.text)}</p>
-        <div class="google-review-source">
+      </div>
+      <p class="google-review-text">${this.escapeHtml(review.text)}</p>
+      <div class="google-review-source">
+        <a href="https://www.google.com/search?q=Valley+Peak+Roofing+Co.+Reviews#lrd=0xaa5b530874afa4df:0x540cf09d3087abd1,1,,,," 
+           target="_blank" 
+           rel="noopener noreferrer"
+           style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit;">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.5 8C14.5 11.59 11.59 14.5 8 14.5C4.41 14.5 1.5 11.59 1.5 8C1.5 4.41 4.41 1.5 8 1.5C9.77 1.5 11.39 2.21 12.6 3.4L10.5 5.5C9.93 4.93 9.02 4.5 8 4.5C6.07 4.5 4.5 6.07 4.5 8C4.5 9.93 6.07 11.5 8 11.5C9.58 11.5 10.93 10.56 11.36 9.22H8V6.5H14C14.18 7.13 14.5 7.69 14.5 8Z" fill="#4285F4"/>
           </svg>
-          <span>Posted on Google</span>
-        </div>
+          <span>Posted on <span class="google-logo-text" style="font-family: 'Product Sans', 'Roboto', Arial, sans-serif; font-weight: 400;">
+            <span style="color: #4285F4;">G</span><span style="color: #EA4335;">o</span><span style="color: #FBBC05;">o</span><span style="color: #4285F4;">g</span><span style="color: #34A853;">l</span><span style="color: #EA4335;">e</span>
+          </span></span>
+        </a>
       </div>
-    `;
+    </div>
+  `;
   },
 
   /**

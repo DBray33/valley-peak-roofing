@@ -2835,6 +2835,10 @@ body {
     max-width: 250px;
   }
 }
+
+.google-review-source a:hover {
+  opacity: 0.8;
+}
 /* #endregion */
 
 /**

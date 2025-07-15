@@ -1,0 +1,416 @@
+/**
+ * =====================================================
+ * SIMPLIFIED BUTTON SYSTEM
+ * =====================================================
+ */
+
+/* CSS Variables for easy customization */
+:root {
+  /* Primary - Use the gold/tan color */
+  --btn-primary: #b5a881;
+  --btn-primary-hover: #9a916f;
+
+  /* Secondary - Use the dark blue */
+  --btn-secondary: #2c3e50;
+  --btn-secondary-hover: #1a2633;
+
+  /* Success - Keep green for forms/confirmations */
+  --btn-success: #198754;
+  --btn-success-hover: #157347;
+
+  /* Danger/Accent - Use the orange */
+  --btn-danger: #f1620a;
+  --btn-danger-hover: #d85508;
+
+  /* White - For dark backgrounds */
+  --btn-white: #ffffff;
+  --btn-white-hover: #f8f9fa;
+
+  /* Text colors */
+  --btn-text-dark: #2c3e50;
+  --btn-text-light: #ffffff;
+
+  /* Other button properties */
+  --btn-radius: 8px;
+  --btn-transition: all 0.3s ease;
+}
+
+/* Base Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+  transition: var(--btn-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Remove all the complex effects */
+.btn::before,
+.btn::after {
+  display: none !important;
+}
+
+/* Focus State - Simple outline */
+.btn:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Disabled State */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/**
+ * -----------------------------------------------------
+ * Button Variants - 5 Simple Solid Colors
+ * -----------------------------------------------------
+ */
+
+/* Primary Button - Main CTAs */
+.btn-primary {
+  background-color: var(--btn-primary);
+  color: var(--btn-text-light);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--btn-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(181, 168, 129, 0.25);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(181, 168, 129, 0.25);
+}
+
+/* Secondary Button - Secondary actions */
+.btn-secondary {
+  background-color: var(--btn-secondary);
+  color: var(--btn-text-light);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--btn-secondary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.25);
+}
+
+.btn-secondary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.25);
+}
+
+/* Success Button - Confirmations */
+.btn-success {
+  background-color: var(--btn-success);
+  color: var(--btn-text-light);
+}
+
+.btn-success:hover:not(:disabled) {
+  background-color: var(--btn-success-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(25, 135, 84, 0.25);
+}
+
+.btn-success:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(25, 135, 84, 0.25);
+}
+
+/* Danger Button - Use orange accent for important actions */
+.btn-danger {
+  background-color: var(--btn-danger);
+  color: var(--btn-text-light);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: var(--btn-danger-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(241, 98, 10, 0.25);
+}
+
+.btn-danger:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(241, 98, 10, 0.25);
+}
+
+/* White Button - For dark backgrounds */
+.btn-white {
+  background-color: var(--btn-white);
+  color: var(--btn-text-dark);
+  border: 1px solid #dee2e6;
+}
+
+.btn-white:hover:not(:disabled) {
+  background-color: var(--btn-white-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-white:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/**
+ * -----------------------------------------------------
+ * Button Sizes
+ * -----------------------------------------------------
+ */
+
+/* Small */
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+/* Large */
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+/**
+ * -----------------------------------------------------
+ * Utility Classes
+ * -----------------------------------------------------
+ */
+
+/* Full Width */
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+/* Icon-only Button */
+.btn-icon {
+  padding: 8px;
+  min-width: 40px;
+  gap: 0;
+}
+
+/* Loading State */
+.btn.is-loading {
+  color: transparent;
+  pointer-events: none;
+  position: relative;
+}
+
+.btn.is-loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: button-spin 0.8s linear infinite;
+}
+
+@keyframes button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/**
+ * -----------------------------------------------------
+ * Mobile Optimizations
+ * -----------------------------------------------------
+ */
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .btn-sm {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .btn-lg {
+    padding: 16px 32px;
+    font-size: 18px;
+  }
+
+  /* Remove hover effects on mobile */
+  .btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Add touch feedback */
+  .btn:active:not(:disabled) {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+
+  .btn:hover,
+  .btn:active {
+    transform: none;
+  }
+}
+
+/**
+ * -----------------------------------------------------
+ * Usage Guide:
+ * -----------------------------------------------------
+ * 
+ * Hierarchy (from most to least important):
+ * 1. .btn-primary - Main CTAs (Get Quote, Schedule Service, etc.)
+ * 2. .btn-success - Positive actions (Submit Form, Confirm, etc.)
+ * 3. .btn-secondary - Secondary actions (Learn More, View Details, etc.)
+ * 4. .btn-white - For dark backgrounds (Hero sections, dark footers)
+ * 5. .btn-danger - Destructive actions (Cancel, Delete - use sparingly)
+ * 
+ * Sizes:
+ * - Default: Standard buttons
+ * - .btn-sm: Compact areas, less important actions
+ * - .btn-lg: Hero CTAs, major actions
+ * 
+ * Examples:
+ * <button class="btn btn-primary">Get Free Quote</button>
+ * <a href="#" class="btn btn-secondary btn-sm">Learn More</a>
+ * <button class="btn btn-success btn-lg btn-block">Submit Application</button>
+ */
+
+/**
+ * =====================================================
+ * FLOATING PHONE NUMBER - SIMPLIFIED
+ * =====================================================
+ */
+
+.floating-phone {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 999;
+  animation: subtle-bounce 3s infinite;
+}
+
+.floating-phone-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: var(--btn-primary);
+  color: var(--btn-text-light);
+  border: 2px solid var(--btn-primary);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--btn-transition);
+  box-shadow: 0 4px 15px rgba(181, 168, 129, 0.25);
+}
+
+/* Remove all complex effects */
+.floating-phone-link::before,
+.floating-phone-link::after {
+  display: none !important;
+}
+
+/* Simple hover effect */
+.floating-phone-link:hover {
+  background-color: var(--btn-primary-hover);
+  border-color: var(--btn-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(181, 168, 129, 0.35);
+}
+
+/* Active state */
+.floating-phone-link:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(181, 168, 129, 0.25);
+}
+
+/* Focus state */
+.floating-phone-link:focus {
+  outline: 2px solid var(--btn-primary);
+  outline-offset: 2px;
+}
+
+/* Icon */
+.floating-phone-link i {
+  font-size: 16px;
+}
+
+/* Keep original subtle bounce animation */
+@keyframes subtle-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .floating-phone {
+    top: 90px;
+    right: 15px;
+    animation: none; /* Remove animation on mobile */
+  }
+
+  .floating-phone-link {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  /* Remove hover on mobile */
+  .floating-phone-link:hover {
+    transform: none;
+    background-color: var(--btn-primary);
+    border-color: var(--btn-primary);
+  }
+
+  /* Touch feedback */
+  .floating-phone-link:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-phone {
+    top: 90px;
+    right: 10px;
+  }
+
+  .floating-phone-link {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}

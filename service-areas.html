@@ -1486,6 +1486,138 @@
       </div>
     </div>
 
+    <!-- Debug -->
+    <script>
+      // Debug version to check what's happening
+      function openArchitecturalShinglesModal(event) {
+        if (event) event.preventDefault();
+        console.log('Opening architectural shingles modal');
+        const modal = document.getElementById('architectural-shingles-modal');
+        console.log('Modal element:', modal);
+        console.log(
+          'Modal display before:',
+          modal ? modal.style.display : 'not found'
+        );
+
+        // Try both methods
+        if (typeof ModalManager !== 'undefined' && ModalManager.openModal) {
+          ModalManager.openModal('architectural-shingles-modal');
+        } else {
+          // Fallback if ModalManager isn't working
+          if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+          }
+        }
+      }
+
+      function closeArchitecturalShinglesModal() {
+        console.log('Closing architectural shingles modal');
+        const modal = document.getElementById('architectural-shingles-modal');
+
+        // Try both methods
+        if (typeof ModalManager !== 'undefined' && ModalManager.closeModal) {
+          ModalManager.closeModal('architectural-shingles-modal');
+        } else {
+          // Fallback
+          if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+          }
+        }
+
+        // Ensure modal is fully reset
+        setTimeout(() => {
+          if (modal) {
+            modal.style.display = 'none';
+            modal.classList.remove('active', 'show', 'open'); // Remove any possible active classes
+          }
+        }, 100);
+      }
+
+      function openMetalRoofModal(event) {
+        if (event) event.preventDefault();
+        console.log('Opening metal roof modal');
+        const modal = document.getElementById('metal-roof-modal');
+        console.log('Modal element:', modal);
+        console.log(
+          'Modal display before:',
+          modal ? modal.style.display : 'not found'
+        );
+
+        // Try both methods
+        if (typeof ModalManager !== 'undefined' && ModalManager.openModal) {
+          ModalManager.openModal('metal-roof-modal');
+        } else {
+          // Fallback
+          if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+          }
+        }
+      }
+
+      function closeMetalRoofModal() {
+        console.log('Closing metal roof modal');
+        const modal = document.getElementById('metal-roof-modal');
+
+        // Try both methods
+        if (typeof ModalManager !== 'undefined' && ModalManager.closeModal) {
+          ModalManager.closeModal('metal-roof-modal');
+        } else {
+          // Fallback
+          if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+          }
+        }
+
+        // Ensure modal is fully reset
+        setTimeout(() => {
+          if (modal) {
+            modal.style.display = 'none';
+            modal.classList.remove('active', 'show', 'open');
+          }
+        }, 100);
+      }
+
+      // Alternative approach: Override the functions after page load
+      document.addEventListener('DOMContentLoaded', function () {
+        // Re-initialize modal event listeners
+        const shinglesLinks = document.querySelectorAll(
+          'a[onclick*="openArchitecturalShinglesModal"]'
+        );
+        const metalLinks = document.querySelectorAll(
+          'a[onclick*="openMetalRoofModal"]'
+        );
+
+        shinglesLinks.forEach((link) => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            openArchitecturalShinglesModal(e);
+          });
+        });
+
+        metalLinks.forEach((link) => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            openMetalRoofModal(e);
+          });
+        });
+
+        // Ensure modals are properly hidden on page load
+        const allModals = document.querySelectorAll('.service-popup, .modal');
+        allModals.forEach((modal) => {
+          if (
+            modal.id === 'architectural-shingles-modal' ||
+            modal.id === 'metal-roof-modal'
+          ) {
+            modal.style.display = 'none';
+          }
+        });
+      });
+    </script>
+
     <!-- Bootstrap JS Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="scripts.js"></script>

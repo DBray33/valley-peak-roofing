@@ -3976,7 +3976,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.75);
+  /* background: rgba(255, 255, 255, 0.75); */
   z-index: 1;
 }
 
@@ -4001,7 +4001,7 @@ body {
   line-height: 1.8;
   color: var(--primary-color);
   padding: 40px;
-  background: rgba(40, 52, 65, 0.75);
+  background: rgba(40, 52, 65, 0.99);
   border-radius: var(--border-radius);
   border-left: 4px solid var(--primary-color);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -4030,6 +4030,12 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .intro-text {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--secondary-color);
+    border-left-color: var(--primary-color);
+  }
 }
 
 @media (max-width: 499px) {
@@ -4038,7 +4044,15 @@ body {
   }
 
   .company-intro::before {
-    background: #e0e0e0;
+    background: linear-gradient(
+        135deg,
+        var(--dark-blue) 0%,
+        var(--secondary-color) 100%
+      ),
+      url('https://www.transparenttextures.com/patterns/hexellence.png');
+    background-blend-mode: overlay;
+    background-repeat: repeat;
+    background-size: auto;
   }
 }
 
@@ -4060,13 +4074,23 @@ body {
 
   .intro-text {
     font-size: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--secondary-color);
+    border-left-color: var(--primary-color);
   }
 
   .company-intro::before {
-    background: #e0e0e0;
+    background: linear-gradient(
+        135deg,
+        var(--dark-blue) 0%,
+        var(--secondary-color) 100%
+      ),
+      url('https://www.transparenttextures.com/patterns/hexellence.png');
+    background-blend-mode: overlay;
+    background-repeat: repeat;
+    background-size: auto;
   }
 }
-
 /* Company Story Section */
 .company-story {
   padding: 80px 0;

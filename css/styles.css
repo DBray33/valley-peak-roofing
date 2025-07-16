@@ -5281,8 +5281,9 @@ body {
 
 /* Area Service Item */
 .area-service-item {
+  position: relative;
   display: flex;
-  gap: 1.5rem;
+  flex-direction: column;
   padding: 2rem;
   background: #f8f9fa;
   border-radius: 12px;
@@ -5303,8 +5304,6 @@ body {
 
 @media (max-width: 768px) {
   .area-service-item {
-    flex-direction: column;
-    text-align: center;
     padding: 1.5rem;
   }
 }
@@ -5312,6 +5311,26 @@ body {
 @media (max-width: 480px) {
   .area-service-item {
     padding: 1.25rem;
+  }
+}
+
+/* Area Service Header */
+.area-service-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.area-service-header h3 {
+  font-size: 1.375rem;
+  color: #2c3e50;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .area-service-header h3 {
+    font-size: 1.125rem;
   }
 }
 
@@ -5338,45 +5357,63 @@ body {
   }
 }
 
-/* Area Service Content */
-.area-service-content h3 {
-  font-size: 1.375rem;
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
-}
-
-@media (max-width: 768px) {
-  .area-service-content h3 {
-    font-size: 1.125rem;
-  }
-}
-
-.area-service-content p {
+/* Area Service Description */
+.area-service-description {
   font-size: 1rem;
   color: #6c757d;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin: 0 0 1.5rem 0;
+  flex: 1;
 }
 
 @media (max-width: 768px) {
-  .area-service-content p {
+  .area-service-description {
     font-size: 0.875rem;
   }
 }
 
+/* Area Service Link */
 .area-service-link {
   color: #b3a885;
   text-decoration: none;
   font-weight: 600;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.25rem;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
   transition: all 0.3s ease;
+  width: 100%;
+}
+
+/* Make the link span the entire service item */
+.area-service-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
 }
 
 .area-service-link:hover {
   color: #e74c3c;
-  gap: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+/* Ensure text remains selectable */
+.area-service-header h3,
+.area-service-description {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Re-enable pointer events for the link text itself */
+.area-service-link {
+  pointer-events: auto;
 }
 
 /* Why Choose Section */

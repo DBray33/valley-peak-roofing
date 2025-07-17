@@ -14213,11 +14213,6 @@ body {
   }
 }
 
-/* =====================================================
- * SKYLIGHT HERO - MATCHING OTHER PAGES
- * =====================================================
- */
-
 /* Hero Section */
 .skylight-hero {
   padding: 130px 0 80px;
@@ -14645,6 +14640,141 @@ body {
   margin: 0;
 }
 
+/* Gallery Section */
+.skylight-gallery-section {
+  padding: 80px 0;
+  background: var(--light-bg);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-size: 42px;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.section-header p {
+  font-size: 18px;
+  color: var(--text-light);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-caption {
+  color: white;
+  font-weight: 600;
+}
+
+.gallery-showcase {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .gallery-showcase {
+    grid-template-columns: 1fr;
+  }
+}
+
+.showcase-main {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.showcase-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showcase-side {
+  display: grid;
+  gap: 20px;
+}
+
+.showcase-side-item {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.showcase-side-item:hover {
+  transform: scale(1.05);
+}
+
+.showcase-side-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
 /* Skylight Types Section - Flip Cards */
 .skylight-types-section {
   padding: 80px 0;
@@ -14786,6 +14916,72 @@ body {
   position: absolute;
   left: 0;
   font-weight: bold;
+}
+
+/* Before & After Section */
+.skylight-before-after-section {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.before-after-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .before-after-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.before-after-item {
+  text-align: center;
+}
+
+.before-after-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.before-after-image {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.before-after-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.image-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--orange-accent);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.before-after-description h3 {
+  font-size: 24px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.before-after-description p {
+  color: var(--text-light);
+  line-height: 1.6;
 }
 
 /* Materials Accordion Section */
@@ -14936,7 +15132,8 @@ body {
 .skylight-cta-section {
   padding: 100px 0;
   background: linear-gradient(rgba(241, 98, 10, 0.9), rgba(26, 59, 92, 0.95)),
-    url('../assets/images/skylight-page/cta-bg.jpg') center/cover;
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/n.%20skylight-installation-and-repair.html/skylight-image-10.webp')
+      center/cover;
   color: var(--white);
   text-align: center;
 }

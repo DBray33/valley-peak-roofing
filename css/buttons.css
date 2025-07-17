@@ -11,7 +11,7 @@
   --btn-primary-hover: #9a916f;
 
   /* Secondary - Use the dark blue */
-  --btn-secondary: #2c3e50;
+  --btn-secondary: var(--orange-accent);
   --btn-secondary-hover: #1a2633;
 
   /* Success - Keep green for forms/confirmations */

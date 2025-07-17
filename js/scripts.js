@@ -21,8 +21,6 @@ const App = {
       ScrollAnimations,
       TestimonialCarousel,
       FAQAccordion,
-      ModalManager, // ← Changed from ServiceModals
-      EstimateModal,
       FormHandling,
       PhoneFormatting,
       ImageHandling,
@@ -40,7 +38,6 @@ const App = {
       SkylightPage,
       GoogleReviewsSlider,
       RepairsCarousel,
-      FinancingModal,
     ]);
   },
 
@@ -160,10 +157,12 @@ const NavigationBehavior = {
       link.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
 
-        // Handle estimate modal
+        // Handle estimate modal - now using ModalSystem from modal.js
         if (href === '#estimate') {
           e.preventDefault();
-          EstimateModal.open();
+          if (window.ModalSystem) {
+            window.ModalSystem.open('estimate-modal');
+          }
           return;
         }
 
@@ -380,171 +379,6 @@ const FAQAccordion = {
 
 /**
  * =====================================================
- * UNIFIED MODAL SYSTEM - REPLACE ALL MODAL CODE WITH THIS
- * =====================================================
- */
-
-// Simple Universal Modal Manager
-const ModalManager = {
-  init: function () {
-    console.log('ModalManager: Initializing unified system...');
-    this.setupCloseButtons();
-    this.setupClickOutside();
-    this.setupEscapeKey();
-  },
-
-  setupCloseButtons: function () {
-    // Wait for DOM to be ready, then attach close button handlers
-    setTimeout(() => {
-      const closeButtons = [
-        { selector: '.close-modal', modalId: 'estimate-modal' },
-        {
-          selector: '.close-shingles-modal',
-          modalId: 'architectural-shingles-modal',
-        },
-        { selector: '.close-metal-roof-modal', modalId: 'metal-roof-modal' },
-        {
-          selector: '.close-gutter-guard-modal',
-          modalId: 'gutter-guard-modal',
-        }, // ADD THIS LINE
-      ];
-
-      closeButtons.forEach((config) => {
-        const buttons = document.querySelectorAll(config.selector);
-        buttons.forEach((btn) => {
-          btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log(`Close button clicked: ${config.selector}`);
-            this.closeModal(config.modalId);
-          });
-        });
-        console.log(`✅ Close buttons setup: ${config.selector}`);
-      });
-    }, 500);
-  },
-
-  setupClickOutside: function () {
-    const modals = [
-      'estimate-modal',
-      'architectural-shingles-modal',
-      'metal-roof-modal',
-      'gutter-guard-modal', // ADD THIS LINE
-    ];
-
-    modals.forEach((modalId) => {
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.addEventListener('click', (e) => {
-          // Only close if clicking directly on the modal background
-          if (e.target === modal) {
-            console.log(`Click outside detected: ${modalId}`);
-            this.closeModal(modalId);
-          }
-        });
-      }
-    });
-  },
-
-  setupEscapeKey: function () {
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        const activeModal = document.querySelector('.modal.active');
-        if (activeModal) {
-          console.log('Escape key pressed');
-          this.closeModal(activeModal.id);
-        }
-      }
-    });
-  },
-
-  openModal: function (modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.classList.add('active');
-      document.body.classList.add('modal-open');
-      document.body.style.overflow = 'hidden';
-      console.log(`Modal opened: ${modalId}`);
-    }
-  },
-
-  closeModal: function (modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.classList.remove('active');
-      document.body.classList.remove('modal-open');
-      document.body.style.overflow = '';
-      console.log(`Modal closed: ${modalId}`);
-    }
-  },
-};
-
-/**
- * =====================================================
- * ESTIMATE MODAL - SIMPLIFIED
- * =====================================================
- */
-const EstimateModal = {
-  init: function () {
-    console.log('EstimateModal: Ready');
-  },
-
-  open: function () {
-    ModalManager.openModal('estimate-modal');
-  },
-
-  close: function () {
-    ModalManager.closeModal('estimate-modal');
-  },
-};
-
-/**
- * =====================================================
- * GLOBAL FUNCTIONS FOR SERVICE MODALS
- * Keep these - your HTML onclick attributes need them
- * =====================================================
- */
-function openArchitecturalShinglesModal(event) {
-  event.preventDefault();
-  console.log('Opening architectural shingles modal');
-  ModalManager.openModal('architectural-shingles-modal');
-}
-
-function closeArchitecturalShinglesModal() {
-  console.log('Closing architectural shingles modal');
-  ModalManager.closeModal('architectural-shingles-modal');
-}
-
-function openMetalRoofModal(event) {
-  event.preventDefault();
-  console.log('Opening metal roof modal');
-  ModalManager.openModal('metal-roof-modal');
-}
-
-function closeMetalRoofModal() {
-  console.log('Closing metal roof modal');
-  ModalManager.closeModal('metal-roof-modal');
-}
-
-// ADD THESE TWO FUNCTIONS
-function openGutterGuardModal(event) {
-  event.preventDefault();
-  console.log('Opening gutter guard modal');
-  ModalManager.openModal('gutter-guard-modal');
-}
-
-function closeGutterGuardModal() {
-  console.log('Closing gutter guard modal');
-  ModalManager.closeModal('gutter-guard-modal');
-}
-
-// Initialize everything when DOM is ready
-document.addEventListener('DOMContentLoaded', function () {
-  ModalManager.init();
-  EstimateModal.init();
-});
-
-/**
- * =====================================================
  * FORM HANDLING MODULE
  * =====================================================
  */
@@ -581,7 +415,9 @@ const FormHandling = {
     // Reset form after delay
     setTimeout(() => {
       this.resetForm(form);
-      EstimateModal.close();
+      if (window.ModalSystem) {
+        window.ModalSystem.close('estimate-modal');
+      }
     }, 3000);
   },
 
@@ -899,7 +735,9 @@ const MobileButtonDelay = {
       // Add delay then open modal
       setTimeout(() => {
         button.classList.remove('btn-mobile-active');
-        EstimateModal.open();
+        if (window.ModalSystem) {
+          window.ModalSystem.open('estimate-modal');
+        }
       }, 600);
       return;
     }
@@ -3856,240 +3694,6 @@ const RepairsCarousel = {
 
     // Start auto-play only once
     startAutoPlay();
-  },
-};
-
-// Financing Modal Module
-const FinancingModal = {
-  init: function () {
-    const financingModal = document.getElementById('financingApplicationModal');
-
-    // Only initialize if the modal exists on the page
-    if (!financingModal) return;
-
-    const financingOpenButtons = document.querySelectorAll(
-      '.open-financing-application-modal'
-    );
-    const financingCloseButton = document.querySelector(
-      '.financing-modal-close'
-    );
-    const financingCancelButton = document.querySelector(
-      '.financing-modal-cancel'
-    );
-    const financingForm = document.getElementById('financingApplicationForm');
-
-    // Open modal when buttons are clicked
-    financingOpenButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        // Get plan data from button attributes
-        const financingPlanName = this.getAttribute('data-financing-plan-name');
-        const financingPlanCode = this.getAttribute('data-financing-plan-code');
-        const financingInterest = this.getAttribute('data-financing-interest');
-        const financingTerm = this.getAttribute('data-financing-term');
-
-        // Update modal with selected plan info
-        document.getElementById('financingSelectedPlanName').textContent =
-          financingPlanName;
-        document.getElementById('financingSelectedPlanCode').textContent =
-          financingPlanCode;
-        document.getElementById('financingSelectedTerm').textContent =
-          financingTerm;
-        document.getElementById('financingSelectedInterest').textContent =
-          financingInterest;
-
-        // Set hidden form fields
-        document.getElementById('financingPlanCode').value = financingPlanCode;
-        document.getElementById('financingPlanName').value = financingPlanName;
-
-        // Set tracking data
-        const financingTimestamp = new Date().toISOString();
-        financingForm.querySelector('[name="financing_timestamp"]').value =
-          financingTimestamp;
-        financingForm.querySelector('[name="financing_page_url"]').value =
-          window.location.href;
-
-        // Get UTM parameters from URL if present
-        const financingUrlParams = new URLSearchParams(window.location.search);
-        financingForm.querySelector('[name="financing_utm_source"]').value =
-          financingUrlParams.get('utm_source') || '';
-        financingForm.querySelector('[name="financing_utm_medium"]').value =
-          financingUrlParams.get('utm_medium') || '';
-        financingForm.querySelector('[name="financing_utm_campaign"]').value =
-          financingUrlParams.get('utm_campaign') || '';
-
-        // Show modal
-        financingModal.classList.add('financing-active');
-        document.body.style.overflow = 'hidden';
-
-        // Focus on first input
-        document.getElementById('financingFirstName').focus();
-      });
-    });
-
-    // Close modal functions
-    function closeFinancingModal() {
-      financingModal.classList.remove('financing-active');
-      document.body.style.overflow = '';
-      financingForm.reset();
-
-      // Remove success message if it exists
-      const successMessage = document.querySelector(
-        '.financing-success-wrapper'
-      );
-      if (successMessage) {
-        successMessage.remove();
-      }
-    }
-
-    // Show success message function
-    function showFinancingSuccessMessage() {
-      // Hide the form
-      financingForm.style.display = 'none';
-
-      // Create success message matching contact form style
-      const successDiv = document.createElement('div');
-      successDiv.className = 'financing-success-wrapper';
-      successDiv.innerHTML = `
-        <div class="financing-success-icon">
-          <i class="fas fa-check-circle"></i>
-        </div>
-        <p class="form-guarantee">
-          <i class="fas fa-shield-alt"></i>
-          Thank you! We'll contact you within 24 hours.
-        </p>
-      `;
-
-      // Insert after the form
-      financingForm.parentNode.appendChild(successDiv);
-    }
-
-    // Close modal when X is clicked
-    if (financingCloseButton) {
-      financingCloseButton.addEventListener('click', closeFinancingModal);
-    }
-
-    // Close modal when Cancel is clicked
-    if (financingCancelButton) {
-      financingCancelButton.addEventListener('click', closeFinancingModal);
-    }
-
-    // Close modal when clicking outside
-    financingModal.addEventListener('click', function (e) {
-      if (e.target === financingModal) {
-        closeFinancingModal();
-      }
-    });
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', function (e) {
-      if (
-        e.key === 'Escape' &&
-        financingModal.classList.contains('financing-active')
-      ) {
-        closeFinancingModal();
-      }
-    });
-
-    // Handle form submission
-    financingForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // Collect form data
-      const financingFormData = new FormData(financingForm);
-      const financingData = Object.fromEntries(financingFormData);
-
-      // Add additional tracking data
-      financingData.financing_referrer = document.referrer;
-      financingData.financing_user_agent = navigator.userAgent;
-      financingData.financing_screen_resolution = `${screen.width}x${screen.height}`;
-
-      // Log form data (replace with your actual submission logic)
-      console.log('Financing Application Submitted:', financingData);
-
-      // Here you would typically:
-      // 1. Send data to your server
-      // 2. Send to Google Analytics/Tag Manager
-      // 3. Send to your CRM
-      // 4. Send to email service
-
-      // Example Google Analytics event (if GA4 is installed)
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'financing_page_application', {
-          event_category: 'financing_lead',
-          event_label: financingData.financing_plan_name,
-          financing_plan_code: financingData.financing_plan_code,
-          financing_estimated_amount: financingData.financing_estimated_amount,
-          financing_project_type: financingData.financing_project_type,
-          financing_lead_source: 'financing_page',
-        });
-      }
-
-      // Example for Google Tag Manager
-      if (typeof dataLayer !== 'undefined') {
-        dataLayer.push({
-          event: 'financingPageFormSubmit',
-          formType: 'financing_page_application',
-          financingPlanCode: financingData.financing_plan_code,
-          financingPlanName: financingData.financing_plan_name,
-          financingEstimatedAmount: financingData.financing_estimated_amount,
-          financingProjectType: financingData.financing_project_type,
-          financingLeadSource: 'financing_page',
-        });
-      }
-
-      // Show success message
-      showFinancingSuccessMessage();
-
-      // Close modal after a delay
-      setTimeout(function () {
-        closeFinancingModal();
-      }, 3000);
-
-      // Optionally redirect to thank you page
-      // window.location.href = '/thank-you-financing';
-    });
-
-    // Format phone number as user types
-    const financingPhoneInput = document.getElementById('financingPhone');
-    if (financingPhoneInput) {
-      financingPhoneInput.addEventListener('input', function (e) {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length > 0) {
-          if (value.length <= 3) {
-            value = value;
-          } else if (value.length <= 6) {
-            value = value.slice(0, 3) + '-' + value.slice(3);
-          } else {
-            value =
-              value.slice(0, 3) +
-              '-' +
-              value.slice(3, 6) +
-              '-' +
-              value.slice(6, 10);
-          }
-        }
-        e.target.value = value;
-      });
-    }
-
-    // Format currency input
-    const financingAmountInput = document.getElementById(
-      'financingEstimatedAmount'
-    );
-    if (financingAmountInput) {
-      financingAmountInput.addEventListener('blur', function (e) {
-        let value = e.target.value.replace(/[^\d.]/g, '');
-        if (value) {
-          value = parseFloat(value).toFixed(2);
-          e.target.value = '$' + value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        }
-      });
-
-      // Remove $ when focusing on amount input
-      financingAmountInput.addEventListener('focus', function (e) {
-        e.target.value = e.target.value.replace(/[$,]/g, '');
-      });
-    }
   },
 };
 

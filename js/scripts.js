@@ -34,10 +34,10 @@ const App = {
       ActiveNavigation,
       RoofDesignPage,
       PortfolioGallery,
-      ResidentialRoofRepairs,
+      ReusableAccordion,
       SkylightPage,
       GoogleReviewsSlider,
-      RepairsCarousel,
+      ReusableCarousel,
     ]);
   },
 
@@ -2838,17 +2838,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /**
  * =====================================================
- * RESIDENTIAL ROOF REPAIRS PAGE MODULE
+ * REUSABLE ACCORDION MODULE
+ * Works for both repairs and gutter accordions
  * =====================================================
  */
-const ResidentialRoofRepairs = {
+const ReusableAccordion = {
   init: function () {
     this.initAccordions();
   },
 
   initAccordions: function () {
+    // Look for both types of accordion headers
     const accordionHeaders = document.querySelectorAll(
-      '.repairs-accordion-header'
+      '.repairs-accordion-header, .gutter-accordion-header'
     );
 
     accordionHeaders.forEach((header) => {
@@ -2856,8 +2858,14 @@ const ResidentialRoofRepairs = {
         const accordionItem = this.parentElement;
         const isActive = accordionItem.classList.contains('active');
 
-        // Close all accordion items
-        document.querySelectorAll('.repairs-accordion-item').forEach((item) => {
+        // Determine which type of accordion this is
+        const isRepairs = header.classList.contains('repairs-accordion-header');
+        const accordionClass = isRepairs
+          ? '.repairs-accordion-item'
+          : '.gutter-accordion-item';
+
+        // Close all accordion items of the same type
+        document.querySelectorAll(accordionClass).forEach((item) => {
           item.classList.remove('active');
         });
 
@@ -3576,21 +3584,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /**
  * =====================================================
- * RESIDENTIAL ROOF COMMON ISSUES CAROUSEL
+ * REUSABLE CAROUSEL MODULE
+ * Works for both repairs and gutter carousels
  * =====================================================
  */
-const RepairsCarousel = {
+const ReusableCarousel = {
   init: function () {
-    // Check if we're on a page with the repairs carousel
-    const carousel = document.querySelector('.repairs-carousel');
-    if (!carousel) return;
+    // Check for both types of carousels
+    const carousels = document.querySelectorAll(
+      '.repairs-carousel, .gutter-carousel'
+    );
 
-    const slides = document.querySelectorAll('.repairs-carousel-slide');
-    const nextBtn = document.querySelector('.repairs-carousel-next');
-    const prevBtn = document.querySelector('.repairs-carousel-prev');
-    const indicators = document.querySelectorAll('.repairs-carousel-indicator');
+    // Initialize each carousel found
+    carousels.forEach((carousel) => {
+      this.initializeCarousel(carousel);
+    });
+  },
+
+  initializeCarousel: function (carousel) {
+    // Determine carousel type
+    const isRepairs = carousel.classList.contains('repairs-carousel');
+    const prefix = isRepairs ? 'repairs' : 'gutter';
+
+    // Get the parent container that holds both carousel and indicators
+    const carouselContainer = carousel.closest(`.${prefix}-carousel-container`);
+
+    // Get carousel elements using the appropriate prefix
+    const slides = carousel.querySelectorAll(`.${prefix}-carousel-slide`);
+    const nextBtn = carousel.querySelector(`.${prefix}-carousel-next`);
+    const prevBtn = carousel.querySelector(`.${prefix}-carousel-prev`);
+    // Look for indicators in the parent container, not just the carousel
+    const indicators = carouselContainer
+      ? carouselContainer.querySelectorAll(`.${prefix}-carousel-indicator`)
+      : [];
     let currentSlide = 0;
-    let autoPlayInterval = null; // Initialize as null
+    let autoPlayInterval = null;
 
     function showSlide(index) {
       // Remove active class from all slides and indicators
@@ -3620,7 +3648,7 @@ const RepairsCarousel = {
     function startAutoPlay() {
       // Always clear existing interval before starting new one
       stopAutoPlay();
-      autoPlayInterval = setInterval(nextSlide, 2000); // Change slide every 5 seconds
+      autoPlayInterval = setInterval(nextSlide, 2000); // Change slide every 2 seconds
     }
 
     function stopAutoPlay() {

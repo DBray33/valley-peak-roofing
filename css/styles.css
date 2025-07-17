@@ -14075,6 +14075,75 @@ body {
   }
 }
 
+/* CTA Section */
+.gutter-cta {
+  padding: 80px 0;
+  background: linear-gradient(
+      135deg,
+      var(--dark-blue) 0%,
+      var(--secondary-color) 100%
+    ),
+    url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto;
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add the same gradient overlay as the hero */
+.gutter-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(241, 98, 10, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ensure content is above the overlay */
+.gutter-cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.gutter-cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.gutter-cta-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.gutter-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .gutter-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 /* Animation Classes */
 .gutter-intro-section .slide-in-left,
 .gutter-issues-section .slide-up,

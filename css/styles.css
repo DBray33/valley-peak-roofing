@@ -16784,7 +16784,7 @@ body {
 
 .gallery-slide {
   position: relative;
-  height: 400px;
+  height: 550px; /* INCREASED from 400px */
 }
 
 .gallery-image {
@@ -16936,7 +16936,7 @@ body {
 
   /* Gallery */
   .gallery-slide {
-    height: 300px;
+    height: 400px; /* INCREASED from 300px */
   }
 
   .gallery-carousel .carousel-control-prev,
@@ -16985,6 +16985,11 @@ body {
   .gallery-carousel .carousel-control-prev,
   .gallery-carousel .carousel-control-next {
     display: none;
+  }
+
+  /* Gallery slide height for mobile */
+  .gallery-slide {
+    height: 350px; /* INCREASED for better mobile viewing */
   }
 
   /* Color Preview */

@@ -6,11 +6,10 @@
     <!-- Primary Meta Tags -->
     <title>
       Roof Financing Options | 0% Interest for 12-18 Months | Valley Peak
-      Roofing PA
     </title>
     <meta
       name="description"
-      content="$0 down roofing financing in Lehigh Valley PA. Choose 12-month same-as-cash, 18-month 0% interest, or extended payment plans. Get approved in 5 minutes. No hidden fees. Call (484) 602-6863." />
+      content="$0 down roofing financing in Lehigh Valley PA. Choose 12-month same-as-cash, 18-month 0% interest, or 120-month extended plans. Get approved in 5 minutes. No hidden fees. Call (484) 602-6863." />
 
     <!-- Open Graph / Facebook Meta Tags -->
     <meta property="og:type" content="website" />
@@ -71,6 +70,13 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 
+    <!-- Preload LCP image -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/service-finance-logo.webp"
+      type="image/webp" />
+
     <!-- Favicon links for all sizes -->
     <link
       rel="icon"
@@ -98,7 +104,10 @@
       href="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/favicon180x208.webp" />
 
     <!-- Fallback for browsers that don't support WebP -->
-    <link rel="icon" type="image/png" href="assets/images/logo.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/Valley-Peak-Roofing-Logo-Emblem-Vector-Full-Color-32x41.png" />
 
     <!-- Bootstrap CSS - Load asynchronously after critical styles -->
     <link
@@ -130,7 +139,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     </noscript>
 
-    <!-- Google Fonts - Updated with Girassol and Saira -->
+    <!-- Google Fonts - Girassol, Saira -->
     <link
       href="https://fonts.googleapis.com/css2?family=Girassol&family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
@@ -148,7 +157,7 @@
         "@context": "https://schema.org",
         "@type": "FinancialProduct",
         "name": "Valley Peak Roofing Financing Options",
-        "description": "Flexible roofing financing with $0 down and 0% interest options",
+        "description": "Flexible roofing financing with $0 down and 0% interest options. Get approved in 5 minutes with Service Finance.",
         "provider": {
           "@type": "RoofingContractor",
           "name": "Valley Peak Roofing Co.",
@@ -158,6 +167,7 @@
           "url": "https://valleypeakroof.com",
           "telephone": "+1-484-602-6863",
           "email": "sales@valleypeakroof.com",
+          "priceRange": "$$",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "3005 Brodhead Road Suite 105",
@@ -171,7 +181,7 @@
           {
             "@type": "Offer",
             "name": "12 Month Same as Cash Plan",
-            "description": "0% interest for 12 months with $0 down payment",
+            "description": "Plan 2012 - No monthly payments, 0% interest rate, pay in full by 12 months",
             "priceCurrency": "USD",
             "eligibleDuration": {
               "@type": "QuantitativeValue",
@@ -183,12 +193,17 @@
               "@type": "MonetaryAmount",
               "currency": "USD",
               "value": "0"
+            },
+            "monthlyPaymentAmount": {
+              "@type": "MonetaryAmount",
+              "currency": "USD",
+              "value": "0"
             }
           },
           {
             "@type": "Offer",
             "name": "18 Month Deferred Interest Plan",
-            "description": "0% interest if paid within 18 months with $0 down payment",
+            "description": "Plan 1018 - Monthly payment required, 0% interest if paid within 18 months. Ideal for most roof replacements.",
             "priceCurrency": "USD",
             "eligibleDuration": {
               "@type": "QuantitativeValue",
@@ -200,12 +215,18 @@
               "@type": "MonetaryAmount",
               "currency": "USD",
               "value": "0"
+            },
+            "exampleMonthlyPayment": {
+              "@type": "MonetaryAmount",
+              "currency": "USD",
+              "value": "279",
+              "description": "Example: $12,000 project = $279/month minimum"
             }
           },
           {
             "@type": "Offer",
             "name": "120 Month Extended Payment Plan",
-            "description": "Extended payment plan with 9.99% APR and $0 down payment",
+            "description": "Plan 4132 - Lowest monthly payments with 9.99% APR. No pre-pay penalty.",
             "priceCurrency": "USD",
             "eligibleDuration": {
               "@type": "QuantitativeValue",
@@ -217,10 +238,47 @@
               "@type": "MonetaryAmount",
               "currency": "USD",
               "value": "0"
+            },
+            "exampleMonthlyPayment": {
+              "@type": "MonetaryAmount",
+              "currency": "USD",
+              "value": "158.50",
+              "description": "Example: $12,000 project = $158.50/month"
             }
           }
         ],
         "feesAndCommissionsSpecification": "No hidden fees or prepayment penalties",
+        "applicationProcess": {
+          "@type": "HowTo",
+          "name": "Simple Application Process",
+          "description": "Get approved in minutes, not hours",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": "1",
+              "name": "Apply Online",
+              "text": "Quick 5-minute application with instant pre-approval"
+            },
+            {
+              "@type": "HowToStep",
+              "position": "2",
+              "name": "Choose Your Plan",
+              "text": "Select from our 12, 18, or 24-month zero-interest options"
+            },
+            {
+              "@type": "HowToStep",
+              "position": "3",
+              "name": "Get Your Roof Done",
+              "text": "We start your project immediately upon approval"
+            },
+            {
+              "@type": "HowToStep",
+              "position": "4",
+              "name": "Easy Monthly Payments",
+              "text": "Convenient automatic payments with no surprises"
+            }
+          ]
+        },
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.8",
@@ -228,6 +286,48 @@
           "bestRating": "5",
           "worstRating": "1"
         }
+      }
+    </script>
+
+    <!-- FAQ Schema for Financing Questions -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What credit score do I need?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We work with all credit types. Our financing partners offer options for various credit situations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are there any hidden fees?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No hidden fees! What you see is what you get with our transparent pricing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I pay off early?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! There are no prepayment penalties. Pay off your balance anytime without extra charges."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How quickly can I get approved?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most customers receive approval within 5-10 minutes of completing the online application."
+            }
+          }
+        ]
       }
     </script>
   </head>
@@ -330,7 +430,7 @@
           </div>
 
           <div class="nav-item">
-            <a href="#estimate" class="btn btn-primary">Free Estimate</a>
+            <a href="#estimate" class="btn btn-secondary">Free Estimate</a>
           </div>
         </div>
 
@@ -424,7 +524,7 @@
         </div>
 
         <div class="mobile-nav-item">
-          <a href="#estimate" class="btn btn-primary">Free Estimate</a>
+          <a href="#estimate" class="btn btn-secondary">Free Estimate</a>
         </div>
       </div>
     </div>

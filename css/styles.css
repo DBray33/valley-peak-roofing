@@ -14213,6 +14213,11 @@ body {
   }
 }
 
+/* =====================================================
+ * SKYLIGHT INSTALLATION AND REPAIR PAGE
+ * =====================================================
+ */
+
 /* Hero Section */
 .skylight-hero {
   padding: 130px 0 80px;
@@ -14399,124 +14404,134 @@ body {
   display: block;
 }
 
-/* Why Choose Section - Hexagon Grid */
-.skylight-why-choose-section {
+/* Types of Skylights Offered Section */
+.skylight-types-offered-section {
   padding: 80px 0;
-  background: var(--dark-blue);
-  overflow: hidden;
+  background: var(--light-bg);
 }
 
-.skylight-why-choose-section .section-header h2 {
-  color: var(--white);
-}
-
-.hexagon-grid {
+.skylight-types-offered-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 0;
+  gap: 60px;
+  margin-top: 60px;
+}
+
+.skylight-type-offered {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 40px;
+  align-items: start;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .skylight-type-offered {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skylight-type-offered:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+}
+
+.type-image {
+  height: 100%;
+  min-height: 400px;
+}
+
+@media (max-width: 1024px) {
+  .type-image {
+    min-height: 300px;
+  }
+}
+
+.type-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.type-content {
+  padding: 40px;
 }
 
 @media (max-width: 768px) {
-  .hexagon-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+  .type-content {
+    padding: 30px 20px;
   }
 }
 
-.hex-item {
-  position: relative;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.hex-content {
-  background: var(--white);
-  padding: 40px 20px;
-  border-radius: 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-@media (max-width: 480px) {
-  .hex-content {
-    padding: 30px 15px;
-  }
-}
-
-.hex-content::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, var(--orange-accent), var(--orange-light));
-  border-radius: 20px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-}
-
-.hex-item:hover .hex-content {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.hex-item:hover .hex-content::before {
-  opacity: 1;
-}
-
-.hex-content i {
-  font-size: 48px;
-  color: var(--orange-accent);
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-}
-
-@media (max-width: 480px) {
-  .hex-content i {
-    font-size: 36px;
-  }
-}
-
-.hex-item:hover .hex-content i {
-  transform: scale(1.1);
-  color: var(--white);
-}
-
-.hex-content h3 {
-  font-size: 20px;
+.type-content h3 {
+  font-size: 28px;
   color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.type-content h4 {
+  font-size: 18px;
+  color: var(--orange-accent);
+  margin-top: 25px;
   margin-bottom: 10px;
-  transition: color 0.3s ease;
 }
 
-@media (max-width: 480px) {
-  .hex-content h3 {
-    font-size: 18px;
-  }
-}
-
-.hex-content p {
-  font-size: 14px;
+.type-description {
+  font-size: 18px;
   color: var(--text-light);
-  margin: 0;
-  transition: color 0.3s ease;
+  line-height: 1.8;
+  margin-bottom: 20px;
 }
 
-.hex-item:hover .hex-content h3,
-.hex-item:hover .hex-content p {
-  color: var(--white);
+.type-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+.type-content li {
+  padding: 8px 0 8px 25px;
+  position: relative;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.type-content li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--orange-accent);
+  font-weight: bold;
+}
+
+.type-benefits {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.benefit-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(
+    135deg,
+    var(--orange-accent),
+    var(--orange-light)
+  );
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.benefit-tag i {
+  font-size: 12px;
 }
 
 /* Process Timeline Section */
@@ -14629,163 +14644,33 @@ body {
 }
 
 .step-content h3 {
-  font-size: 22px;
+  font-size: 20px;
   color: var(--text-dark);
   margin-bottom: 10px;
 }
 
 .step-content p {
+  font-size: 16px;
   color: var(--text-light);
   line-height: 1.6;
   margin: 0;
 }
 
-/* Gallery Section */
-.skylight-gallery-section {
-  padding: 80px 0;
-  background: var(--light-bg);
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-header h2 {
-  font-size: 42px;
-  color: var(--text-dark);
-  margin-bottom: 20px;
-}
-
-.section-header p {
-  font-size: 18px;
-  color: var(--text-light);
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-bottom: 50px;
-}
-
-@media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.gallery-item:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.1);
-}
-
-.gallery-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .gallery-overlay {
-  opacity: 1;
-}
-
-.gallery-caption {
-  color: white;
-  font-weight: 600;
-}
-
-.gallery-showcase {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 30px;
-  margin-top: 50px;
-}
-
-@media (max-width: 768px) {
-  .gallery-showcase {
-    grid-template-columns: 1fr;
-  }
-}
-
-.showcase-main {
-  position: relative;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-}
-
-.showcase-main img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.showcase-side {
-  display: grid;
-  gap: 20px;
-}
-
-.showcase-side-item {
-  position: relative;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: all 0.3s ease;
-}
-
-.showcase-side-item:hover {
-  transform: scale(1.05);
-}
-
-.showcase-side-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-/* Skylight Types Section - Flip Cards */
-.skylight-types-section {
+/* Benefits Section (Flip Cards) */
+.skylight-benefits-section {
   padding: 80px 0;
   background: var(--dark-blue);
 }
 
-.skylight-types-section .section-header h2 {
+.skylight-benefits-section .section-header h2 {
   color: var(--white);
 }
 
-.skylight-types-grid {
+.skylight-benefits-section .section-header p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.skylight-benefits-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
@@ -14793,17 +14678,17 @@ body {
 }
 
 @media (max-width: 768px) {
-  .skylight-types-grid {
+  .skylight-benefits-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.skylight-type-card {
+.skylight-benefit-card {
   perspective: 1000px;
   height: 350px;
 }
 
-.card-inner {
+.skylight-benefit-card .card-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -14811,17 +14696,16 @@ body {
   transform-style: preserve-3d;
 }
 
-.skylight-type-card:hover .card-inner {
+.skylight-benefit-card:hover .card-inner {
   transform: rotateY(180deg);
 }
 
-.card-front,
-.card-back {
+.skylight-benefit-card .card-front,
+.skylight-benefit-card .card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: var(--white);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   padding: 40px 30px;
@@ -14832,13 +14716,26 @@ body {
   text-align: center;
 }
 
-.card-back {
+.skylight-benefit-card .card-front {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.97),
+      rgba(255, 255, 255, 0.97)
+    ),
+    url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-repeat: no-repeat, repeat;
+  background-size: cover, auto;
+}
+
+.skylight-benefit-card .card-back {
   transform: rotateY(180deg);
   background: linear-gradient(
-    135deg,
-    var(--orange-accent),
-    var(--orange-light)
-  );
+      135deg,
+      rgba(241, 98, 10, 0.92),
+      rgba(255, 128, 64, 0.92)
+    ),
+    url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-repeat: no-repeat, repeat;
+  background-size: cover, auto;
   color: var(--white);
 }
 
@@ -14918,70 +14815,63 @@ body {
   font-weight: bold;
 }
 
-/* Before & After Section */
-.skylight-before-after-section {
+/* Gallery Section */
+.skylight-gallery-section {
   padding: 80px 0;
   background: var(--white);
 }
 
-.before-after-grid {
+.gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
   margin-top: 50px;
 }
 
 @media (max-width: 768px) {
-  .before-after-grid {
-    grid-template-columns: 1fr;
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
   }
 }
 
-.before-after-item {
-  text-align: center;
-}
-
-.before-after-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.before-after-image {
+.gallery-item {
   position: relative;
-  border-radius: var(--border-radius);
   overflow: hidden;
+  border-radius: var(--border-radius);
   box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  aspect-ratio: 4/3;
 }
 
-.before-after-image img {
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-item img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.image-label {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: var(--orange-accent);
-  color: white;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
+.gallery-item:hover img {
+  transform: scale(1.1);
 }
 
-.before-after-description h3 {
-  font-size: 24px;
-  color: var(--text-dark);
-  margin-bottom: 10px;
+/* Stagger animations for gallery */
+.fade-in-stagger-6 {
+  animation: fadeIn 0.6s ease-out 0.6s both;
 }
 
-.before-after-description p {
-  color: var(--text-light);
-  line-height: 1.6;
+.fade-in-stagger-7 {
+  animation: fadeIn 0.6s ease-out 0.7s both;
+}
+
+.fade-in-stagger-8 {
+  animation: fadeIn 0.6s ease-out 0.8s both;
 }
 
 /* Materials Accordion Section */
@@ -15128,39 +15018,217 @@ body {
   font-size: 12px;
 }
 
-/* CTA Section */
-.skylight-cta-section {
-  padding: 100px 0;
-  background: linear-gradient(rgba(241, 98, 10, 0.9), rgba(26, 59, 92, 0.95)),
-    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/n.%20skylight-installation-and-repair.html/skylight-image-10.webp')
-      center/cover;
-  color: var(--white);
-  text-align: center;
+/* Why Choose Section - 3 per row, then 2 per row */
+.skylight-why-choose-section {
+  padding: 80px 0;
+  background: var(--dark-blue);
+  overflow: hidden;
 }
 
-.cta-content h2 {
-  font-size: 42px;
-  margin-bottom: 20px;
+.skylight-why-choose-section .section-header h2 {
+  color: var(--white);
+}
+
+.hexagon-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.hex-item {
+  grid-column: span 2;
+  transition: all 0.3s ease;
+}
+
+/* Center the last 2 items */
+.hex-item:nth-child(4) {
+  grid-column: 2 / 4;
+}
+
+.hex-item:nth-child(5) {
+  grid-column: 4 / 6;
 }
 
 @media (max-width: 768px) {
-  .cta-content h2 {
-    font-size: 28px;
+  .hexagon-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .hex-item {
+    grid-column: span 1;
+  }
+
+  .hex-item:nth-child(4),
+  .hex-item:nth-child(5) {
+    grid-column: span 1;
   }
 }
 
-.cta-content p {
-  font-size: 20px;
-  margin-bottom: 30px;
-  opacity: 0.9;
+@media (max-width: 480px) {
+  .hexagon-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.cta-buttons {
+.hex-content {
+  background: var(--white);
+  padding: 40px 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .hex-content {
+    padding: 30px 15px;
+  }
+}
+
+.hex-content::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--orange-accent), var(--orange-light));
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.hex-item:hover .hex-content {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hex-item:hover .hex-content::before {
+  opacity: 1;
+}
+
+.hex-content i {
+  font-size: 48px;
+  color: var(--orange-accent);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .hex-content i {
+    font-size: 36px;
+  }
+}
+
+.hex-item:hover .hex-content i {
+  transform: scale(1.1);
+  color: var(--white);
+}
+
+.hex-content h3 {
+  font-size: 20px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .hex-content h3 {
+    font-size: 18px;
+  }
+}
+
+.hex-content p {
+  font-size: 14px;
+  color: var(--text-light);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.hex-item:hover .hex-content h3,
+.hex-item:hover .hex-content p {
+  color: var(--white);
+}
+
+/* CTA Section */
+.skylight-cta-section {
+  padding: 80px 0;
+  background: linear-gradient(
+      135deg,
+      var(--dark-blue) 0%,
+      var(--secondary-color) 100%
+    ),
+    url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto;
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add the same gradient overlay as the hero */
+.skylight-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(241, 98, 10, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ensure content is above the overlay */
+.skylight-cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.skylight-cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.skylight-cta-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.skylight-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 480px) {
+  .skylight-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .trust-badges {

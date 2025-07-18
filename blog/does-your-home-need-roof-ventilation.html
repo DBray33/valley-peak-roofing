@@ -579,7 +579,7 @@
     <section class="roof-financing-section">
       <div class="container">
         <div class="roof-financing-grid">
-          <div class="roof-financing-card slide-in-left">
+          <div class="roof-financing-card">
             <div class="roof-financing-header">
               <h3>FINANCING AVAILABLE!</h3>
               <img
@@ -599,12 +599,12 @@
             </a>
           </div>
 
-          <div class="roof-budget-card slide-in-right">
+          <div class="roof-budget-card">
             <h3>Quality Roofing at a Price You Can Afford.</h3>
             <p>
               Use our cost calculator to estimate your roofing project budget.
             </p>
-            <a href="../budget-roof-cost.html" class="btn btn-secondary">
+            <a href="budget-roof-cost.html" class="btn btn-secondary">
               <i class="fas fa-dollar-sign"></i> Cost Calculator
             </a>
           </div>
@@ -613,81 +613,60 @@
     </section>
 
     <!-- Contact Form Section -->
-    <section class="reusable-contact-section">
+    <section class="roof-contact-section">
       <div class="container">
-        <div class="section-header text-center slide-up">
-          <h2>Schedule Your Free Roof Repair Estimate Today!</h2>
+        <div class="section-header text-center">
+          <h2 class="section-title">
+            Schedule Your Free Roof Replacement Estimate Today!
+          </h2>
           <p class="section-subtitle">
-            Let us repair and strengthen your roof before minor issues become
-            major problems!
+            Let us provide you with a strong, long-lasting roof replacement that
+            enhances your home's safety and value!
           </p>
         </div>
 
-        <div class="reusable-contact-grid">
-          <div class="reusable-contact-form-container fade-in">
-            <div class="reusable-contact-form-header">
-              <h3>Valley Peak Roofing Co</h3>
+        <div class="roof-contact-grid">
+          <div class="roof-form-container">
+            <div class="roof-form-header">
+              <h3>VALLEY PEAK ROOFING CO</h3>
               <h4>Your Free Estimate Form</h4>
             </div>
 
-            <form class="reusable-contact-form" id="estimate">
-              <div class="reusable-contact-form-row">
-                <div class="reusable-contact-form-group">
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    placeholder="First Name *"
-                    required />
+            <form class="roof-contact-form" action="#" method="POST">
+              <div class="roof-form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+
+              <div class="roof-form-row">
+                <div class="roof-form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required />
                 </div>
-                <div class="reusable-contact-form-group">
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    placeholder="Last Name *"
-                    required />
+
+                <div class="roof-form-group">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" name="phone" required />
                 </div>
               </div>
 
-              <div class="reusable-contact-form-row">
-                <div class="reusable-contact-form-group">
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Email *"
-                    required />
-                </div>
-                <div class="reusable-contact-form-group">
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="Phone *"
-                    required />
-                </div>
-              </div>
-
-              <div class="reusable-contact-form-group">
+              <div class="roof-form-group">
+                <label for="service">Service Needed</label>
                 <select id="service" name="service" required>
-                  <option value="">Service Needed</option>
-                  <option value="leak-repair">Leak Repair</option>
-                  <option value="shingle-repair">Shingle Repair</option>
-                  <option value="storm-damage">Storm Damage</option>
-                  <option value="flashing-repair">Flashing Repair</option>
-                  <option value="general-inspection">General Inspection</option>
-                  <option value="other">Other</option>
+                  <option value="">Select a service</option>
+                  <option value="roofing">Roofing</option>
+                  <option value="siding">Siding</option>
+                  <option value="gutters">Gutters</option>
                 </select>
               </div>
 
-              <div class="reusable-contact-form-group">
+              <div class="roof-form-group">
+                <label for="message">Project Details</label>
                 <textarea
                   id="message"
                   name="message"
                   rows="4"
-                  placeholder="Briefly explain your needs *"
-                  required></textarea>
+                  placeholder="Tell us about your project..."></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary btn-large">
@@ -696,42 +675,39 @@
             </form>
           </div>
 
-          <div class="reusable-contact-info fade-in-delay">
-            <div class="reusable-contact-info-card">
-              <h3>The Valley Peak Roofing Difference</h3>
-              <ul class="reusable-contact-features-list">
-                <li class="fade-in-stagger-1">
-                  <i class="fas fa-check"></i> Locally Owned & Family Operated
-                </li>
-                <li class="fade-in-stagger-2">
-                  <i class="fas fa-check"></i> Fast & Reliable Service
-                </li>
-                <li class="fade-in-stagger-3">
-                  <i class="fas fa-check"></i> Affordable Financing Options
-                </li>
-                <li class="fade-in-stagger-4">
-                  <i class="fas fa-check"></i> Quality Work with Lifetime
-                  Warranty
-                </li>
-                <li class="fade-in-stagger-5">
-                  <i class="fas fa-check"></i> 100+ 5-Star Reviews
-                </li>
-              </ul>
-              <p class="reusable-contact-tagline">
-                Locally recognized as your trusted roofing experts, we make it
-                easy from start to finish. Whether you need a minor roof repair
-                or a professional roof replacement, our team of skilled
-                contractors will give you the best product available in The
-                Lehigh Valley area.
-              </p>
+          <div class="roof-why-choose-sidebar">
+            <h3>WHY CHOOSE US?</h3>
+            <h4>The Valley Peak Roofing Difference</h4>
 
-              <!-- Company Image -->
-              <div class="reusable-contact-company-image zoom-in">
-                <img
-                  src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/placeholders/placeholder5.webp"
-                  alt="Valley Peak Roofing team" />
-              </div>
-            </div>
+            <ul class="roof-difference-list">
+              <li>
+                <i class="fas fa-home"></i> Locally Owned & Family Operated
+              </li>
+              <li>
+                <i class="fas fa-tachometer-alt"></i> Fast & Reliable Service
+              </li>
+              <li>
+                <i class="fas fa-dollar-sign"></i> Affordable Financing Options
+              </li>
+              <li>
+                <i class="fas fa-certificate"></i> Quality Work with a lifetime
+                Warranty
+              </li>
+              <li><i class="fas fa-star"></i> 100+ 5-Star Reviews</li>
+            </ul>
+
+            <p class="roof-difference-text">
+              Locally recognized as your trusted
+              <strong>roofing experts</strong>, we make it easy from start to
+              finish. Whether you are in need of a minor roof repair or a
+              professional roof replacement, our team of skilled contractors
+              will give you the best product available in The
+              <strong>Lehigh Valley</strong> area. A shingle roof replacement
+              not only requires good materials and a high level of expertise,
+              but more importantly, quality customer service. Our roofers
+              continue to treat each home like it is their own to ensure top
+              quality from beginning to end.
+            </p>
           </div>
         </div>
       </div>

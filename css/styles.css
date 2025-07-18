@@ -15840,8 +15840,8 @@ body {
 .portfolio-hero {
   padding: 145px 0 60px; /* 25px taller */
   position: relative;
-  background: url('https://www.transparenttextures.com/patterns/hexellence.png');
-  background-blend-mode: overlay;
+  background: var(--light-bg)
+    url('https://www.transparenttextures.com/patterns/hexellence.png');
   background-repeat: repeat;
   background-size: auto;
   text-align: center;
@@ -16209,8 +16209,17 @@ body {
 
 /* Gallery Showcase Section - NEW STYLES */
 .portfolio-gallery-showcase {
-  background: var(--text-dark);
   padding: 80px 0;
+  /* Updated background with wavy image and transparent dark blue overlay */
+  background: linear-gradient(
+      rgba(0, 27, 61, 0.85),
+      /* Dark blue with transparency */ rgba(0, 27, 61, 0.85)
+    ),
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/wavy-services-bg.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional: creates parallax effect on scroll */
 }
 
 /* Override the generic .container width for this section */
@@ -16320,8 +16329,8 @@ body {
 .portfolio-bottom-cta {
   padding: 80px 0;
   position: relative;
-  background: url('https://www.transparenttextures.com/patterns/hexellence.png');
-  background-blend-mode: overlay;
+  background: var(--white)
+    url('https://www.transparenttextures.com/patterns/hexellence.png');
   background-repeat: repeat;
   background-size: auto;
   text-align: center;

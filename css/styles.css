@@ -2623,7 +2623,8 @@ body {
  * =====================================================
  */
 /* #region FAQ Page */
-/* FAQ Hero Section */
+
+/* ===== FAQ HERO SECTION ===== */
 .faq-hero {
   background: linear-gradient(
       135deg,
@@ -2736,7 +2737,7 @@ body {
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
-/* Mobile Responsive */
+/* FAQ Hero - Tablet */
 @media (max-width: 768px) {
   .faq-hero {
     padding: 150px 0 50px; /* INCREASED from 120px to 150px */
@@ -2754,11 +2755,16 @@ body {
     font-size: 18px;
   }
 
+  .faq-hero p {
+    font-size: 18px;
+  }
+
   .faq-hero-logo {
     max-width: 300px;
   }
 }
 
+/* FAQ Hero - Mobile */
 @media (max-width: 480px) {
   .faq-hero {
     padding: 130px 0 40px; /* INCREASED from 110px to 130px */
@@ -2776,12 +2782,17 @@ body {
     font-size: 16px;
   }
 
+  .faq-hero p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
   .faq-hero-logo {
     max-width: 250px;
   }
 }
 
-/* Search Bar Styles */
+/* ===== SEARCH BAR STYLES ===== */
 .faq-search-wrapper {
   max-width: 600px;
   margin: 0 auto;
@@ -2851,7 +2862,26 @@ body {
   min-height: 20px;
 }
 
-/* FAQ Navigation Tabs */
+/* Search Bar - Tablet */
+@media (max-width: 768px) {
+  .faq-search input {
+    font-size: 14px;
+    padding: 12px 40px;
+  }
+}
+
+/* Search Bar - Mobile */
+@media (max-width: 480px) {
+  .faq-search {
+    border-radius: 30px;
+  }
+
+  .faq-search input {
+    font-size: 14px;
+  }
+}
+
+/* ===== FAQ NAVIGATION TABS ===== */
 .faq-navigation {
   background: var(--white);
   padding: 20px 0;
@@ -2901,7 +2931,31 @@ body {
   font-size: 16px;
 }
 
-/* Main FAQ Content */
+/* Navigation Tabs - Tablet */
+@media (max-width: 768px) {
+  .faq-tabs {
+    gap: 10px;
+  }
+
+  .faq-tab {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Navigation Tabs - Mobile */
+@media (max-width: 480px) {
+  .faq-tab {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .faq-tab i {
+    font-size: 14px;
+  }
+}
+
+/* ===== MAIN FAQ CONTENT ===== */
 .faq-content-section {
   padding: 60px 0;
   background: var(--light-bg);
@@ -2941,7 +2995,27 @@ body {
   margin: 0;
 }
 
-/* Category Sections */
+/* Service Header - Tablet */
+@media (max-width: 768px) {
+  .faq-service-header h2 {
+    font-size: 28px;
+  }
+}
+
+/* Service Header - Mobile */
+@media (max-width: 480px) {
+  .faq-service-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .faq-service-header h2 {
+    font-size: 24px;
+  }
+}
+
+/* ===== CATEGORY SECTIONS ===== */
 .faq-category-section {
   margin-bottom: 50px;
 }
@@ -2955,7 +3029,22 @@ body {
   border-left: 4px solid var(--primary-color);
 }
 
-/* FAQ Items */
+/* Category Title - Tablet */
+@media (max-width: 768px) {
+  .faq-category-title {
+    font-size: 20px;
+  }
+}
+
+/* Category Title - Mobile */
+@media (max-width: 480px) {
+  .faq-category-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
+
+/* ===== FAQ ITEMS ===== */
 .faq-items-container {
   background: var(--white);
   border-radius: var(--border-radius);
@@ -3052,7 +3141,33 @@ body {
   text-decoration: underline;
 }
 
-/* Search Highlighting */
+/* FAQ Items - Tablet */
+@media (max-width: 768px) {
+  .faq-service-section .faq-question {
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  .faq-service-section .faq-answer p {
+    padding: 0 20px 20px 20px;
+    font-size: 15px;
+  }
+}
+
+/* FAQ Items - Mobile */
+@media (max-width: 480px) {
+  .faq-service-section .faq-question {
+    padding: 15px;
+    font-size: 15px;
+  }
+
+  .faq-service-section .faq-answer p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+/* ===== SEARCH HIGHLIGHTING ===== */
 .highlight-text {
   background: #fff59d;
   padding: 2px 4px;
@@ -3060,7 +3175,7 @@ body {
   font-weight: 600;
 }
 
-/* CTA Section */
+/* ===== CTA SECTION ===== */
 .faq-cta-section {
   text-align: center;
   background: var(--white);
@@ -3090,7 +3205,29 @@ body {
   flex-wrap: wrap;
 }
 
-/* No Results Message */
+/* CTA Section - Tablet */
+@media (max-width: 768px) {
+  .faq-cta-section {
+    padding: 40px 20px;
+  }
+
+  .faq-cta-section h2 {
+    font-size: 28px;
+  }
+}
+
+/* CTA Section - Mobile */
+@media (max-width: 480px) {
+  .faq-cta-section h2 {
+    font-size: 24px;
+  }
+
+  .faq-cta-section p {
+    font-size: 16px;
+  }
+}
+
+/* ===== NO RESULTS MESSAGE ===== */
 .no-results-message {
   text-align: center;
   padding: 60px 20px;
@@ -3114,135 +3251,20 @@ body {
   margin-bottom: 30px;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .faq-hero {
-    padding: 120px 0 40px;
-  }
-
-  .faq-hero h1 {
-    font-size: 36px;
-  }
-
-  .faq-hero p {
-    font-size: 18px;
-  }
-
-  .faq-search input {
-    font-size: 14px;
-    padding: 12px 40px;
-  }
-
-  .faq-tabs {
-    gap: 10px;
-  }
-
-  .faq-tab {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  .faq-service-header h2 {
-    font-size: 28px;
-  }
-
-  .faq-category-title {
-    font-size: 20px;
-  }
-
-  .faq-service-section .faq-question {
-    padding: 20px;
-    font-size: 16px;
-  }
-
-  .faq-service-section .faq-answer p {
-    padding: 0 20px 20px 20px;
-    font-size: 15px;
-  }
-
-  .faq-cta-section {
-    padding: 40px 20px;
-  }
-
-  .faq-cta-section h2 {
-    font-size: 28px;
-  }
-}
-
-@media (max-width: 480px) {
-  .faq-hero h1 {
-    font-size: 28px;
-  }
-
-  .faq-hero p {
-    font-size: 16px;
-    margin-bottom: 30px;
-  }
-
-  .faq-search {
-    border-radius: 30px;
-  }
-
-  .faq-search input {
-    font-size: 14px;
-  }
-
-  .faq-tab {
-    padding: 8px 16px;
-    font-size: 13px;
-  }
-
-  .faq-tab i {
-    font-size: 14px;
-  }
-
-  .faq-service-header {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-
-  .faq-service-header h2 {
-    font-size: 24px;
-  }
-
-  .faq-category-title {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-
-  .faq-service-section .faq-question {
-    padding: 15px;
-    font-size: 15px;
-  }
-
-  .faq-service-section .faq-answer p {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .faq-cta-section h2 {
-    font-size: 24px;
-  }
-
-  .faq-cta-section p {
-    font-size: 16px;
-  }
-}
 /* #endregion */
-
 /**
  * =====================================================
  * CONTACT PAGE STYLES
  * =====================================================
  */
 /* #region Contact Page */
-/* Contact Page Main Container */
+
+/* ===== CONTACT PAGE MAIN CONTAINER ===== */
 .contact-page {
   padding-top: 80px; /* Account for fixed navbar */
 }
 
-/* Contact Hero Section - Updated with same background as page-header */
+/* ===== CONTACT HERO SECTION ===== */
 .contact-hero {
   position: relative;
   background: linear-gradient(
@@ -3254,7 +3276,7 @@ body {
   background-blend-mode: overlay;
   background-repeat: repeat;
   background-size: auto; /* keeps texture at original size */
-  padding: 80px 0;
+  padding: 80px 0; /* Original desktop padding */
   color: var(--white);
   text-align: center;
   overflow: hidden;
@@ -3287,9 +3309,11 @@ body {
   margin-top: 40px;
 }
 
+/* Contact Hero - Tablet */
 @media (max-width: 768px) {
   .contact-hero {
-    padding: 60px 0;
+    padding: 100px 0 70px; /* Increased from 60px 0 */
+    min-height: 350px; /* Added min-height for tablet */
   }
 
   .contact-hero-content h1 {
@@ -3306,6 +3330,25 @@ body {
     gap: 15px;
   }
 }
+
+/* Contact Hero - Mobile */
+@media (max-width: 480px) {
+  .contact-hero {
+    padding: 80px 0 50px; /* Increased padding for mobile */
+    min-height: 300px; /* Added min-height for mobile */
+  }
+
+  .contact-hero-content h1 {
+    font-size: 28px;
+  }
+
+  .contact-hero-content p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+}
+
+/* #endregion */
 
 /* Main Contact Section */
 .contact-main {
@@ -3700,8 +3743,19 @@ body {
 /* Emergency CTA Section */
 .contact-emergency {
   padding: 60px 0;
-  background: linear-gradient(135deg, var(--orange-accent), #c0392b);
+  background: linear-gradient(
+      135deg,
+      rgba(241, 98, 10, 0.9),
+      /* var(--orange-accent) with transparency */ rgba(192, 57, 43, 0.9)
+        /* #c0392b with transparency */
+    ),
+    url('https://www.transparenttextures.com/patterns/hexellence.png');
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto;
   color: var(--white);
+  position: relative;
+  overflow: hidden;
 }
 
 .emergency-content {
@@ -3709,6 +3763,8 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .emergency-icon {
@@ -16433,7 +16489,7 @@ body {
  * =====================================================
  */
 
-/* Design Hero Section */
+/* ===== DESIGN HERO SECTION ===== */
 .design-hero {
   background: linear-gradient(
       135deg,
@@ -16444,11 +16500,12 @@ body {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  padding: 165px 0 80px;
+  padding: 200px 0 120px;
   text-align: center;
   position: relative;
   overflow: hidden;
   color: var(--white);
+  min-height: 500px;
 }
 
 /* Spinning effect overlay */
@@ -16508,7 +16565,7 @@ body {
 .design-hero-content {
   position: relative;
   z-index: 2;
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 .design-hero h1 {
@@ -16535,7 +16592,52 @@ body {
   font-weight: 700;
 }
 
-/* Owens Corning Visualizer Section */
+/* Hero Section - Tablet */
+@media (max-width: 768px) {
+  .design-hero {
+    padding: 140px 0 80px; /* Reduced padding for tablet */
+    background-attachment: scroll;
+    min-height: 400px; /* Reduced min-height for tablet */
+  }
+
+  .design-hero-content {
+    margin-top: 30px; /* Less margin for tablet */
+  }
+
+  .design-hero h1 {
+    font-size: 32px;
+  }
+
+  .design-hero p {
+    font-size: 18px;
+  }
+}
+
+/* Hero Section - Mobile */
+@media (max-width: 480px) {
+  .design-hero {
+    padding: 120px 0 60px; /* Further reduced for mobile */
+    min-height: auto; /* Remove min-height constraint on mobile */
+  }
+
+  .design-hero-content {
+    margin-top: 20px; /* Minimal margin for mobile */
+  }
+
+  .design-hero h1 {
+    font-size: 28px;
+  }
+}
+
+/* ===== SECTION HEADERS ===== */
+/* Section Headers - Mobile */
+@media (max-width: 480px) {
+  .section-header h2 {
+    font-size: 28px;
+  }
+}
+
+/* ===== OWENS CORNING VISUALIZER SECTION ===== */
 .visualizer-section {
   padding: 80px 0;
   background: var(--light-bg);
@@ -16576,7 +16678,21 @@ body {
   padding: 40px;
 }
 
-/* Video Section */
+/* Visualizer Section - Tablet */
+@media (max-width: 768px) {
+  .visualizer-content {
+    padding: 20px;
+  }
+}
+
+/* Visualizer Section - Mobile */
+@media (max-width: 480px) {
+  .visualizer-header {
+    padding: 20px;
+  }
+}
+
+/* ===== VIDEO SECTION ===== */
 .video-section {
   margin-bottom: 40px;
 }
@@ -16608,7 +16724,14 @@ body {
   font-size: 16px;
 }
 
-/* Color Preview Section */
+/* Video Section - Mobile */
+@media (max-width: 480px) {
+  .video-caption {
+    font-size: 14px;
+  }
+}
+
+/* ===== COLOR PREVIEW SECTION ===== */
 .color-preview-section {
   margin-top: 40px;
 }
@@ -16694,7 +16817,27 @@ body {
   background: linear-gradient(45deg, #8b4513, #654321);
 }
 
-/* How It Works Section */
+/* Color Preview Section - Tablet */
+@media (max-width: 768px) {
+  .color-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+  }
+
+  .color-swatch {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Color Preview Section - Mobile */
+@media (max-width: 480px) {
+  .color-preview-section h4 {
+    font-size: 18px;
+  }
+}
+
+/* ===== HOW IT WORKS SECTION ===== */
 .how-it-works {
   padding: 80px 0;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -16772,7 +16915,19 @@ body {
   line-height: 1.6;
 }
 
-/* Inspiration Gallery Section */
+/* How It Works Section - Tablet */
+@media (max-width: 768px) {
+  .how-it-works {
+    background-attachment: scroll;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* ===== INSPIRATION GALLERY SECTION ===== */
 .inspiration-gallery {
   padding: 80px 0;
   background: var(--white);
@@ -16795,7 +16950,7 @@ body {
 
 .gallery-slide {
   position: relative;
-  height: 550px; /* INCREASED from 400px */
+  height: 550px;
 }
 
 .gallery-image {
@@ -16878,7 +17033,44 @@ body {
   background-color: var(--white);
 }
 
-/* CTA Section */
+/* Gallery - Tablet */
+@media (max-width: 768px) {
+  .gallery-slide {
+    height: 400px;
+  }
+
+  .gallery-carousel .carousel-control-prev,
+  .gallery-carousel .carousel-control-next {
+    width: 35px;
+    height: 35px;
+  }
+
+  .gallery-carousel .carousel-control-prev {
+    left: -15px;
+  }
+
+  .gallery-carousel .carousel-control-next {
+    right: -15px;
+  }
+}
+
+/* Gallery - Mobile */
+@media (max-width: 480px) {
+  .gallery-carousel-wrapper {
+    padding: 20px;
+  }
+
+  .gallery-carousel .carousel-control-prev,
+  .gallery-carousel .carousel-control-next {
+    display: none;
+  }
+
+  .gallery-slide {
+    height: 350px;
+  }
+}
+
+/* ===== CTA SECTION ===== */
 .cta-section {
   padding: 80px 0;
   background: linear-gradient(135deg, var(--text-dark), var(--secondary-color));
@@ -16898,119 +17090,11 @@ body {
   opacity: 0.9;
 }
 
-/* Responsive Design - Mobile & Tablet */
+/* CTA Section - Tablet */
 @media (max-width: 768px) {
-  /* Hero Section */
-  .design-hero {
-    padding: 120px 0 80px;
-    background-attachment: scroll;
-  }
-
-  .design-hero-content {
-    margin-top: 20px;
-  }
-
-  .design-hero h1 {
-    font-size: 32px;
-  }
-
-  .design-hero p {
-    font-size: 18px;
-  }
-
-  /* How It Works Section */
-  .how-it-works {
-    background-attachment: scroll;
-  }
-
-  /* Visualizer Section */
-  .visualizer-content {
-    padding: 20px;
-  }
-
-  /* Color Grid */
-  .color-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
-  }
-
-  .color-swatch {
-    width: 80px;
-    height: 80px;
-  }
-
-  /* Steps Grid */
-  .steps-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  /* Gallery */
-  .gallery-slide {
-    height: 400px; /* INCREASED from 300px */
-  }
-
-  .gallery-carousel .carousel-control-prev,
-  .gallery-carousel .carousel-control-next {
-    width: 35px;
-    height: 35px;
-  }
-
-  .gallery-carousel .carousel-control-prev {
-    left: -15px;
-  }
-
-  .gallery-carousel .carousel-control-next {
-    right: -15px;
-  }
-
-  /* CTA Section */
   .cta-buttons {
     flex-direction: column;
     align-items: center;
-  }
-}
-
-/* Mobile Styles */
-@media (max-width: 480px) {
-  /* Hero Section */
-  .design-hero h1 {
-    font-size: 28px;
-  }
-
-  /* Section Headers */
-  .section-header h2 {
-    font-size: 28px;
-  }
-
-  /* Visualizer */
-  .visualizer-header {
-    padding: 20px;
-  }
-
-  /* Gallery */
-  .gallery-carousel-wrapper {
-    padding: 20px;
-  }
-
-  .gallery-carousel .carousel-control-prev,
-  .gallery-carousel .carousel-control-next {
-    display: none;
-  }
-
-  /* Gallery slide height for mobile */
-  .gallery-slide {
-    height: 350px; /* INCREASED for better mobile viewing */
-  }
-
-  /* Color Preview */
-  .color-preview-section h4 {
-    font-size: 18px;
-  }
-
-  /* Video */
-  .video-caption {
-    font-size: 14px;
   }
 }
 

@@ -14656,7 +14656,7 @@ body {
   margin: 0;
 }
 
-/* Benefits Section (Flip Cards) */
+/* Skylight Benefits Section (Flip Cards) */
 .skylight-benefits-section {
   padding: 80px 0;
   background: var(--dark-blue);
@@ -14718,28 +14718,55 @@ body {
 
 .skylight-benefit-card .card-front {
   background: linear-gradient(
-      rgba(255, 255, 255, 0.97),
-      rgba(255, 255, 255, 0.97)
+      rgba(248, 249, 250, 0.95),
+      rgba(248, 249, 250, 0.95)
     ),
     url('https://www.transparenttextures.com/patterns/hexellence.png');
-  background-repeat: no-repeat, repeat;
-  background-size: cover, auto;
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto;
 }
 
 .skylight-benefit-card .card-back {
   transform: rotateY(180deg);
   background: linear-gradient(
       135deg,
-      rgba(241, 98, 10, 0.92),
-      rgba(255, 128, 64, 0.92)
+      var(--orange-accent) 0%,
+      var(--orange-light) 100%
     ),
     url('https://www.transparenttextures.com/patterns/hexellence.png');
-  background-repeat: no-repeat, repeat;
-  background-size: cover, auto;
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto;
   color: var(--white);
+  position: relative;
+  overflow: hidden;
 }
 
-.type-icon {
+/* Add the same gradient overlay as the hero for the back card */
+.skylight-benefit-card .card-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure all content on back card is above the overlay */
+.skylight-benefit-card .card-back > * {
+  position: relative;
+  z-index: 1;
+}
+
+.skylight-benefit-card .type-icon {
   width: 80px;
   height: 80px;
   background: var(--light-bg);
@@ -14750,24 +14777,24 @@ body {
   margin-bottom: 20px;
 }
 
-.type-icon i {
+.skylight-benefit-card .type-icon i {
   font-size: 36px;
   color: var(--orange-accent);
 }
 
-.card-front h3 {
+.skylight-benefit-card .card-front h3 {
   font-size: 24px;
   color: var(--text-dark);
   margin-bottom: 15px;
 }
 
-.card-front p {
+.skylight-benefit-card .card-front p {
   color: var(--text-light);
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
-.hover-indicator {
+.skylight-benefit-card .hover-indicator {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -14776,12 +14803,12 @@ body {
   font-weight: 600;
 }
 
-.hover-indicator i {
+.skylight-benefit-card .hover-indicator i {
   font-size: 16px;
-  animation: spin 2s linear infinite;
+  animation: skylight-spin 2s linear infinite;
 }
 
-@keyframes spin {
+@keyframes skylight-spin {
   from {
     transform: rotate(0deg);
   }
@@ -14790,25 +14817,25 @@ body {
   }
 }
 
-.card-back h4 {
+.skylight-benefit-card .card-back h4 {
   font-size: 22px;
   margin-bottom: 20px;
 }
 
-.card-back ul {
+.skylight-benefit-card .card-back ul {
   list-style: none;
   padding: 0;
   margin: 0;
   text-align: left;
 }
 
-.card-back li {
+.skylight-benefit-card .card-back li {
   padding: 8px 0;
   padding-left: 25px;
   position: relative;
 }
 
-.card-back li::before {
+.skylight-benefit-card .card-back li::before {
   content: '✓';
   position: absolute;
   left: 0;

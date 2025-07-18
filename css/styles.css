@@ -2634,7 +2634,7 @@ body {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  padding: 140px 0 60px;
+  padding: 180px 0 60px; /* INCREASED from 140px to 180px */
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -2697,6 +2697,7 @@ body {
 .faq-hero-content {
   position: relative;
   z-index: 2;
+  margin-top: 30px; /* ADDED margin-top to push content down */
 }
 
 .faq-hero h1 {
@@ -2705,6 +2706,8 @@ body {
   color: var(--white);
   margin-bottom: 20px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .faq-hero h5 {
@@ -2718,6 +2721,14 @@ body {
   margin-right: auto;
 }
 
+.faq-hero p {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
 .faq-hero-logo {
   max-width: 400px;
   height: auto;
@@ -2728,7 +2739,11 @@ body {
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .faq-hero {
-    padding: 120px 0 50px;
+    padding: 150px 0 50px; /* INCREASED from 120px to 150px */
+  }
+
+  .faq-hero-content {
+    margin-top: 20px; /* Slightly less margin on tablet */
   }
 
   .faq-hero h1 {
@@ -2746,7 +2761,11 @@ body {
 
 @media (max-width: 480px) {
   .faq-hero {
-    padding: 110px 0 40px;
+    padding: 130px 0 40px; /* INCREASED from 110px to 130px */
+  }
+
+  .faq-hero-content {
+    margin-top: 15px; /* Less margin on mobile */
   }
 
   .faq-hero h1 {
@@ -2760,23 +2779,6 @@ body {
   .faq-hero-logo {
     max-width: 250px;
   }
-}
-
-.faq-hero h1 {
-  font-size: 48px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.faq-hero p {
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 700px;
-  margin: 0 auto 40px;
-  line-height: 1.6;
 }
 
 /* Search Bar Styles */

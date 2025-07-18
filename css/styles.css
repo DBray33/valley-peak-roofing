@@ -14270,7 +14270,7 @@ body {
 }
 
 .skylight-hero-text h1 {
-  font-size: 48px;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 1rem;
@@ -14279,18 +14279,18 @@ body {
 
 @media (max-width: 768px) {
   .skylight-hero-text h1 {
-    font-size: 40px;
+    font-size: 2.25rem;
   }
 }
 
 @media (max-width: 480px) {
   .skylight-hero-text h1 {
-    font-size: 32px;
+    font-size: 2rem;
   }
 }
 
 .skylight-hero-subtitle {
-  font-size: 24px;
+  font-size: 1.375rem;
   color: #f1620a;
   font-weight: 600;
   margin-bottom: 1.5rem;
@@ -14299,15 +14299,34 @@ body {
 
 @media (max-width: 768px) {
   .skylight-hero-subtitle {
-    font-size: 20px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-hero-subtitle {
+    font-size: 1.125rem;
   }
 }
 
 .skylight-hero-description {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.7;
   margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-hero-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-hero-description {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
 }
 
 .skylight-hero-buttons {
@@ -14344,6 +14363,12 @@ body {
   background: var(--white);
 }
 
+@media (max-width: 480px) {
+  .skylight-intro-section {
+    padding: 60px 0;
+  }
+}
+
 .skylight-intro-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -14359,16 +14384,43 @@ body {
 }
 
 .skylight-intro-content h2 {
-  font-size: 36px;
+  font-size: 2.25rem;
   color: var(--text-dark);
-  margin-bottom: 25px;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .skylight-intro-content h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-intro-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .skylight-intro-content p {
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 1.8;
   color: var(--text-light);
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-intro-content p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-intro-content p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
 }
 
 .trust-indicators {
@@ -14384,11 +14436,30 @@ body {
   gap: 10px;
   font-weight: 600;
   color: var(--text-dark);
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .trust-item {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .trust-item {
+    font-size: 0.875rem;
+  }
 }
 
 .trust-item i {
-  font-size: 24px;
+  font-size: 1.5rem;
   color: var(--orange-accent);
+}
+
+@media (max-width: 480px) {
+  .trust-item i {
+    font-size: 1.25rem;
+  }
 }
 
 .skylight-intro-image {
@@ -14408,6 +14479,44 @@ body {
 .skylight-types-offered-section {
   padding: 80px 0;
   background: var(--light-bg);
+}
+
+@media (max-width: 480px) {
+  .skylight-types-offered-section {
+    padding: 60px 0;
+  }
+}
+
+.skylight-types-offered-section .section-header h2 {
+  font-size: 2.25rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-types-offered-section .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-types-offered-section .section-header h2 {
+    font-size: 1.75rem;
+  }
+}
+
+.skylight-types-offered-section .section-header p {
+  font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-types-offered-section .section-header p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-types-offered-section .section-header p {
+    font-size: 0.875rem;
+  }
 }
 
 .skylight-types-offered-grid {
@@ -14467,23 +14576,62 @@ body {
 }
 
 .type-content h3 {
-  font-size: 28px;
+  font-size: 1.75rem;
   color: var(--text-dark);
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .type-content h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .type-content h3 {
+    font-size: 1.25rem;
+  }
 }
 
 .type-content h4 {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: var(--orange-accent);
-  margin-top: 25px;
-  margin-bottom: 10px;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .type-content h4 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .type-content h4 {
+    font-size: 0.95rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .type-description {
-  font-size: 18px;
+  font-size: 1rem;
   color: var(--text-light);
   line-height: 1.8;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .type-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .type-description {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
 }
 
 .type-content ul {
@@ -14493,10 +14641,24 @@ body {
 }
 
 .type-content li {
-  padding: 8px 0 8px 25px;
+  padding: 0.5rem 0 0.5rem 1.5rem;
   position: relative;
   color: var(--text-light);
   line-height: 1.6;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .type-content li {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .type-content li {
+    font-size: 0.875rem;
+    padding: 0.375rem 0 0.375rem 1.25rem;
+  }
 }
 
 .type-content li::before {
@@ -14526,8 +14688,15 @@ body {
   color: white;
   padding: 8px 16px;
   border-radius: 20px;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .benefit-tag {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
 }
 
 .benefit-tag i {
@@ -14538,6 +14707,44 @@ body {
 .skylight-process-section {
   padding: 80px 0;
   background: var(--white);
+}
+
+@media (max-width: 480px) {
+  .skylight-process-section {
+    padding: 60px 0;
+  }
+}
+
+.skylight-process-section .section-header h2 {
+  font-size: 2.25rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-process-section .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-process-section .section-header h2 {
+    font-size: 1.75rem;
+  }
+}
+
+.skylight-process-section .section-header p {
+  font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-process-section .section-header p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-process-section .section-header p {
+    font-size: 0.875rem;
+  }
 }
 
 .process-timeline {
@@ -14644,48 +14851,120 @@ body {
 }
 
 .step-content h3 {
-  font-size: 20px;
+  font-size: 1.25rem;
   color: var(--text-dark);
-  margin-bottom: 10px;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .step-content h3 {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .step-content h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .step-content p {
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--text-light);
   line-height: 1.6;
   margin: 0;
 }
 
+@media (max-width: 768px) {
+  .step-content p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .step-content p {
+    font-size: 0.875rem;
+  }
+}
+
 /* Skylight Benefits Section (Flip Cards) */
 .skylight-benefits-section {
   padding: 80px 0;
-  background: var(--dark-blue);
+  background: linear-gradient(rgba(0, 27, 61, 0.85), rgba(0, 27, 61, 0.85)),
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/wavy-services-bg.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .skylight-benefits-section {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-benefits-section {
+    padding: 60px 0;
+  }
 }
 
 .skylight-benefits-section .section-header h2 {
   color: var(--white);
+  font-size: 2.25rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-benefits-section .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-benefits-section .section-header h2 {
+    font-size: 1.75rem;
+  }
 }
 
 .skylight-benefits-section .section-header p {
   color: rgba(255, 255, 255, 0.8);
+  font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-benefits-section .section-header p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-benefits-section .section-header p {
+    font-size: 0.875rem;
+  }
 }
 
 .skylight-benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   margin-top: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 768px) {
   .skylight-benefits-grid {
     grid-template-columns: 1fr;
+    max-width: 400px;
   }
 }
 
 .skylight-benefit-card {
   perspective: 1000px;
-  height: 350px;
+  height: 300px;
 }
 
 .skylight-benefit-card .card-inner {
@@ -14708,12 +14987,19 @@ body {
   backface-visibility: hidden;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
-  padding: 40px 30px;
+  padding: 30px 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+@media (max-width: 480px) {
+  .skylight-benefit-card .card-front,
+  .skylight-benefit-card .card-back {
+    padding: 20px 15px;
+  }
 }
 
 .skylight-benefit-card .card-front {
@@ -14767,45 +15053,120 @@ body {
 }
 
 .skylight-benefit-card .type-icon {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   background: var(--light-bg);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 480px) {
+  .skylight-benefit-card .type-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
 }
 
 .skylight-benefit-card .type-icon i {
-  font-size: 36px;
+  font-size: 32px;
   color: var(--orange-accent);
 }
 
+@media (max-width: 480px) {
+  .skylight-benefit-card .type-icon i {
+    font-size: 28px;
+  }
+}
+
 .skylight-benefit-card .card-front h3 {
-  font-size: 24px;
+  font-size: 1.375rem;
   color: var(--text-dark);
-  margin-bottom: 15px;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-benefit-card .card-front h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-benefit-card .card-front h3 {
+    font-size: 1.125rem;
+  }
 }
 
 .skylight-benefit-card .card-front p {
   color: var(--text-light);
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-benefit-card .card-front p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-benefit-card .card-front p {
+    font-size: 0.875rem;
+  }
 }
 
 .skylight-benefit-card .hover-indicator {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--orange-accent);
   font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .skylight-benefit-card .hover-indicator {
+    font-size: 0.75rem;
+  }
 }
 
 .skylight-benefit-card .hover-indicator i {
   font-size: 16px;
   animation: skylight-spin 2s linear infinite;
+}
+
+/* Show different text for desktop and mobile */
+.skylight-benefit-card .hover-indicator .desktop-text {
+  display: inline;
+}
+
+.skylight-benefit-card .hover-indicator .mobile-text {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .skylight-benefit-card .hover-indicator .desktop-text {
+    display: none;
+  }
+
+  .skylight-benefit-card .hover-indicator .mobile-text {
+    display: inline;
+  }
+
+  /* Make cards more touch-friendly on mobile */
+  .skylight-benefit-card {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Enable tap to flip on mobile - requires JavaScript or :active state */
+  .skylight-benefit-card.tapped .card-inner {
+    transform: rotateY(180deg);
+  }
 }
 
 @keyframes skylight-spin {
@@ -14818,8 +15179,22 @@ body {
 }
 
 .skylight-benefit-card .card-back h4 {
-  font-size: 22px;
-  margin-bottom: 20px;
+  font-size: 1.25rem;
+  margin-bottom: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-benefit-card .card-back h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-benefit-card .card-back h4 {
+    font-size: 1rem;
+    margin-bottom: 0.625rem;
+  }
 }
 
 .skylight-benefit-card .card-back ul {
@@ -14830,9 +15205,27 @@ body {
 }
 
 .skylight-benefit-card .card-back li {
-  padding: 8px 0;
-  padding-left: 25px;
+  padding: 5px 0;
+  padding-left: 22px;
   position: relative;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .skylight-benefit-card .card-back li {
+    font-size: 0.875rem;
+    padding: 4px 0;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-benefit-card .card-back li {
+    font-size: 0.8rem;
+    padding: 3px 0;
+    padding-left: 18px;
+  }
 }
 
 .skylight-benefit-card .card-back li::before {
@@ -14846,6 +15239,44 @@ body {
 .skylight-gallery-section {
   padding: 80px 0;
   background: var(--white);
+}
+
+@media (max-width: 480px) {
+  .skylight-gallery-section {
+    padding: 60px 0;
+  }
+}
+
+.skylight-gallery-section .section-header h2 {
+  font-size: 2.25rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-gallery-section .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-gallery-section .section-header h2 {
+    font-size: 1.75rem;
+  }
+}
+
+.skylight-gallery-section .section-header p {
+  font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-gallery-section .section-header p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-gallery-section .section-header p {
+    font-size: 0.875rem;
+  }
 }
 
 .gallery-grid {
@@ -14907,6 +15338,44 @@ body {
   background: var(--white);
 }
 
+@media (max-width: 480px) {
+  .skylight-materials-section {
+    padding: 60px 0;
+  }
+}
+
+.skylight-materials-section .section-header h2 {
+  font-size: 2.25rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-materials-section .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-materials-section .section-header h2 {
+    font-size: 1.75rem;
+  }
+}
+
+.skylight-materials-section .section-header p {
+  font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-materials-section .section-header p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-materials-section .section-header p {
+    font-size: 0.875rem;
+  }
+}
+
 .materials-accordion {
   max-width: 800px;
   margin: 50px auto 0;
@@ -14966,7 +15435,7 @@ body {
 }
 
 .header-content h3 {
-  font-size: 20px;
+  font-size: 1.25rem;
   color: var(--text-dark);
   margin: 0;
   text-align: left;
@@ -14974,7 +15443,13 @@ body {
 
 @media (max-width: 768px) {
   .header-content h3 {
-    font-size: 18px;
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content h3 {
+    font-size: 1rem;
   }
 }
 
@@ -15005,7 +15480,21 @@ body {
 .content-inner p {
   color: var(--text-light);
   line-height: 1.6;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .content-inner p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-inner p {
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+  }
 }
 
 .material-features {
@@ -15028,14 +15517,14 @@ body {
   background: var(--light-bg);
   padding: 8px 16px;
   border-radius: 20px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--text-dark);
   font-weight: 500;
 }
 
 @media (max-width: 480px) {
   .feature-tag {
-    font-size: 12px;
+    font-size: 0.75rem;
     padding: 6px 12px;
   }
 }
@@ -15052,8 +15541,27 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 480px) {
+  .skylight-why-choose-section {
+    padding: 60px 0;
+  }
+}
+
 .skylight-why-choose-section .section-header h2 {
   color: var(--white);
+  font-size: 2.25rem;
+}
+
+@media (max-width: 768px) {
+  .skylight-why-choose-section .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-why-choose-section .section-header h2 {
+    font-size: 1.75rem;
+  }
 }
 
 .hexagon-grid {
@@ -15164,23 +15672,35 @@ body {
 }
 
 .hex-content h3 {
-  font-size: 20px;
+  font-size: 1.25rem;
   color: var(--text-dark);
-  margin-bottom: 10px;
+  margin-bottom: 0.75rem;
   transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hex-content h3 {
+    font-size: 1.125rem;
+  }
 }
 
 @media (max-width: 480px) {
   .hex-content h3 {
-    font-size: 18px;
+    font-size: 1rem;
   }
 }
 
 .hex-content p {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--text-light);
   margin: 0;
   transition: color 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .hex-content p {
+    font-size: 0.75rem;
+  }
 }
 
 .hex-item:hover .hex-content h3,
@@ -15204,6 +15724,12 @@ body {
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .skylight-cta-section {
+    padding: 60px 0;
+  }
 }
 
 /* Add the same gradient overlay as the hero */
@@ -15230,17 +15756,42 @@ body {
 }
 
 .skylight-cta-content h2 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   margin-bottom: 1rem;
   font-weight: 700;
   color: #ffffff;
 }
 
+@media (max-width: 768px) {
+  .skylight-cta-content h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-cta-content h2 {
+    font-size: 1.75rem;
+  }
+}
+
 .skylight-cta-content p {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   margin-bottom: 2rem;
   opacity: 0.9;
   color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+  .skylight-cta-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skylight-cta-content p {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .skylight-cta-buttons {
@@ -17841,186 +18392,3 @@ body {
   }
 }
 
-/**
- * =====================================================
- * FLOATING FINANCING BUTTON STYLES - SUBTLE 3D
- * =====================================================
- */
-.floating-financing {
-  position: fixed;
-  top: 100px;
-  left: 20px;
-  z-index: 999;
-  animation: slideInLeft 0.8s ease-out;
-}
-
-.floating-financing-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--primary-color);
-  color: var(--white) !important;
-  padding: 12px 20px;
-  border: 2px solid #000000;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  position: relative;
-  /* Clean 3D with subtle depth */
-  box-shadow: 
-    /* Small highlight on top */ inset 0 1px 0
-      rgba(255, 255, 255, 0.3),
-    /* Black border shadow */ 0 1px 0 #000000,
-    /* Main shadow */ 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Simple bottom edge */
-.floating-financing-link::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  height: 3px;
-  background: #000000;
-  border-radius: 50%;
-  opacity: 0.3;
-  transition: all 0.3s ease;
-}
-
-.floating-financing-link:hover {
-  background: var(--primary-dark);
-  color: var(--white) !important;
-  transform: translateY(-1px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 0 #000000,
-    0 6px 12px rgba(0, 0, 0, 0.25);
-}
-
-.floating-financing-link:hover::after {
-  bottom: -4px;
-  width: 85%;
-  opacity: 0.25;
-}
-
-.floating-financing-link:active {
-  transform: translateY(1px);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 0 #000000,
-    0 2px 4px rgba(0, 0, 0, 0.15);
-}
-
-.floating-financing-link:active::after {
-  bottom: -2px;
-  width: 75%;
-  opacity: 0.4;
-}
-
-.floating-financing-link i {
-  font-size: 18px;
-}
-
-/* Animation for slide in effect */
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Mobile responsiveness */
-@media (max-width: 1020px) {
-  .floating-financing {
-    top: 90px;
-    left: 15px;
-  }
-
-  .floating-financing-link {
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-
-  .floating-financing-link i {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .floating-financing-link {
-    padding: 8px 14px;
-    font-size: 13px;
-    gap: 6px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 0 #000000,
-      0 3px 6px rgba(0, 0, 0, 0.15);
-  }
-
-  .floating-financing-link i {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .floating-financing {
-    left: 10px;
-  }
-
-  .floating-financing-link {
-    padding: 8px 12px;
-    font-size: 12px;
-  }
-}
-.arrow-icon {
-  transition: transform 0.3s ease;
-}
-
-.floating-financing-link:hover .arrow-icon {
-  transform: translateX(3px);
-}
-.floating-financing-link::before {
-  content: 'See Financing Options';
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: #ff4444;
-  color: white;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  animation: pulseShowHide 20s ease-in-out 3;
-}
-
-@keyframes pulseShowHide {
-  /* Show for 10 seconds (0-50%) */
-  0%,
-  45% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  /* Fade out transition (45-50%) */
-  50% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-
-  /* Hidden for 10 seconds (50-95%) */
-  55%,
-  95% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-
-  /* Fade in transition (95-100%) */
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}

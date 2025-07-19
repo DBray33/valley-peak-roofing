@@ -214,6 +214,58 @@ const ModalSystem = {
           }
         },
       });
+
+      // Handle Netlify form submission for estimate forms
+      const estimateForm = document.querySelector(
+        'form[name="estimate-popup-homepage"]'
+      );
+      if (estimateForm) {
+        // Ensure form method is POST
+        estimateForm.setAttribute('method', 'POST');
+        estimateForm.setAttribute('action', '/');
+
+        // Handle form submission
+        estimateForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          // Create FormData and submit via fetch
+          const formData = new FormData(estimateForm);
+
+          fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString(),
+          })
+            .then((response) => {
+              if (response.ok) {
+                // Show success message
+                const modalBody = estimateForm.closest('.modal-body');
+                modalBody.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                  <i class="fas fa-check-circle" style="font-size: 48px; color: #28a745; margin-bottom: 20px;"></i>
+                  <h3>Thank You!</h3>
+                  <p>We'll contact you within 24 hours to schedule your free inspection.</p>
+                </div>
+              `;
+
+                // Close modal after 3 seconds
+                setTimeout(() => {
+                  this.close('estimate-modal');
+                  // Reload page to reset form
+                  location.reload();
+                }, 3000);
+              } else {
+                throw new Error('Form submission failed');
+              }
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+              alert(
+                'There was an error submitting the form. Please try again.'
+              );
+            });
+        });
+      }
     }
   },
 

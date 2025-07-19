@@ -1687,8 +1687,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /**
  * =====================================================
- * ACTIVE NAVIGATION MODULE
- * Add this to your scripts.js file before the App.init section
+ * ACTIVE NAVIGATION MODULE - IMPROVED VERSION
  * =====================================================
  */
 const ActiveNavigation = {
@@ -1697,177 +1696,90 @@ const ActiveNavigation = {
   },
 
   setActiveNavigation: function () {
-    const currentPath = window.location.pathname;
-    const currentPage = this.getCurrentPageName(currentPath);
+    // Get current page filename
+    const currentPage =
+      window.location.pathname.split('/').pop() || 'index.html';
+    console.log('Current page:', currentPage);
 
-    // Remove existing active classes
+    // Clear any existing active states
     this.clearActiveStates();
 
-    // Set active state based on current page
-    this.setActiveByPage(currentPage);
-  },
+    // Set active states for desktop navigation
+    this.setDesktopActiveStates(currentPage);
 
-  getCurrentPageName: function (path) {
-    // Handle homepage cases
-    if (
-      path === '/' ||
-      path === '/index.html' ||
-      path === '' ||
-      path === './'
-    ) {
-      return 'home';
-    }
-
-    // Remove leading slash and file extension
-    let pageName = path.replace(/^\//, '').replace(/\.html$/, '');
-    return pageName;
+    // Set active states for mobile navigation
+    this.setMobileActiveStates(currentPage);
   },
 
   clearActiveStates: function () {
-    // Clear all active classes from navigation elements
-    const selectors = [
-      '.nav-link',
-      '.dropdown-content a',
-      '.mobile-nav-item > a',
-      '.mobile-dropdown-content a',
-    ];
-
-    selectors.forEach((selector) => {
-      document.querySelectorAll(selector).forEach((link) => {
-        link.classList.remove('active');
+    // Remove all active classes
+    document
+      .querySelectorAll('.active, .has-active-child')
+      .forEach((element) => {
+        element.classList.remove('active', 'has-active-child');
       });
-    });
   },
 
-  setActiveByPage: function (pageName) {
-    console.log('Setting active navigation for page:', pageName); // Debug log
-
-    // Handle homepage specially
-    if (pageName === 'home') {
-      this.setHomeActive();
-      return;
-    }
-
-    // For other pages, find matching navigation links
-    this.setPageActive(pageName);
-
-    // Handle parent dropdown highlighting
-    this.highlightParentDropdowns(pageName);
-  },
-
-  setHomeActive: function () {
-    // Find home/root links in navigation
-    const homeSelectors = [
-      'a[href="/"]',
-      'a[href="./"]',
-      'a[href="index.html"]',
-      'a[href="./index.html"]',
-      'a[href="#home"]',
-    ];
-
-    homeSelectors.forEach((selector) => {
-      const links = document.querySelectorAll(selector);
-      links.forEach((link) => {
-        // Only activate if it's a navigation link
-        if (this.isNavigationLink(link)) {
-          link.classList.add('active');
-          console.log('Added active to home link:', link); // Debug log
-        }
-      });
-    });
-  },
-
-  setPageActive: function (pageName) {
-    const fileName = pageName + '.html';
-
-    // Look for links with matching href
-    const possibleHrefs = [fileName, './' + fileName, '/' + fileName];
-
-    possibleHrefs.forEach((href) => {
-      const links = document.querySelectorAll(`a[href="${href}"]`);
-      links.forEach((link) => {
-        if (this.isNavigationLink(link)) {
-          link.classList.add('active');
-          console.log(
-            'Added active to page link:',
-            link,
-            'for page:',
-            pageName
-          ); // Debug log
-        }
-      });
-    });
-  },
-
-  isNavigationLink: function (link) {
-    // Check if the link is part of the navigation system
-    return (
-      link.classList.contains('nav-link') ||
-      link.closest('.dropdown-content') ||
-      link.closest('.mobile-dropdown-content') ||
-      link.closest('.mobile-nav-item')
+  setDesktopActiveStates: function (currentPage) {
+    // Find all navigation links
+    const allLinks = document.querySelectorAll(
+      '.nav-link, .dropdown-content a'
     );
-  },
 
-  highlightParentDropdowns: function (pageName) {
-    // Define which pages belong to which dropdown sections
-    const pageGroups = {
-      services: [
-        'roof-replacement-installation',
-        'residential-roof-repairs',
-        'commercial-roofing',
-        'siding-installation',
-        'gutter-services',
-        'home-installation',
-        'home-repairs',
-        'commercial',
-        'siding',
-        'gutters',
-      ],
-      about: ['our-company', 'service-areas', 'story'],
-      faqs: [
-        'roofing-faq',
-        'siding-faq',
-        'gutters-faq',
-        'roofing-siding-gutter-faqs',
-      ],
-    };
+    allLinks.forEach((link) => {
+      const href = link.getAttribute('href');
 
-    // Check if current page belongs to any group
-    Object.keys(pageGroups).forEach((groupName) => {
-      if (pageGroups[groupName].includes(pageName)) {
-        this.highlightDropdownParent(groupName);
+      // Check if this link matches the current page
+      if (href === currentPage) {
+        link.classList.add('active');
+
+        // If this link is inside a dropdown, activate parent
+        const dropdownContent = link.closest('.dropdown-content');
+        if (dropdownContent) {
+          const parentDropdown = dropdownContent.closest('.dropdown');
+          if (parentDropdown) {
+            parentDropdown.classList.add('has-active-child');
+            const parentLink =
+              parentDropdown.querySelector(':scope > .nav-link');
+            if (parentLink) {
+              parentLink.classList.add('active');
+            }
+          }
+        }
       }
     });
   },
 
-  highlightDropdownParent: function (groupName) {
-    // Find dropdown parent links by their text content
-    const dropdownMappings = {
-      services: ['Roofing Services', 'Services'],
-      about: ['About'],
-      faqs: ['FAQs', 'FAQ'],
-    };
+  setMobileActiveStates: function (currentPage) {
+    // Find all mobile navigation links
+    const mobileLinks = document.querySelectorAll(
+      '.mobile-nav-item > a, .mobile-dropdown-content a'
+    );
 
-    if (dropdownMappings[groupName]) {
-      dropdownMappings[groupName].forEach((text) => {
-        // Find links containing this text
-        const parentLinks = Array.from(
-          document.querySelectorAll('.nav-link')
-        ).filter((link) => link.textContent.trim().includes(text));
+    mobileLinks.forEach((link) => {
+      const href = link.getAttribute('href');
 
-        parentLinks.forEach((link) => {
-          link.classList.add('active');
-          console.log('Added active to parent dropdown:', link); // Debug log
-        });
-      });
-    }
-  },
+      // Check if this link matches the current page
+      if (href === currentPage) {
+        link.classList.add('active');
 
-  // Public method to manually set active page (useful for single-page apps)
-  setActive: function (pageName) {
-    this.clearActiveStates();
-    this.setActiveByPage(pageName);
+        // If this link is inside a mobile dropdown, activate parent
+        const mobileDropdownContent = link.closest('.mobile-dropdown-content');
+        if (mobileDropdownContent) {
+          const parentMobileItem =
+            mobileDropdownContent.closest('.mobile-nav-item');
+          if (parentMobileItem) {
+            parentMobileItem.classList.add('has-active-child');
+            const parentToggle = parentMobileItem.querySelector(
+              '.mobile-dropdown-toggle'
+            );
+            if (parentToggle) {
+              parentToggle.classList.add('active');
+            }
+          }
+        }
+      }
+    });
   },
 };
 
@@ -2306,63 +2218,200 @@ const PortfolioGallery = {
  * =====================================================
  */
 
-// Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function () {
-  RoofDesignPage.init();
-});
+// Simple Inspiration Gallery Carousel (standalone)
+const InspirationGallery = {
+  currentSlide: 0,
+  slides: [],
+  autoPlayInterval: null,
+  isPlaying: true,
 
+  init: function () {
+    // Only initialize if gallery exists
+    const carousel = document.getElementById('inspirationCarousel');
+    if (!carousel) return;
+
+    // Get elements
+    this.slides = document.querySelectorAll('.gallery-slide');
+    this.prevBtn = document.getElementById('galleryPrev');
+    this.nextBtn = document.getElementById('galleryNext');
+    this.dotsContainer = document.getElementById('galleryDots');
+    this.track = document.getElementById('galleryTrack');
+
+    // Setup
+    this.createDots();
+    this.addEventListeners();
+    this.startAutoPlay();
+  },
+
+  createDots: function () {
+    // Create a dot for each slide
+    this.slides.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.className = 'gallery-dot';
+      if (index === 0) dot.classList.add('active');
+      dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+      dot.addEventListener('click', () => this.goToSlide(index));
+      this.dotsContainer.appendChild(dot);
+    });
+  },
+
+  addEventListeners: function () {
+    // Navigation buttons
+    this.prevBtn.addEventListener('click', () => this.prevSlide());
+    this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+    // Pause on hover
+    const carousel = document.getElementById('inspirationCarousel');
+    carousel.addEventListener('mouseenter', () => this.pauseAutoPlay());
+    carousel.addEventListener('mouseleave', () => this.startAutoPlay());
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener(
+      'touchstart',
+      (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      },
+      { passive: true }
+    );
+
+    carousel.addEventListener(
+      'touchend',
+      (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        this.handleSwipe(touchStartX, touchEndX);
+      },
+      { passive: true }
+    );
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') this.prevSlide();
+      if (e.key === 'ArrowRight') this.nextSlide();
+    });
+  },
+
+  handleSwipe: function (startX, endX) {
+    const swipeThreshold = 50;
+    const diff = startX - endX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        this.nextSlide(); // Swipe left
+      } else {
+        this.prevSlide(); // Swipe right
+      }
+    }
+  },
+
+  goToSlide: function (index) {
+    // Hide current slide
+    this.slides[this.currentSlide].classList.remove('active');
+
+    // Update current slide index
+    this.currentSlide = index;
+
+    // Show new slide
+    this.slides[this.currentSlide].classList.add('active');
+
+    // Update track position
+    this.track.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+
+    // Update dots
+    this.updateDots();
+  },
+
+  nextSlide: function () {
+    const nextIndex = (this.currentSlide + 1) % this.slides.length;
+    this.goToSlide(nextIndex);
+  },
+
+  prevSlide: function () {
+    const prevIndex =
+      (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+    this.goToSlide(prevIndex);
+  },
+
+  updateDots: function () {
+    const dots = this.dotsContainer.querySelectorAll('.gallery-dot');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === this.currentSlide);
+    });
+  },
+
+  startAutoPlay: function () {
+    if (!this.isPlaying) return;
+
+    // Clear any existing interval
+    this.pauseAutoPlay();
+
+    // Start new interval
+    this.autoPlayInterval = setInterval(() => {
+      this.nextSlide();
+    }, 4000); // Change slide every 4 seconds
+  },
+
+  pauseAutoPlay: function () {
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+      this.autoPlayInterval = null;
+    }
+  },
+};
+
+// Main RoofDesignPage module
 const RoofDesignPage = {
   init: function () {
+    // Only initialize if we're on the design-your-roof page
+    if (!document.getElementById('inspirationCarousel')) {
+      return;
+    }
+
     this.initGalleryCarousel();
     this.initExternalLinks();
     this.initScrollAnimations();
     this.initAnalytics();
   },
 
-  // Initialize Gallery Carousel
+  // Initialize Gallery Carousel - REPLACED WITH NEW VERSION
   initGalleryCarousel: function () {
-    const carousel = document.getElementById('inspirationCarousel');
+    // Initialize the new gallery
+    InspirationGallery.init();
 
-    if (carousel) {
-      // Track carousel interactions
-      carousel.addEventListener('slide.bs.carousel', (event) => {
-        this.trackEvent('gallery_slide', `slide_${event.to}`);
+    // Add tracking to gallery images for analytics
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    galleryImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        this.trackEvent('gallery_image_click', `image_${index}`);
       });
+    });
 
-      // Add click tracking to carousel images
-      const galleryImages = carousel.querySelectorAll('.gallery-image');
-      galleryImages.forEach((img, index) => {
-        img.addEventListener('click', () => {
-          this.trackEvent('gallery_image_click', `image_${index}`);
-        });
-      });
+    // Track navigation button clicks
+    const prevButton = document.getElementById('galleryPrev');
+    const nextButton = document.getElementById('galleryNext');
 
-      // Track when user manually controls carousel
-      const prevButton = carousel.querySelector('.carousel-control-prev');
-      const nextButton = carousel.querySelector('.carousel-control-next');
-
-      if (prevButton) {
-        prevButton.addEventListener('click', () => {
-          this.trackEvent('carousel_control', 'prev_button');
-        });
-      }
-
-      if (nextButton) {
-        nextButton.addEventListener('click', () => {
-          this.trackEvent('carousel_control', 'next_button');
-        });
-      }
-
-      // Track indicator clicks
-      const indicators = carousel.querySelectorAll(
-        '.carousel-indicators button'
-      );
-      indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-          this.trackEvent('carousel_indicator', `indicator_${index}`);
-        });
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        this.trackEvent('carousel_control', 'prev_button');
       });
     }
+
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        this.trackEvent('carousel_control', 'next_button');
+      });
+    }
+
+    // Track dot clicks
+    document.getElementById('galleryDots').addEventListener('click', (e) => {
+      if (e.target.classList.contains('gallery-dot')) {
+        const dots = Array.from(e.target.parentElement.children);
+        const index = dots.indexOf(e.target);
+        this.trackEvent('carousel_indicator', `indicator_${index}`);
+      }
+    });
   },
 
   // Initialize External Links Tracking

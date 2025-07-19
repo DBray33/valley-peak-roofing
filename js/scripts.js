@@ -21,7 +21,7 @@ const App = {
       ScrollAnimations,
       TestimonialCarousel,
       FAQAccordion,
-      FormHandling,
+      // FormHandling,
       PhoneFormatting,
       ImageHandling,
       PerformanceOptimization,

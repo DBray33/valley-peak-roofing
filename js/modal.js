@@ -259,19 +259,22 @@ const ModalSystem = {
     const form = document.getElementById('estimate-form');
     if (!form) return;
 
-    // form.addEventListener('submit', (e) => {
-    //   // DO NOT prevent default submission — Netlify needs it
-    //   const submitButton = form.querySelector('.submit-button');
-    //   const buttonText = submitButton.querySelector('.button-text');
-    //   const buttonLoading = submitButton.querySelector('.button-loading');
+    // DO NOT prevent default submission - Netlify needs the native form submission
+    form.addEventListener('submit', function (e) {
+      // Don't prevent default! Let Netlify handle the submission
 
-    //   submitButton.disabled = true;
-    //   buttonText.style.display = 'none';
-    //   buttonLoading.style.display = 'inline-flex';
+      const submitButton = form.querySelector('.submit-button');
+      const buttonText = submitButton.querySelector('.button-text');
+      const buttonLoading = submitButton.querySelector('.button-loading');
 
-    //   // Let the browser submit it natively to Netlify
-    //   // Netlify will handle the POST and redirect to /thank-you
-    // });
+      // Show loading state
+      submitButton.disabled = true;
+      buttonText.style.display = 'none';
+      buttonLoading.style.display = 'inline-flex';
+
+      // The form will submit naturally to Netlify
+      // Netlify will redirect to /thank-you.html after successful submission
+    });
   },
 
   /**

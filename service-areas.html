@@ -1180,110 +1180,6 @@
       </div>
     </section>
 
-    <!-- Service Popups -->
-    <div class="service-popup modal" id="architectural-shingles-modal">
-      <div class="popup-content">
-        <button class="popup-close" onclick="closeArchitecturalShinglesModal()">
-          &times;
-        </button>
-        <div class="popup-body">
-          <img
-            src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/architectural-shingles-popup-desktop.webp"
-            alt="Architectural Shingles"
-            class="popup-image" />
-          <h3>Architectural Shingles</h3>
-          <p>
-            Also known as dimensional or laminate shingles, architectural
-            shingles are a premium roofing option that offers:
-          </p>
-          <ul>
-            <li>
-              <strong>Enhanced Durability:</strong> Multi-layered construction
-              provides better protection against wind and weather
-            </li>
-            <li>
-              <strong>Aesthetic Appeal:</strong> Dimensional appearance mimics
-              the look of wood shakes or slate
-            </li>
-            <li>
-              <strong>Longer Lifespan:</strong> Typically last 30-50 years with
-              proper maintenance
-            </li>
-            <li>
-              <strong>Better Warranties:</strong> Often come with extended
-              manufacturer warranties
-            </li>
-            <li>
-              <strong>Increased Home Value:</strong> Premium appearance can
-              boost curb appeal and resale value
-            </li>
-          </ul>
-          <p>
-            Available in a wide range of colors and styles to complement any
-            home architecture.
-          </p>
-          <button
-            class="btn btn-primary quote-btn"
-            onclick="closeArchitecturalShinglesModal(); EstimateModal.open(); document.getElementById('service').value='roof-replacement';">
-            Get a Quote for Architectural Shingles
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="service-popup modal" id="metal-roof-modal">
-      <div class="popup-content">
-        <button class="popup-close" onclick="closeMetalRoofModal()">
-          &times;
-        </button>
-        <div class="popup-body">
-          <img
-            src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/metal-roof-with-metal-chimney.webp"
-            alt="Metal Roofing"
-            class="popup-image" />
-          <h3>Metal Roofing Systems</h3>
-          <p>
-            Metal roofing is an excellent investment for homeowners seeking
-            maximum durability and energy efficiency:
-          </p>
-          <ul>
-            <li>
-              <strong>Exceptional Longevity:</strong> Can last 50-70 years or
-              more
-            </li>
-            <li>
-              <strong>Energy Efficient:</strong> Reflects solar heat, reducing
-              cooling costs by 10-25%
-            </li>
-            <li>
-              <strong>Weather Resistant:</strong> Withstands winds up to 140 mph
-            </li>
-            <li>
-              <strong>Fire Resistant:</strong> Class A fire rating for maximum
-              safety
-            </li>
-            <li>
-              <strong>Eco-Friendly:</strong> Made from recycled materials and
-              fully recyclable
-            </li>
-            <li>
-              <strong>Low Maintenance:</strong> Minimal upkeep required
-              throughout its lifespan
-            </li>
-          </ul>
-          <p>
-            Available in standing seam, metal shingles, and corrugated styles
-            with various color options.
-          </p>
-          <button
-            class="btn btn-primary quote-btn"
-            onclick="closeMetalRoofModal(); EstimateModal.open(); document.getElementById('service').value='roof-replacement';">
-            Get a Quote for Metal Roofing
-          </button>
-        </div>
-      </div>
-    </div>
-
     <!-- <div class="service-popup" id="skylight-popup">
       <div class="popup-content">
         <button class="popup-close">&times;</button>
@@ -1555,12 +1451,9 @@
               <label for="service">Service Needed</label>
               <select id="service" name="service">
                 <option value="">Select a service</option>
-                <option value="roof-inspection">Free Roof Inspection</option>
-                <option value="roof-replacement">Roof Replacement</option>
-                <option value="roof-repair">Roof Repair</option>
-                <option value="siding">Siding Installation</option>
-                <option value="gutters">Gutter Services</option>
-                <option value="commercial">Commercial Roofing</option>
+                <option value="roofing">Roofing</option>
+                <option value="siding">Siding</option>
+                <option value="gutters">Gutters</option>
               </select>
             </div>
 
@@ -1588,137 +1481,211 @@
       </div>
     </div>
 
-    <!-- Debug -->
-    <script>
-      // Debug version to check what's happening
-      function openArchitecturalShinglesModal(event) {
-        if (event) event.preventDefault();
-        console.log('Opening architectural shingles modal');
-        const modal = document.getElementById('architectural-shingles-modal');
-        console.log('Modal element:', modal);
-        console.log(
-          'Modal display before:',
-          modal ? modal.style.display : 'not found'
-        );
+    <!-- ARCHITECTURAL SHINGLES MODAL -->
+    <div class="modal" id="architectural-shingles-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3><i class="fas fa-layer-group"></i> Architectural Shingles</h3>
+          <button class="close-modal close-shingles-modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="service-modal-layout">
+            <div class="service-modal-content">
+              <h2>Premium Architectural Shingles</h2>
+              <p>
+                Transform your home with our premium architectural shingles that
+                combine superior durability with enhanced curb appeal. These
+                dimensional shingles provide long-lasting protection while
+                adding depth and character to your roofline.
+              </p>
 
-        // Try both methods
-        if (typeof ModalManager !== 'undefined' && ModalManager.openModal) {
-          ModalManager.openModal('architectural-shingles-modal');
-        } else {
-          // Fallback if ModalManager isn't working
-          if (modal) {
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-          }
-        }
-      }
+              <div class="service-modal-image">
+                <picture>
+                  <source
+                    media="(max-width: 768px)"
+                    srcset="
+                      https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/architectural-shingles-popup-mobile.webp?v=1
+                    " />
+                  <source
+                    media="(min-width: 769px)"
+                    srcset="
+                      https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/architectural-shingles-popup-desktop.webp
+                    " />
+                  <img
+                    src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/architectural-shingles-popup-mobile.webp?v=1"
+                    alt="Architectural Shingles"
+                    width="700"
+                    height="400"
+                    loading="lazy" />
+                </picture>
+                <div class="image-overlay">
+                  <h4>Premium Quality Materials</h4>
+                  <p>Professional installation with lifetime warranty</p>
+                </div>
+              </div>
+            </div>
 
-      function closeArchitecturalShinglesModal() {
-        console.log('Closing architectural shingles modal');
-        const modal = document.getElementById('architectural-shingles-modal');
+            <!-- Benefits and Warranty Row -->
+            <div class="benefits-warranty-row">
+              <div class="benefits-list">
+                <h3>Key Benefits:</h3>
+                <ul>
+                  <li>
+                    <i class="fas fa-shield-alt"></i> Superior weather
+                    resistance and durability
+                  </li>
+                  <li>
+                    <i class="fas fa-home"></i> Enhanced curb appeal and
+                    property value
+                  </li>
+                  <li>
+                    <i class="fas fa-wind"></i> Excellent wind and impact
+                    resistance
+                  </li>
+                  <li>
+                    <i class="fas fa-palette"></i> Wide variety of colors and
+                    styles
+                  </li>
+                  <li>
+                    <i class="fas fa-bolt"></i> Energy-efficient options
+                    available
+                  </li>
+                  <li>
+                    <i class="fas fa-clock"></i> Faster installation than
+                    traditional shingles
+                  </li>
+                </ul>
+              </div>
 
-        // Try both methods
-        if (typeof ModalManager !== 'undefined' && ModalManager.closeModal) {
-          ModalManager.closeModal('architectural-shingles-modal');
-        } else {
-          // Fallback
-          if (modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
-          }
-        }
+              <div class="warranty-badge">
+                <i class="fas fa-award"></i>
+                <strong>Lifetime Warranty</strong>
+                <p>
+                  All our architectural shingle installations come with our
+                  comprehensive lifetime warranty for complete peace of mind.
+                </p>
+              </div>
+            </div>
 
-        // Ensure modal is fully reset
-        setTimeout(() => {
-          if (modal) {
-            modal.style.display = 'none';
-            modal.classList.remove('active', 'show', 'open'); // Remove any possible active classes
-          }
-        }, 100);
-      }
+            <div class="modal-cta-buttons">
+              <button
+                class="btn btn-primary btn-large"
+                onclick="EstimateModal.open(); closeArchitecturalShinglesModal();">
+                Get Free Estimate
+              </button>
+              <a href="tel:+1234567890" class="btn btn-secondary btn-large">
+                <i class="fas fa-phone"></i> Call Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      function openMetalRoofModal(event) {
-        if (event) event.preventDefault();
-        console.log('Opening metal roof modal');
-        const modal = document.getElementById('metal-roof-modal');
-        console.log('Modal element:', modal);
-        console.log(
-          'Modal display before:',
-          modal ? modal.style.display : 'not found'
-        );
+    <!-- METAL ROOF MODAL -->
+    <div class="modal" id="metal-roof-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3><i class="fas fa-industry"></i> Metal Roofs</h3>
+          <button class="close-modal close-metal-roof-modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="service-modal-layout">
+            <div class="service-modal-content">
+              <h2>Premium Metal Roofing Systems</h2>
+              <p>
+                Invest in the ultimate roofing solution with our
+                energy-efficient metal roofing systems. Offering exceptional
+                durability, weather resistance, and modern aesthetics, metal
+                roofs are perfect for both residential and commercial
+                properties.
+              </p>
 
-        // Try both methods
-        if (typeof ModalManager !== 'undefined' && ModalManager.openModal) {
-          ModalManager.openModal('metal-roof-modal');
-        } else {
-          // Fallback
-          if (modal) {
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-          }
-        }
-      }
+              <div class="service-modal-image">
+                <picture>
+                  <source
+                    media="(max-width: 768px)"
+                    srcset="
+                      https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/metal-roof-with-metal-chimney.webp
+                    " />
+                  <source
+                    media="(min-width: 769px)"
+                    srcset="
+                      https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/metal-roof-with-metal-chimney.webp
+                    " />
+                  <img
+                    src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/metal-roof-with-metal-chimney.webp"
+                    alt="Metal Roofing"
+                    width="700"
+                    height="400"
+                    loading="lazy" />
+                </picture>
+                <div class="image-overlay">
+                  <h4>Durable Metal Roofing</h4>
+                  <p>50+ year lifespan with superior protection</p>
+                </div>
+              </div>
+            </div>
 
-      function closeMetalRoofModal() {
-        console.log('Closing metal roof modal');
-        const modal = document.getElementById('metal-roof-modal');
+            <!-- Benefits and Warranty Row -->
+            <div class="benefits-warranty-row">
+              <div class="benefits-list">
+                <h3>Key Benefits:</h3>
+                <ul>
+                  <li>
+                    <i class="fas fa-shield-alt"></i> 50+ year lifespan with
+                    minimal maintenance
+                  </li>
+                  <li>
+                    <i class="fas fa-bolt"></i> Superior energy efficiency -
+                    reduce cooling costs up to 25%
+                  </li>
+                  <li>
+                    <i class="fas fa-cloud-rain"></i> Exceptional weather and
+                    fire resistance
+                  </li>
+                  <li>
+                    <i class="fas fa-leaf"></i> Eco-friendly and 100% recyclable
+                  </li>
+                  <li>
+                    <i class="fas fa-palette"></i> Modern aesthetics with
+                    various styles and colors
+                  </li>
+                  <li>
+                    <i class="fas fa-dollar-sign"></i> Increases property value
+                    and insurance savings
+                  </li>
+                </ul>
+              </div>
 
-        // Try both methods
-        if (typeof ModalManager !== 'undefined' && ModalManager.closeModal) {
-          ModalManager.closeModal('metal-roof-modal');
-        } else {
-          // Fallback
-          if (modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
-          }
-        }
+              <div class="warranty-badge">
+                <i class="fas fa-award"></i>
+                <strong>50-Year Warranty</strong>
+                <p>
+                  All metal roof installations include our industry-leading
+                  50-year warranty covering materials and workmanship.
+                </p>
+              </div>
+            </div>
 
-        // Ensure modal is fully reset
-        setTimeout(() => {
-          if (modal) {
-            modal.style.display = 'none';
-            modal.classList.remove('active', 'show', 'open');
-          }
-        }, 100);
-      }
-
-      // Alternative approach: Override the functions after page load
-      document.addEventListener('DOMContentLoaded', function () {
-        // Re-initialize modal event listeners
-        const shinglesLinks = document.querySelectorAll(
-          'a[onclick*="openArchitecturalShinglesModal"]'
-        );
-        const metalLinks = document.querySelectorAll(
-          'a[onclick*="openMetalRoofModal"]'
-        );
-
-        shinglesLinks.forEach((link) => {
-          link.addEventListener('click', function (e) {
-            e.preventDefault();
-            openArchitecturalShinglesModal(e);
-          });
-        });
-
-        metalLinks.forEach((link) => {
-          link.addEventListener('click', function (e) {
-            e.preventDefault();
-            openMetalRoofModal(e);
-          });
-        });
-
-        // Ensure modals are properly hidden on page load
-        const allModals = document.querySelectorAll('.service-popup, .modal');
-        allModals.forEach((modal) => {
-          if (
-            modal.id === 'architectural-shingles-modal' ||
-            modal.id === 'metal-roof-modal'
-          ) {
-            modal.style.display = 'none';
-          }
-        });
-      });
-    </script>
+            <div class="modal-cta-buttons">
+              <button
+                class="btn btn-primary btn-large"
+                onclick="EstimateModal.open(); closeMetalRoofModal();">
+                Get Free Estimate
+              </button>
+              <a href="tel:+1234567890" class="btn btn-secondary btn-large">
+                <i class="fas fa-phone"></i> Call Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap JS Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

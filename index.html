@@ -1999,7 +1999,17 @@
               <h4>Your Free Estimate Form</h4>
             </div>
 
-            <form class="roof-contact-form" action="#" method="POST">
+            <form
+              class="roof-contact-form"
+              name="contact-form-homepage"
+              method="POST"
+              data-netlify="true">
+              <!-- Hidden field for Netlify to recognize the form -->
+              <input
+                type="hidden"
+                name="form-name"
+                value="contact-form-homepage" />
+
               <div class="roof-form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" required />
@@ -2272,7 +2282,17 @@
         </div>
 
         <div class="modal-body">
-          <form class="estimate-form">
+          <form
+            class="estimate-form"
+            name="estimate-popup-homepage"
+            method="POST"
+            data-netlify="true">
+            <!-- Hidden field for Netlify to recognize the form -->
+            <input
+              type="hidden"
+              name="form-name"
+              value="estimate-popup-homepage" />
+
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name *</label>
@@ -2299,12 +2319,9 @@
               <label for="service">Service Needed</label>
               <select id="service" name="service">
                 <option value="">Select a service</option>
-                <option value="roof-inspection">Free Roof Inspection</option>
-                <option value="roof-replacement">Roof Replacement</option>
-                <option value="roof-repair">Roof Repair</option>
-                <option value="siding">Siding Installation</option>
-                <option value="gutters">Gutter Services</option>
-                <option value="commercial">Commercial Roofing</option>
+                <option value="roofing">Roofing</option>
+                <option value="siding">Siding</option>
+                <option value="gutters">Gutters</option>
               </select>
             </div>
 

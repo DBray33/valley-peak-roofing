@@ -221,6 +221,9 @@ const ModalSystem = {
    * Initialize Service Modals (architectural shingles, metal roof, gutter guard)
    */
   initServiceModals: function () {
+    // Store reference to ModalSystem for use in callbacks
+    const modalSystem = this;
+
     // Service modal configurations
     const serviceModals = [
       {
@@ -243,16 +246,16 @@ const ModalSystem = {
     // Register each service modal and create global functions
     serviceModals.forEach((config) => {
       if (document.getElementById(config.modalId)) {
-        this.register(config.modalId);
+        modalSystem.register(config.modalId);
 
         // Create global functions for backward compatibility
-        window[config.triggerFunction] = (event) => {
+        window[config.triggerFunction] = function (event) {
           if (event) event.preventDefault();
-          this.open(config.modalId);
+          modalSystem.open(config.modalId);
         };
 
-        window[config.closeFunction] = () => {
-          this.close(config.modalId);
+        window[config.closeFunction] = function () {
+          modalSystem.close(config.modalId);
         };
       }
     });

@@ -203,26 +203,84 @@ const ModalSystem = {
     });
   },
 
+  /**
+   * =====================================================
+   * ESTIMATE MODAL INITIALIZATION
+   * =====================================================
+   */
+  initEstimateModal: function () {
+    const modalSystem = this;
+
+    console.log('Initializing estimate modal...');
+
+    // Register the estimate modal if it exists
+    if (document.getElementById('estimate-modal')) {
+      this.register('estimate-modal', {
+        onOpen: function (modal) {
+          // Populate tracking fields when modal opens
+          const form = document.getElementById('estimate-form');
+          if (form) {
+            const pageUrlField = form.querySelector('input[name="page_url"]');
+            const pageTitleField = form.querySelector(
+              'input[name="page_title"]'
+            );
+            const submittedFromField = form.querySelector(
+              'input[name="submitted_from"]'
+            );
+
+            if (pageUrlField) pageUrlField.value = window.location.href;
+            if (pageTitleField) pageTitleField.value = document.title;
+            if (submittedFromField) {
+              const path = window.location.pathname;
+              const pageName =
+                path === '/'
+                  ? 'homepage'
+                  : path.replace(/\//g, '').replace('.html', '');
+              submittedFromField.value = pageName;
+            }
+          }
+
+          // Focus on first input when opened
+          const firstInput = modal.querySelector('input:not([type="hidden"])');
+          if (firstInput) {
+            setTimeout(() => firstInput.focus(), 100);
+          }
+        },
+      });
+
+      // Set up form handling
+      this.setupEstimateForm();
+
+      // Set up phone number formatting
+      this.setupEstimatePhoneFormatting();
+    }
+
+    // Handle estimate trigger links
+    document.addEventListener('click', (e) => {
+      const estimateLink = e.target.closest(
+        'a[href="#estimate"], a[href="/estimate"], .free-estimate-btn'
+      );
+      if (
+        estimateLink ||
+        (e.target.textContent && e.target.textContent.includes('Free Estimate'))
+      ) {
+        e.preventDefault();
+        modalSystem.open('estimate-modal');
+      }
+    });
+
+    // Make openEstimateModal available globally
+    window.openEstimateModal = function () {
+      modalSystem.open('estimate-modal');
+    };
+  },
+
+  /**
+   * Set up estimate form handling with Netlify submission
+   */
   setupEstimateForm: function () {
     const form = document.getElementById('estimate-form');
     if (!form) return;
-
-    // Populate tracking fields when modal opens
-    const pageUrlField = form.querySelector('#page_url');
-    const pageTitleField = form.querySelector('#page_title');
-    const submittedFromField = form.querySelector('#submitted_from');
-
-    if (pageUrlField) pageUrlField.value = window.location.href;
-    if (pageTitleField) pageTitleField.value = document.title;
-    if (submittedFromField) {
-      // Create a clean page identifier
-      const path = window.location.pathname;
-      const pageName =
-        path === '/'
-          ? 'homepage'
-          : path.replace(/\//g, '').replace('.html', '');
-      submittedFromField.value = pageName;
-    }
 
     // DO NOT prevent default submission - Netlify needs the native form submission
     form.addEventListener('submit', function (e) {

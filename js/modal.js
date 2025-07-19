@@ -1,8 +1,8 @@
 /**
  * =====================================================
- * UNIFIED MODAL SYSTEM - FIXED VERSION
+ * UNIFIED MODAL SYSTEM - CLEANED VERSION
  * =====================================================
- * Fixed Netlify form submission for estimate modal
+ * Removed estimate modal functionality
  * =====================================================
  */
 
@@ -26,9 +26,9 @@ const ModalSystem = {
     this.autoRegisterModals();
 
     // Initialize specific modal types if they exist
-    this.initEstimateModal();
     this.initServiceModals();
     this.initFinancingModal();
+    this.initEstimateModal();
 
     console.log('Modal System: Initialized successfully');
   },
@@ -205,22 +205,15 @@ const ModalSystem = {
 
   /**
    * =====================================================
-   * ESTIMATE MODAL INITIALIZATION - FIXED
+   * ESTIMATE MODAL INITIALIZATION
    * =====================================================
    */
   initEstimateModal: function () {
     const modalSystem = this;
 
-    // Handle estimate links
-    document.addEventListener('click', (e) => {
-      const estimateLink = e.target.closest('a[href="#estimate"]');
-      if (estimateLink) {
-        e.preventDefault();
-        modalSystem.open('estimate-modal');
-      }
-    });
+    console.log('Initializing estimate modal...');
 
-    // Register estimate modal if it exists
+    // Register the estimate modal if it exists
     if (document.getElementById('estimate-modal')) {
       this.register('estimate-modal', {
         onOpen: function (modal) {
@@ -232,79 +225,172 @@ const ModalSystem = {
         },
       });
 
-      /**
-       * =====================================================
-       * NETLIFY FORM SUBMISSION HANDLER - FIXED
-       * =====================================================
-       */
-      const estimateForm = document.querySelector(
-        'form[name="estimate-popup-homepage"]'
-      );
+      // Set up form handling
+      this.setupEstimateForm();
 
-      if (estimateForm) {
-        // Add action attribute to ensure form submits correctly
-        estimateForm.setAttribute('action', '/');
-
-        estimateForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-
-          // Disable submit button to prevent double submission
-          const submitButton = estimateForm.querySelector(
-            'button[type="submit"]'
-          );
-          const originalButtonText = submitButton.innerHTML;
-          submitButton.disabled = true;
-          submitButton.innerHTML =
-            '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-
-          try {
-            // Create FormData object
-            const formData = new FormData(estimateForm);
-
-            // IMPORTANT: Ensure form-name is included
-            formData.append('form-name', 'estimate-popup-homepage');
-
-            // Submit to Netlify
-            const response = await fetch('/', {
-              method: 'POST',
-              body: formData,
-            });
-
-            if (response.ok) {
-              // Show success message
-              const modalBody = estimateForm.closest('.modal-body');
-              modalBody.innerHTML = `
-                <div style="text-align: center; padding: 40px;">
-                  <i class="fas fa-check-circle" style="font-size: 48px; color: #28a745; margin-bottom: 20px;"></i>
-                  <h3>Thank You!</h3>
-                  <p>We'll contact you within 24 hours to schedule your free inspection.</p>
-                </div>
-              `;
-
-              // Close modal after 3 seconds
-              setTimeout(() => {
-                window.ModalSystem.close('estimate-modal');
-                // Reload page to reset everything
-                location.reload();
-              }, 3000);
-            } else {
-              throw new Error('Form submission failed');
-            }
-          } catch (error) {
-            console.error('Error submitting form:', error);
-
-            // Re-enable submit button
-            submitButton.disabled = false;
-            submitButton.innerHTML = originalButtonText;
-
-            // Show error message
-            alert(
-              'There was an error submitting the form. Please try again or call us directly.'
-            );
-          }
-        });
-      }
+      // Set up phone number formatting
+      this.setupEstimatePhoneFormatting();
     }
+
+    // Handle estimate trigger links
+    document.addEventListener('click', (e) => {
+      const estimateLink = e.target.closest(
+        'a[href="#estimate"], a[href="/estimate"], .free-estimate-btn'
+      );
+      if (
+        estimateLink ||
+        (e.target.textContent && e.target.textContent.includes('Free Estimate'))
+      ) {
+        e.preventDefault();
+        modalSystem.open('estimate-modal');
+      }
+    });
+
+    // Make openEstimateModal available globally
+    window.openEstimateModal = function () {
+      modalSystem.open('estimate-modal');
+    };
+  },
+
+  /**
+   * Set up estimate form handling with Netlify submission
+   */
+  setupEstimateForm: function () {
+    const form = document.getElementById('estimate-form');
+    if (!form) return;
+
+    const modalSystem = this;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitButton = form.querySelector('.submit-button');
+      const buttonText = submitButton.querySelector('.button-text');
+      const buttonLoading = submitButton.querySelector('.button-loading');
+
+      // Disable submit button and show loading state
+      submitButton.disabled = true;
+      buttonText.style.display = 'none';
+      buttonLoading.style.display = 'inline-flex';
+
+      try {
+        // Create FormData from the form
+        const formData = new FormData(form);
+
+        // Convert FormData to URLSearchParams for proper encoding
+        const params = new URLSearchParams();
+        for (const pair of formData) {
+          params.append(pair[0], pair[1]);
+        }
+
+        // Submit to Netlify
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: params.toString(),
+        });
+
+        if (response.ok) {
+          // Show success message
+          const formContainer = form.parentElement;
+          const successMessage = formContainer.querySelector(
+            '.estimate-success-message'
+          );
+
+          if (successMessage) {
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+          }
+
+          // Reset form
+          form.reset();
+
+          // Close modal after 3 seconds
+          setTimeout(() => {
+            modalSystem.close('estimate-modal');
+
+            // Reset the modal to show form again for next time
+            if (successMessage) {
+              form.style.display = 'flex';
+              successMessage.style.display = 'none';
+            }
+          }, 3000);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert(
+          'There was an error submitting your request. Please try again or call us directly.'
+        );
+      } finally {
+        // Re-enable submit button
+        submitButton.disabled = false;
+        buttonText.style.display = 'inline-flex';
+        buttonLoading.style.display = 'none';
+      }
+    });
+  },
+
+  /**
+   * Set up phone number formatting for estimate form
+   */
+  setupEstimatePhoneFormatting: function () {
+    const phoneInput = document.getElementById('phone');
+    if (!phoneInput) return;
+
+    phoneInput.addEventListener('input', function (e) {
+      // Remove all non-digits
+      let value = e.target.value.replace(/\D/g, '');
+
+      // Format the number
+      if (value.length > 0) {
+        if (value.length <= 3) {
+          value = `(${value}`;
+        } else if (value.length <= 6) {
+          value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+        } else if (value.length <= 10) {
+          value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(
+            6,
+            10
+          )}`;
+        } else {
+          // Don't allow more than 10 digits
+          value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(
+            6,
+            10
+          )}`;
+        }
+      }
+
+      e.target.value = value;
+    });
+
+    // Handle paste events
+    phoneInput.addEventListener('paste', function (e) {
+      e.preventDefault();
+      const pastedText = (e.clipboardData || window.clipboardData).getData(
+        'text'
+      );
+      const digits = pastedText.replace(/\D/g, '').slice(0, 10);
+
+      if (digits.length > 0) {
+        let formatted = '';
+        if (digits.length <= 3) {
+          formatted = `(${digits}`;
+        } else if (digits.length <= 6) {
+          formatted = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+        } else {
+          formatted = `(${digits.slice(0, 3)}) ${digits.slice(
+            3,
+            6
+          )}-${digits.slice(6, 10)}`;
+        }
+        e.target.value = formatted;
+      }
+    });
   },
 
   /**

@@ -532,6 +532,23 @@
   </head>
 
   <body>
+    <!-- Hidden form for Netlify to detect -->
+    <form
+      name="estimate-popup-homepage"
+      netlify
+      netlify-honeypot="bot-field"
+      hidden>
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <select name="service">
+        <option value="roofing">Roofing</option>
+        <option value="siding">Siding</option>
+        <option value="gutters">Gutters</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
     <!-- Floating Logo - Place this BEFORE the Navigation -->
     <div class="floating-logo">
       <a href="/">

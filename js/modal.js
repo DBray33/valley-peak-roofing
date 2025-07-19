@@ -413,7 +413,7 @@ const ModalSystem = {
 
   /**
    * =====================================================
-   * FINANCING MODAL INITIALIZATION
+   * FINANCING MODAL INITIALIZATION - NETLIFY VERSION
    * =====================================================
    */
   initFinancingModal: function () {
@@ -496,12 +496,22 @@ const ModalSystem = {
           form.reset();
           form.style.display = '';
 
-          // Remove success message if exists
+          // Hide success message if showing
           const successMessage = modal.querySelector(
-            '.financing-success-wrapper'
+            '.financing-success-message'
           );
           if (successMessage) {
-            successMessage.remove();
+            successMessage.style.display = 'none';
+          }
+
+          // Reset button state
+          const submitButton = form.querySelector('.submit-button');
+          if (submitButton) {
+            submitButton.disabled = false;
+            const buttonText = submitButton.querySelector('.button-text');
+            const buttonLoading = submitButton.querySelector('.button-loading');
+            if (buttonText) buttonText.style.display = 'inline-flex';
+            if (buttonLoading) buttonLoading.style.display = 'none';
           }
         }
       },
@@ -564,41 +574,26 @@ const ModalSystem = {
 
     /**
      * =====================================================
-     * FINANCING FORM SUBMISSION
+     * FINANCING FORM SUBMISSION - NETLIFY VERSION
      * =====================================================
      */
     const form = document.getElementById('financingApplicationForm');
     if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
+      // DO NOT prevent default submission - Netlify needs the native form submission
+      form.addEventListener('submit', function (e) {
+        // Don't prevent default! Let Netlify handle the submission
 
-        // Show success message
-        form.style.display = 'none';
+        const submitButton = form.querySelector('.submit-button');
+        const buttonText = submitButton.querySelector('.button-text');
+        const buttonLoading = submitButton.querySelector('.button-loading');
 
-        const successDiv = document.createElement('div');
-        successDiv.className = 'financing-success-wrapper';
-        successDiv.innerHTML = `
-          <div class="financing-success-icon">
-            <i class="fas fa-check-circle"></i>
-          </div>
-          <p class="form-guarantee">
-            <i class="fas fa-shield-alt"></i>
-            Thank you! We'll contact you within 24 hours.
-          </p>
-        `;
+        // Show loading state
+        submitButton.disabled = true;
+        if (buttonText) buttonText.style.display = 'none';
+        if (buttonLoading) buttonLoading.style.display = 'inline-flex';
 
-        form.parentNode.appendChild(successDiv);
-
-        // Close modal after delay
-        setTimeout(() => {
-          modalSystem.close('financingApplicationModal');
-        }, 3000);
-
-        // Log form data (replace with actual submission)
-        console.log(
-          'Financing form submitted:',
-          Object.fromEntries(new FormData(form))
-        );
+        // The form will submit naturally to Netlify
+        // Netlify will redirect to /thank-you.html after successful submission
       });
     }
 
@@ -610,22 +605,54 @@ const ModalSystem = {
     const phoneInput = document.getElementById('financingPhone');
     if (phoneInput) {
       phoneInput.addEventListener('input', function (e) {
+        // Remove all non-digits
         let value = e.target.value.replace(/\D/g, '');
+
+        // Format the number
         if (value.length > 0) {
           if (value.length <= 3) {
-            value = value;
+            value = `(${value}`;
           } else if (value.length <= 6) {
-            value = value.slice(0, 3) + '-' + value.slice(3);
+            value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+          } else if (value.length <= 10) {
+            value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(
+              6,
+              10
+            )}`;
           } else {
-            value =
-              value.slice(0, 3) +
-              '-' +
-              value.slice(3, 6) +
-              '-' +
-              value.slice(6, 10);
+            // Don't allow more than 10 digits
+            value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(
+              6,
+              10
+            )}`;
           }
         }
+
         e.target.value = value;
+      });
+
+      // Handle paste events
+      phoneInput.addEventListener('paste', function (e) {
+        e.preventDefault();
+        const pastedText = (e.clipboardData || window.clipboardData).getData(
+          'text'
+        );
+        const digits = pastedText.replace(/\D/g, '').slice(0, 10);
+
+        if (digits.length > 0) {
+          let formatted = '';
+          if (digits.length <= 3) {
+            formatted = `(${digits}`;
+          } else if (digits.length <= 6) {
+            formatted = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+          } else {
+            formatted = `(${digits.slice(0, 3)}) ${digits.slice(
+              3,
+              6
+            )}-${digits.slice(6, 10)}`;
+          }
+          e.target.value = formatted;
+        }
       });
     }
 

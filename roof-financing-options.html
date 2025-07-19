@@ -738,7 +738,7 @@
       </div>
     </section>
 
-    <!-- Financing Application Modal -->
+    <!-- Updated Financing Application Modal with Netlify Support -->
     <div id="financingApplicationModal" class="financing-modal">
       <div class="financing-modal-content">
         <div class="financing-modal-header">
@@ -749,6 +749,18 @@
         </div>
 
         <div class="financing-modal-body">
+          <!-- Success Message (hidden by default) -->
+          <div class="financing-success-message" style="display: none">
+            <div class="success-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Thank You!</h3>
+            <p>
+              We've received your financing application and will contact you
+              within 24 hours to discuss your options.
+            </p>
+          </div>
+
           <div class="financing-selected-plan-info">
             <h3>Selected Plan: <span id="financingSelectedPlanName"></span></h3>
             <div class="financing-plan-details">
@@ -762,9 +774,26 @@
             </div>
           </div>
 
+          <!-- IMPORTANT: Added Netlify attributes -->
           <form
             id="financingApplicationForm"
-            class="financing-application-form">
+            class="financing-application-form"
+            name="financing-form"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/thank-you.html">
+            <!-- Honeypot field for spam protection -->
+            <p class="hidden">
+              <label>
+                Don't fill this out if you're human:
+                <input name="bot-field" />
+              </label>
+            </p>
+
+            <!-- Hidden field for Netlify - MUST match the name attribute exactly -->
+            <input type="hidden" name="form-name" value="financing-form" />
+
             <!-- Hidden fields for tracking -->
             <input
               type="hidden"
@@ -966,15 +995,64 @@
                 class="financing-btn-secondary financing-modal-cancel">
                 Cancel
               </button>
-              <button type="submit" class="financing-btn-primary">
-                Submit Application
-                <i class="fas fa-arrow-right"></i>
+              <button type="submit" class="financing-btn-primary submit-button">
+                <span class="button-text">Submit Application</span>
+                <span class="button-loading" style="display: none">
+                  <i class="fas fa-spinner fa-spin"></i> Submitting...
+                </span>
               </button>
             </div>
           </form>
         </div>
       </div>
     </div>
+
+    <!-- HIDDEN FINANCING FORM FOR NETLIFY -->
+    <!-- This hidden form is required for Netlify to detect the form during build -->
+    <form name="financing-form" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="text" name="financing_form_type" />
+      <input type="text" name="financing_plan_code" />
+      <input type="text" name="financing_plan_name" />
+      <input type="text" name="financing_utm_source" />
+      <input type="text" name="financing_utm_medium" />
+      <input type="text" name="financing_utm_campaign" />
+      <input type="text" name="financing_page_url" />
+      <input type="text" name="financing_timestamp" />
+      <input type="text" name="financing_lead_source" />
+      <input type="text" name="financing_first_name" />
+      <input type="text" name="financing_last_name" />
+      <input type="email" name="financing_email" />
+      <input type="tel" name="financing_phone" />
+      <input type="text" name="financing_property_address" />
+      <input type="text" name="financing_city" />
+      <select name="financing_state">
+        <option value="">Select State</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="NJ">New Jersey</option>
+      </select>
+      <input type="text" name="financing_zip" />
+      <select name="financing_project_type">
+        <option value="">Select Project Type</option>
+        <option value="full_replacement">Full Roof Replacement</option>
+        <option value="partial_replacement">Partial Roof Replacement</option>
+        <option value="new_construction">New Construction</option>
+        <option value="repair">Roof Repair</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="text" name="financing_estimated_amount" />
+      <select name="financing_project_timeline">
+        <option value="">Select Timeline</option>
+        <option value="immediately">Immediately</option>
+        <option value="1_month">Within 1 month</option>
+        <option value="3_months">Within 3 months</option>
+        <option value="6_months">Within 6 months</option>
+        <option value="planning">Just planning</option>
+      </select>
+      <textarea name="financing_comments"></textarea>
+      <input type="checkbox" name="financing_consent_contact" />
+      <input type="checkbox" name="financing_consent_credit_check" />
+    </form>
 
     <!-- How It Works Section -->
     <section class="how-it-works">

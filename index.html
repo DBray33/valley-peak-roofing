@@ -533,6 +533,21 @@
   </head>
 
   <body>
+    <!-- Hidden form for Netlify to detect during build -->
+    <form name="estimate-form" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="address" />
+      <select name="service">
+        <option value="">Select a service</option>
+      </select>
+      <textarea name="message"></textarea>
+      <input type="radio" name="preferredContact" value="phone" />
+      <input type="radio" name="preferredContact" value="email" />
+      <input type="radio" name="preferredContact" value="text" />
+    </form>
     <!-- Floating Logo - Place this BEFORE the Navigation -->
     <div class="floating-logo">
       <a href="/">

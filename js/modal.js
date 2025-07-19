@@ -283,6 +283,10 @@ const ModalSystem = {
           params.append(pair[0], pair[1]);
         }
 
+        // Debug: Log what we're sending
+        console.log('Submitting form data:', params.toString());
+        console.log('Form name:', params.get('form-name'));
+
         // Submit to Netlify
         const response = await fetch('/', {
           method: 'POST',

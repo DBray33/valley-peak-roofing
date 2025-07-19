@@ -1,17 +1,11 @@
 /**
  * =====================================================
- * UNIFIED MODAL SYSTEM
+ * UNIFIED MODAL SYSTEM - FIXED VERSION
  * =====================================================
- * A reusable modal system for all pages
- * Supports multiple modals with different styles
+ * Fixed Netlify form submission for estimate modal
  * =====================================================
  */
 
-/**
- * =====================================================
- * MODAL SYSTEM OBJECT DEFINITION
- * =====================================================
- */
 const ModalSystem = {
   // Track all registered modals
   modals: {},
@@ -211,11 +205,10 @@ const ModalSystem = {
 
   /**
    * =====================================================
-   * ESTIMATE MODAL INITIALIZATION
+   * ESTIMATE MODAL INITIALIZATION - FIXED
    * =====================================================
    */
   initEstimateModal: function () {
-    // Store reference to ModalSystem for use in callbacks
     const modalSystem = this;
 
     // Handle estimate links
@@ -241,34 +234,47 @@ const ModalSystem = {
 
       /**
        * =====================================================
-       * NETLIFY FORM SUBMISSION HANDLER
+       * NETLIFY FORM SUBMISSION HANDLER - FIXED
        * =====================================================
        */
       const estimateForm = document.querySelector(
         'form[name="estimate-popup-homepage"]'
       );
-      if (estimateForm) {
-        // Ensure form method is POST
-        estimateForm.setAttribute('method', 'POST');
-        estimateForm.setAttribute('action', '/');
 
-        // Handle form submission
-        estimateForm.addEventListener('submit', (e) => {
+      if (estimateForm) {
+        // Comment out the JavaScript handler to let Netlify handle the form naturally
+        // If forms start working, we can add back a modified version
+        /*
+        estimateForm.addEventListener('submit', async (e) => {
           e.preventDefault();
 
-          // Create FormData and submit via fetch
-          const formData = new FormData(estimateForm);
+          // Disable submit button to prevent double submission
+          const submitButton = estimateForm.querySelector('button[type="submit"]');
+          const originalButtonText = submitButton.innerHTML;
+          submitButton.disabled = true;
+          submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
 
-          fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData).toString(),
-          })
-            .then((response) => {
-              if (response.ok) {
-                // Show success message
-                const modalBody = estimateForm.closest('.modal-body');
-                modalBody.innerHTML = `
+          try {
+            // Create FormData object
+            const formData = new FormData(estimateForm);
+            
+            // Convert to URLSearchParams for proper encoding
+            const params = new URLSearchParams();
+            for (const pair of formData) {
+              params.append(pair[0], pair[1]);
+            }
+
+            // Submit to Netlify
+            const response = await fetch('/', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: params.toString()
+            });
+
+            if (response.ok) {
+              // Show success message
+              const modalBody = estimateForm.closest('.modal-body');
+              modalBody.innerHTML = `
                 <div style="text-align: center; padding: 40px;">
                   <i class="fas fa-check-circle" style="font-size: 48px; color: #28a745; margin-bottom: 20px;"></i>
                   <h3>Thank You!</h3>
@@ -276,23 +282,29 @@ const ModalSystem = {
                 </div>
               `;
 
-                // Close modal after 3 seconds
-                setTimeout(() => {
-                  window.ModalSystem.close('estimate-modal');
-                  // Reload page to reset form
-                  location.reload();
-                }, 3000);
-              } else {
-                throw new Error('Form submission failed');
-              }
-            })
-            .catch((error) => {
-              console.error('Error:', error);
-              alert(
-                'There was an error submitting the form. Please try again.'
-              );
-            });
+              // Close modal after 3 seconds
+              setTimeout(() => {
+                window.ModalSystem.close('estimate-modal');
+                // Reset form for next use
+                estimateForm.reset();
+                // Restore original modal content
+                location.reload();
+              }, 3000);
+            } else {
+              throw new Error('Form submission failed');
+            }
+          } catch (error) {
+            console.error('Error submitting form:', error);
+            
+            // Re-enable submit button
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalButtonText;
+            
+            // Show error message
+            alert('There was an error submitting the form. Please try again or call us directly.');
+          }
         });
+        */
       }
     }
   },
@@ -303,7 +315,6 @@ const ModalSystem = {
    * =====================================================
    */
   initServiceModals: function () {
-    // Store reference to ModalSystem for use in callbacks
     const modalSystem = this;
 
     // Service modal configurations
@@ -354,14 +365,8 @@ const ModalSystem = {
 
     console.log('Initializing financing modal...');
 
-    // Store reference to ModalSystem for use in callbacks
     const modalSystem = this;
 
-    /**
-     * =====================================================
-     * FINANCING MODAL REGISTRATION
-     * =====================================================
-     */
     this.register('financingApplicationModal', {
       onOpen: function (modal, data) {
         console.log('Opening financing modal with data:', data);
@@ -471,7 +476,6 @@ const ModalSystem = {
 
         console.log('Button data:', data);
 
-        // Use modalSystem instead of 'this' since we're inside an event handler
         modalSystem.open('financingApplicationModal', data);
       });
     });
@@ -528,7 +532,7 @@ const ModalSystem = {
 
         form.parentNode.appendChild(successDiv);
 
-        // Close modal after delay - use modalSystem instead of 'this'
+        // Close modal after delay
         setTimeout(() => {
           modalSystem.close('financingApplicationModal');
         }, 3000);

@@ -255,15 +255,22 @@ const ModalSystem = {
       this.setupEstimatePhoneFormatting();
     }
 
-    // Handle estimate trigger links
+    // Handle estimate trigger links - FIXED VERSION
     document.addEventListener('click', (e) => {
+      // Only trigger on actual links or buttons, not just any element with the text
       const estimateLink = e.target.closest(
         'a[href="#estimate"], a[href="/estimate"], .free-estimate-btn'
       );
-      if (
-        estimateLink ||
-        (e.target.textContent && e.target.textContent.includes('Free Estimate'))
-      ) {
+
+      // Check if it's a link/button that contains "Free Estimate" text
+      // but exclude elements inside forms to prevent conflicts
+      const isEstimateButton =
+        e.target.closest('a, button') &&
+        e.target.textContent &&
+        e.target.textContent.includes('Free Estimate') &&
+        !e.target.closest('form'); // Exclude clicks within forms
+
+      if (estimateLink || isEstimateButton) {
         e.preventDefault();
         modalSystem.open('estimate-modal');
       }

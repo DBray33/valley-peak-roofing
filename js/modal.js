@@ -278,7 +278,7 @@ const ModalSystem = {
 
                 // Close modal after 3 seconds
                 setTimeout(() => {
-                  modalSystem.close('estimate-modal');
+                  window.ModalSystem.close('estimate-modal');
                   // Reload page to reset form
                   location.reload();
                 }, 3000);

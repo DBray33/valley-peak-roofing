@@ -287,8 +287,8 @@ const ModalSystem = {
         console.log('Submitting form data:', params.toString());
         console.log('Form name:', params.get('form-name'));
 
-        // Submit to Netlify
-        const response = await fetch('/', {
+        // Submit to Netlify - use current page URL
+        const response = await fetch(window.location.pathname, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -297,6 +297,8 @@ const ModalSystem = {
         });
 
         if (response.ok) {
+          console.log('Form submitted successfully!');
+
           // Show success message
           const formContainer = form.parentElement;
           const successMessage = formContainer.querySelector(
@@ -322,6 +324,13 @@ const ModalSystem = {
             }
           }, 3000);
         } else {
+          console.error(
+            'Form submission failed:',
+            response.status,
+            response.statusText
+          );
+          const text = await response.text();
+          console.error('Response body:', text);
           throw new Error('Form submission failed');
         }
       } catch (error) {

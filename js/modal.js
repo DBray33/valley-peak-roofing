@@ -259,19 +259,19 @@ const ModalSystem = {
     const form = document.getElementById('estimate-form');
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
-      // DO NOT prevent default submission — Netlify needs it
-      const submitButton = form.querySelector('.submit-button');
-      const buttonText = submitButton.querySelector('.button-text');
-      const buttonLoading = submitButton.querySelector('.button-loading');
+    // form.addEventListener('submit', (e) => {
+    //   // DO NOT prevent default submission — Netlify needs it
+    //   const submitButton = form.querySelector('.submit-button');
+    //   const buttonText = submitButton.querySelector('.button-text');
+    //   const buttonLoading = submitButton.querySelector('.button-loading');
 
-      submitButton.disabled = true;
-      buttonText.style.display = 'none';
-      buttonLoading.style.display = 'inline-flex';
+    //   submitButton.disabled = true;
+    //   buttonText.style.display = 'none';
+    //   buttonLoading.style.display = 'inline-flex';
 
-      // Let the browser submit it natively to Netlify
-      // Netlify will handle the POST and redirect to /thank-you
-    });
+    //   // Let the browser submit it natively to Netlify
+    //   // Netlify will handle the POST and redirect to /thank-you
+    // });
   },
 
   /**

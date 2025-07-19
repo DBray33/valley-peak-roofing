@@ -7,13 +7,20 @@
  * =====================================================
  */
 
+/**
+ * =====================================================
+ * MODAL SYSTEM OBJECT DEFINITION
+ * =====================================================
+ */
 const ModalSystem = {
   // Track all registered modals
   modals: {},
   activeModal: null,
 
   /**
-   * Initialize the modal system
+   * =====================================================
+   * INITIALIZATION
+   * =====================================================
    */
   init: function () {
     console.log('Modal System: Initializing...');
@@ -33,7 +40,9 @@ const ModalSystem = {
   },
 
   /**
-   * Register a modal
+   * =====================================================
+   * MODAL REGISTRATION
+   * =====================================================
    */
   register: function (modalId, options = {}) {
     const modal = document.getElementById(modalId);
@@ -63,7 +72,9 @@ const ModalSystem = {
   },
 
   /**
-   * Auto-register all modals found in DOM
+   * =====================================================
+   * AUTO-REGISTRATION
+   * =====================================================
    */
   autoRegisterModals: function () {
     const modals = document.querySelectorAll('.modal, [data-modal]');
@@ -75,7 +86,9 @@ const ModalSystem = {
   },
 
   /**
-   * Open a modal
+   * =====================================================
+   * MODAL OPEN FUNCTIONALITY
+   * =====================================================
    */
   open: function (modalId, data = {}) {
     const modalData = this.modals[modalId];
@@ -118,7 +131,9 @@ const ModalSystem = {
   },
 
   /**
-   * Close a modal
+   * =====================================================
+   * MODAL CLOSE FUNCTIONALITY
+   * =====================================================
    */
   close: function (modalId) {
     const modalData = this.modals[modalId];
@@ -150,7 +165,9 @@ const ModalSystem = {
   },
 
   /**
-   * Close all modals
+   * =====================================================
+   * CLOSE ALL MODALS
+   * =====================================================
    */
   closeAll: function () {
     Object.keys(this.modals).forEach((modalId) => {
@@ -159,7 +176,9 @@ const ModalSystem = {
   },
 
   /**
-   * Setup global event listeners
+   * =====================================================
+   * GLOBAL EVENT LISTENERS
+   * =====================================================
    */
   setupGlobalListeners: function () {
     // Click outside to close
@@ -191,15 +210,20 @@ const ModalSystem = {
   },
 
   /**
-   * Initialize Estimate Modal specific functionality
+   * =====================================================
+   * ESTIMATE MODAL INITIALIZATION
+   * =====================================================
    */
   initEstimateModal: function () {
+    // Store reference to ModalSystem for use in callbacks
+    const modalSystem = this;
+
     // Handle estimate links
     document.addEventListener('click', (e) => {
       const estimateLink = e.target.closest('a[href="#estimate"]');
       if (estimateLink) {
         e.preventDefault();
-        this.open('estimate-modal');
+        modalSystem.open('estimate-modal');
       }
     });
 
@@ -215,7 +239,11 @@ const ModalSystem = {
         },
       });
 
-      // Handle Netlify form submission for estimate forms
+      /**
+       * =====================================================
+       * NETLIFY FORM SUBMISSION HANDLER
+       * =====================================================
+       */
       const estimateForm = document.querySelector(
         'form[name="estimate-popup-homepage"]'
       );
@@ -250,7 +278,7 @@ const ModalSystem = {
 
                 // Close modal after 3 seconds
                 setTimeout(() => {
-                  this.close('estimate-modal');
+                  modalSystem.close('estimate-modal');
                   // Reload page to reset form
                   location.reload();
                 }, 3000);
@@ -270,7 +298,9 @@ const ModalSystem = {
   },
 
   /**
-   * Initialize Service Modals (architectural shingles, metal roof, gutter guard)
+   * =====================================================
+   * SERVICE MODALS INITIALIZATION
+   * =====================================================
    */
   initServiceModals: function () {
     // Store reference to ModalSystem for use in callbacks
@@ -314,17 +344,30 @@ const ModalSystem = {
   },
 
   /**
-   * Initialize Financing Modal specific functionality
+   * =====================================================
+   * FINANCING MODAL INITIALIZATION
+   * =====================================================
    */
   initFinancingModal: function () {
     const financingModal = document.getElementById('financingApplicationModal');
     if (!financingModal) return;
 
-    // Register the modal
+    console.log('Initializing financing modal...');
+
+    // Store reference to ModalSystem for use in callbacks
+    const modalSystem = this;
+
+    /**
+     * =====================================================
+     * FINANCING MODAL REGISTRATION
+     * =====================================================
+     */
     this.register('financingApplicationModal', {
       onOpen: function (modal, data) {
+        console.log('Opening financing modal with data:', data);
+
         // Update modal with plan data if provided
-        if (data.planName) {
+        if (data && data.planName) {
           const elements = {
             planName: modal.querySelector('#financingSelectedPlanName'),
             planCode: modal.querySelector('#financingSelectedPlanCode'),
@@ -334,14 +377,17 @@ const ModalSystem = {
             planNameInput: modal.querySelector('#financingPlanName'),
           };
 
-          if (elements.planName) elements.planName.textContent = data.planName;
-          if (elements.planCode) elements.planCode.textContent = data.planCode;
-          if (elements.term) elements.term.textContent = data.term;
-          if (elements.interest) elements.interest.textContent = data.interest;
+          if (elements.planName)
+            elements.planName.textContent = data.planName || 'N/A';
+          if (elements.planCode)
+            elements.planCode.textContent = data.planCode || 'N/A';
+          if (elements.term) elements.term.textContent = data.term || 'N/A';
+          if (elements.interest)
+            elements.interest.textContent = data.interest || 'N/A';
           if (elements.planCodeInput)
-            elements.planCodeInput.value = data.planCode;
+            elements.planCodeInput.value = data.planCode || '';
           if (elements.planNameInput)
-            elements.planNameInput.value = data.planName;
+            elements.planNameInput.value = data.planName || '';
         }
 
         // Set tracking data
@@ -365,6 +411,10 @@ const ModalSystem = {
           });
         }
 
+        // IMPORTANT: Add the financing-active class for CSS visibility
+        modal.classList.add('financing-active');
+        document.body.style.overflow = 'hidden';
+
         // Focus on first input
         const firstInput = modal.querySelector('#financingFirstName');
         if (firstInput) {
@@ -372,6 +422,12 @@ const ModalSystem = {
         }
       },
       onClose: function (modal) {
+        console.log('Closing financing modal');
+
+        // IMPORTANT: Remove the financing-active class
+        modal.classList.remove('financing-active');
+        document.body.style.overflow = '';
+
         // Reset form
         const form = modal.querySelector('#financingApplicationForm');
         if (form) {
@@ -389,13 +445,22 @@ const ModalSystem = {
       },
     });
 
-    // Handle financing buttons
+    /**
+     * =====================================================
+     * FINANCING BUTTON HANDLERS
+     * =====================================================
+     */
     const financingButtons = document.querySelectorAll(
       '.open-financing-application-modal'
     );
-    financingButtons.forEach((button) => {
+    console.log('Found ' + financingButtons.length + ' financing buttons');
+
+    financingButtons.forEach((button, index) => {
       button.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
+
+        console.log('Financing button ' + (index + 1) + ' clicked');
 
         const data = {
           planName: button.getAttribute('data-financing-plan-name'),
@@ -404,11 +469,43 @@ const ModalSystem = {
           term: button.getAttribute('data-financing-term'),
         };
 
-        this.open('financingApplicationModal', data);
+        console.log('Button data:', data);
+
+        // Use modalSystem instead of 'this' since we're inside an event handler
+        modalSystem.open('financingApplicationModal', data);
       });
     });
 
-    // Handle form submission
+    // Handle close button on the modal itself
+    const closeBtn = financingModal.querySelector('.financing-modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalSystem.close('financingApplicationModal');
+      });
+    }
+
+    // Handle cancel button in form
+    const cancelBtn = financingModal.querySelector('.financing-modal-cancel');
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalSystem.close('financingApplicationModal');
+      });
+    }
+
+    // Click outside modal to close
+    financingModal.addEventListener('click', (e) => {
+      if (e.target === financingModal) {
+        modalSystem.close('financingApplicationModal');
+      }
+    });
+
+    /**
+     * =====================================================
+     * FINANCING FORM SUBMISSION
+     * =====================================================
+     */
     const form = document.getElementById('financingApplicationForm');
     if (form) {
       form.addEventListener('submit', (e) => {
@@ -431,9 +528,9 @@ const ModalSystem = {
 
         form.parentNode.appendChild(successDiv);
 
-        // Close modal after delay
+        // Close modal after delay - use modalSystem instead of 'this'
         setTimeout(() => {
-          this.close('financingApplicationModal');
+          modalSystem.close('financingApplicationModal');
         }, 3000);
 
         // Log form data (replace with actual submission)
@@ -444,7 +541,11 @@ const ModalSystem = {
       });
     }
 
-    // Format phone number
+    /**
+     * =====================================================
+     * PHONE NUMBER FORMATTING
+     * =====================================================
+     */
     const phoneInput = document.getElementById('financingPhone');
     if (phoneInput) {
       phoneInput.addEventListener('input', function (e) {
@@ -467,7 +568,11 @@ const ModalSystem = {
       });
     }
 
-    // Format currency input
+    /**
+     * =====================================================
+     * CURRENCY FORMATTING
+     * =====================================================
+     */
     const amountInput = document.getElementById('financingEstimatedAmount');
     if (amountInput) {
       amountInput.addEventListener('blur', function (e) {
@@ -482,13 +587,23 @@ const ModalSystem = {
         e.target.value = e.target.value.replace(/[$,]/g, '');
       });
     }
+
+    console.log('Financing modal initialization complete');
   },
 };
 
-// Initialize when DOM is ready
+/**
+ * =====================================================
+ * DOM READY INITIALIZATION
+ * =====================================================
+ */
 document.addEventListener('DOMContentLoaded', function () {
   ModalSystem.init();
 });
 
-// Export for use in other scripts
+/**
+ * =====================================================
+ * GLOBAL EXPORT
+ * =====================================================
+ */
 window.ModalSystem = ModalSystem;

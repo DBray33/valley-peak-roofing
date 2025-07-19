@@ -2810,7 +2810,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /**
  * =====================================================
- * ROOF REPLACEMENT TIMELINE ANIMMATION
+ * ROOF REPLACEMENT TIMELINE ANIMATION
  * =====================================================
  */
 // Timeline Animation Script
@@ -2818,6 +2818,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Get the timeline element
   const timeline = document.querySelector('.roof-process-timeline');
   const timelineItems = document.querySelectorAll('.timeline-item');
+
+  // Exit early if timeline doesn't exist on this page
+  if (!timeline) {
+    return;
+  }
 
   // Remove any existing slide-in classes that might interfere
   timelineItems.forEach((item) => {
@@ -2863,12 +2868,15 @@ document.addEventListener('DOMContentLoaded', function () {
   }, observerOptions);
 
   // Start observing the timeline
-  if (timeline) {
-    observer.observe(timeline);
-  }
+  observer.observe(timeline);
 
   // Optional: Reset animations when scrolling far away
   window.addEventListener('scroll', function () {
+    // Check if timeline still exists before using it
+    if (!timeline) {
+      return;
+    }
+
     const rect = timeline.getBoundingClientRect();
     const windowHeight = window.innerHeight;
 

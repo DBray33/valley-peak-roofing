@@ -683,7 +683,34 @@
                   right decision for your home.
                 </p>
 
-                <form class="contact-form" id="contact-estimate-form">
+                <!-- Form with Netlify attributes but keeping all original fields -->
+                <form
+                  class="contact-form"
+                  id="contact-estimate-form"
+                  name="contact-form"
+                  method="POST"
+                  data-netlify="true"
+                  action="/thank-you.html">
+                  <!-- Hidden field for Netlify - MUST match the name attribute exactly -->
+                  <input type="hidden" name="form-name" value="contact-form" />
+
+                  <!-- Page tracking fields -->
+                  <input
+                    type="hidden"
+                    name="page_url"
+                    id="contact_page_url"
+                    value="" />
+                  <input
+                    type="hidden"
+                    name="page_title"
+                    id="contact_page_title"
+                    value="" />
+                  <input
+                    type="hidden"
+                    name="submitted_from"
+                    id="contact_submitted_from"
+                    value="" />
+
                   <div class="form-row">
                     <div class="form-group">
                       <label for="contact-firstName">First Name *</label>
@@ -767,6 +794,28 @@
                 </form>
               </div>
             </div>
+            <!-- Hidden form for Netlify detection -->
+            <form name="contact-form" netlify hidden>
+              <input type="text" name="name" />
+              <input type="text" name="firstName" />
+              <input type="text" name="lastName" />
+              <input type="email" name="email" />
+              <input type="tel" name="phone" />
+              <input type="text" name="address" />
+              <input type="hidden" name="page_url" value="" />
+              <input type="hidden" name="page_title" value="" />
+              <input type="hidden" name="submitted_from" value="" />
+              <select name="service">
+                <option value="">Select a service</option>
+                <option value="roofing">Roofing</option>
+                <option value="siding">Siding</option>
+                <option value="gutters">Gutters</option>
+                <option value="inspection">Free Roof Inspection</option>
+                <option value="emergency">Emergency Repair</option>
+                <option value="consultation">General Consultation</option>
+              </select>
+              <textarea name="message"></textarea>
+            </form>
           </div>
         </div>
       </section>

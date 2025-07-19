@@ -30,7 +30,7 @@ const App = {
       BackToTopButton,
       PortfolioLightbox,
       FAQPageModule,
-      ContactPage,
+      // ContactPage,
       ActiveNavigation,
       RoofDesignPage,
       PortfolioGallery,

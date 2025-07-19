@@ -2298,7 +2298,7 @@
             </p>
           </div>
 
-          <!-- Form -->
+          <!-- Form - IMPORTANT: All Netlify attributes must be present -->
           <form
             class="estimate-form"
             id="estimate-form"
@@ -2306,7 +2306,7 @@
             method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
-            action="/thank-you">
+            action="/thank-you.html">
             <!-- Honeypot field for spam protection -->
             <p class="hidden">
               <label>
@@ -2315,7 +2315,7 @@
               </label>
             </p>
 
-            <!-- Hidden field for Netlify - MUST match exactly -->
+            <!-- Hidden field for Netlify - MUST match the name attribute exactly -->
             <input type="hidden" name="form-name" value="estimate-form" />
 
             <div class="form-row">
@@ -2434,6 +2434,8 @@
         </div>
       </div>
     </div>
+
+    <!-- Netlify Forms require a hidden HTML version for detection during build -->
 
     <!-- ARCHITECTURAL SHINGLES MODAL -->
     <div class="modal" id="architectural-shingles-modal">
@@ -2673,24 +2675,30 @@
         videoWrapper.appendChild(iframe);
       }
     </script>
-    <!-- Netlify fallback form detection -->
-    <form
-      name="estimate-form"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      hidden>
+    <!-- Netlify Forms require a hidden HTML version for detection during build -->
+    <!-- This MUST be placed outside the modal and match the form structure exactly -->
+    <form name="estimate-form" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
       <input type="text" name="firstName" />
       <input type="text" name="lastName" />
       <input type="email" name="email" />
       <input type="tel" name="phone" />
       <input type="text" name="address" />
-      <input type="text" name="service" />
+      <select name="service">
+        <option value="">Select a service</option>
+        <option value="roof-replacement">Roof Replacement</option>
+        <option value="roof-repair">Roof Repair</option>
+        <option value="new-construction">New Construction</option>
+        <option value="storm-damage">Storm Damage Assessment</option>
+        <option value="maintenance">Roof Maintenance</option>
+        <option value="gutters">Gutters</option>
+        <option value="siding">Siding</option>
+        <option value="not-sure">Not Sure - Need Inspection</option>
+      </select>
       <textarea name="message"></textarea>
       <input type="radio" name="preferredContact" value="phone" />
       <input type="radio" name="preferredContact" value="email" />
       <input type="radio" name="preferredContact" value="text" />
-      <input type="text" name="bot-field" />
     </form>
   </body>
 </html>

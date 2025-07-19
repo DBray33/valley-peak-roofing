@@ -2318,6 +2318,15 @@
             <!-- Hidden field for Netlify - MUST match the name attribute exactly -->
             <input type="hidden" name="form-name" value="estimate-form" />
 
+            <!-- Page tracking fields -->
+            <input type="hidden" name="page_url" id="page_url" value="" />
+            <input type="hidden" name="page_title" id="page_title" value="" />
+            <input
+              type="hidden"
+              name="submitted_from"
+              id="submitted_from"
+              value="" />
+
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name *</label>
@@ -2435,7 +2444,35 @@
       </div>
     </div>
 
-    <!-- Netlify Forms require a hidden HTML version for detection during build -->
+    <!-- HIDDEN ESTIMATE FORM -->
+    <!-- This form is hidden and used for Netlify submissions -->
+    <form name="estimate-form" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="address" />
+      <!-- Page tracking fields -->
+      <input type="hidden" name="page_url" value="" />
+      <input type="hidden" name="page_title" value="" />
+      <input type="hidden" name="submitted_from" value="" />
+      <select name="service">
+        <option value="">Select a service</option>
+        <option value="roof-replacement">Roof Replacement</option>
+        <option value="roof-repair">Roof Repair</option>
+        <option value="new-construction">New Construction</option>
+        <option value="storm-damage">Storm Damage Assessment</option>
+        <option value="maintenance">Roof Maintenance</option>
+        <option value="gutters">Gutters</option>
+        <option value="siding">Siding</option>
+        <option value="not-sure">Not Sure - Need Inspection</option>
+      </select>
+      <textarea name="message"></textarea>
+      <input type="radio" name="preferredContact" value="phone" />
+      <input type="radio" name="preferredContact" value="email" />
+      <input type="radio" name="preferredContact" value="text" />
+    </form>
 
     <!-- ARCHITECTURAL SHINGLES MODAL -->
     <div class="modal" id="architectural-shingles-modal">
@@ -2675,30 +2712,5 @@
         videoWrapper.appendChild(iframe);
       }
     </script>
-    <!-- Netlify Forms require a hidden HTML version for detection during build -->
-    <!-- This MUST be placed outside the modal and match the form structure exactly -->
-    <form name="estimate-form" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="bot-field" />
-      <input type="text" name="firstName" />
-      <input type="text" name="lastName" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <input type="text" name="address" />
-      <select name="service">
-        <option value="">Select a service</option>
-        <option value="roof-replacement">Roof Replacement</option>
-        <option value="roof-repair">Roof Repair</option>
-        <option value="new-construction">New Construction</option>
-        <option value="storm-damage">Storm Damage Assessment</option>
-        <option value="maintenance">Roof Maintenance</option>
-        <option value="gutters">Gutters</option>
-        <option value="siding">Siding</option>
-        <option value="not-sure">Not Sure - Need Inspection</option>
-      </select>
-      <textarea name="message"></textarea>
-      <input type="radio" name="preferredContact" value="phone" />
-      <input type="radio" name="preferredContact" value="email" />
-      <input type="radio" name="preferredContact" value="text" />
-    </form>
   </body>
 </html>

@@ -653,6 +653,27 @@ const ModalSystem = {
  */
 document.addEventListener('DOMContentLoaded', function () {
   ModalSystem.init();
+
+  // Populate contact form tracking fields
+  const contactForm = document.querySelector('form[name="contact-form"]');
+  if (contactForm) {
+    const pageUrlField = contactForm.querySelector('#contact_page_url');
+    const pageTitleField = contactForm.querySelector('#contact_page_title');
+    const submittedFromField = contactForm.querySelector(
+      '#contact_submitted_from'
+    );
+
+    if (pageUrlField) pageUrlField.value = window.location.href;
+    if (pageTitleField) pageTitleField.value = document.title;
+    if (submittedFromField) {
+      const path = window.location.pathname;
+      const pageName =
+        path === '/'
+          ? 'homepage'
+          : path.replace(/\//g, '').replace('.html', '');
+      submittedFromField.value = pageName;
+    }
+  }
 });
 
 /**

@@ -2,7 +2,7 @@
  * =====================================================
  * UNIFIED MODAL SYSTEM - CLEANED VERSION
  * =====================================================
- * Removed estimate modal functionality
+ * Estimate modal is supported via native Netlify submission
  * =====================================================
  */
 
@@ -259,121 +259,18 @@ const ModalSystem = {
     const form = document.getElementById('estimate-form');
     if (!form) return;
 
-    const modalSystem = this;
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
+    form.addEventListener('submit', (e) => {
+      // DO NOT prevent default submission — Netlify needs it
       const submitButton = form.querySelector('.submit-button');
       const buttonText = submitButton.querySelector('.button-text');
       const buttonLoading = submitButton.querySelector('.button-loading');
 
-      // Disable submit button and show loading state
       submitButton.disabled = true;
       buttonText.style.display = 'none';
       buttonLoading.style.display = 'inline-flex';
 
-      try {
-        // Create FormData from the form
-        const formData = new FormData(form);
-
-        // Convert FormData to URLSearchParams for proper encoding
-        const params = new URLSearchParams();
-        for (const pair of formData) {
-          params.append(pair[0], pair[1]);
-        }
-
-        // Debug: Log what we're sending
-        console.log('=== FORM SUBMISSION DEBUG ===');
-        console.log('Form data being sent:', params.toString());
-        console.log('Form name:', params.get('form-name'));
-        console.log('All form fields:');
-        for (const [key, value] of params) {
-          console.log(`  ${key}: ${value}`);
-        }
-        console.log('Submitting to:', window.location.pathname);
-        console.log('===========================');
-
-        // Submit to Netlify - use current page URL
-        const response = await fetch(window.location.pathname, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: params.toString(),
-        });
-
-        console.log('Response status:', response.status);
-        console.log('Response OK:', response.ok);
-
-        if (response.ok) {
-          console.log('Form submitted successfully!');
-
-          // Show success message
-          const formContainer = form.parentElement;
-          const successMessage = formContainer.querySelector(
-            '.estimate-success-message'
-          );
-
-          if (successMessage) {
-            form.style.display = 'none';
-            successMessage.style.display = 'block';
-          } else {
-            // Fallback if success message element not found
-            alert(
-              "Thank you! We've received your request and will contact you within 24 hours."
-            );
-          }
-
-          // Reset form
-          form.reset();
-
-          // Close modal after 3 seconds
-          setTimeout(() => {
-            modalSystem.close('estimate-modal');
-
-            // Reset the modal to show form again for next time
-            if (successMessage && form) {
-              form.style.display = 'flex';
-              successMessage.style.display = 'none';
-            }
-          }, 3000);
-        } else {
-          console.error(
-            'Form submission failed:',
-            response.status,
-            response.statusText
-          );
-          const text = await response.text();
-          console.error('Response body:', text);
-          throw new Error('Form submission failed');
-        }
-      } catch (error) {
-        console.error('Error submitting form:', error);
-
-        // Check if it's actually a success despite the error
-        if (error.message && error.message.includes('style')) {
-          // The form might have submitted successfully but there's a UI error
-          alert(
-            "Thank you! Your form has been submitted. We'll contact you within 24 hours."
-          );
-
-          // Reset and close
-          form.reset();
-          setTimeout(() => {
-            modalSystem.close('estimate-modal');
-          }, 2000);
-        } else {
-          alert(
-            'There was an error submitting your request. Please try again or call us directly.'
-          );
-        }
-      } finally {
-        // Re-enable submit button
-        submitButton.disabled = false;
-        buttonText.style.display = 'inline-flex';
-        buttonLoading.style.display = 'none';
-      }
+      // Let the browser submit it natively to Netlify
+      // Netlify will handle the POST and redirect to /thank-you
     });
   },
 

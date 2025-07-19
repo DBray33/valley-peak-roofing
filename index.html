@@ -2304,7 +2304,13 @@
             class="estimate-form"
             name="estimate-popup-homepage"
             method="POST"
-            data-netlify="true">
+            data-netlify="true"
+            netlify-honeypot="bot-field">
+            <!-- Add honeypot field for spam protection -->
+            <p style="display: none">
+              <label>Don't fill this out: <input name="bot-field" /></label>
+            </p>
+
             <!-- Hidden field for Netlify to recognize the form -->
             <input
               type="hidden"

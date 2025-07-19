@@ -242,33 +242,32 @@ const ModalSystem = {
       );
 
       if (estimateForm) {
-        // Comment out the JavaScript handler to let Netlify handle the form naturally
-        // If forms start working, we can add back a modified version
-        /*
+        // Add action attribute to ensure form submits correctly
+        estimateForm.setAttribute('action', '/');
+
         estimateForm.addEventListener('submit', async (e) => {
           e.preventDefault();
 
           // Disable submit button to prevent double submission
-          const submitButton = estimateForm.querySelector('button[type="submit"]');
+          const submitButton = estimateForm.querySelector(
+            'button[type="submit"]'
+          );
           const originalButtonText = submitButton.innerHTML;
           submitButton.disabled = true;
-          submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+          submitButton.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Submitting...';
 
           try {
             // Create FormData object
             const formData = new FormData(estimateForm);
-            
-            // Convert to URLSearchParams for proper encoding
-            const params = new URLSearchParams();
-            for (const pair of formData) {
-              params.append(pair[0], pair[1]);
-            }
+
+            // IMPORTANT: Ensure form-name is included
+            formData.append('form-name', 'estimate-popup-homepage');
 
             // Submit to Netlify
             const response = await fetch('/', {
               method: 'POST',
-              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-              body: params.toString()
+              body: formData,
             });
 
             if (response.ok) {
@@ -285,9 +284,7 @@ const ModalSystem = {
               // Close modal after 3 seconds
               setTimeout(() => {
                 window.ModalSystem.close('estimate-modal');
-                // Reset form for next use
-                estimateForm.reset();
-                // Restore original modal content
+                // Reload page to reset everything
                 location.reload();
               }, 3000);
             } else {
@@ -295,16 +292,17 @@ const ModalSystem = {
             }
           } catch (error) {
             console.error('Error submitting form:', error);
-            
+
             // Re-enable submit button
             submitButton.disabled = false;
             submitButton.innerHTML = originalButtonText;
-            
+
             // Show error message
-            alert('There was an error submitting the form. Please try again or call us directly.');
+            alert(
+              'There was an error submitting the form. Please try again or call us directly.'
+            );
           }
         });
-        */
       }
     }
   },

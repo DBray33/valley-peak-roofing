@@ -1279,7 +1279,32 @@
               <h4>Your Free Estimate Form</h4>
             </div>
 
-            <form class="roof-contact-form" action="#" method="POST">
+            <form
+              class="roof-contact-form"
+              name="contact-form"
+              method="POST"
+              action="/thank-you.html"
+              data-netlify="true">
+              <!-- Hidden field for Netlify to recognize the form -->
+              <input type="hidden" name="form-name" value="contact-form" />
+
+              <!-- Page tracking fields -->
+              <input
+                type="hidden"
+                name="page_url"
+                id="contact_page_url"
+                value="" />
+              <input
+                type="hidden"
+                name="page_title"
+                id="contact_page_title"
+                value="" />
+              <input
+                type="hidden"
+                name="submitted_from"
+                id="contact_submitted_from"
+                value="" />
+
               <div class="roof-form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" required />
@@ -1359,6 +1384,23 @@
         </div>
       </div>
     </section>
+
+    <!-- Hidden form for Netlify detection -->
+    <form name="contact-form" netlify hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="hidden" name="page_url" value="" />
+      <input type="hidden" name="page_title" value="" />
+      <input type="hidden" name="submitted_from" value="" />
+      <select name="service">
+        <option value="">Select a service</option>
+        <option value="roofing">Roofing</option>
+        <option value="siding">Siding</option>
+        <option value="gutters">Gutters</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
 
     <!-- BACK TO TOP BUTTON HTML -->
     <button id="back-to-top" class="back-to-top" aria-label="Back to top">

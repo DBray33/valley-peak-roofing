@@ -16933,7 +16933,7 @@ body {
   background: var(--white);
 }
 
-.gallery-carousel-wrapper {
+.gallery-carousel-container {
   max-width: 1000px;
   margin: 0 auto;
   background: var(--white);
@@ -16943,14 +16943,29 @@ body {
   position: relative;
 }
 
-.gallery-carousel .carousel-inner {
-  border-radius: var(--border-radius);
+.gallery-carousel {
+  position: relative;
   overflow: hidden;
+  border-radius: var(--border-radius);
+  height: 550px; /* Fixed height */
+}
+
+.gallery-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 100%;
 }
 
 .gallery-slide {
+  min-width: 100%;
   position: relative;
-  height: 550px;
+  height: 100%;
+  opacity: 1; /* All slides visible */
+}
+
+/* Remove the active opacity changes */
+.gallery-slide.active {
+  /* Removed opacity change */
 }
 
 .gallery-image {
@@ -16981,92 +16996,115 @@ body {
   opacity: 0.9;
 }
 
-/* Carousel Controls */
-.gallery-carousel .carousel-control-prev,
-.gallery-carousel .carousel-control-next {
+/* Navigation Buttons */
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 40px;
   height: 40px;
   background: var(--primary-color);
+  border: none;
   border-radius: 50%;
-  opacity: 1;
-  top: 50%;
-  transform: translateY(-50%);
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.gallery-carousel .carousel-control-prev {
-  left: -20px;
-}
-
-.gallery-carousel .carousel-control-next {
-  right: -20px;
-}
-
-.gallery-carousel .carousel-control-prev:hover,
-.gallery-carousel .carousel-control-next:hover {
+.gallery-nav:hover {
   background: var(--primary-dark);
-  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
 }
 
-/* Carousel Indicators */
-.gallery-carousel .carousel-indicators {
+.gallery-nav-prev {
+  left: 20px; /* Changed from -20px to keep inside */
+}
+
+.gallery-nav-next {
+  right: 20px; /* Changed from -20px to keep inside */
+}
+
+/* Dots Indicator */
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
   position: absolute;
   bottom: 20px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0;
-  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
-.gallery-carousel .carousel-indicators [data-bs-target] {
+.gallery-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   border: none;
-  opacity: 1;
-  transition: var(--transition);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.gallery-carousel .carousel-indicators .active {
-  background-color: var(--white);
+.gallery-dot.active {
+  background: var(--white);
+  width: 24px;
+  border-radius: 4px;
 }
 
-/* Gallery - Tablet */
+/* Tablet Styles */
 @media (max-width: 768px) {
+  .gallery-carousel-container {
+    padding: 30px;
+  }
+
   .gallery-slide {
     height: 400px;
   }
 
-  .gallery-carousel .carousel-control-prev,
-  .gallery-carousel .carousel-control-next {
+  .gallery-nav {
     width: 35px;
     height: 35px;
   }
 
-  .gallery-carousel .carousel-control-prev {
-    left: -15px;
+  .gallery-nav-prev {
+    left: 15px; /* Adjusted for tablet */
   }
 
-  .gallery-carousel .carousel-control-next {
-    right: -15px;
+  .gallery-nav-next {
+    right: 15px; /* Adjusted for tablet */
   }
 }
 
-/* Gallery - Mobile */
+/* Mobile Styles */
 @media (max-width: 480px) {
-  .gallery-carousel-wrapper {
+  .gallery-carousel-container {
     padding: 20px;
   }
 
-  .gallery-carousel .carousel-control-prev,
-  .gallery-carousel .carousel-control-next {
-    display: none;
+  .gallery-slide {
+    height: 300px;
   }
 
-  .gallery-slide {
-    height: 350px;
+  .gallery-nav {
+    display: none; /* Hide nav buttons on mobile */
+  }
+
+  .gallery-caption h4 {
+    font-size: 20px;
+  }
+
+  .gallery-caption p {
+    font-size: 14px;
+  }
+
+  .gallery-dots {
+    bottom: 15px;
   }
 }
 

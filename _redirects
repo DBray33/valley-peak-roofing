@@ -16,7 +16,7 @@
 /siding-installation/               /siding-installation.html               301
 /gutter-maintenance-installation/   /gutter-maintenance-installation.html   301
 /skylight-installation-and-repair/  /skylight-installation-and-repair.html  301
-/back-the-blue/              /back-the-blue.html                 301
+/back-the-blue/              /back-the-blue.html              301
 
 # Service Area Pages
 /lehigh-county/              /roofing-services-in-lehigh-county.html        301
@@ -45,9 +45,9 @@
 
 # Removed/Deprecated Pages
 /roof-installation/          /roof-replacement-installation.html 301
-/thank-you/                  /contact.html                       301
+/thank-you/                  /thank-you.html                     301
 /budget-roof-cost/           /budget-roof-cost.html              301
-/architectural-shingles/     /our-services.html                  301
+/architectural-shingles/     /roof-replacement-installation.html 301
 /metal-roof-installation/    /roof-replacement-installation.html 301
 
 # City Pages (redirect to service areas)
@@ -62,3 +62,6 @@
 /emmaus-pa/                  /roofing-services-in-lehigh-county.html        301
 /hellertown-pa/              /roofing-services-in-northampton-county.html   301
 /macungie-pa/                /roofing-services-in-lehigh-county.html        301
+
+# Handle www to non-www (if not handled by Netlify domain settings)
+https://www.valleypeakroof.com/* https://valleypeakroof.com/:splat 301!

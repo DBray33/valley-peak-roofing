@@ -1,30 +1,6 @@
 .
-├── assets
-│   └── images
-│       ├── design-your-roof-page
-│       │   ├── design-your-roof-hero-bg.jpg
-│       │   └── owens-corning-samples
-│       │       ├── bourbon.webp
-│       │       ├── estate-gray.jpg
-│       │       ├── onyx-black.webp
-│       │       ├── summer-harvest.jpg
-│       │       ├── teak.webp
-│       │       └── terracotta.jpg
-│       ├── faq-page-hero-bg.jpg
-│       ├── our-company-page
-│       ├── our-work-page
-│       │   ├── flyover-placeholder.png
-│       │   └── flyover.mov
-│       └── roof-replacement-installation-page
-│           ├── SF-Logo-1.webp
-│           ├── architectural-shingles-2.jpg
-│           ├── architectural-shingles.jpg
-│           ├── asphalt-shingles.jpg
-│           ├── financing-bg.jpg
-│           ├── home-roof-installation-hero-bg-vid.mp4
-│           ├── metal-roof.jpg
-│           ├── roof-texture-bg.jpg
-│           └── specialty-roof.jpg
+├── _redirects
+├── back-the-blue.html
 ├── blog
 │   ├── best-month-roof-replacement.html
 │   ├── black-streaks-on-roof-causes.html
@@ -43,30 +19,36 @@
 ├── commercial-roofing.html
 ├── contact.html
 ├── css
+│   ├── blog.css
+│   ├── buttons.css
 │   ├── footer.css
+│   ├── modal.css
 │   ├── navbar.css
 │   └── styles.css
 ├── design-your-roof.html
 ├── gutter-maintenance-installation.html
 ├── index.html
 ├── james-hardie.html
+├── js
+│   ├── modal.js
+│   └── scripts.js
 ├── our-blog.html
 ├── our-company.html
-├── our-services.html
 ├── our-work.html
 ├── privacy-policy.html
 ├── residential-roof-repairs.html
+├── roof-financing-options.html
 ├── roof-replacement-installation.html
 ├── roofing-services-in-berks-county.html
 ├── roofing-services-in-lehigh-county.html
 ├── roofing-services-in-northampton-county.html
 ├── roofing-siding-gutter-faqs.html
-├── scripts.js
 ├── service-areas.html
 ├── siding-installation.html
-├── sitemap.txt
+├── sitelist.txt
 ├── sitemap.xml
 ├── skylight-installation-and-repair.html
-└── terms.html
+├── terms.html
+└── thank-you.html
 
-10 directories, 60 files
+4 directories, 48 files

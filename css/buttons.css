@@ -11,7 +11,7 @@
 
   /* Secondary Button - Dark Blue with White Text */
   --btn-secondary: var(--dark-blue);
-  --btn-secondary-hover: var(--orange-accent);
+  --btn-secondary-hover: #d85508; /* Darker orange for better contrast */
 
   /* Success Button - Green (not in main variables) */
   --btn-success: #198754;
@@ -107,8 +107,8 @@
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: var(--orange-accent);
-  color: var(--dark-blue);
+  background-color: var(--btn-secondary-hover); /* Using darker orange */
+  color: var(--btn-text-light); /* Keep white text for contrast */
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(241, 98, 10, 0.25);
 }
@@ -209,20 +209,20 @@
  * =====================================================
  */
 
-/* Emergency Button Override */
+/* Emergency Button Override - IMPROVED CONTRAST */
 .emergency-btn.btn-primary {
-  background: var(--white) !important;
-  color: var(--orange-accent) !important;
-  border-color: var(--white) !important;
+  background: #2d3e50 !important; /* Dark background */
+  color: var(--white) !important; /* White text for contrast */
+  border-color: #2d3e50 !important;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .emergency-btn.btn-primary:hover {
-  background: #2d3e50 !important;
+  background: #1a252f !important; /* Even darker on hover */
   color: var(--white) !important;
-  border-color: #2d3e50 !important;
+  border-color: #1a252f !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }

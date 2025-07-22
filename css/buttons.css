@@ -6,8 +6,8 @@
  */
 :root {
   /* Button color mappings using existing variables */
-  --btn-primary: var(--primary-color);
-  --btn-primary-hover: var(--primary-dark);
+  --btn-primary: #9a8d6f; /* Darker tan for better contrast */
+  --btn-primary-hover: #7a6d4f; /* Even darker on hover */
 
   /* Secondary Button - Dark Blue with White Text */
   --btn-secondary: var(--dark-blue);
@@ -18,15 +18,15 @@
   --btn-success-hover: #157347;
 
   /* Danger Button - Orange */
-  --btn-danger: var(--orange-accent);
-  --btn-danger-hover: #d85508;
+  --btn-danger: #d85508; /* Darker orange for contrast */
+  --btn-danger-hover: #b54708; /* Even darker on hover */
 
   /* White Button */
   --btn-white: var(--white);
   --btn-white-hover: var(--light-bg);
 
   /* Text Colors */
-  --btn-text-dark: var(--text-dark);
+  --btn-text-dark: #1a1a1a; /* Very dark for maximum contrast */
   --btn-text-light: var(--white);
 
   /* Button Properties */
@@ -47,7 +47,7 @@
   padding: 10px 20px;
   font-family: inherit;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600; /* Increased weight for better readability */
   line-height: 1.5;
   text-decoration: none;
   border: none;
@@ -64,15 +64,15 @@
   display: none !important;
 }
 
-/* Focus State */
+/* Focus State - High contrast */
 .btn:focus {
-  outline: 2px solid currentColor;
+  outline: 3px solid #0066cc;
   outline-offset: 2px;
 }
 
 /* Disabled State */
 .btn:disabled {
-  opacity: 0.6;
+  opacity: 0.7; /* Not too faint */
   cursor: not-allowed;
 }
 
@@ -82,21 +82,23 @@
  * =====================================================
  */
 
-/* PRIMARY BUTTON - Gold/Tan */
+/* PRIMARY BUTTON - Darker Gold/Tan for contrast */
 .btn-primary {
   background-color: var(--btn-primary);
   color: var(--btn-text-light);
+  font-weight: 600;
 }
 
 .btn-primary:hover:not(:disabled) {
   background-color: var(--btn-primary-hover);
+  color: var(--btn-text-light);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(181, 168, 129, 0.25);
+  box-shadow: 0 4px 12px rgba(122, 109, 79, 0.3);
 }
 
 .btn-primary:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(181, 168, 129, 0.25);
+  box-shadow: 0 2px 6px rgba(122, 109, 79, 0.3);
 }
 
 /* SECONDARY BUTTON - Dark Blue BG with White Text */
@@ -107,10 +109,10 @@
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: var(--btn-secondary-hover); /* Using darker orange */
+  background-color: var(--btn-secondary-hover); /* Darker orange */
   color: var(--btn-text-light); /* Keep white text for contrast */
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(241, 98, 10, 0.25);
+  box-shadow: 0 4px 12px rgba(213, 85, 8, 0.3);
 }
 
 .btn-secondary:active:not(:disabled) {
@@ -122,6 +124,7 @@
 .btn-success {
   background-color: var(--btn-success);
   color: var(--btn-text-light);
+  font-weight: 600;
 }
 
 .btn-success:hover:not(:disabled) {
@@ -135,34 +138,38 @@
   box-shadow: 0 2px 6px rgba(25, 135, 84, 0.25);
 }
 
-/* DANGER BUTTON - Orange */
+/* DANGER BUTTON - Darker Orange for contrast */
 .btn-danger {
   background-color: var(--btn-danger);
   color: var(--btn-text-light);
+  font-weight: 600;
 }
 
 .btn-danger:hover:not(:disabled) {
   background-color: var(--btn-danger-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(241, 98, 10, 0.25);
+  box-shadow: 0 4px 12px rgba(181, 71, 8, 0.3);
 }
 
 .btn-danger:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(241, 98, 10, 0.25);
+  box-shadow: 0 2px 6px rgba(181, 71, 8, 0.3);
 }
 
 /* WHITE BUTTON - For Dark Backgrounds */
 .btn-white {
   background-color: var(--btn-white);
-  color: var(--btn-text-dark);
-  border: 1px solid var(--border-color);
+  color: var(--btn-text-dark); /* Very dark text for contrast */
+  border: 1px solid #d0d0d0; /* Visible border */
+  font-weight: 600;
 }
 
 .btn-white:hover:not(:disabled) {
-  background-color: var(--btn-white-hover);
+  background-color: #f5f5f5;
+  color: var(--btn-text-dark);
   transform: translateY(-1px);
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #b0b0b0;
 }
 
 .btn-white:active:not(:disabled) {
@@ -274,12 +281,12 @@
   justify-content: center;
   gap: 8px;
   padding: 12px 20px;
-  background-color: var(--btn-primary);
+  background-color: #9a8d6f; /* Darker tan for contrast */
   color: var(--btn-text-light);
   border: 2px solid #000000;
   border-radius: 50px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700; /* Bolder for readability */
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -312,7 +319,7 @@
 
 /* Hover */
 .floating-phone-link:hover {
-  background-color: var(--btn-primary-hover);
+  background-color: #7a6d4f; /* Darker on hover */
   color: var(--btn-text-light) !important;
   transform: translateY(-1px);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 0 #000000,
@@ -338,9 +345,9 @@
   opacity: 0.4;
 }
 
-/* Focus */
+/* Focus - High contrast */
 .floating-phone-link:focus {
-  outline: 2px solid var(--btn-primary);
+  outline: 3px solid #0066cc;
   outline-offset: 2px;
 }
 
@@ -366,13 +373,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--primary-color);
+  background: #9a8d6f; /* Darker tan for contrast */
   color: var(--white) !important;
   padding: 12px 20px;
   border: 2px solid #000000;
   border-radius: 50px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700; /* Bolder for readability */
   font-size: 16px;
   transition: all 0.3s ease;
   white-space: nowrap;
@@ -402,7 +409,7 @@
   position: absolute;
   top: -8px;
   right: -8px;
-  background: #ff4444;
+  background: #cc0000; /* Darker red for contrast */
   color: white;
   font-size: 10px;
   font-weight: 700;
@@ -414,7 +421,7 @@
 
 /* Hover */
 .floating-financing-link:hover {
-  background: var(--primary-dark);
+  background: #7a6d4f; /* Darker on hover */
   color: var(--white) !important;
   transform: translateY(-1px);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 0 #000000,
@@ -438,6 +445,12 @@
   bottom: -2px;
   width: 75%;
   opacity: 0.4;
+}
+
+/* Focus - High contrast */
+.floating-financing-link:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
 }
 
 /* Icon */
@@ -598,7 +611,7 @@
   /* Remove hover on mobile */
   .floating-phone-link:hover {
     transform: none;
-    background-color: var(--btn-primary);
+    background-color: #9a8d6f;
   }
 
   /* Touch feedback */
@@ -627,6 +640,38 @@
   }
 }
 
+/* Small Mobile (480px) */
+@media (max-width: 480px) {
+  /* Floating buttons */
+  .floating-phone {
+    top: 90px;
+    right: 10px;
+    max-width: calc(100% - 10px);
+  }
+
+  .floating-financing {
+    left: 10px;
+  }
+
+  .floating-phone-link,
+  .floating-financing-link {
+    padding: 8px 12px;
+    font-size: 12px;
+    max-width: 100%;
+  }
+
+  /* General buttons */
+  .btn {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .btn-large {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
 /**
  * =====================================================
  * CARD-SPECIFIC BUTTON FIXES
@@ -645,36 +690,42 @@
   padding: 8px 16px;
   font-size: 14px;
 }
-/* Floating buttons */
-.floating-phone {
-  top: 90px;
-  right: 10px;
-  max-width: calc(100% - 10px);
+
+/**
+ * =====================================================
+ * ACCESSIBILITY ENHANCEMENTS
+ * =====================================================
+ */
+
+/* Skip link for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000000;
+  color: #ffffff;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
+  font-weight: 600;
 }
 
-.floating-financing {
-  left: 10px;
+.skip-link:focus {
+  top: 0;
 }
 
-.floating-phone-link,
-.floating-financing-link {
-  padding: 8px 12px;
-  font-size: 12px;
-  max-width: 100%;
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn {
+    border: 2px solid currentColor;
+  }
+
+  .btn:focus {
+    outline-width: 4px;
+  }
 }
 
-/* General buttons */
-.btn {
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-.btn-large {
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-/* Accessibility - Reduced Motion */
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   .btn,
   .floating-phone,

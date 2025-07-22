@@ -2131,11 +2131,15 @@ body {
 }
 
 .google-reviews-see-all-btn {
-  background: #2d8e47;
+  background: #ffffff; /* White background */
+  color: #1a5d2e; /* Dark green text - 7.4:1 contrast ratio */
+  border: 1px solid #1a5d2e; /* Add border for definition */
 }
 
 .google-reviews-see-all-btn:hover {
-  background: #34a853;
+  background: #f0f7f2; /* Very light green background on hover */
+  color: #14491f; /* Even darker green on hover */
+  border-color: #14491f;
 }
 
 /* Responsive Design */

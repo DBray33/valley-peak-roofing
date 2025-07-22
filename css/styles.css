@@ -9978,7 +9978,7 @@ body {
 .roof-form-header h3 {
   font-size: 1.2rem;
   color: #ffffff; /* white text for contrast */
-  background-color: var(--orange-accent); /* orange accent background */
+  background-color: var(--dark-blue); /* orange accent background */
   font-weight: 600;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
@@ -10052,7 +10052,7 @@ body {
 .roof-why-choose-sidebar h3 {
   font-size: 1.2rem;
   color: #ffffff; /* set to white for better contrast on orange background */
-  background-color: var(--orange-accent); /* switched back to orange accent */
+  background-color: var(--dark-blue); /* switched back to orange accent */
   font-weight: 600;
   margin-bottom: 0.5rem;
   text-transform: uppercase;

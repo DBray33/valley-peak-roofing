@@ -8,46 +8,6 @@
 
 /**
  * =====================================================
- * TESTIMONIAL CAROUSEL MODULE (Bootstrap Version)
- * =====================================================
- */
-const TestimonialCarousel = {
-  init: function () {
-    console.log('Initializing TestimonialCarousel');
-
-    // Initialize review button handlers
-    this.initReviewButtonHandlers();
-
-    // Optional: Add event listeners for Bootstrap carousel events
-    const carousel = document.getElementById('testimonialCarousel');
-    if (carousel) {
-      // Log carousel events (optional - remove in production)
-      carousel.addEventListener('slide.bs.carousel', (event) => {
-        console.log('Testimonial sliding from:', event.from, 'to:', event.to);
-      });
-
-      // You can add more event handlers here if needed
-      carousel.addEventListener('slid.bs.carousel', (event) => {
-        console.log('Testimonial slide complete:', event.to);
-      });
-    }
-  },
-
-  initReviewButtonHandlers: function () {
-    const reviewsUrl =
-      'https://www.google.com/search?q=Valley+Peak+Roofing+Co.+Reviews';
-    const reviewButtons = document.querySelectorAll('.see-more-reviews-btn');
-
-    reviewButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        window.open(reviewsUrl, '_blank');
-      });
-    });
-  },
-};
-
-/**
- * =====================================================
  * INSPIRATION GALLERY MODULE (for Design Your Roof page)
  * =====================================================
  */
@@ -350,12 +310,11 @@ const ReusableCarousel = {
  * =====================================================
  */
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('Carousel.js loaded - initializing all carousels');
+  console.log('Carousel.js loaded - initializing carousels');
 
-  // Initialize all carousel modules
-  TestimonialCarousel.init();
+  // Initialize only the carousels that exist
   InspirationGallery.init();
   ReusableCarousel.init();
 
-  console.log('All carousel modules initialized');
+  console.log('Carousel modules initialized');
 });

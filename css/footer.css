@@ -43,25 +43,25 @@
 /* Logo Section */
 .footer-logo-section {
   display: flex;
-  justify-content: flex-start; /* Position the wrapper on the left */
+  justify-content: flex-start;
 }
 
 @media (max-width: 768px) {
   .footer-logo-section {
-    justify-content: center; /* Center the wrapper on mobile */
+    justify-content: center;
   }
 }
 
 .footer-logo-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers both children */
+  align-items: center;
   gap: 15px;
-  text-decoration: none; /* Remove underline from link */
+  text-decoration: none;
 }
 
 a.footer-logo-wrapper:hover {
-  text-decoration: none; /* Ensure no underline on hover */
+  text-decoration: none;
 }
 
 .footer-company-name {
@@ -72,10 +72,8 @@ a.footer-logo-wrapper:hover {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: var(--transition);
-  /* No need for align-self anymore */
 }
 
-/* Add hover effect for company name when inside the link */
 a.footer-logo-wrapper:hover .footer-company-name {
   color: var(--primary-color);
 }
@@ -98,10 +96,8 @@ a.footer-logo-wrapper:hover .footer-company-name {
   max-width: 300px;
   object-fit: contain;
   transition: var(--transition);
-  /* No need for align-self anymore */
 }
 
-/* Add hover effect for logo when inside the link */
 a.footer-logo-wrapper:hover .footer-logo {
   transform: scale(1.05);
 }
@@ -151,7 +147,7 @@ a.footer-logo-wrapper:hover .footer-logo {
   font-size: 14px;
 }
 
-/* Social Section - Matching Hero Styles */
+/* Social Section */
 .footer-social-section {
   display: flex;
   gap: 15px;
@@ -194,59 +190,24 @@ a.footer-logo-wrapper:hover .footer-logo {
   }
 }
 
-/* Middle Row - Modified for 4 columns */
-.footer-middle-row {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 60px;
+/* Location Row - NEW separate row for map */
+.footer-location-row {
+  max-width: 600px;
+  margin: 0 auto 40px;
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 30px;
-}
-
-@media (max-width: 1200px) {
-  .footer-middle-row {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-  }
-
-  /* Navigation sections center aligned when map is above */
-  .footer-nav-section,
-  .footer-services-section,
-  .footer-counties-section {
-    text-align: center;
-  }
-
-  .footer-nav-section ul,
-  .footer-services-section ul,
-  .footer-counties-section ul {
-    align-items: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer-middle-row {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-  }
 }
 
 /* Address Section */
 .footer-address-section {
-  /* No default styles specific to this container */
-}
-
-@media (max-width: 1200px) {
-  .footer-address-section {
-    grid-column: 1 / -1;
-  }
+  text-align: center;
 }
 
 .footer-address-section h4,
 .footer-nav-section h4,
 .footer-services-section h4,
-.footer-counties-section h4 {
+.footer-counties-section h4,
+.footer-faq-section h4 {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -257,7 +218,8 @@ a.footer-logo-wrapper:hover .footer-logo {
   .footer-address-section h4,
   .footer-nav-section h4,
   .footer-services-section h4,
-  .footer-counties-section h4 {
+  .footer-counties-section h4,
+  .footer-faq-section h4 {
     font-size: 16px;
   }
 }
@@ -281,10 +243,37 @@ address {
   line-height: 1.6;
 }
 
-/* Navigation Lists - FIXED HOVER */
+/* Middle Row - Updated for 4 columns without map */
+.footer-middle-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 30px;
+}
+
+@media (max-width: 992px) {
+  .footer-middle-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    row-gap: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-middle-row {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+}
+
+/* Navigation Lists */
 .footer-nav-section ul,
 .footer-services-section ul,
-.footer-counties-section ul {
+.footer-counties-section ul,
+.footer-faq-section ul {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -294,15 +283,16 @@ address {
 
 .footer-nav-section ul li,
 .footer-services-section ul li,
-.footer-counties-section ul li {
-  /* Add padding to the li to create a larger hover area */
+.footer-counties-section ul li,
+.footer-faq-section ul li {
   padding-left: 0;
   transition: padding-left 0.3s ease;
 }
 
 .footer-nav-section ul li a,
 .footer-services-section ul li a,
-.footer-counties-section ul li a {
+.footer-counties-section ul li a,
+.footer-faq-section ul li a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   font-size: 15px;
@@ -311,18 +301,18 @@ address {
   position: relative;
 }
 
-/* On hover, move the li padding instead of transforming the link */
 .footer-nav-section ul li:hover,
 .footer-services-section ul li:hover,
-.footer-counties-section ul li:hover {
+.footer-counties-section ul li:hover,
+.footer-faq-section ul li:hover {
   padding-left: 5px;
 }
 
 .footer-nav-section ul li:hover a,
 .footer-services-section ul li:hover a,
-.footer-counties-section ul li:hover a {
+.footer-counties-section ul li:hover a,
+.footer-faq-section ul li:hover a {
   color: var(--primary-color);
-  /* Remove the transform that was causing the issue */
 }
 
 /* Bottom Row */
@@ -347,15 +337,15 @@ address {
 }
 
 .copyright a {
-  color: #e8d5b7; /* Light tan/beige for better contrast */
-  text-decoration: underline; /* Always show underline for distinguishability */
+  color: #e8d5b7;
+  text-decoration: underline;
   transition: var(--transition);
-  font-weight: 600; /* Make text slightly bolder for better readability */
+  font-weight: 600;
 }
 
 .copyright a:hover {
-  color: #f5e6d3; /* Even lighter on hover */
-  text-decoration: underline; /* Maintain underline on hover */
+  color: #f5e6d3;
+  text-decoration: underline;
 }
 
 .copyright a:focus {

@@ -10391,7 +10391,7 @@ body {
   height: 100%;
 }
 
-.repairs-carousel-slide {
+.repairs-carousel-track .repairs-carousel-slide {
   position: absolute;
   top: 0;
   left: 0;
@@ -10401,11 +10401,11 @@ body {
   transition: opacity 0.5s ease-in-out;
 }
 
-.repairs-carousel-slide.active {
+.repairs-carousel-track .repairs-carousel-slide.active {
   opacity: 1;
 }
 
-.repairs-carousel-slide img {
+.repairs-carousel-track .repairs-carousel-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -10495,7 +10495,11 @@ body {
   border-color: white;
 }
 
-/* End of Carousel Styles */
+/* Override fade-in animation for carousel */
+.repairs-issues-visual.fade-in {
+  opacity: 1 !important;
+  transform: none !important;
+}
 
 .repairs-diagram-image {
   width: 100%;

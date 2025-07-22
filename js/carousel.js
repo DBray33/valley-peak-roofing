@@ -2,15 +2,8 @@
  * =====================================================
  * Valley Peak Roofing - Carousel Functionality
  * =====================================================
- * This file contains all carousel-related JavaScript
- * Only loaded on pages that actually need carousels
  */
 
-/**
- * =====================================================
- * INSPIRATION GALLERY MODULE (for Design Your Roof page)
- * =====================================================
- */
 const InspirationGallery = {
   currentSlide: 0,
   slides: [],
@@ -20,21 +13,18 @@ const InspirationGallery = {
   init: function () {
     console.log('Initializing InspirationGallery');
 
-    // Only initialize if gallery exists
     const carousel = document.getElementById('inspirationCarousel');
     if (!carousel) {
       console.log('InspirationGallery element not found');
       return;
     }
 
-    // Get elements
     this.slides = document.querySelectorAll('.gallery-slide');
     this.prevBtn = document.getElementById('galleryPrev');
     this.nextBtn = document.getElementById('galleryNext');
     this.dotsContainer = document.getElementById('galleryDots');
     this.track = document.getElementById('galleryTrack');
 
-    // Verify all elements exist
     if (
       !this.slides.length ||
       !this.prevBtn ||
@@ -46,7 +36,6 @@ const InspirationGallery = {
       return;
     }
 
-    // Setup
     this.createDots();
     this.addEventListeners();
     this.startAutoPlay();
@@ -71,7 +60,6 @@ const InspirationGallery = {
     carousel.addEventListener('mouseenter', () => this.pauseAutoPlay());
     carousel.addEventListener('mouseleave', () => this.startAutoPlay());
 
-    // Touch/swipe support
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -124,7 +112,6 @@ const InspirationGallery = {
     const translateX = -this.currentSlide * 100;
     this.track.style.transform = `translateX(${translateX}%)`;
 
-    // Update dots
     const dots = this.dotsContainer.querySelectorAll('.gallery-dot');
     dots.forEach((dot, index) => {
       dot.classList.toggle('active', index === this.currentSlide);
@@ -145,16 +132,10 @@ const InspirationGallery = {
   },
 };
 
-/**
- * =====================================================
- * REUSABLE CAROUSEL MODULE (for Repairs & Gutters pages)
- * =====================================================
- */
 const ReusableCarousel = {
   init: function () {
     console.log('Initializing ReusableCarousel');
 
-    // Check for both types of carousels
     const carousels = document.querySelectorAll(
       '.repairs-carousel, .gutter-carousel'
     );
@@ -164,7 +145,6 @@ const ReusableCarousel = {
       return;
     }
 
-    // Initialize each carousel found
     carousels.forEach((carousel) => {
       this.initializeCarousel(carousel);
     });
@@ -173,15 +153,17 @@ const ReusableCarousel = {
   initializeCarousel: function (carousel) {
     console.log('Initializing individual carousel:', carousel.className);
 
-    // Determine carousel type
     const isRepairs = carousel.classList.contains('repairs-carousel');
     const prefix = isRepairs ? 'repairs' : 'gutter';
 
-    // Get the parent container that holds both carousel and indicators
     const carouselContainer = carousel.closest(`.${prefix}-carousel-container`);
 
-    // Get carousel elements using the appropriate prefix
-    const slides = carousel.querySelectorAll(`.${prefix}-carousel-slide`);
+    // CRITICAL FIX: Look for slides within the track if it exists
+    const track = carousel.querySelector(`.${prefix}-carousel-track`);
+    const slideContainer = track || carousel;
+
+    // Get slides from the correct container
+    const slides = slideContainer.querySelectorAll(`.${prefix}-carousel-slide`);
     const nextBtn = carousel.querySelector(`.${prefix}-carousel-next`);
     const prevBtn = carousel.querySelector(`.${prefix}-carousel-prev`);
     const indicators = carouselContainer
@@ -195,19 +177,32 @@ const ReusableCarousel = {
 
     console.log(`Found ${slides.length} slides for ${prefix} carousel`);
 
-    // Initialize carousel state
+    // FIX: Force the parent containers to be visible
+    const visualContainer = carousel.closest(
+      '.gutter-issues-visual, .repairs-issues-visual'
+    );
+    if (visualContainer) {
+      visualContainer.style.opacity = '1';
+      visualContainer.style.transform = 'none';
+      visualContainer.classList.remove('fade-in');
+      visualContainer.classList.add('visible');
+    }
+
     let currentSlide = 0;
     let autoPlayInterval = null;
 
-    // Carousel functions
     function showSlide(index) {
-      // Remove active class from all slides and indicators
-      slides.forEach((slide) => slide.classList.remove('active'));
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+        // FIX: Force opacity with inline styles
+        slide.style.opacity = '0';
+      });
       indicators.forEach((indicator) => indicator.classList.remove('active'));
 
-      // Add active class to current slide and indicator
       if (slides[index]) {
         slides[index].classList.add('active');
+        // FIX: Force opacity with inline styles
+        slides[index].style.opacity = '1';
       }
       if (indicators[index]) {
         indicators[index].classList.add('active');
@@ -226,8 +221,8 @@ const ReusableCarousel = {
     }
 
     function startAutoPlay() {
-      stopAutoPlay(); // Clear any existing interval
-      autoPlayInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+      stopAutoPlay();
+      autoPlayInterval = setInterval(nextSlide, 3000);
     }
 
     function stopAutoPlay() {
@@ -237,34 +232,30 @@ const ReusableCarousel = {
       }
     }
 
-    // Event listeners
     if (nextBtn) {
       nextBtn.addEventListener('click', function () {
         nextSlide();
-        startAutoPlay(); // Restart autoplay
+        startAutoPlay();
       });
     }
 
     if (prevBtn) {
       prevBtn.addEventListener('click', function () {
         prevSlide();
-        startAutoPlay(); // Restart autoplay
+        startAutoPlay();
       });
     }
 
-    // Indicator clicks
     indicators.forEach((indicator, index) => {
       indicator.addEventListener('click', function () {
         showSlide(index);
-        startAutoPlay(); // Restart autoplay
+        startAutoPlay();
       });
     });
 
-    // Pause auto-play on hover
     carousel.addEventListener('mouseenter', stopAutoPlay);
     carousel.addEventListener('mouseleave', startAutoPlay);
 
-    // Touch/swipe support for mobile
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -287,16 +278,15 @@ const ReusableCarousel = {
 
     function handleSwipe() {
       if (touchEndX < touchStartX - 50) {
-        nextSlide(); // Swipe left
+        nextSlide();
         startAutoPlay();
       }
       if (touchEndX > touchStartX + 50) {
-        prevSlide(); // Swipe right
+        prevSlide();
         startAutoPlay();
       }
     }
 
-    // Initialize: show first slide and start autoplay
     showSlide(0);
     startAutoPlay();
 
@@ -304,17 +294,13 @@ const ReusableCarousel = {
   },
 };
 
-/**
- * =====================================================
- * CAROUSEL INITIALIZATION
- * =====================================================
- */
 document.addEventListener('DOMContentLoaded', function () {
   console.log('Carousel.js loaded - initializing carousels');
 
-  // Initialize only the carousels that exist
-  InspirationGallery.init();
-  ReusableCarousel.init();
-
-  console.log('Carousel modules initialized');
+  // FIX: Add a delay to let other scripts run first
+  setTimeout(function () {
+    InspirationGallery.init();
+    ReusableCarousel.init();
+    console.log('Carousel modules initialized');
+  }, 500);
 });

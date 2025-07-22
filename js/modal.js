@@ -341,28 +341,29 @@ const ModalSystem = {
       e.target.value = value;
     });
 
-    // Handle paste events
+    // Handle paste events - FIXED: Allow paste while still formatting
     phoneInput.addEventListener('paste', function (e) {
-      e.preventDefault();
-      const pastedText = (e.clipboardData || window.clipboardData).getData(
-        'text'
-      );
-      const digits = pastedText.replace(/\D/g, '').slice(0, 10);
+      // DON'T prevent default - let the paste happen naturally
 
-      if (digits.length > 0) {
-        let formatted = '';
-        if (digits.length <= 3) {
-          formatted = `(${digits}`;
-        } else if (digits.length <= 6) {
-          formatted = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
-        } else {
-          formatted = `(${digits.slice(0, 3)}) ${digits.slice(
-            3,
-            6
-          )}-${digits.slice(6, 10)}`;
+      // Format after a tiny delay to let the paste complete
+      setTimeout(() => {
+        let value = e.target.value.replace(/\D/g, '').slice(0, 10);
+
+        if (value.length > 0) {
+          let formatted = '';
+          if (value.length <= 3) {
+            formatted = `(${value}`;
+          } else if (value.length <= 6) {
+            formatted = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+          } else {
+            formatted = `(${value.slice(0, 3)}) ${value.slice(
+              3,
+              6
+            )}-${value.slice(6, 10)}`;
+          }
+          e.target.value = formatted;
         }
-        e.target.value = formatted;
-      }
+      }, 0);
     });
   },
 
@@ -631,28 +632,29 @@ const ModalSystem = {
         e.target.value = value;
       });
 
-      // Handle paste events
+      // Handle paste events - FIXED: Allow paste while still formatting
       phoneInput.addEventListener('paste', function (e) {
-        e.preventDefault();
-        const pastedText = (e.clipboardData || window.clipboardData).getData(
-          'text'
-        );
-        const digits = pastedText.replace(/\D/g, '').slice(0, 10);
+        // DON'T prevent default - let the paste happen naturally
 
-        if (digits.length > 0) {
-          let formatted = '';
-          if (digits.length <= 3) {
-            formatted = `(${digits}`;
-          } else if (digits.length <= 6) {
-            formatted = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
-          } else {
-            formatted = `(${digits.slice(0, 3)}) ${digits.slice(
-              3,
-              6
-            )}-${digits.slice(6, 10)}`;
+        // Format after a tiny delay to let the paste complete
+        setTimeout(() => {
+          let value = e.target.value.replace(/\D/g, '').slice(0, 10);
+
+          if (value.length > 0) {
+            let formatted = '';
+            if (value.length <= 3) {
+              formatted = `(${value}`;
+            } else if (value.length <= 6) {
+              formatted = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+            } else {
+              formatted = `(${value.slice(0, 3)}) ${value.slice(
+                3,
+                6
+              )}-${value.slice(6, 10)}`;
+            }
+            e.target.value = formatted;
           }
-          e.target.value = formatted;
-        }
+        }, 0);
       });
     }
 

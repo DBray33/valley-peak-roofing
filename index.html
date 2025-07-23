@@ -1944,11 +1944,22 @@
           <!-- Blog Post 3 -->
           <article class="blog-card fade-in-delay-2">
             <div class="blog-image">
-              <img
-                src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/blogs/signs-to-replace-your-roof.webp"
-                alt="Signs you need a new roof"
-                width="350"
-                height="200" />
+              <picture>
+                <!-- Mobile image (for screens up to 768px) -->
+                <source
+                  media="(max-width: 768px)"
+                  srcset="
+                    https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/blogs/signs-to-replace-your-roof-thumbnail-mobile.webp
+                  " />
+
+                <!-- Default/desktop image -->
+                <img
+                  src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/blogs/signs-to-replace-your-roof.webp"
+                  alt="Signs you need a new roof"
+                  width="350"
+                  height="200"
+                  loading="lazy" />
+              </picture>
             </div>
             <div class="blog-content">
               <span class="blog-date">

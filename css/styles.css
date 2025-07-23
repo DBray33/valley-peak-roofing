@@ -465,6 +465,46 @@ body {
   }
 }
 
+/* SVG Icon Styles */
+.icon,
+.icon-inline {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.icon {
+  margin-right: 0.5rem;
+  width: 20px;
+  height: 20px;
+  fill: var(--primary-color);
+}
+
+.icon-inline {
+  margin-right: 0.25rem;
+  position: relative;
+  top: -1px;
+  width: 16px;
+  height: 16px;
+}
+
+/* Ensure trust indicator SVGs scale properly */
+.trust-indicators svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hero-social-links svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: opacity 0.3s ease;
+}
+
+.hero-social-links a:hover svg {
+  opacity: 0.8;
+}
+
 /* Guarantee Item */
 .guarantee-item {
   display: flex;
@@ -493,28 +533,8 @@ body {
   }
 }
 
-.guarantee-item i {
-  color: var(--primary-color);
-  font-size: 18px;
-}
-
-@media (max-width: 1398px) {
-  .guarantee-item i {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 974px) {
-  .guarantee-item i {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .guarantee-item i {
-    font-size: 14px;
-  }
-}
+/* Remove old Font Awesome icon styles since we're using SVGs now */
+/* .guarantee-item i styles removed */
 
 /* Hero CTA */
 .hero-cta {
@@ -584,9 +604,8 @@ body {
   gap: 5px;
 }
 
-.trust-indicators i {
-  color: var(--primary-color);
-}
+/* Remove old Font Awesome icon styles since we're using SVGs now */
+/* .trust-indicators i styles removed */
 
 /* Social Media Links */
 .hero-social-links {
@@ -1326,7 +1345,11 @@ body {
 }
 
 .card-back {
-  background: linear-gradient(135deg, var(--orange-accent), #d14d00);
+  background: linear-gradient(135deg, var(--orange-accent), #d14d00),
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/textures/hexellence.webp');
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto;
   color: var(--white);
   transform: rotateY(180deg);
   text-align: left;
@@ -1337,7 +1360,11 @@ body {
 .service-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, var(--orange-accent), #d14d00);
+  background: linear-gradient(135deg, var(--orange-accent), #d14d00),
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/textures/hexellence.webp');
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1492,7 +1519,6 @@ body {
   }
 }
 /* #endregion */
-
 /**
  * =====================================================
  * HOMEPAGE BENEFITS SECTION STYLES

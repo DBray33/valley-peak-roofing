@@ -2223,9 +2223,7 @@
         <div class="footer-bottom-row">
           <p class="copyright">
             ©
-            <script>
-              document.write(new Date().getFullYear());
-            </script>
+            <span id="current-year"></span>
             Valley Peak Roofing Company | Site by
             <a
               href="https://keystonewebsolutions.com"
@@ -2235,11 +2233,17 @@
             >
           </p>
           <div class="footer-legal">
-            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="/privacy-policy">Privacy Policy</a>
             <span class="separator">|</span>
-            <a href="terms.html">Terms & Conditions</a>
+            <a href="/terms">Terms & Conditions</a>
           </div>
         </div>
+
+        <script>
+          // Set current year without document.write()
+          document.getElementById('current-year').textContent =
+            new Date().getFullYear();
+        </script>
       </div>
     </footer>
 

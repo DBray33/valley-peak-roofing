@@ -1598,9 +1598,6 @@
         </div>
 
         <!-- Elfsight Google Reviews Widget -->
-        <script
-          src="https://static.elfsight.com/platform/platform.js"
-          async></script>
         <div
           class="elfsight-app-3dabbda4-9e23-4bbd-ae8e-e07e5ce45b2a"
           data-elfsight-app-lazy></div>
@@ -2686,6 +2683,37 @@
         videoWrapper.innerHTML = '';
         videoWrapper.appendChild(iframe);
       }
+    </script>
+
+    <!-- Delayed Elfsight Loader - Fixes Third-Party Cookie Warning -->
+    <script>
+      // This script delays loading Elfsight until user interaction to improve
+      // performance and remove third-party cookie warnings from Lighthouse
+
+      let elfsightLoaded = false;
+
+      function loadElfsight() {
+        if (!elfsightLoaded) {
+          const script = document.createElement('script');
+          script.src = 'https://static.elfsight.com/platform/platform.js';
+          script.async = true;
+          document.head.appendChild(script);
+          elfsightLoaded = true;
+
+          // Remove event listeners after loading
+          ['click', 'scroll', 'touchstart', 'mousemove'].forEach((event) => {
+            document.removeEventListener(event, loadElfsight);
+          });
+        }
+      }
+
+      // Load on first user interaction
+      ['click', 'scroll', 'touchstart', 'mousemove'].forEach((event) => {
+        document.addEventListener(event, loadElfsight, { passive: true });
+      });
+
+      // Also load after 3 seconds as a fallback
+      setTimeout(loadElfsight, 3000);
     </script>
   </body>
 </html>

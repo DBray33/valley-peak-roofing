@@ -1,11 +1,87 @@
 User-agent: *
+
+# Updated July 2025
+# Block WordPress media attachments
+
+# WordPress system files
 Disallow: /wp-admin/
 Disallow: /wp-includes/
-Disallow: /?attachment_id=
-Disallow: /?s=
 Disallow: /feed/
 Disallow: /wp-json/
-Disallow: /*?
 Allow: /wp-admin/admin-ajax.php
 
+# Query parameters and attachments
+Disallow: /*?attachment_id=
+Disallow: /*?s=
+Disallow: /*?feed=
+Disallow: /*?p=
+
+# Old URL patterns (without .html)
+Disallow: /privacy-policy
+Disallow: /terms
+Disallow: /james-hardie/
+Disallow: /services/
+Disallow: /pick-your-color/
+
+# Old blog URLs
+Disallow: /7-tips-to-choose-the-best-roofing-contractor-in-bethlehem-pennsylvania/
+Disallow: /replacing-your-roof-on-a-budget/
+Disallow: /what-are-those-black-streaks-running-down-my-roof/
+Disallow: /10-reason-why-roofing-are-factmake-easier-9/
+
+# Media and image attachment URLs
+Disallow: /logo/
+Disallow: /email-logo/
+Disallow: /*-2/
+Disallow: /h7_*
+Disallow: /h6_*
+Disallow: /shape*/
+Disallow: /icon_*/
+Disallow: /home_*/
+Disallow: /vpr-*/
+Disallow: /ho4_*/
+Disallow: /default*/
+Disallow: /ow*/
+Disallow: /portfolio_category/
+Disallow: /work-bg*/
+Disallow: /footer_*/
+Disallow: /storm-cloud*/
+Disallow: /dji-flyover*/
+Disallow: /dark*/
+Disallow: /service4_tab_bg/
+Disallow: /testimonial_bg*/
+Disallow: /blog_shape*/
+Disallow: /cbanner*/
+Disallow: /cbg*/
+Disallow: /img_*/
+Disallow: /photo-jul-*/
+Disallow: /valley-peak-*/
+
+# Color swatch pages
+Disallow: /brownwood-2/
+Disallow: /slatestone-2/
+Disallow: /siding-2-2/
+Disallow: /siding-3-2/
+Disallow: /terra-cotta-2/
+Disallow: /teak-2/
+Disallow: /merlot-2/
+Disallow: /summer-harvest-2/
+Disallow: /estate-grey-2/
+Disallow: /sierra-grey-2/
+Disallow: /pacific-wave-2/
+Disallow: /sedona-canyon-2/
+Disallow: /driftwood-2/
+Disallow: /onyx-black-2/
+Disallow: /colonial-slate-2/
+Disallow: /desert-tan-2/
+Disallow: /shasta-white-2/
+Disallow: /black-sable-2/
+Disallow: /aged-copper-2/
+Disallow: /sand-dune-2/
+Disallow: /bourbon-2/
+
+# External domain (shouldn't be crawled from your site)
+Disallow: https://www.valleypeakroof.com/
+
+# Sitemap location
 Sitemap: https://valleypeakroof.com/sitemap.xml

@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /?attachment_id=
+Disallow: /?s=
+Disallow: /feed/
+Disallow: /wp-json/
+Disallow: /*?
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: https://valleypeakroof.com/sitemap.xml

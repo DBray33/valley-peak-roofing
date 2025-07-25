@@ -158,11 +158,6 @@
       href="https://fonts.googleapis.com/css2?family=Product+Sans&display=swap"
       rel="stylesheet" />
 
-    <!-- Canonical URL -->
-    <link
-      rel="canonical"
-      href="https://valleypeakroof.com/design-your-roof.html" />
-
     <!-- SoftwareApplication Schema for Visualizer Tool -->
     <script type="application/ld+json">
       {
@@ -223,79 +218,128 @@
       }
     </script>
 
-    <!-- Product Schema for Shingle Colors -->
+    <!-- Service Schema for Shingle Installation - REPLACED PRODUCT SCHEMA -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProductCollection",
-        "name": "Owens Corning Shingle Colors",
-        "description": "Premium roofing shingle colors available through Valley Peak Roofing",
+        "@type": "Service",
+        "name": "Owens Corning Shingle Color Selection and Installation",
+        "description": "Professional installation of Owens Corning shingles in 12+ premium color options including Terra Cotta, Teak, Summer Harvest, Estate Gray, Onyx Black, Bourbon, Driftwood, Merlot, Pacific Wave, Sand Dune, Sedona Canyon, and Storm Cloud",
+        "provider": {
+          "@type": "RoofingContractor",
+          "@id": "https://valleypeakroof.com/#organization"
+        },
         "brand": {
           "@type": "Brand",
           "name": "Owens Corning"
         },
-        "hasPart": [
-          {
-            "@type": "Product",
-            "name": "Terra Cotta",
-            "description": "Classic Mediterranean warmth and elegance"
-          },
-          {
-            "@type": "Product",
-            "name": "Teak",
-            "description": "Rich, natural wood tones for timeless appeal"
-          },
-          {
-            "@type": "Product",
-            "name": "Summer Harvest",
-            "description": "Golden hues that capture the essence of autumn"
-          },
-          {
-            "@type": "Product",
-            "name": "Estate Gray",
-            "description": "Sophisticated gray for modern elegance"
-          },
-          {
-            "@type": "Product",
-            "name": "Onyx Black",
-            "description": "Bold, dramatic statement for contemporary homes"
-          },
-          {
-            "@type": "Product",
-            "name": "Bourbon",
-            "description": "Rich, warm tones with sophisticated appeal"
-          },
-          {
-            "@type": "Product",
-            "name": "Driftwood",
-            "description": "Natural weathered tones for rustic elegance"
-          },
-          {
-            "@type": "Product",
-            "name": "Merlot",
-            "description": "Deep, rich burgundy for distinctive style"
-          },
-          {
-            "@type": "Product",
-            "name": "Pacific Wave",
-            "description": "Cool blue-gray tones inspired by ocean hues"
-          },
-          {
-            "@type": "Product",
-            "name": "Sand Dune",
-            "description": "Warm, neutral tones for timeless appeal"
-          },
-          {
-            "@type": "Product",
-            "name": "Sedona Canyon",
-            "description": "Desert-inspired earth tones with natural beauty"
-          },
-          {
-            "@type": "Product",
-            "name": "Storm Cloud",
-            "description": "Dynamic gray with subtle blue undertones"
-          }
-        ]
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Available Shingle Colors",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Shingle Installation in Terra Cotta",
+                "description": "Classic Mediterranean warmth and elegance"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Shingle Installation in Teak",
+                "description": "Rich, natural wood tones for timeless appeal"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Shingle Installation in Summer Harvest",
+                "description": "Golden hues that capture the essence of autumn"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Shingle Installation in Estate Gray",
+                "description": "Sophisticated gray for modern elegance"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Shingle Installation in Onyx Black",
+                "description": "Bold, dramatic statement for contemporary homes"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Shingle Installation in Bourbon",
+                "description": "Rich, warm tones with sophisticated appeal"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Shingle Installation in Driftwood",
+                "description": "Natural weathered tones for rustic elegance"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Shingle Installation in Merlot",
+                "description": "Deep, rich burgundy for distinctive style"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Shingle Installation in Pacific Wave",
+                "description": "Cool blue-gray tones inspired by ocean hues"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Shingle Installation in Sand Dune",
+                "description": "Warm, neutral tones for timeless appeal"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Shingle Installation in Sedona Canyon",
+                "description": "Desert-inspired earth tones with natural beauty"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Shingle Installation in Storm Cloud",
+                "description": "Dynamic gray with subtle blue undertones"
+              }
+            }
+          ]
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "127"
+        }
       }
     </script>
 
@@ -315,7 +359,7 @@
             "@type": "ListItem",
             "position": 2,
             "name": "Design Your Roof",
-            "item": "https://valleypeakroof.com/design-your-roof.html"
+            "item": "https://valleypeakroof.com/design-your-roof"
           }
         ]
       }
@@ -342,6 +386,53 @@
           "name": "Owens Corning",
           "description": "Powered by Owens Corning Roof Visualizer Technology"
         }
+      }
+    </script>
+
+    <!-- LocalBusiness Schema for Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RoofingContractor",
+        "@id": "https://valleypeakroof.com/#organization",
+        "name": "Valley Peak Roofing Co.",
+        "image": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp",
+        "logo": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp",
+        "url": "https://valleypeakroof.com",
+        "telephone": "+1-484-602-6863",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3005 Brodhead Road Suite 105",
+          "addressLocality": "Bethlehem",
+          "addressRegion": "PA",
+          "postalCode": "18020",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.6259,
+          "longitude": -75.3905
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/valleypeakroofing",
+          "https://www.instagram.com/valleypeakroofing"
+        ]
       }
     </script>
   </head>

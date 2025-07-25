@@ -155,11 +155,11 @@
         rel="stylesheet" />
     </noscript>
 
-    <!-- Service Page Schema Markup for Roof Replacement -->
+    <!-- Service Schema for Roof Replacement - FIXED VERSION -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": "Service",
         "@id": "#roof-replacement-service",
         "name": "Professional Home Roof Replacement & Installation",
         "description": "Expert roof installation & replacement for residential and commercial properties in Bethlehem, PA, and The Lehigh Valley. Complete roof replacement services for leaking, sagging, or damaged roofs.",
@@ -203,98 +203,52 @@
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Roofing Materials",
+          "name": "Roof Replacement Services",
           "itemListElement": [
             {
               "@type": "Offer",
               "itemOffered": {
-                "@type": "Product",
-                "name": "Asphalt Shingles",
-                "description": "Affordable & widely used for residential properties with excellent weather resistance",
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "priceCurrency": "USD",
-                    "price": "Varies"
-                  }
-                }
-              }
+                "@type": "Service",
+                "name": "Asphalt Shingle Roof Replacement",
+                "description": "Affordable & widely used for residential properties with excellent weather resistance"
+              },
+              "availability": "https://schema.org/InStock"
             },
             {
               "@type": "Offer",
               "itemOffered": {
-                "@type": "Product",
-                "name": "Metal Roofing",
-                "description": "Extremely durable & energy-efficient, can last 50+ years with proper maintenance",
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "priceCurrency": "USD",
-                    "price": "Varies"
-                  }
-                }
-              }
+                "@type": "Service",
+                "name": "Metal Roof Installation",
+                "description": "Extremely durable & energy-efficient, can last 50+ years with proper maintenance"
+              },
+              "availability": "https://schema.org/InStock"
             },
             {
               "@type": "Offer",
               "itemOffered": {
-                "@type": "Product",
-                "name": "Architectural Shingles",
-                "description": "Enhances curb appeal with a dimensional look, offers superior durability & insulation",
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "priceCurrency": "USD",
-                    "price": "Varies"
-                  }
-                }
-              }
+                "@type": "Service",
+                "name": "Architectural Shingle Installation",
+                "description": "Enhances curb appeal with a dimensional look, offers superior durability & insulation"
+              },
+              "availability": "https://schema.org/InStock"
             },
             {
               "@type": "Offer",
               "itemOffered": {
-                "@type": "Product",
-                "name": "Specialty Roofing",
-                "description": "Flat roofing solutions and impact-resistant shingles for extreme weather",
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "priceCurrency": "USD",
-                    "price": "Varies"
-                  }
-                }
-              }
+                "@type": "Service",
+                "name": "Specialty Roofing Installation",
+                "description": "Flat roofing solutions and impact-resistant shingles for extreme weather"
+              },
+              "availability": "https://schema.org/InStock"
             }
           ]
         },
         "aggregateRating": {
           "@type": "AggregateRating",
-          "itemReviewed": {
-            "@type": "LocalBusiness",
-            "name": "Professional Home Roof Replacement & Installation",
-            "@id": "#roof-replacement-service"
-          },
           "ratingValue": "4.8",
           "reviewCount": "127",
           "bestRating": "5",
           "worstRating": "1"
-        },
-        "offers": {
-          "@type": "Offer",
-          "availability": "https://schema.org/InStock",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "USD",
-            "price": "Varies by project"
-          }
         }
       }
     </script>
@@ -362,6 +316,86 @@
             }
           }
         ]
+      }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://valleypeakroof.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://valleypeakroof.com/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Roof Replacement & Installation",
+            "item": "https://valleypeakroof.com/roof-replacement-installation"
+          }
+        ]
+      }
+    </script>
+
+    <!-- LocalBusiness Schema for Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RoofingContractor",
+        "@id": "https://valleypeakroof.com/#organization",
+        "name": "Valley Peak Roofing Co.",
+        "image": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp",
+        "logo": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp",
+        "url": "https://valleypeakroof.com",
+        "telephone": "+1-484-602-6863",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3005 Brodhead Road Suite 105",
+          "addressLocality": "Bethlehem",
+          "addressRegion": "PA",
+          "postalCode": "18020",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.6259,
+          "longitude": -75.3905
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/valleypeakroofing",
+          "https://www.instagram.com/valleypeakroofing"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "127"
+        }
       }
     </script>
   </head>

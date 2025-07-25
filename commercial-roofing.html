@@ -155,12 +155,7 @@
         rel="stylesheet" />
     </noscript>
 
-    <!-- Canonical URL -->
-    <link
-      rel="canonical"
-      href="https://valleypeakroof.com/commercial-roofing.html" />
-
-    <!-- Commercial Roofing Service Schema -->
+    <!-- Commercial Roofing Service Schema - FIXED VERSION -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -174,6 +169,7 @@
           "url": "https://valleypeakroof.com",
           "telephone": "+1-484-602-6863",
           "email": "sales@valleypeakroof.com",
+          "priceRange": "$$",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "3005 Brodhead Road Suite 105",
@@ -181,11 +177,6 @@
             "addressRegion": "PA",
             "postalCode": "18020",
             "addressCountry": "US"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "127"
           }
         },
         "serviceType": "Commercial Roofing",
@@ -200,41 +191,46 @@
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Commercial Roofing Materials",
+          "name": "Commercial Roofing Services",
           "itemListElement": [
             {
               "@type": "Offer",
               "itemOffered": {
-                "@type": "Product",
-                "name": "EPDM Roof Membrane (Rubber Roofing)",
-                "description": "Cost-effective & durable solution for flat roofs. Resistant to extreme weather & UV rays. Low maintenance & long lifespan."
+                "@type": "Service",
+                "name": "EPDM Roof Membrane Installation",
+                "description": "Cost-effective & durable rubber roofing solution for flat roofs. Resistant to extreme weather & UV rays. Low maintenance & long lifespan."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
-                "@type": "Product",
-                "name": "SBS Granulated Roll Roofing",
+                "@type": "Service",
+                "name": "SBS Granulated Roll Roofing Installation",
                 "description": "Ideal for low-slope roofs & porches. Enhanced flexibility & impact resistance. Affordable and easy to install."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
-                "@type": "Product",
-                "name": "Liquid Roof Coatings",
+                "@type": "Service",
+                "name": "Liquid Roof Coating Application",
                 "description": "Creates a seamless, waterproof barrier. Extends the life of existing commercial roofs. Energy-efficient & reflective properties to reduce cooling costs. Available in silicone, acrylic, and fiberated aluminum."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
-                "@type": "Product",
-                "name": "TPO Roofing",
+                "@type": "Service",
+                "name": "TPO Roofing Installation",
                 "description": "Extremely durable & resistant to heat & chemicals. Reflects sunlight to keep buildings cool & lower energy costs. Labor-intensive installation but long-term savings."
               }
             }
           ]
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "127"
         },
         "offers": [
           {
@@ -363,38 +359,66 @@
             "@type": "ListItem",
             "position": 2,
             "name": "Services",
-            "item": "https://valleypeakroof.com/services.html"
+            "item": "https://valleypeakroof.com/services"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Commercial Roofing",
-            "item": "https://valleypeakroof.com/commercial-roofing.html"
+            "item": "https://valleypeakroof.com/commercial-roofing"
           }
         ]
       }
     </script>
 
-    <!-- Product Schema for Commercial Roofing Materials -->
+    <!-- LocalBusiness Schema for Organization -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "Commercial Roofing Systems",
-        "description": "Professional-grade commercial roofing materials including EPDM, TPO, SBS, and liquid coatings",
-        "brand": {
-          "@type": "Brand",
-          "name": "Valley Peak Roofing Co."
+        "@type": "RoofingContractor",
+        "@id": "https://valleypeakroof.com/#organization",
+        "name": "Valley Peak Roofing Co.",
+        "image": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp",
+        "logo": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp",
+        "url": "https://valleypeakroof.com",
+        "telephone": "+1-484-602-6863",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3005 Brodhead Road Suite 105",
+          "addressLocality": "Bethlehem",
+          "addressRegion": "PA",
+          "postalCode": "18020",
+          "addressCountry": "US"
         },
-        "offers": {
-          "@type": "AggregateOffer",
-          "priceCurrency": "USD",
-          "offerCount": "4",
-          "availability": "https://schema.org/InStock",
-          "seller": {
-            "@type": "RoofingContractor",
-            "@id": "https://valleypeakroof.com/#organization"
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.6259,
+          "longitude": -75.3905
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
           }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/valleypeakroofing",
+          "https://www.instagram.com/valleypeakroofing"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "127"
         }
       }
     </script>

@@ -158,12 +158,7 @@
       href="https://fonts.googleapis.com/css2?family=Product+Sans&display=swap"
       rel="stylesheet" />
 
-    <!-- Canonical URL -->
-    <link
-      rel="canonical"
-      href="https://valleypeakroof.com/siding-installation.html" />
-
-    <!-- Siding Service Schema -->
+    <!-- Siding Service Schema - FIXED VERSION WITHOUT PRICE ERRORS -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -177,6 +172,7 @@
           "url": "https://valleypeakroof.com",
           "telephone": "+1-484-602-6863",
           "email": "sales@valleypeakroof.com",
+          "priceRange": "$$",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "3005 Brodhead Road Suite 105",
@@ -208,67 +204,29 @@
             {
               "@type": "Offer",
               "itemOffered": {
-                "@type": "Product",
-                "name": "James Hardie Fiber Cement Siding",
-                "description": "Made of sustainable materials for maximum durability. Offers the natural beauty of wood siding. Resists extreme temperatures, moisture, and wind. Low maintenance with no need for frequent power washing or repainting.",
-                "brand": {
-                  "@type": "Brand",
-                  "name": "James Hardie"
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "priceCurrency": "USD",
-                    "price": "Varies"
-                  }
-                }
-              }
+                "@type": "Service",
+                "name": "James Hardie Fiber Cement Siding Installation",
+                "description": "Made of sustainable materials for maximum durability. Offers the natural beauty of wood siding. Resists extreme temperatures, moisture, and wind. Low maintenance with no need for frequent power washing or repainting."
+              },
+              "availability": "https://schema.org/InStock"
             },
             {
               "@type": "Offer",
               "itemOffered": {
-                "@type": "Product",
-                "name": "Vinyl Siding (CertainTeed & Norandex)",
-                "description": "Affordable and low maintenance. Resistant to fading, cracking, and pests. Wide range of colors and styles to match your home.",
-                "brand": [
-                  {
-                    "@type": "Brand",
-                    "name": "CertainTeed"
-                  },
-                  {
-                    "@type": "Brand",
-                    "name": "Norandex"
-                  }
-                ],
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "priceCurrency": "USD",
-                    "price": "Varies"
-                  }
-                }
-              }
+                "@type": "Service",
+                "name": "Vinyl Siding Installation (CertainTeed & Norandex)",
+                "description": "Affordable and low maintenance. Resistant to fading, cracking, and pests. Wide range of colors and styles to match your home."
+              },
+              "availability": "https://schema.org/InStock"
             },
             {
               "@type": "Offer",
               "itemOffered": {
-                "@type": "Product",
-                "name": "Insulated Vinyl Siding",
-                "description": "Enhances home insulation and energy efficiency. Reduces heating and cooling costs. Provides superior durability and weather resistance.",
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "priceCurrency": "USD",
-                    "price": "Varies"
-                  }
-                }
-              }
+                "@type": "Service",
+                "name": "Insulated Vinyl Siding Installation",
+                "description": "Enhances home insulation and energy efficiency. Reduces heating and cooling costs. Provides superior durability and weather resistance."
+              },
+              "availability": "https://schema.org/InStock"
             }
           ]
         },
@@ -394,13 +352,13 @@
             "@type": "ListItem",
             "position": 2,
             "name": "Services",
-            "item": "https://valleypeakroof.com/services.html"
+            "item": "https://valleypeakroof.com/services"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Siding Installation",
-            "item": "https://valleypeakroof.com/siding-installation.html"
+            "item": "https://valleypeakroof.com/siding-installation"
           }
         ]
       }
@@ -421,6 +379,53 @@
           "@type": "RoofingContractor",
           "@id": "https://valleypeakroof.com/#organization"
         }
+      }
+    </script>
+
+    <!-- LocalBusiness Schema for Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RoofingContractor",
+        "@id": "https://valleypeakroof.com/#organization",
+        "name": "Valley Peak Roofing Co.",
+        "image": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp",
+        "logo": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp",
+        "url": "https://valleypeakroof.com",
+        "telephone": "+1-484-602-6863",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3005 Brodhead Road Suite 105",
+          "addressLocality": "Bethlehem",
+          "addressRegion": "PA",
+          "postalCode": "18020",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.6259,
+          "longitude": -75.3905
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/valleypeakroofing",
+          "https://www.instagram.com/valleypeakroofing"
+        ]
       }
     </script>
   </head>

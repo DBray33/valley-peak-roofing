@@ -8980,7 +8980,7 @@ body {
 /* Signs Section */
 .roof-signs-section {
   padding: 80px 0;
-  background-image: url('../assets/images/roof-replacement-installation-page/roof-texture-bg.jpg');
+  background-image: url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/e.%20roof-replacement-installation.html/roof-texture-bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -9616,19 +9616,19 @@ body {
 
 /* Specific background images for each card */
 .roof-material-card:nth-child(1)::before {
-  background-image: url('../assets/images/roof-replacement-installation-page/asphalt-shingles.jpg');
+  background-image: url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/e.%20roof-replacement-installation.html/Materials%20Section/asphalt-shingles.webp');
 }
 
 .roof-material-card:nth-child(2)::before {
-  background-image: url('../assets/images/roof-replacement-installation-page/metal-roof.jpg');
+  background-image: url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/e.%20roof-replacement-installation.html/Materials%20Section/metal-roof.webp');
 }
 
 .roof-material-card:nth-child(3)::before {
-  background-image: url('../assets/images/roof-replacement-installation-page/architectural-shingles.jpg');
+  background-image: url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/e.%20roof-replacement-installation.html/Materials%20Section/architectural-shingles.webp');
 }
 
 .roof-material-card:nth-child(4)::before {
-  background-image: url('../assets/images/roof-replacement-installation-page/specialty-roof.jpg');
+  background-image: url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/e.%20roof-replacement-installation.html/Materials%20Section/specialty-roof.webp');
 }
 
 /* Ensure content stays above background */

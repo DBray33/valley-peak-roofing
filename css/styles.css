@@ -527,6 +527,54 @@ body {
   width: 420px; /* Increased from 380px */
   flex-shrink: 0;
   margin-top: -2rem; /* Move up 2rem */
+  position: relative;
+  overflow: hidden; /* Hide the shimmer when it moves outside the form */
+}
+
+/* Shimmer Animation Keyframes */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Create the shimmer overlay */
+.hero-contact-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(181, 168, 129, 0.08) 20%,
+    rgba(181, 168, 129, 0.15) 50%,
+    rgba(181, 168, 129, 0.08) 80%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmer 3s infinite linear;
+  pointer-events: none; /* Ensure the shimmer doesn't block interactions */
+  z-index: 1;
+}
+
+/* Ensure form content stays above the shimmer */
+.hero-contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Pause shimmer on hover for better UX */
+.hero-contact-form:hover::before {
+  animation-play-state: paused;
 }
 
 /* Desktop only form */
@@ -535,12 +583,21 @@ body {
   display: block;
 }
 
+/* Stagger shimmer animation between desktop and mobile forms */
+.hero-contact-form.desktop-only::before {
+  animation-delay: 0s;
+}
+
 /* Mobile only form */
 .hero-contact-form.mobile-only {
   display: none;
   margin: 1.5rem auto 2rem;
   width: 100%;
   max-width: 380px; /* Reduced from 500px */
+}
+
+.hero-contact-form.mobile-only::before {
+  animation-delay: 1.5s; /* Start halfway through the desktop shimmer */
 }
 
 @media (max-width: 1400px) {
@@ -578,24 +635,21 @@ body {
     margin-top: 0; /* Reset margin-top on mobile */
     padding: 20px; /* Reduced padding */
   }
+
+  .hero-contact-form form {
+    gap: 12px; /* Smaller gap on mobile */
+  }
+
+  /* Slightly faster animation on mobile for better visibility */
+  .hero-contact-form::before {
+    animation-duration: 2.5s;
+  }
 }
 
 @media (max-width: 480px) {
   .hero-contact-form {
     padding: 18px; /* Slightly smaller padding */
     max-width: 340px; /* Even smaller on very small screens */
-  }
-}
-
-.hero-contact-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-@media (max-width: 968px) {
-  .hero-contact-form form {
-    gap: 12px; /* Smaller gap on mobile */
   }
 }
 
@@ -945,7 +999,6 @@ body {
   }
 }
 /* #endregion */
-
 /**
 * =====================================================
 * PROBLEM SECTION STYLES - WITH ORANGE ICON CIRCLES

@@ -1221,601 +1221,631 @@
       </div>
     </section>
 
-    <!-- Financing Section -->
-    <section class="roof-financing-section">
-      <div class="container">
-        <div class="roof-financing-grid">
-          <div class="roof-financing-card">
-            <div class="roof-financing-header">
-              <h3>FINANCING AVAILABLE!</h3>
-              <img
-                src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/service-finance-logo.webp"
-                alt="Service Finance Company LLC"
-                class="roof-finance-logo"
-                width="200"
-                height="50" />
-            </div>
-            <p class="roof-financing-text">
-              On a Budget? We've Got You Covered!
-            </p>
-            <a
-              href="https://www.svcfin.com/#calculator"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-primary">
-              <i class="fas fa-calculator"></i> Learn More
-            </a>
-          </div>
-
-          <div class="roof-budget-card">
-            <h3>Quality Roofing at a Price You Can Afford.</h3>
-            <p>
-              Use our cost calculator to estimate your roofing project budget.
-            </p>
-            <a href="budget-roof-cost.html" class="btn btn-secondary">
-              <i class="fas fa-dollar-sign"></i> Cost Calculator
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section class="roof-contact-section">
-      <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">
-            Schedule Your Free August Roof Inspection Today!
-          </h2>
-          <p class="section-subtitle">
-            Beat the fall rush and ensure your roof is ready for autumn weather.
-            Free comprehensive inspections scheduled within one week!
-          </p>
-        </div>
-
-        <div class="roof-contact-grid">
-          <div class="roof-form-container">
-            <div class="roof-form-header">
-              <h3>VALLEY PEAK ROOFING CO</h3>
-              <h4>Your Free Estimate Form</h4>
+    <!-- ========================================================== -->
+    <!-- REUSABLE BLOG PAGE COMPONENTS - COPY TO ALL NEW BLOGS    -->
+    <!-- ========================================================== -->
+    <div id="reusable-blog-components">
+      <!-- Financing Section -->
+      <section class="roof-financing-section">
+        <div class="container">
+          <div class="roof-financing-grid">
+            <div class="roof-financing-card">
+              <div class="roof-financing-header">
+                <h3>FINANCING AVAILABLE!</h3>
+                <img
+                  src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/service-finance-logo.webp"
+                  alt="Service Finance Company LLC"
+                  class="roof-finance-logo"
+                  width="200"
+                  height="50" />
+              </div>
+              <p class="roof-financing-text">
+                On a Budget? We've Got You Covered!
+              </p>
+              <a
+                href="https://www.svcfin.com/#calculator"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary">
+                <i class="fas fa-calculator"></i> Learn More
+              </a>
             </div>
 
+            <div class="roof-budget-card">
+              <h3>Quality Roofing at a Price You Can Afford.</h3>
+              <p>
+                Use our cost calculator to estimate your roofing project budget.
+              </p>
+              <a href="budget-roof-cost.html" class="btn btn-secondary">
+                <i class="fas fa-dollar-sign"></i> Cost Calculator
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form Section -->
+      <section class="roof-contact-section">
+        <div class="container">
+          <div class="section-header text-center">
+            <!-- CUSTOMIZE: Update these two lines for each blog -->
+            <h2 class="section-title">
+              Schedule Your Free Roof Replacement Estimate Today!
+            </h2>
+            <p class="section-subtitle">
+              Let us provide you with a strong, long-lasting roof replacement
+              that enhances your home's safety and value!
+            </p>
+          </div>
+
+          <div class="roof-contact-grid">
+            <div class="roof-form-container">
+              <div class="roof-form-header">
+                <h3>VALLEY PEAK ROOFING CO</h3>
+                <h4>Your Free Estimate Form</h4>
+              </div>
+
+              <form
+                class="roof-contact-form"
+                name="contact-form"
+                method="POST"
+                action="/thank-you.html"
+                data-netlify="true">
+                <!-- Hidden field for Netlify to recognize the form -->
+                <input type="hidden" name="form-name" value="contact-form" />
+
+                <!-- Page tracking fields -->
+                <input
+                  type="hidden"
+                  name="page_url"
+                  id="contact_page_url"
+                  value="" />
+                <input
+                  type="hidden"
+                  name="page_title"
+                  id="contact_page_title"
+                  value="" />
+                <input
+                  type="hidden"
+                  name="submitted_from"
+                  id="contact_submitted_from"
+                  value="" />
+
+                <div class="roof-form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="roof-form-row">
+                  <div class="roof-form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required />
+                  </div>
+
+                  <div class="roof-form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" required />
+                  </div>
+                </div>
+
+                <div class="roof-form-group">
+                  <label for="service">Service Needed</label>
+                  <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option value="roofing">Roofing</option>
+                    <option value="siding">Siding</option>
+                    <option value="gutters">Gutters</option>
+                  </select>
+                </div>
+
+                <div class="roof-form-group">
+                  <label for="message">Project Details</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    placeholder="Tell us about your project..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">
+                  <i class="fas fa-paper-plane"></i> Send
+                </button>
+              </form>
+            </div>
+
+            <div class="roof-why-choose-sidebar">
+              <h3>WHY CHOOSE US?</h3>
+              <!-- CUSTOMIZE: Update heading and list items for each blog -->
+              <h4>Your Trusted Local Experts</h4>
+              <ul class="roof-difference-list">
+                <li>
+                  <i class="fas fa-shield-alt"></i> Lifetime Workmanship
+                  Warranty
+                </li>
+                <li>
+                  <i class="fas fa-calendar-check"></i> Schedule Within 1 Week
+                </li>
+                <li>
+                  <i class="fas fa-certificate"></i> Free Comprehensive
+                  Inspection
+                </li>
+                <li>
+                  <i class="fas fa-clipboard-check"></i> Detailed Photo Reports
+                </li>
+                <li>
+                  <i class="fas fa-dollar-sign"></i> Transparent, Upfront
+                  Pricing
+                </li>
+              </ul>
+              <!-- CUSTOMIZE: Update this paragraph for each blog -->
+              <p class="roof-difference-text">
+                Valley Peak Roofing understands Pennsylvania weather patterns.
+                Our inspections help you avoid emergency repairs and winter
+                damage. With over 20 years of combined experience in the Lehigh
+                Valley, we know exactly what to look for and how to protect your
+                home.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hidden form for Netlify detection -->
+      <form name="contact-form" netlify hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <input type="hidden" name="page_url" value="" />
+        <input type="hidden" name="page_title" value="" />
+        <input type="hidden" name="submitted_from" value="" />
+        <select name="service">
+          <option value="">Select a service</option>
+          <option value="roofing">Roofing</option>
+          <option value="siding">Siding</option>
+          <option value="gutters">Gutters</option>
+        </select>
+        <textarea name="message"></textarea>
+      </form>
+
+      <!-- BACK TO TOP BUTTON HTML -->
+      <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <!-- Top Row -->
+          <div class="footer-top-row">
+            <!-- Logo Section -->
+            <div class="footer-logo-section">
+              <a href="../" class="footer-logo-wrapper">
+                <span class="footer-company-name">
+                  <span class="large-letter">V</span>alley
+                  <span class="large-letter">P</span>eak
+                  <span class="large-letter">R</span>oofing Co.
+                </span>
+                <img
+                  src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp"
+                  alt="Valley Peak Roofing Logo"
+                  class="footer-logo"
+                  width="60"
+                  height="60" />
+              </a>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="footer-contact-section">
+              <a href="tel:484-602-6863" class="footer-phone">
+                <i class="fas fa-phone"></i> (484) 602-6863
+              </a>
+              <a
+                href="mailto:sales@valleypeakroof.com"
+                target="_blank"
+                class="footer-email">
+                <i class="fas fa-envelope"></i> sales@valleypeakroof.com
+              </a>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="footer-social-section">
+              <a
+                href="https://g.co/kgs/TMR51P8"
+                target="_blank"
+                rel="noopener"
+                aria-label="Find us on Google"
+                class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/VPRCO/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Follow us on Facebook"
+                class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/valleypeakroofing/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Follow us on Instagram"
+                class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Location Row - Now separate -->
+          <div class="footer-location-row">
+            <div class="footer-address-section">
+              <h4>Our Location</h4>
+              <div class="map-preview">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.123456789!2d-75.3905!3d40.6259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c43f0e6b5a9d5f%3A0x0!2s3005+Brodhead+Rd+Suite+105%2C+Bethlehem%2C+PA+18020!5e0!3m2!1sen!2sus!4v0000000000000"
+                  title="Valley Peak Roofing Company Location Map - 3005 Brodhead Road Suite 105, Bethlehem, PA 18020"
+                  width="100%"
+                  height="200"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+              <address>
+                3005 Brodhead Road Suite 105<br />
+                Bethlehem, PA 18020
+              </address>
+            </div>
+          </div>
+
+          <!-- Middle Row - Now with 5 columns including FAQ -->
+          <div class="footer-middle-row">
+            <!-- Site Navigation -->
+            <div class="footer-nav-section">
+              <h4>Site Navigation</h4>
+              <ul>
+                <li><a href="../">Home</a></li>
+                <li><a href="../our-company.html">About Us</a></li>
+                <li><a href="../contact.html">Contact Us</a></li>
+                <li><a href="../service-areas.html">Service Areas</a></li>
+                <li>
+                  <a href="../design-your-roof.html">Design Visualizer Tool</a>
+                </li>
+                <li><a href="../our-blog.html">Blog</a></li>
+              </ul>
+            </div>
+
+            <!-- Roofing Services -->
+            <div class="footer-services-section">
+              <h4>Roofing Services</h4>
+              <ul>
+                <li>
+                  <a href="../roof-replacement-installation.html"
+                    >Roof Inspection Services</a
+                  >
+                </li>
+                <li>
+                  <a href="../roof-replacement-installation.html"
+                    >Home Roof Installation &amp; Repair</a
+                  >
+                </li>
+                <li>
+                  <a href="../commercial-roofing.html"
+                    >Commercial Installation &amp; Repair</a
+                  >
+                </li>
+                <li>
+                  <a href="../siding-installation.html"
+                    >Home Siding Installation &amp; Repair</a
+                  >
+                </li>
+                <li>
+                  <a href="../gutter-maintenance-installation.html"
+                    >Gutter Maintenance &amp; Installation</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Service Areas by County -->
+            <div class="footer-counties-section">
+              <h4>Service Areas</h4>
+              <ul>
+                <li>
+                  <a href="../roofing-services-in-berks-county.html"
+                    >Berks County Roofing</a
+                  >
+                </li>
+                <li>
+                  <a href="../roofing-services-in-lehigh-county.html"
+                    >Lehigh County Roofing</a
+                  >
+                </li>
+                <li>
+                  <a href="../roofing-services-in-northampton-county.html"
+                    >Northampton County Roofing</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- NEW: FAQ Section -->
+            <div class="footer-faq-section">
+              <h4>Resources &amp; FAQs</h4>
+              <ul>
+                <li>
+                  <a href="../roofing-siding-gutter-faqs.html#roofing-faq"
+                    >Roofing FAQ</a
+                  >
+                </li>
+                <li>
+                  <a href="../roofing-siding-gutter-faqs.html#siding-faq"
+                    >Siding FAQ</a
+                  >
+                </li>
+                <li>
+                  <a href="../roofing-siding-gutter-faqs.html#gutter-faq"
+                    >Gutter FAQ</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Bottom Row -->
+          <div class="footer-bottom-row">
+            <p class="copyright">
+              © 2024 Valley Peak Roofing Company | Site by
+              <a
+                href="https://keystonewebsolutions.com"
+                target="_blank"
+                rel="noopener"
+                >Keystone Web Solutions LLC</a
+              >
+            </p>
+            <div class="footer-legal">
+              <a href="../privacy-policy.html">Privacy Policy</a>
+              <span class="separator">|</span>
+              <a href="../terms.html">Terms &amp; Conditions</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- ESTIMATE FORM MODAL -->
+      <div class="modal" id="estimate-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>
+              <i class="fas fa-clipboard-check"></i>
+              Get Your Free Roof Inspection
+            </h3>
+            <button class="close-modal" aria-label="Close modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <!-- Success Message (hidden by default) -->
+            <div class="estimate-success-message" style="display: none">
+              <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3>Thank You!</h3>
+              <p>
+                We've received your request and will contact you within 24 hours
+                to schedule your free inspection.
+              </p>
+            </div>
+
+            <!-- Form - IMPORTANT: All Netlify attributes must be present -->
             <form
-              class="roof-contact-form"
-              name="contact-form"
+              class="estimate-form"
+              id="estimate-form"
+              name="estimate-form"
               method="POST"
-              action="/thank-you.html"
-              data-netlify="true">
-              <!-- Hidden field for Netlify to recognize the form -->
-              <input type="hidden" name="form-name" value="contact-form" />
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              action="/thank-you.html">
+              <!-- Honeypot field for spam protection -->
+              <p class="hidden">
+                <label>
+                  Don't fill this out if you're human:
+                  <input name="bot-field" />
+                </label>
+              </p>
+
+              <!-- Hidden field for Netlify - MUST match the name attribute exactly -->
+              <input type="hidden" name="form-name" value="estimate-form" />
 
               <!-- Page tracking fields -->
-              <input
-                type="hidden"
-                name="page_url"
-                id="contact_page_url"
-                value="" />
-              <input
-                type="hidden"
-                name="page_title"
-                id="contact_page_title"
-                value="" />
+              <input type="hidden" name="page_url" id="page_url" value="" />
+              <input type="hidden" name="page_title" id="page_title" value="" />
               <input
                 type="hidden"
                 name="submitted_from"
-                id="contact_submitted_from"
+                id="submitted_from"
                 value="" />
 
-              <div class="roof-form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-
-              <div class="roof-form-row">
-                <div class="roof-form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" required />
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name *</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    required
+                    placeholder="John" />
                 </div>
-
-                <div class="roof-form-group">
-                  <label for="phone">Phone</label>
-                  <input type="tel" id="phone" name="phone" required />
+                <div class="form-group">
+                  <label for="lastName">Last Name *</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    required
+                    placeholder="Doe" />
                 </div>
               </div>
 
-              <div class="roof-form-group">
-                <label for="service">Service Needed</label>
-                <select id="service" name="service" required>
-                  <option value="">Select a service</option>
-                  <option value="roofing">Roofing</option>
-                  <option value="siding">Siding</option>
-                  <option value="gutters">Gutters</option>
-                </select>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="modal-email">Email Address *</label>
+                  <input
+                    type="email"
+                    id="modal-email"
+                    name="email"
+                    required
+                    placeholder="john.doe@example.com" />
+                </div>
+                <div class="form-group">
+                  <label for="modal-phone">Phone Number *</label>
+                  <input
+                    type="tel"
+                    id="modal-phone"
+                    name="phone"
+                    required
+                    placeholder="(555) 123-4567" />
+                </div>
               </div>
 
-              <div class="roof-form-group">
-                <label for="message">Project Details</label>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="address">Property Address</label>
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    placeholder="123 Main St, City, State" />
+                </div>
+                <div class="form-group">
+                  <label for="modal-service">Service Needed</label>
+                  <select id="modal-service" name="service">
+                    <option value="">Select a service</option>
+                    <option value="roof-replacement">Roof Replacement</option>
+                    <option value="roof-repair">Roof Repair</option>
+                    <option value="new-construction">New Construction</option>
+                    <option value="storm-damage">
+                      Storm Damage Assessment
+                    </option>
+                    <option value="maintenance">Roof Maintenance</option>
+                    <option value="gutters">Gutters</option>
+                    <option value="siding">Siding</option>
+                    <option value="not-sure">Not Sure - Need Inspection</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="modal-message">Tell us about your project</label>
                 <textarea
-                  id="message"
+                  id="modal-message"
                   name="message"
                   rows="4"
-                  placeholder="Tell us about your project..."></textarea>
+                  placeholder="Please describe any issues you're experiencing, when you need the work done, or any other details that would help us prepare for your inspection..."></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-large">
-                <i class="fas fa-paper-plane"></i> Send
+              <div class="form-group">
+                <label for="preferredContact">Preferred Contact Method</label>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input
+                      type="radio"
+                      name="preferredContact"
+                      value="phone"
+                      checked />
+                    <span>Phone</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="preferredContact" value="email" />
+                    <span>Email</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="preferredContact" value="text" />
+                    <span>Text</span>
+                  </label>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-large submit-button">
+                <span class="button-text">Schedule My Free Inspection</span>
+                <span class="button-loading" style="display: none">
+                  <i class="fas fa-spinner fa-spin"></i> Submitting...
+                </span>
               </button>
+
+              <p class="form-guarantee">
+                <i class="fas fa-shield-alt"></i>
+                Your information is secure and will never be shared. We'll
+                contact you within 24 hours.
+              </p>
             </form>
           </div>
-
-          <div class="roof-why-choose-sidebar">
-            <h3>WHY CHOOSE US?</h3>
-            <h4>August Inspection Experts</h4>
-            <ul class="roof-difference-list">
-              <li>
-                <i class="fas fa-calendar-check"></i> Schedule Within 1 Week
-              </li>
-              <li>
-                <i class="fas fa-certificate"></i> Free Comprehensive Inspection
-              </li>
-              <li>
-                <i class="fas fa-clipboard-check"></i> Detailed Photo Reports
-              </li>
-              <li>
-                <i class="fas fa-shield-alt"></i> Lifetime Workmanship Warranty
-              </li>
-              <li>
-                <i class="fas fa-dollar-sign"></i> Transparent, Upfront Pricing
-              </li>
-            </ul>
-            <p class="roof-difference-text">
-              Valley Peak Roofing understands Pennsylvania weather patterns. Our
-              August inspections help you avoid fall emergency repairs and
-              winter damage. With over 20 years of combined experience in the
-              Lehigh Valley, we know exactly what to look for and how to protect
-              your home.
-            </p>
-          </div>
         </div>
       </div>
-    </section>
 
-    <!-- Hidden form for Netlify detection -->
-    <form name="contact-form" netlify hidden>
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <input type="hidden" name="page_url" value="" />
-      <input type="hidden" name="page_title" value="" />
-      <input type="hidden" name="submitted_from" value="" />
-      <select name="service">
-        <option value="">Select a service</option>
-        <option value="roofing">Roofing</option>
-        <option value="siding">Siding</option>
-        <option value="gutters">Gutters</option>
-      </select>
-      <textarea name="message"></textarea>
-    </form>
+      <!-- HIDDEN ESTIMATE FORM -->
+      <!-- This form is hidden and used for Netlify submissions -->
+      <form name="estimate-form" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="bot-field" />
+        <input type="text" name="firstName" />
+        <input type="text" name="lastName" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <input type="text" name="address" />
+        <!-- Page tracking fields -->
+        <input type="hidden" name="page_url" value="" />
+        <input type="hidden" name="page_title" value="" />
+        <input type="hidden" name="submitted_from" value="" />
+        <select name="service">
+          <option value="">Select a service</option>
+          <option value="roof-replacement">Roof Replacement</option>
+          <option value="roof-repair">Roof Repair</option>
+          <option value="new-construction">New Construction</option>
+          <option value="storm-damage">Storm Damage Assessment</option>
+          <option value="maintenance">Roof Maintenance</option>
+          <option value="gutters">Gutters</option>
+          <option value="siding">Siding</option>
+          <option value="not-sure">Not Sure - Need Inspection</option>
+        </select>
+        <textarea name="message"></textarea>
+        <input type="radio" name="preferredContact" value="phone" />
+        <input type="radio" name="preferredContact" value="email" />
+        <input type="radio" name="preferredContact" value="text" />
+      </form>
 
-    <!-- BACK TO TOP BUTTON HTML -->
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-      <i class="fas fa-chevron-up"></i>
-    </button>
+      <script src="../js/scripts.js"></script>
+      <script src="../js/modal.js"></script>
+      <!-- Bootstrap JS Bundle (includes Popper) -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- Blog Post Date Sorter -->
+      <script>
+        // Sort blog posts by date (newest first)
+        document.addEventListener('DOMContentLoaded', function () {
+          const blogGrid = document.getElementById('blogGrid');
+          if (blogGrid) {
+            const blogPosts = Array.from(
+              blogGrid.querySelectorAll('.blog-page-card')
+            );
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <!-- Top Row -->
-        <div class="footer-top-row">
-          <!-- Logo Section -->
-          <div class="footer-logo-section">
-            <a href="../" class="footer-logo-wrapper">
-              <span class="footer-company-name">
-                <span class="large-letter">V</span>alley
-                <span class="large-letter">P</span>eak
-                <span class="large-letter">R</span>oofing Co.
-              </span>
-              <img
-                src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp"
-                alt="Valley Peak Roofing Logo"
-                class="footer-logo"
-                width="60"
-                height="60" />
-            </a>
-          </div>
+            // Sort posts by data-date attribute in descending order
+            blogPosts.sort((a, b) => {
+              const dateA = a.getAttribute('data-date');
+              const dateB = b.getAttribute('data-date');
+              return dateB.localeCompare(dateA);
+            });
 
-          <!-- Contact Section -->
-          <div class="footer-contact-section">
-            <a href="tel:484-602-6863" class="footer-phone">
-              <i class="fas fa-phone"></i> (484) 602-6863
-            </a>
-            <a
-              href="mailto:sales@valleypeakroof.com"
-              target="_blank"
-              class="footer-email">
-              <i class="fas fa-envelope"></i> sales@valleypeakroof.com
-            </a>
-          </div>
-
-          <!-- Social Icons -->
-          <div class="footer-social-section">
-            <a
-              href="https://g.co/kgs/TMR51P8"
-              target="_blank"
-              rel="noopener"
-              aria-label="Find us on Google"
-              class="social-icon">
-              <i class="fab fa-google"></i>
-            </a>
-            <a
-              href="https://www.facebook.com/VPRCO/"
-              target="_blank"
-              rel="noopener"
-              aria-label="Follow us on Facebook"
-              class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a
-              href="https://www.instagram.com/valleypeakroofing/"
-              target="_blank"
-              rel="noopener"
-              aria-label="Follow us on Instagram"
-              class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Location Row - Now separate -->
-        <div class="footer-location-row">
-          <div class="footer-address-section">
-            <h4>Our Location</h4>
-            <div class="map-preview">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.123456789!2d-75.3905!3d40.6259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c43f0e6b5a9d5f%3A0x0!2s3005+Brodhead+Rd+Suite+105%2C+Bethlehem%2C+PA+18020!5e0!3m2!1sen!2sus!4v0000000000000"
-                title="Valley Peak Roofing Company Location Map - 3005 Brodhead Road Suite 105, Bethlehem, PA 18020"
-                width="100%"
-                height="200"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </div>
-            <address>
-              3005 Brodhead Road Suite 105<br />
-              Bethlehem, PA 18020
-            </address>
-          </div>
-        </div>
-
-        <!-- Middle Row - Now with 5 columns including FAQ -->
-        <div class="footer-middle-row">
-          <!-- Site Navigation -->
-          <div class="footer-nav-section">
-            <h4>Site Navigation</h4>
-            <ul>
-              <li><a href="../">Home</a></li>
-              <li><a href="../our-company.html">About Us</a></li>
-              <li><a href="../contact.html">Contact Us</a></li>
-              <li><a href="../service-areas.html">Service Areas</a></li>
-              <li>
-                <a href="../design-your-roof.html">Design Visualizer Tool</a>
-              </li>
-              <li><a href="../our-blog.html">Blog</a></li>
-            </ul>
-          </div>
-
-          <!-- Roofing Services -->
-          <div class="footer-services-section">
-            <h4>Roofing Services</h4>
-            <ul>
-              <li>
-                <a href="../roof-replacement-installation.html"
-                  >Roof Inspection Services</a
-                >
-              </li>
-              <li>
-                <a href="../roof-replacement-installation.html"
-                  >Home Roof Installation & Repair</a
-                >
-              </li>
-              <li>
-                <a href="../commercial-roofing.html"
-                  >Commercial Installation & Repair</a
-                >
-              </li>
-              <li>
-                <a href="../siding-installation.html"
-                  >Home Siding Installation & Repair</a
-                >
-              </li>
-              <li>
-                <a href="../gutter-maintenance-installation.html"
-                  >Gutter Maintenance & Installation</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Service Areas by County -->
-          <div class="footer-counties-section">
-            <h4>Service Areas</h4>
-            <ul>
-              <li>
-                <a href="../roofing-services-in-berks-county.html"
-                  >Berks County Roofing</a
-                >
-              </li>
-              <li>
-                <a href="../roofing-services-in-lehigh-county.html"
-                  >Lehigh County Roofing</a
-                >
-              </li>
-              <li>
-                <a href="../roofing-services-in-northampton-county.html"
-                  >Northampton County Roofing</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- NEW: FAQ Section -->
-          <div class="footer-faq-section">
-            <h4>Resources & FAQs</h4>
-            <ul>
-              <li>
-                <a href="../roofing-siding-gutter-faqs.html#roofing-faq"
-                  >Roofing FAQ</a
-                >
-              </li>
-              <li>
-                <a href="../roofing-siding-gutter-faqs.html#siding-faq"
-                  >Siding FAQ</a
-                >
-              </li>
-              <li>
-                <a href="../roofing-siding-gutter-faqs.html#gutter-faq"
-                  >Gutter FAQ</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Bottom Row -->
-        <div class="footer-bottom-row"></div>
-      </div>
-    </footer>
-
-    <!-- ESTIMATE FORM MODAL -->
-    <div class="modal" id="estimate-modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>
-            <i class="fas fa-clipboard-check"></i>
-            Get Your Free Roof Inspection
-          </h3>
-          <button class="close-modal" aria-label="Close modal">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <!-- Success Message (hidden by default) -->
-          <div class="estimate-success-message" style="display: none">
-            <div class="success-icon">
-              <i class="fas fa-check-circle"></i>
-            </div>
-            <h3>Thank You!</h3>
-            <p>
-              We've received your request and will contact you within 24 hours
-              to schedule your free inspection.
-            </p>
-          </div>
-
-          <!-- Form - IMPORTANT: All Netlify attributes must be present -->
-          <form
-            class="estimate-form"
-            id="estimate-form"
-            name="estimate-form"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            action="/thank-you.html">
-            <!-- Honeypot field for spam protection -->
-            <p class="hidden">
-              <label>
-                Don't fill this out if you're human:
-                <input name="bot-field" />
-              </label>
-            </p>
-
-            <!-- Hidden field for Netlify - MUST match the name attribute exactly -->
-            <input type="hidden" name="form-name" value="estimate-form" />
-
-            <!-- Page tracking fields -->
-            <input type="hidden" name="page_url" id="page_url" value="" />
-            <input type="hidden" name="page_title" id="page_title" value="" />
-            <input
-              type="hidden"
-              name="submitted_from"
-              id="submitted_from"
-              value="" />
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">First Name *</label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  required
-                  placeholder="John" />
-              </div>
-              <div class="form-group">
-                <label for="lastName">Last Name *</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  required
-                  placeholder="Doe" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="john.doe@example.com" />
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone Number *</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  placeholder="(555) 123-4567" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="address">Property Address</label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  placeholder="123 Main St, City, State" />
-              </div>
-              <div class="form-group">
-                <label for="service">Service Needed</label>
-                <select id="service" name="service">
-                  <option value="">Select a service</option>
-                  <option value="roof-replacement">Roof Replacement</option>
-                  <option value="roof-repair">Roof Repair</option>
-                  <option value="new-construction">New Construction</option>
-                  <option value="storm-damage">Storm Damage Assessment</option>
-                  <option value="maintenance">Roof Maintenance</option>
-                  <option value="gutters">Gutters</option>
-                  <option value="siding">Siding</option>
-                  <option value="not-sure">Not Sure - Need Inspection</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Tell us about your project</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                placeholder="Please describe any issues you're experiencing, when you need the work done, or any other details that would help us prepare for your inspection..."></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="preferredContact">Preferred Contact Method</label>
-              <div class="radio-group">
-                <label class="radio-label">
-                  <input
-                    type="radio"
-                    name="preferredContact"
-                    value="phone"
-                    checked />
-                  <span>Phone</span>
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="preferredContact" value="email" />
-                  <span>Email</span>
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="preferredContact" value="text" />
-                  <span>Text</span>
-                </label>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              class="btn btn-primary btn-large submit-button">
-              <span class="button-text">Schedule My Free Inspection</span>
-              <span class="button-loading" style="display: none">
-                <i class="fas fa-spinner fa-spin"></i> Submitting...
-              </span>
-            </button>
-
-            <p class="form-guarantee">
-              <i class="fas fa-shield-alt"></i>
-              Your information is secure and will never be shared. We'll contact
-              you within 24 hours.
-            </p>
-          </form>
-        </div>
-      </div>
+            // Clear the grid and re-append sorted posts
+            blogGrid.innerHTML = '';
+            blogPosts.forEach((post) => {
+              blogGrid.appendChild(post);
+            });
+          }
+        });
+      </script>
     </div>
-
-    <!-- HIDDEN ESTIMATE FORM -->
-    <!-- This form is hidden and used for Netlify submissions -->
-    <form name="estimate-form" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="bot-field" />
-      <input type="text" name="firstName" />
-      <input type="text" name="lastName" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <input type="text" name="address" />
-      <!-- Page tracking fields -->
-      <input type="hidden" name="page_url" value="" />
-      <input type="hidden" name="page_title" value="" />
-      <input type="hidden" name="submitted_from" value="" />
-      <select name="service">
-        <option value="">Select a service</option>
-        <option value="roof-replacement">Roof Replacement</option>
-        <option value="roof-repair">Roof Repair</option>
-        <option value="new-construction">New Construction</option>
-        <option value="storm-damage">Storm Damage Assessment</option>
-        <option value="maintenance">Roof Maintenance</option>
-        <option value="gutters">Gutters</option>
-        <option value="siding">Siding</option>
-        <option value="not-sure">Not Sure - Need Inspection</option>
-      </select>
-      <textarea name="message"></textarea>
-      <input type="radio" name="preferredContact" value="phone" />
-      <input type="radio" name="preferredContact" value="email" />
-      <input type="radio" name="preferredContact" value="text" />
-    </form>
-
-    <script src="../js/scripts.js"></script>
-    <script src="../js/modal.js"></script>
-    <!-- Bootstrap JS Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Blog Post Date Sorter -->
-    <script>
-      // Sort blog posts by date (newest first)
-      document.addEventListener('DOMContentLoaded', function () {
-        const blogGrid = document.getElementById('blogGrid');
-        const blogPosts = Array.from(
-          blogGrid.querySelectorAll('.blog-page-card')
-        );
-
-        // Sort posts by data-date attribute in descending order
-        blogPosts.sort((a, b) => {
-          const dateA = a.getAttribute('data-date');
-          const dateB = b.getAttribute('data-date');
-          return dateB.localeCompare(dateA);
-        });
-
-        // Clear the grid and re-append sorted posts
-        blogGrid.innerHTML = '';
-        blogPosts.forEach((post) => {
-          blogGrid.appendChild(post);
-        });
-      });
-    </script>
   </body>
 </html>

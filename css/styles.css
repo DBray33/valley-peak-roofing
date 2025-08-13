@@ -262,8 +262,8 @@ body {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  padding: 120px 0 80px;
-  min-height: 98vh;
+  padding: calc(120px + 1rem) 0 calc(80px + 2rem); /* Added 1rem top and 2rem bottom for height */
+  min-height: calc(98vh + 2rem); /* Added 2rem to min-height */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -273,10 +273,10 @@ body {
 }
 
 /* Only adjust padding and background gradient opacity in media queries */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .hero {
-    padding: 120px 0 50px;
-    min-height: 98vh;
+    padding: calc(120px + 1rem) 0 calc(80px + 2rem); /* Increased bottom padding */
+    min-height: calc(100vh + 2rem); /* Increased from 98vh to give more room */
     /* Adjust gradient for better mobile visibility */
     background: linear-gradient(
         90deg,
@@ -287,14 +287,34 @@ body {
       url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/valley-peak-roofing-homepage-hero-background.webp');
     background-position: center center;
     background-size: cover;
-    /* NO clip-path changes - keeps the 200px slant */
+    /* Reduce slant for tablet range */
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 120px), 0 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: calc(120px + 1rem) 0 calc(60px + 2rem); /* Adjusted padding */
+    min-height: calc(100vh + 2rem);
+    /* Adjust gradient for better mobile visibility */
+    background: linear-gradient(
+        90deg,
+        rgba(20, 22, 23, 0.85) 0%,
+        rgba(20, 22, 23, 0.7) 60%,
+        rgba(20, 22, 23, 0.4) 100%
+      ),
+      url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/valley-peak-roofing-homepage-hero-background.webp');
+    background-position: center center;
+    background-size: cover;
+    /* Further reduce slant */
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), 0 100%);
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 140px 0 40px;
-    min-height: 98vh;
+    padding: calc(140px + 1rem) 0 calc(40px + 2rem);
+    min-height: calc(98vh + 2rem);
     background-position: center center;
     /* NO clip-path changes - keeps the 200px slant */
   }
@@ -305,6 +325,8 @@ body {
   .hero {
     /* Reduce slant to 80px on mobile for better proportions */
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 80px), 0 100%);
+    padding: calc(140px + 1rem) 0 calc(50px + 2rem); /* Slightly more padding */
+    min-height: calc(98vh + 2rem);
   }
 }
 
@@ -318,11 +340,11 @@ body {
 .hero-content .container {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  max-width: 1400px;
+  justify-content: center;
+  max-width: 1600px; /* Increased from 1400px */
   width: 100%;
-  padding: 0 90px;
-  margin: 0 auto 0 30px;
+  padding: 0 60px; /* Reduced padding to allow more width */
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
@@ -340,39 +362,87 @@ body {
   }
 }
 
-/* Hero Text */
-.hero-text {
-  text-align: left;
-  max-width: 100%;
+/* Hero Flex Container - New wrapper for text and form */
+.hero-flex-container {
+  display: flex;
+  gap: 80px; /* Increased gap */
+  align-items: center;
   width: 100%;
+  justify-content: space-between; /* Space between items */
 }
 
-@media (max-width: 768px) {
-  .hero-text {
-    text-align: center;
+@media (max-width: 1400px) {
+  .hero-flex-container {
+    gap: 60px;
   }
 }
 
-/* Hero Title */
+@media (max-width: 1200px) {
+  .hero-flex-container {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 968px) {
+  .hero-flex-container {
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+  }
+}
+
+/* Hero Text */
+.hero-text {
+  text-align: left;
+  flex: 0 1 650px; /* Set max width but allow shrinking */
+  min-width: 0; /* Allows text to shrink properly */
+  padding-top: 1rem; /* Push content down 1rem to avoid floating button */
+}
+
+@media (max-width: 968px) {
+  .hero-text {
+    text-align: center;
+    width: 100%;
+    flex: 1;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Hero Title - Adjusted for less horizontal space */
 .hero-text h1 {
-  font-size: 60px;
+  font-size: 52px; /* Increased from 48px */
   font-weight: 700;
   color: white;
   margin-bottom: 20px;
-  line-height: 1.2;
+  line-height: 1.15;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
+  max-width: 700px; /* Increased from 600px */
 }
 
 @media (max-width: 1398px) {
   .hero-text h1 {
-    font-size: 50px;
+    font-size: 46px; /* Increased from 42px */
+    max-width: 600px; /* Increased from 500px */
   }
 }
 
-@media (max-width: 974px) {
+@media (max-width: 1200px) {
   .hero-text h1 {
-    font-size: 42px;
+    font-size: 42px; /* Increased from 38px */
+    max-width: 550px; /* Increased from 450px */
+  }
+}
+
+@media (max-width: 968px) {
+  .hero-text h1 {
+    font-size: 36px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -410,23 +480,32 @@ body {
 
 @media (max-width: 1398px) {
   .hero-text p.fade-in-delay {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
-@media (max-width: 974px) {
+@media (max-width: 1200px) {
   .hero-text p.fade-in-delay {
-    font-size: 18px;
+    font-size: 17px;
+    padding: 18px 22px;
+  }
+}
+
+@media (max-width: 968px) {
+  .hero-text p.fade-in-delay {
+    font-size: 16px;
+    padding: 16px 20px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 @media (max-width: 768px) {
   .hero-text p.fade-in-delay {
-    font-size: 16px;
+    font-size: 15px;
     padding: 15px 18px;
     margin-bottom: 25px;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -435,6 +514,190 @@ body {
     font-size: 14px;
     padding: 12px 15px;
     margin-bottom: 20px;
+  }
+}
+
+/* Hero Contact Form - New Section */
+.hero-contact-form {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--primary-color);
+  border-radius: 16px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  width: 420px; /* Increased from 380px */
+  flex-shrink: 0;
+  margin-top: -2rem; /* Move up 2rem */
+}
+
+/* Desktop only form */
+.hero-contact-form.desktop-only {
+  margin-right: 40px; /* Add right margin to push it toward the right edge */
+  display: block;
+}
+
+/* Mobile only form */
+.hero-contact-form.mobile-only {
+  display: none;
+  margin: 1.5rem auto 2rem;
+  width: 100%;
+  max-width: 380px; /* Reduced from 500px */
+}
+
+@media (max-width: 1400px) {
+  .hero-contact-form {
+    width: 380px; /* Slightly smaller on medium screens */
+  }
+  .hero-contact-form.desktop-only {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero-contact-form {
+    width: 340px;
+    padding: 25px;
+  }
+  .hero-contact-form.desktop-only {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 968px) {
+  .hero-contact-form.desktop-only {
+    display: none; /* Hide desktop form */
+  }
+
+  .hero-contact-form.mobile-only {
+    display: block; /* Show mobile form */
+  }
+
+  .hero-contact-form {
+    width: 100%;
+    max-width: 380px; /* Reduced from 500px */
+    margin-right: 0;
+    margin-top: 0; /* Reset margin-top on mobile */
+    padding: 20px; /* Reduced padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-contact-form {
+    padding: 18px; /* Slightly smaller padding */
+    max-width: 340px; /* Even smaller on very small screens */
+  }
+}
+
+.hero-contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+@media (max-width: 968px) {
+  .hero-contact-form form {
+    gap: 12px; /* Smaller gap on mobile */
+  }
+}
+
+.hero-contact-form input,
+.hero-contact-form select {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(181, 168, 129, 0.3);
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--dark-blue);
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+@media (max-width: 968px) {
+  .hero-contact-form input,
+  .hero-contact-form select {
+    padding: 12px 14px; /* Smaller padding on mobile */
+    font-size: 14px; /* Smaller font */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-contact-form input,
+  .hero-contact-form select {
+    padding: 11px 12px; /* Even smaller on very small screens */
+  }
+}
+
+.hero-contact-form input:focus,
+.hero-contact-form select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(181, 168, 129, 0.1);
+  background: white;
+}
+
+.hero-contact-form input::placeholder {
+  color: rgba(20, 22, 23, 0.5);
+}
+
+.hero-contact-form select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23141617' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.hero-contact-form select option {
+  padding: 10px;
+}
+
+.hero-contact-form button,
+.hero-contact-form .btn,
+.hero-contact-form .btn-primary {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  margin: 10px 0 0 0 !important;
+  padding: 16px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  border: none !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  text-align: center !important;
+  background-color: #b5a881 !important;
+  color: #1a1a1a !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  /* Override the inline-flex from button.css */
+  display: block !important;
+  justify-content: center !important;
+}
+
+.hero-contact-form button:hover,
+.hero-contact-form .btn:hover,
+.hero-contact-form .btn-primary:hover {
+  background-color: #9a8d6f !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(181, 168, 129, 0.3) !important;
+}
+
+@media (max-width: 480px) {
+  .hero-contact-form button,
+  .hero-contact-form .btn,
+  .hero-contact-form .btn-primary {
+    padding: 14px !important;
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-contact-form button {
+    padding: 14px;
+    font-size: 15px;
   }
 }
 
@@ -447,6 +710,13 @@ body {
   margin-top: 3rem;
   align-items: flex-start;
   flex-wrap: wrap;
+}
+
+@media (max-width: 968px) {
+  .hero-guarantees {
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -533,15 +803,20 @@ body {
   }
 }
 
-/* Remove old Font Awesome icon styles since we're using SVGs now */
-/* .guarantee-item i styles removed */
-
 /* Hero CTA */
 .hero-cta {
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: flex-start;
+}
+
+@media (max-width: 968px) {
+  .hero-cta {
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -604,15 +879,19 @@ body {
   gap: 5px;
 }
 
-/* Remove old Font Awesome icon styles since we're using SVGs now */
-/* .trust-indicators i styles removed */
-
 /* Social Media Links */
 .hero-social-links {
   display: flex;
   gap: 15px;
   align-items: center;
   justify-content: flex-start;
+}
+
+@media (max-width: 968px) {
+  .hero-social-links {
+    justify-content: center;
+    gap: 12px;
+  }
 }
 
 @media (max-width: 768px) {

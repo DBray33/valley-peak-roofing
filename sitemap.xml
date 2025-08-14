@@ -8,7 +8,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Main Service Pages -->
+  <!-- Main Service Pages (NO .html) -->
   <url>
     <loc>https://valleypeakroof.com/roof-replacement-installation</loc>
     <lastmod>2025-01-20</lastmod>
@@ -126,7 +126,14 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Blog Posts -->
+  <!-- Blog Posts (ALL without .html) -->
+  <url>
+    <loc>https://valleypeakroof.com/blog/august-roof-inspection-checklist-lehigh-valley</loc>
+    <lastmod>2025-08-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <url>
     <loc>https://valleypeakroof.com/blog/lehigh-valley-weather-roof-protection</loc>
     <lastmod>2025-01-20</lastmod>

@@ -155,97 +155,153 @@
         rel="stylesheet" />
     </noscript>
 
-    <!-- Service Areas Schema Markup -->
+    <!-- Service Areas Schema Markup (FIXED: use CollectionPage + ItemList, reference org by @id) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "@id": "#service",
-        "name": "Valley Peak Roofing Service Areas",
-        "description": "Proudly serving Pennsylvania's Lehigh Valley & beyond with trusted roofing, siding, and gutter services. 3 counties covered, 30+ communities, same-day response.",
+        "@type": "CollectionPage",
+        "name": "Service Areas | Valley Peak Roofing - Lehigh Valley PA & Beyond",
+        "url": "https://valleypeakroof.com/service-areas",
+        "description": "Proudly serving Pennsylvania's Lehigh Valley & beyond with trusted roofing, siding, and gutter services across 3 counties and 30+ communities.",
         "provider": {
           "@type": "RoofingContractor",
-          "name": "Valley Peak Roofing Co.",
-          "image": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp",
-          "logo": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp",
-          "@id": "https://valleypeakroof.com/#organization",
-          "url": "https://valleypeakroof.com",
-          "telephone": "+1-484-602-6863",
-          "email": "sales@valleypeakroof.com",
-          "priceRange": "$$",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "3005 Brodhead Road Suite 105",
-            "addressLocality": "Bethlehem",
-            "addressRegion": "PA",
-            "postalCode": "18020",
-            "addressCountry": "US"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 40.6259,
-            "longitude": -75.3905
-          }
+          "@id": "https://valleypeakroof.com/#organization"
         },
-        "areaServed": [
-          {
-            "@type": "AdministrativeArea",
-            "name": "Lehigh County, PA",
-            "containsPlace": [
-              { "@type": "City", "name": "Allentown", "postalCode": "18102" },
-              { "@type": "City", "name": "Alburtis", "postalCode": "18011" },
-              { "@type": "City", "name": "Catasauqua", "postalCode": "18032" },
-              { "@type": "City", "name": "Coopersburg", "postalCode": "18036" },
-              { "@type": "City", "name": "Emmaus", "postalCode": "18049" },
-              { "@type": "City", "name": "Macungie", "postalCode": "18062" },
-              { "@type": "City", "name": "New Tripoli", "postalCode": "18066" }
-            ]
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Northampton County, PA",
-            "containsPlace": [
-              { "@type": "City", "name": "Bethlehem", "postalCode": "18020" },
-              { "@type": "City", "name": "Bath", "postalCode": "18014" },
-              { "@type": "City", "name": "Easton", "postalCode": "18042" },
-              { "@type": "City", "name": "Hellertown", "postalCode": "18055" },
-              { "@type": "City", "name": "Nazareth", "postalCode": "18064" },
-              { "@type": "City", "name": "Northampton", "postalCode": "18067" },
-              { "@type": "City", "name": "Wind Gap", "postalCode": "18091" }
-            ]
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Berks County, PA",
-            "containsPlace": [
-              { "@type": "City", "name": "Reading Area" },
-              { "@type": "City", "name": "Kutztown Area" },
-              { "@type": "City", "name": "Hamburg Area" },
-              { "@type": "City", "name": "Fleetwood Area" }
-            ]
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Northern Pennsylvania (Extended Service Area)",
-            "containsPlace": [
-              { "@type": "City", "name": "Scranton", "postalCode": "18507" },
-              { "@type": "City", "name": "Stroudsburg", "postalCode": "18360" },
-              { "@type": "City", "name": "Honesdale", "postalCode": "18431" },
-              { "@type": "City", "name": "Hawley", "postalCode": "18428" },
-              {
-                "@type": "City",
-                "name": "Tannersville",
-                "postalCode": "18372"
-              },
-              { "@type": "City", "name": "Lake Ariel", "postalCode": "18436" }
-            ],
-            "additionalProperty": {
-              "@type": "PropertyValue",
-              "name": "Service Note",
-              "value": "Extended area services may have additional travel fees"
+        "mainEntity": {
+          "@type": "ItemList",
+          "name": "Counties We Serve",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "AdministrativeArea",
+                "name": "Lehigh County, PA",
+                "containsPlace": [
+                  {
+                    "@type": "City",
+                    "name": "Allentown",
+                    "postalCode": "18102"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Alburtis",
+                    "postalCode": "18011"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Catasauqua",
+                    "postalCode": "18032"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Coopersburg",
+                    "postalCode": "18036"
+                  },
+                  { "@type": "City", "name": "Emmaus", "postalCode": "18049" },
+                  {
+                    "@type": "City",
+                    "name": "Macungie",
+                    "postalCode": "18062"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "New Tripoli",
+                    "postalCode": "18066"
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "AdministrativeArea",
+                "name": "Northampton County, PA",
+                "containsPlace": [
+                  {
+                    "@type": "City",
+                    "name": "Bethlehem",
+                    "postalCode": "18020"
+                  },
+                  { "@type": "City", "name": "Bath", "postalCode": "18014" },
+                  { "@type": "City", "name": "Easton", "postalCode": "18042" },
+                  {
+                    "@type": "City",
+                    "name": "Hellertown",
+                    "postalCode": "18055"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Nazareth",
+                    "postalCode": "18064"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Northampton",
+                    "postalCode": "18067"
+                  },
+                  { "@type": "City", "name": "Wind Gap", "postalCode": "18091" }
+                ]
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "AdministrativeArea",
+                "name": "Berks County, PA",
+                "containsPlace": [
+                  { "@type": "City", "name": "Reading Area" },
+                  { "@type": "City", "name": "Kutztown Area" },
+                  { "@type": "City", "name": "Hamburg Area" },
+                  { "@type": "City", "name": "Fleetwood Area" }
+                ]
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "AdministrativeArea",
+                "name": "Northern Pennsylvania (Extended Service Area)",
+                "containsPlace": [
+                  {
+                    "@type": "City",
+                    "name": "Scranton",
+                    "postalCode": "18507"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Stroudsburg",
+                    "postalCode": "18360"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Honesdale",
+                    "postalCode": "18431"
+                  },
+                  { "@type": "City", "name": "Hawley", "postalCode": "18428" },
+                  {
+                    "@type": "City",
+                    "name": "Tannersville",
+                    "postalCode": "18372"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Lake Ariel",
+                    "postalCode": "18436"
+                  }
+                ],
+                "additionalProperty": {
+                  "@type": "PropertyValue",
+                  "name": "Service Note",
+                  "value": "Extended area services may have additional travel fees"
+                }
+              }
             }
-          }
-        ],
+          ]
+        },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Roofing Services Available in All Service Areas",
@@ -318,33 +374,15 @@
         },
         "aggregateRating": {
           "@type": "AggregateRating",
-          "itemReviewed": {
-            "@type": "LocalBusiness",
-            "name": "Valley Peak Roofing",
-            "@id": "#business"
-          },
           "ratingValue": "4.8",
           "reviewCount": "127",
           "bestRating": "5",
-          "worstRating": "1"
-        },
-        "additionalProperty": [
-          {
-            "@type": "PropertyValue",
-            "name": "Same-Day Estimates",
-            "value": "Available in all service areas"
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "Emergency Repairs",
-            "value": "Rapid response throughout coverage area"
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "Warranty",
-            "value": "Lifetime warranties on all work"
+          "worstRating": "1",
+          "itemReviewed": {
+            "@type": "RoofingContractor",
+            "@id": "https://valleypeakroof.com/#organization"
           }
-        ]
+        }
       }
     </script>
 
@@ -387,11 +425,6 @@
         ],
         "aggregateRating": {
           "@type": "AggregateRating",
-          "itemReviewed": {
-            "@type": "LocalBusiness",
-            "name": "Valley Peak Roofing Co.",
-            "@id": "https://valleypeakroof.com/#organization"
-          },
           "ratingValue": "4.8",
           "reviewCount": "127",
           "bestRating": "5",

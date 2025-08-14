@@ -156,14 +156,90 @@
       href="https://fonts.googleapis.com/css2?family=Product+Sans&display=swap"
       rel="stylesheet" />
 
-    <!-- WebPage Schema -->
+    <!-- Local Business (RoofingContractor) — TOP-LEVEL entity with full address -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RoofingContractor",
+        "@id": "https://valleypeakroof.com/#organization",
+        "name": "Valley Peak Roofing Co.",
+        "url": "https://valleypeakroof.com",
+        "telephone": "+1-484-602-6863",
+        "email": "sales@valleypeakroof.com",
+        "priceRange": "$$",
+        "image": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp",
+        "logo": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/logo.webp",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3005 Brodhead Road Suite 105",
+          "addressLocality": "Bethlehem",
+          "addressRegion": "PA",
+          "postalCode": "18020",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.6259,
+          "longitude": -75.3905
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "08:00",
+            "closes": "17:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/VPRCO/",
+          "https://www.instagram.com/valleypeakroofing/",
+          "https://g.co/kgs/TMR51P8"
+        ],
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Bethlehem, PA" },
+          { "@type": "AdministrativeArea", "name": "Lehigh Valley, PA" },
+          { "@type": "AdministrativeArea", "name": "Lehigh County, PA" },
+          { "@type": "AdministrativeArea", "name": "Northampton County, PA" },
+          { "@type": "AdministrativeArea", "name": "Berks County, PA" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "127",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "award": [
+          "BBB A+ Rated",
+          "Owens Corning Preferred Contractor",
+          "Licensed & Insured"
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Gunnar Smith",
+          "jobTitle": "Founder",
+          "description": "After spending his early 20s immersed in the building exterior materials industry, where he learned the trade and industry from the ground up, Gunnar developed an uncompromising standard for quality that defines Valley Peak Roofing today."
+        },
+        "foundingDate": "2020",
+        "slogan": "Building Lifelong Relationships One Roof at a Time",
+        "description": "Valley Peak Roofing was founded on the belief that relationships come before contracts. We started this company for you—the customer, the neighbor, the friend. What excites us most isn't just installing a beautiful new roof, but the meaningful relationships we develop along the way."
+      }
+    </script>
+
+    <!-- WebPage Schema (kept) that references the same business via @id -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Our Work - Roofing Portfolio",
         "description": "Gallery showcasing Valley Peak Roofing's completed projects throughout the Lehigh Valley",
-        "url": "https://valleypeakroof.com/our-work.html",
+        "url": "https://valleypeakroof.com/our-work",
         "mainEntity": {
           "@type": "ImageGallery",
           "name": "Valley Peak Roofing Project Gallery",

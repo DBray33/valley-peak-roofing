@@ -370,21 +370,21 @@
       }
     </script>
 
-    <!-- WebPage Schema -->
+    <!-- WebPage Schema (normalized URL + link to org via 'about') -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Online Roof Design Visualizer Tool",
         "description": "Visualize your roof before purchase and installation with Owens Corning technology",
-        "url": "https://valleypeakroof.com/design-your-roof.html",
+        "url": "https://valleypeakroof.com/design-your-roof",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://valleypeakroof.com/#website"
         },
         "about": {
-          "@type": "Thing",
-          "name": "Roof Design and Visualization"
+          "@type": "RoofingContractor",
+          "@id": "https://valleypeakroof.com/#organization"
         },
         "mentions": {
           "@type": "Brand",
@@ -394,7 +394,7 @@
       }
     </script>
 
-    <!-- LocalBusiness Schema for Organization -->
+    <!-- Local Business Schema (authoritative org with address) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -408,7 +408,6 @@
         "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
-          "name": "Valley Peak Roofing Co. Headquarters",
           "streetAddress": "3005 Brodhead Road Suite 105",
           "addressLocality": "Bethlehem",
           "addressRegion": "PA",
@@ -420,7 +419,7 @@
           "latitude": 40.6259,
           "longitude": -75.3905
         },
-        "hasMap": "https://maps.google.com/?q=Valley+Peak+Roofing+3005+Brodhead+Road+Bethlehem+PA+18020",
+        "hasMap": "https://maps.google.com/?q=Valley+Peak+Roofing+3005+Brodhead+Road+Suite+105+Bethlehem+PA+18020",
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
@@ -429,11 +428,10 @@
               "Tuesday",
               "Wednesday",
               "Thursday",
-              "Friday",
-              "Saturday"
+              "Friday"
             ],
             "opens": "08:00",
-            "closes": "18:00"
+            "closes": "17:00"
           }
         ],
         "sameAs": [

@@ -179,14 +179,14 @@
       href="https://fonts.googleapis.com/css2?family=Product+Sans&display=swap"
       rel="stylesheet" />
 
-    <!-- Article Schema Markup -->
+    <!-- Article Schema Markup (fixed publisher & URLs/timezone) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://valleypeakroof.com/blog/august-roof-inspection-checklist-lehigh-valley.html"
+          "@id": "https://valleypeakroof.com/blog/august-roof-inspection-checklist-lehigh-valley"
         },
         "headline": "Preparing Your Lehigh Valley Roof for Fall: The Complete August Inspection Checklist",
         "description": "August is the perfect time to prepare your Lehigh Valley roof for fall storms. Expert checklist for PA homeowners: inspect shingles, clean gutters, check flashing before autumn weather arrives.",
@@ -196,15 +196,16 @@
           "width": 1200,
           "height": 630
         },
-        "datePublished": "2025-08-13T08:00:00-05:00",
-        "dateModified": "2025-08-13T08:00:00-05:00",
+        "datePublished": "2025-08-13T08:00:00-04:00",
+        "dateModified": "2025-08-13T08:00:00-04:00",
         "author": {
           "@type": "Organization",
           "name": "Valley Peak Roofing Team",
           "url": "https://valleypeakroof.com/"
         },
         "publisher": {
-          "@type": "RoofingContractor",
+          "@type": "Organization",
+          "@id": "https://valleypeakroof.com/#organization",
           "name": "Valley Peak Roofing Co.",
           "logo": {
             "@type": "ImageObject",
@@ -358,7 +359,7 @@
       }
     </script>
 
-    <!-- Local Business Schema -->
+    <!-- Local Business Schema (aligned address & hours) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -372,52 +373,39 @@
         "logo": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/logos/valley-peak-roofing-logo.webp",
         "address": {
           "@type": "PostalAddress",
-          "name": "Valley Peak Roofing Co. Headquarters",
-          "streetAddress": "3005 Brodhead Rd",
+          "streetAddress": "3005 Brodhead Road Suite 105",
           "addressLocality": "Bethlehem",
           "addressRegion": "PA",
           "postalCode": "18020",
           "addressCountry": "US"
         },
-        "hasMap": "https://maps.google.com/?q=Valley+Peak+Roofing+3005+Brodhead+Rd+Bethlehem+PA+18020",
+        "hasMap": "https://maps.google.com/?q=Valley+Peak+Roofing+3005+Brodhead+Road+Suite+105+Bethlehem+PA+18020",
         "geo": {
           "@type": "GeoCoordinates",
           "latitude": 40.6259,
           "longitude": -75.3905
         },
         "areaServed": [
-          {
-            "@type": "City",
-            "name": "Allentown"
-          },
-          {
-            "@type": "City",
-            "name": "Bethlehem"
-          },
-          {
-            "@type": "City",
-            "name": "Easton"
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Lehigh Valley"
-          }
+          { "@type": "City", "name": "Allentown" },
+          { "@type": "City", "name": "Bethlehem" },
+          { "@type": "City", "name": "Easton" },
+          { "@type": "AdministrativeArea", "name": "Lehigh Valley" }
         ],
         "priceRange": "$$",
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-          ],
-          "opens": "00:00",
-          "closes": "23:59"
-        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "08:00",
+            "closes": "17:00"
+          }
+        ],
         "sameAs": [
           "https://www.facebook.com/valleypeakroofing",
           "https://www.instagram.com/valleypeakroofing"

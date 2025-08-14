@@ -158,35 +158,22 @@
       href="https://fonts.googleapis.com/css2?family=Product+Sans&display=swap"
       rel="stylesheet" />
 
-    <!-- Skylight Service Schema -->
+    <!-- Skylight Service Schema (FIXED: each Product has image + url) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Professional Skylight Installation & Repair",
-        "description": "Expert skylight installation and repair services for residential and commercial properties in Bethlehem PA and the Lehigh Valley. Specializing in fixed, venting, and tubular skylights.",
+        "serviceType": "Skylight Installation and Repair",
+        "image": [
+          "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/n.%20skylight-installation-and-repair.html/AI%20Images/fixed-skylight.webp",
+          "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/n.%20skylight-installation-and-repair.html/AI%20Images/vented-skylight.webp",
+          "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/n.%20skylight-installation-and-repair.html/AI%20Images/tubular-skylight.webp"
+        ],
         "provider": {
           "@type": "RoofingContractor",
-          "name": "Valley Peak Roofing Co.",
-          "@id": "https://valleypeakroof.com/#organization",
-          "url": "https://valleypeakroof.com",
-          "telephone": "+1-484-602-6863",
-          "email": "sales@valleypeakroof.com",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "3005 Brodhead Road Suite 105",
-            "addressLocality": "Bethlehem",
-            "addressRegion": "PA",
-            "postalCode": "18020",
-            "addressCountry": "US"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "127"
-          }
+          "@id": "https://valleypeakroof.com/#organization"
         },
-        "serviceType": "Skylight Installation and Repair",
         "areaServed": {
           "@type": "GeoCircle",
           "geoMidpoint": {
@@ -205,6 +192,10 @@
               "itemOffered": {
                 "@type": "Product",
                 "name": "Fixed Skylights",
+                "url": "https://valleypeakroof.com/skylight-installation-and-repair#fixed",
+                "image": [
+                  "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/n.%20skylight-installation-and-repair.html/AI%20Images/fixed-skylight.webp"
+                ],
                 "description": "Non-opening windows that provide consistent natural light year-round. Perfect for living rooms, hallways, vaulted ceilings, and budget-conscious installations.",
                 "offers": {
                   "@type": "Offer",
@@ -222,6 +213,10 @@
               "itemOffered": {
                 "@type": "Product",
                 "name": "Venting Skylights",
+                "url": "https://valleypeakroof.com/skylight-installation-and-repair#venting",
+                "image": [
+                  "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/n.%20skylight-installation-and-repair.html/AI%20Images/vented-skylight.webp"
+                ],
                 "description": "Skylights that open to allow fresh air circulation. Available with manual or electric operation. Perfect for kitchens, bathrooms, and upper floors needing improved air circulation.",
                 "offers": {
                   "@type": "Offer",
@@ -239,6 +234,10 @@
               "itemOffered": {
                 "@type": "Product",
                 "name": "Tubular Skylights",
+                "url": "https://valleypeakroof.com/skylight-installation-and-repair#tubular",
+                "image": [
+                  "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/n.%20skylight-installation-and-repair.html/AI%20Images/tubular-skylight.webp"
+                ],
                 "description": "Sun tunnels that capture sunlight through a dome and channel it through reflective tubes. Perfect for small spaces, areas with attic space above, and minimizing heat gain/loss.",
                 "offers": {
                   "@type": "Offer",
@@ -377,30 +376,47 @@
         "@type": "ItemList",
         "name": "Benefits of Natural Light from Skylights",
         "description": "Discover how skylights can transform your home and improve your quality of life",
+        "itemListOrder": "http://schema.org/ItemListOrderAscending",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
-            "name": "Energy Savings",
-            "description": "Reduce reliance on artificial lighting, cut electricity costs by 10-20%, reduce HVAC load, qualify for tax credits"
+            "item": {
+              "@type": "Thing",
+              "name": "Energy Savings",
+              "description": "Reduce reliance on artificial lighting, cut electricity costs by 10-20%, reduce HVAC load, qualify for tax credits",
+              "url": "https://valleypeakroof.com/skylight-installation-and-repair#benefit-energy-savings"
+            }
           },
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Health & Wellness",
-            "description": "Boost vitamin D production, regulate circadian rhythms, reduce eye strain, improve mood and productivity"
+            "item": {
+              "@type": "Thing",
+              "name": "Health & Wellness",
+              "description": "Boost vitamin D production, regulate circadian rhythms, reduce eye strain, improve mood and productivity",
+              "url": "https://valleypeakroof.com/skylight-installation-and-repair#benefit-health-wellness"
+            }
           },
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "Home Value",
-            "description": "ROI of 50-70% on resale, makes spaces feel larger, unique architectural feature, improves curb appeal"
+            "item": {
+              "@type": "Thing",
+              "name": "Home Value",
+              "description": "ROI of 50-70% on resale, makes spaces feel larger, unique architectural feature, improves curb appeal",
+              "url": "https://valleypeakroof.com/skylight-installation-and-repair#benefit-home-value"
+            }
           },
           {
             "@type": "ListItem",
             "position": 4,
-            "name": "Interior Design",
-            "description": "Makes rooms feel spacious, highlights architectural features, creates dramatic lighting effects, connects indoor and outdoor spaces"
+            "item": {
+              "@type": "Thing",
+              "name": "Interior Design",
+              "description": "Makes rooms feel spacious, highlights architectural features, creates dramatic lighting effects, connects indoor and outdoor spaces",
+              "url": "https://valleypeakroof.com/skylight-installation-and-repair#benefit-interior-design"
+            }
           }
         ]
       }

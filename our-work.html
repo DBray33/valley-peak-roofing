@@ -252,19 +252,15 @@
       }
     </script>
 
-    <!-- ImageGallery Schema for Portfolio -->
+    <!-- ImageGallery Schema for Portfolio (fixed: provider is @id only, URL normalized) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ImageGallery",
         "name": "Valley Peak Roofing Portfolio",
         "description": "Showcasing our quality roofing solutions throughout The Lehigh Valley",
-        "url": "https://valleypeakroof.com/our-work.html",
-        "provider": {
-          "@type": "RoofingContractor",
-          "name": "Valley Peak Roofing Co.",
-          "@id": "https://valleypeakroof.com/#organization"
-        },
+        "url": "https://valleypeakroof.com/our-work",
+        "provider": { "@id": "https://valleypeakroof.com/#organization" },
         "hasPart": [
           {
             "@type": "ImageObject",
@@ -294,7 +290,7 @@
       }
     </script>
 
-    <!-- BreadcrumbList Schema -->
+    <!-- BreadcrumbList Schema (URLs normalized) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -310,7 +306,7 @@
             "@type": "ListItem",
             "position": 2,
             "name": "Our Work",
-            "item": "https://valleypeakroof.com/our-work.html"
+            "item": "https://valleypeakroof.com/our-work"
           }
         ]
       }
@@ -323,7 +319,7 @@
         "@type": "CollectionPage",
         "name": "Roofing Project Categories",
         "description": "Browse our portfolio by project type",
-        "url": "https://valleypeakroof.com/our-work.html",
+        "url": "https://valleypeakroof.com/our-work",
         "mainEntity": {
           "@type": "ItemList",
           "itemListElement": [

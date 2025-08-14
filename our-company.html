@@ -240,18 +240,14 @@
       }
     </script>
 
-    <!-- Person Schema for Founder -->
+    <!-- Person Schema for Founder (fixed: worksFor references @id only) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Gunnar Smith",
         "jobTitle": "Founder",
-        "worksFor": {
-          "@type": "RoofingContractor",
-          "name": "Valley Peak Roofing Co.",
-          "@id": "https://valleypeakroof.com/#organization"
-        },
+        "worksFor": { "@id": "https://valleypeakroof.com/#organization" },
         "description": "I want to start by saying thank you for considering Valley Peak Roofing as your next roofing contractor. We started this company for you—the homeowner, the business owner, the friend. I truly believe this is, and always will be, a relationship-first industry.",
         "image": "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/about/gunnar-smith-founder.webp"
       }

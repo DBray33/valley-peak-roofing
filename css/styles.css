@@ -8900,6 +8900,24 @@ body {
   overflow: hidden;
 }
 
+/* Dark gradient overlay to mask pixelation and improve text readability */
+.roof-hero-video-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.35) 50%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
 @media (max-width: 768px) {
   /* Keep video visible on mobile */
   .roof-hero-video-wrapper {
@@ -8916,20 +8934,33 @@ body {
   min-height: 100%;
   width: auto;
   height: auto;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1.02);
   object-fit: cover;
+
+  /* Subtle blur and contrast adjustment to smooth pixelation */
+  filter: blur(0.4px) contrast(1.08) brightness(0.97);
 
   /* Force high-quality rendering */
   -webkit-backface-visibility: hidden;
-  -webkit-transform: translate3d(-50%, -50%, 0);
-  transform: translate3d(-50%, -50%, 0);
-  will-change: transform;
+  -webkit-transform: translate3d(-50%, -50%, 0) scale(1.02);
+  transform: translate3d(-50%, -50%, 0) scale(1.02);
+  will-change: transform, filter;
 }
 
 @media (max-width: 768px) {
   /* Ensure video doesn't cause horizontal scroll */
   .roof-hero-video {
     max-width: 100vw;
+  }
+
+  /* Slightly stronger overlay on mobile for better text readability */
+  .roof-hero-video-wrapper::after {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
   }
 }
 

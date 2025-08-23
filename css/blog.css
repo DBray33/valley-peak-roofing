@@ -572,3 +572,841 @@
     font-size: 1.25rem;
   }
 }
+
+/* ========================================
+   COMMERCIAL EMERGENCY BLOG SPECIFIC STYLES
+   Prefix: .comm-emergency- for unique identification
+   ======================================== */
+
+/* Commercial Blog Header Overrides */
+.commercial-blog .blog-header {
+  background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+}
+
+.commercial-blog .commercial-header .blog-title {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.commercial-blog .commercial-header .blog-meta {
+  color: #b8c6db;
+}
+
+.commercial-blog .commercial-header .blog-meta i {
+  color: #ff6b35;
+}
+
+.commercial-blog .commercial-header .breadcrumb a {
+  color: #b8c6db;
+}
+
+.commercial-blog .commercial-header .breadcrumb a:hover {
+  color: #ff6b35;
+}
+
+.commercial-blog .commercial-header .breadcrumb .separator,
+.commercial-blog .commercial-header .breadcrumb .current {
+  color: #8b9dc3;
+}
+
+/* Read Time Addition - Specific to Commercial Blog */
+.commercial-blog .read-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Commercial Emergency Alert Box */
+.comm-emergency-alert-box {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffe4a1 100%);
+  border-left: 4px solid #ff6b35;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  display: flex;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.comm-emergency-alert-box i {
+  color: #ff6b35;
+  font-size: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.comm-emergency-alert-box strong {
+  display: block;
+  color: #1a2332;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.comm-emergency-alert-box p {
+  margin: 0;
+  color: #495057;
+}
+
+.comm-emergency-alert-box a {
+  color: #ff6b35;
+  font-weight: 600;
+}
+
+/* Commercial Emergency Warning Numbers */
+.comm-emergency-warning-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #ff6b35;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+/* Commercial Emergency Subtitle */
+.comm-emergency-subtitle {
+  color: #2c3e50;
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+/* Commercial Emergency Warning Signs Grid */
+.comm-emergency-warning-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.comm-emergency-warning-card,
+.comm-emergency-cost-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.comm-emergency-warning-card h4,
+.comm-emergency-cost-card h4 {
+  color: #1a2332;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comm-emergency-warning-card h4 i,
+.comm-emergency-cost-card h4 i {
+  color: #ff6b35;
+}
+
+/* Commercial Emergency Cost Timeline */
+.comm-emergency-cost-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.comm-emergency-timeline-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 4px;
+  border-left: 3px solid #28a745;
+}
+
+.comm-emergency-timeline-item.danger {
+  border-left-color: #dc3545;
+  background: #fff5f5;
+}
+
+.comm-emergency-timeline-item .time {
+  font-weight: 600;
+  color: #495057;
+}
+
+.comm-emergency-timeline-item .cost {
+  color: #1a2332;
+  font-weight: bold;
+}
+
+/* Commercial Emergency Damage Indicators */
+.comm-emergency-damage-indicators {
+  background: #fff5f0;
+  border: 1px solid #ffddcc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.comm-emergency-damage-indicators h4 {
+  color: #d84315;
+  margin-bottom: 1rem;
+}
+
+.comm-emergency-indicator-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comm-emergency-indicator-list li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.comm-emergency-indicator-list i {
+  color: #dc3545;
+}
+
+/* Commercial Emergency Cascade Effect */
+.comm-emergency-cascade {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.comm-emergency-effect-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.comm-emergency-effect-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #1a2332;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.comm-emergency-effect-item h5 {
+  color: #1a2332;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.comm-emergency-effect-item p {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Commercial Emergency Ponding Alert */
+.comm-emergency-ponding-alert {
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.comm-emergency-ponding-alert h4 {
+  color: #0d47a1;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comm-emergency-alert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.comm-emergency-alert-grid div {
+  padding: 0.25rem 0;
+  color: #1565c0;
+}
+
+/* Commercial Emergency Weight Calculation Box */
+.comm-emergency-weight-calc {
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  border-left: 4px solid #dc3545;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+}
+
+.comm-emergency-weight-calc h4 {
+  color: #c62828;
+  margin-bottom: 0.75rem;
+}
+
+.comm-emergency-weight-calc strong {
+  color: #dc3545;
+  font-size: 1.1em;
+}
+
+/* Commercial Emergency Solution Cards */
+.comm-emergency-solution-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.comm-emergency-solution-item {
+  background: white;
+  border: 2px solid #28a745;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.comm-emergency-solution-item h5 {
+  color: #28a745;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.comm-emergency-solution-item p {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Commercial Emergency Interior Warning Box */
+.comm-emergency-interior-warning {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.comm-emergency-interior-warning h4 {
+  color: #856404;
+  margin-bottom: 1rem;
+}
+
+.comm-emergency-warning-checklist {
+  list-style: none;
+  padding: 0;
+}
+
+.comm-emergency-warning-checklist li {
+  padding: 0.5rem 0;
+  color: #856404;
+}
+
+.comm-emergency-warning-checklist i {
+  color: #ffc107;
+  margin-right: 0.5rem;
+}
+
+/* Commercial Emergency Liability Alert */
+.comm-emergency-liability-alert {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c2c7 100%);
+  border: 1px solid #f1aeb5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.comm-emergency-liability-alert i {
+  color: #842029;
+  font-size: 2rem;
+}
+
+.comm-emergency-liability-alert h5 {
+  color: #842029;
+  margin-bottom: 0.5rem;
+}
+
+.comm-emergency-liability-alert strong {
+  color: #dc3545;
+  font-size: 1.1em;
+}
+
+/* Commercial Emergency Action Steps */
+.comm-emergency-action-steps {
+  background: #f0f8ff;
+  border: 1px solid #b6d4fe;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.comm-emergency-action-steps h4 {
+  color: #084298;
+  margin-bottom: 1rem;
+}
+
+.comm-emergency-action-steps ol {
+  color: #084298;
+  margin-left: 1.5rem;
+  margin-bottom: 0;
+}
+
+.comm-emergency-action-steps li {
+  padding: 0.25rem 0;
+}
+
+/* Commercial Emergency Storm Statistics */
+.comm-emergency-storm-stats {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.comm-emergency-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.comm-emergency-stat-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comm-emergency-stat-item i {
+  font-size: 2rem;
+  color: #ff6b35;
+}
+
+.comm-emergency-stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1a2332;
+}
+
+.comm-emergency-stat-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Commercial Emergency Damage Checklist */
+.comm-emergency-damage-checklist {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.comm-emergency-checklist-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.comm-emergency-checklist-columns label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  cursor: pointer;
+}
+
+.comm-emergency-checklist-columns input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Commercial Emergency Response Timeline */
+.comm-emergency-response-timeline {
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.comm-emergency-timeline-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.comm-emergency-timeline-steps .step {
+  text-align: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  border: 2px solid #4caf50;
+}
+
+.comm-emergency-step-time {
+  display: block;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+.comm-emergency-timeline-steps p {
+  color: #424242;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Commercial Emergency Steps Section */
+.comm-emergency-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.comm-emergency-step-card {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.comm-emergency-step-card.urgent {
+  background: #fff5f5;
+  border: 2px solid #dc3545;
+}
+
+.comm-emergency-step-card h4 {
+  color: #1a2332;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comm-emergency-step-card.urgent h4 i {
+  color: #dc3545;
+}
+
+/* Commercial Emergency Prevention Grid */
+.comm-emergency-prevention-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.comm-emergency-prevention-card {
+  background: white;
+  border: 1px solid #dee2e6;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.comm-emergency-prevention-card h4 {
+  color: #1a2332;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #ff6b35;
+}
+
+/* Commercial Emergency Advantages Grid */
+.comm-emergency-advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.comm-emergency-advantage-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.comm-emergency-advantage-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.comm-emergency-advantage-item i {
+  font-size: 2rem;
+  color: #ff6b35;
+  margin-bottom: 1rem;
+}
+
+.comm-emergency-advantage-item h5 {
+  color: #1a2332;
+  margin-bottom: 0.5rem;
+}
+
+.comm-emergency-advantage-item p {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Commercial Emergency Client Showcase */
+.comm-emergency-client-showcase {
+  background: #f0f8ff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.comm-emergency-client-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comm-emergency-client-list li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.comm-emergency-client-list li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Commercial Emergency ROI Grid */
+.comm-emergency-roi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.comm-emergency-roi-item {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-radius: 8px;
+  border: 1px solid #a5d6a7;
+}
+
+.comm-emergency-roi-metric {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+.comm-emergency-roi-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #424242;
+}
+
+/* Commercial Emergency CTA Box */
+.commercial-blog .commercial-cta {
+  background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+}
+
+.commercial-blog .commercial-cta h3 {
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.comm-emergency-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.comm-emergency-cta-note {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 1.5rem;
+}
+
+.comm-emergency-cta-note i {
+  color: #4caf50;
+  margin: 0 0.25rem;
+}
+
+/* Commercial Emergency About Text */
+.comm-emergency-about-text {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-left: 4px solid #ff6b35;
+  font-style: italic;
+}
+
+/* Sidebar Emergency Widget - Commercial Specific */
+.comm-emergency-sidebar-widget {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
+  border: 2px solid #dc3545;
+}
+
+.comm-emergency-sidebar-widget h3 {
+  color: #dc3545;
+}
+
+.comm-emergency-contact {
+  text-align: center;
+}
+
+.comm-emergency-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.comm-emergency-number a {
+  color: #dc3545;
+  text-decoration: none;
+}
+
+.comm-emergency-available {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Commercial Services List - Specific */
+.comm-emergency-services {
+  list-style: none;
+  padding: 0;
+}
+
+.comm-emergency-services li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.comm-emergency-services li:last-child {
+  border-bottom: none;
+}
+
+.comm-emergency-services a {
+  color: #495057;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.comm-emergency-services a:hover {
+  color: #ff6b35;
+}
+
+/* Download Widget - Commercial Specific */
+.comm-emergency-download-widget {
+  background: #f0f8ff;
+}
+
+.comm-emergency-resource-item {
+  display: flex;
+  gap: 1rem;
+  align-items: start;
+}
+
+.comm-emergency-resource-item i {
+  font-size: 2rem;
+  color: #dc3545;
+}
+
+.comm-emergency-resource-item h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: #1a2332;
+}
+
+.comm-emergency-resource-item p {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 0.75rem;
+}
+
+/* Service Area List - Commercial Specific */
+.comm-emergency-service-area-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.comm-emergency-service-area-list li {
+  padding: 0.25rem 0;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .comm-emergency-warning-grid,
+  .comm-emergency-cascade,
+  .comm-emergency-solution-cards,
+  .comm-emergency-prevention-grid,
+  .comm-emergency-checklist-columns,
+  .comm-emergency-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .comm-emergency-stat-grid,
+  .comm-emergency-timeline-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .comm-emergency-advantages-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .comm-emergency-roi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .comm-emergency-cta-buttons {
+    flex-direction: column;
+  }
+
+  .comm-emergency-alert-box {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .comm-emergency-liability-alert {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .comm-emergency-stat-grid,
+  .comm-emergency-timeline-steps,
+  .comm-emergency-roi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comm-emergency-alert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comm-emergency-service-area-list {
+    grid-template-columns: 1fr;
+  }
+}

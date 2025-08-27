@@ -1025,6 +1025,79 @@ body {
   margin-bottom: 3rem;
 }
 
+.certification-badges {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.certification-badges img {
+  width: 200px;
+  height: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certification-badges a {
+  position: relative;
+  display: inline-block;
+}
+
+.certification-badges img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.certification-badges img[alt='Owens Corning Preferred Contractor'] {
+  background-color: white;
+  padding: 10px;
+}
+
+/* A+ Badge for BBB */
+.certification-badges a[href*='bbb.org']::after {
+  content: 'A+';
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  color: #276391;
+  background: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  transform: rotate(15deg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .certification-badges {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .certification-badges img {
+    width: 140px;
+  }
+
+  .certification-badges a[href*='bbb.org']::after {
+    font-size: 16px;
+    width: 35px;
+    height: 35px;
+    bottom: -3px;
+    right: -3px;
+  }
+}
+
 .problem-section .section-header h2 {
   color: #ffffff;
   font-size: 2.5rem;

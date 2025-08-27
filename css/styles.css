@@ -1090,11 +1090,11 @@ body {
   }
 
   .certification-badges a[href*='bbb.org']::after {
-    font-size: 16px;
-    width: 35px;
-    height: 35px;
-    bottom: -3px;
-    right: -3px;
+    font-size: 14px;
+    width: 28px;
+    height: 28px;
+    bottom: -2px;
+    right: -2px;
   }
 }
 

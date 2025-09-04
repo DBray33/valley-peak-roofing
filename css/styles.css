@@ -7008,17 +7008,23 @@ a.city-item:hover .city-name {
 /* Introduction Section */
 .county-page-intro {
   padding: 60px 0;
-  background: white;
+  background: linear-gradient(90deg, #1a1a1a 0%, #b8860b 50%, #1a1a1a 100%),
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/textures/hexellence.webp');
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: auto;
+  overflow: hidden;
   border-bottom: 1px solid #e0e0e0;
 }
 
 .county-intro-text {
   font-size: 1.2rem;
-  color: #555;
+  color: white;
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
   line-height: 1.8;
+  text-shadow: #000000;
 }
 
 /* Section Titles */

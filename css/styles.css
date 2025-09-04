@@ -1564,6 +1564,13 @@ body {
   background-attachment: fixed; /* Optional: creates parallax effect on scroll */
 }
 
+/* Remove fixed background attachment on mobile for better performance */
+@media (max-width: 480px) {
+  .services-section {
+    background-attachment: scroll;
+  }
+}
+
 /* Section Header Adjustments for Dark Background */
 .services-section .section-header h2 {
   color: var(--white);
@@ -1596,6 +1603,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
 .hover-for-details {
   text-align: center;
   font-size: 14px;
@@ -1605,6 +1613,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
 @media (max-width: 499px) {
   .tap-for-details {
     display: block; /* Show on mobile */
@@ -1621,10 +1630,41 @@ body {
   margin-bottom: 60px;
 }
 
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
 .service-card {
   height: 300px;
   perspective: 1000px;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    height: 280px;
+  }
+
+  /* Animation enhancement for mobile */
+  .service-card:active .card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .service-card {
+    height: 260px;
+  }
 }
 
 .card-inner {
@@ -1653,6 +1693,20 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .card-front,
+  .card-back {
+    padding: 30px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-front,
+  .card-back {
+    padding: 25px 20px;
+  }
 }
 
 .card-front {
@@ -1781,9 +1835,37 @@ body {
   min-height: 80px;
 }
 
+@media (max-width: 768px) {
+  .service-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+  }
+}
+
 .service-icon i {
   font-size: 32px;
   color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .service-icon i {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-icon i {
+    font-size: 24px;
+  }
 }
 
 .card-front h3 {
@@ -1792,10 +1874,28 @@ body {
   margin-bottom: 15px;
 }
 
+@media (max-width: 768px) {
+  .card-front h3 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-front h3 {
+    font-size: 20px;
+  }
+}
+
 .card-front p {
   font-size: 16px;
   color: white;
   line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .card-front p {
+    font-size: 15px;
+  }
 }
 
 .card-back h3 {
@@ -1807,11 +1907,29 @@ body {
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .card-back h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-back h3 {
+    font-size: 20px;
+  }
+}
+
 .card-back p {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
   margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .card-back p {
+    font-size: 15px;
+  }
 }
 
 .card-back ul {
@@ -1841,87 +1959,73 @@ body {
   margin-top: 40px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
+/* #endregion Homepage Services Section */
 
-  .service-card {
-    height: 280px;
-  }
+/**
+ * =====================================================
+ * SERVICE MAP SECTION - CITY ITEMS STYLING
+ * =====================================================
+ */
 
-  .card-front,
-  .card-back {
-    padding: 30px 25px;
-  }
-
-  .service-icon {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 20px;
-  }
-
-  .service-icon i {
-    font-size: 28px;
-  }
-
-  .card-front h3 {
-    font-size: 22px;
-  }
-
-  .card-back h3 {
-    font-size: 20px;
-  }
+/* City Item Styling - Make entire box clickable */
+.city-item {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #f8f9fa;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  margin-right: 8px;
+  margin-bottom: 8px;
 }
 
-@media (max-width: 480px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .service-card {
-    height: 260px;
-  }
-
-  .card-front,
-  .card-back {
-    padding: 25px 20px;
-  }
-
-  .service-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
-  }
-
-  .service-icon i {
-    font-size: 24px;
-  }
-
-  .card-front h3,
-  .card-back h3 {
-    font-size: 20px;
-  }
-
-  .card-front p,
-  .card-back p {
-    font-size: 15px;
-  }
-
-  /* Remove fixed background attachment on mobile for better performance */
-  .services-section {
-    background-attachment: scroll;
-  }
+a.city-item {
+  text-decoration: none;
 }
 
-/* Animation enhancement for mobile */
-@media (max-width: 768px) {
-  .service-card:active .card-inner {
-    transform: rotateY(180deg);
-  }
+.city-item:hover {
+  background: #e9ecef;
+  transform: translateY(-1px);
+}
+
+.city-item .city-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.city-item .zip {
+  font-size: 12px;
+  color: #666;
+  margin-left: 4px;
+}
+
+/* Priority city highlighting */
+.city-item.priority {
+  background: linear-gradient(
+    135deg,
+    rgba(246, 127, 32, 0.15),
+    rgba(246, 127, 32, 0.08)
+  );
+}
+
+/* Remove any default link styling within city items */
+a.city-item:hover .city-name {
+  color: var(--primary-color);
+}
+
+/* Cities Grid - Flexbox for inline layout */
+.cities-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 20px;
+}
+
+.cities-grid.compact {
+  gap: 0;
 }
 /* #endregion */
 /**

@@ -10,7 +10,7 @@
   --btn-primary-hover: #9a8d6f; /* Slightly darker on hover */
 
   /* Secondary Button - Dark Blue with White Text */
-  --btn-secondary: var(--dark-blue);
+  --btn-secondary: pink;
   --btn-secondary-hover: #d85508; /* Darker orange for better contrast */
 
   /* Success Button - Green (not in main variables) */
@@ -175,6 +175,58 @@
 .btn-white:active:not(:disabled) {
   transform: translateY(0);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/**
+ * =====================================================
+ * MOBILE MENU BUTTON FIX
+ * =====================================================
+ */
+
+/* Fix for Mobile Menu Estimate Button */
+.mobile-menu .btn-secondary {
+  background-color: #b5a881; /* Use the tan color like primary buttons */
+  color: #1a1a1a !important; /* Dark text for contrast */
+  font-weight: 600;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #1a1a1a;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu .btn-secondary:hover {
+  background-color: #9a8d6f; /* Slightly darker tan on hover */
+  color: #1a1a1a !important; /* Keep dark text */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(181, 168, 129, 0.25);
+}
+
+.mobile-menu .btn-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(181, 168, 129, 0.25);
+}
+
+/* Ensure proper focus state for accessibility */
+.mobile-menu .btn-secondary:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Fix any potential text alignment issues */
+.mobile-menu-content .mobile-nav-item:last-child {
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.mobile-menu-content .mobile-nav-item .btn {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /**

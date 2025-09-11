@@ -1,10 +1,11 @@
 /* =====================================================
- * ROOFING SERVICES IN BERKS, LEHIGH, NORTHAMPTON & BETHLEHEM
- * Complete Unified CSS Stylesheet
+ * LOCATION-SPECIFIC ROOFING PAGES - REUSABLE CSS
  * =====================================================
  */
 
-/* Base Styles */
+/* ===========================
+   BASE STYLES (Universal)
+   =========================== */
 .county-roofing-page {
   font-family: 'Saira', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -23,35 +24,23 @@
   padding: 0 20px;
 }
 
-/* Hero Section */
+/* ===========================
+   HERO SECTION
+   =========================== */
 .county-page-hero {
   position: relative;
   min-height: 500px;
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background: linear-gradient(
+    135deg,
+    #2c3e50 0%,
+    #34495e 100%
+  ); /* Default gradient */
   color: white;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 120px;
-}
-
-.berks-county-hero {
-  background: linear-gradient(135deg, #8b0000 0%, #cd5c5c 100%);
-}
-
-.lehigh-county-hero {
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-}
-
-.northampton-county-hero {
-  background: linear-gradient(135deg, #1b5e20 0%, #43a047 100%);
-}
-
-.bethlehem-hero {
-  background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(52, 73, 94, 0.7)),
-    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/c.%20service-areas.html/Area%20Specific%20Landing%20Pages/Roofing%20Bethlehem%20PA/bethlehem-hero-1920x1080.jpg')
-      center/cover no-repeat;
 }
 
 .county-hero-overlay {
@@ -116,7 +105,9 @@
   opacity: 0.9;
 }
 
-/* Introduction Section */
+/* ===========================
+   INTRODUCTION SECTION
+   =========================== */
 .county-page-intro {
   padding: 60px 0;
   background: linear-gradient(90deg, #1a1a1a 0%, #b8860b 50%, #1a1a1a 100%),
@@ -135,10 +126,12 @@
   margin: 0 auto;
   text-align: center;
   line-height: 1.8;
-  text-shadow: #000000;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Section Titles */
+/* ===========================
+   SECTION TITLES
+   =========================== */
 .county-section-title {
   font-size: 2.5rem;
   color: #2c3e50;
@@ -156,8 +149,15 @@
   transform: translateX(-50%);
   width: 80px;
   height: 3px;
-  background: #cd5c5c;
+  background: var(
+    --location-accent-color,
+    #cd5c5c
+  ); /* Uses CSS variable with fallback */
 }
+
+/* ===========================
+   REUSABLE COMPONENTS
+   =========================== */
 
 /* Materials Section */
 .county-materials-section {
@@ -185,7 +185,7 @@
 }
 
 .county-material-card.county-featured {
-  border: 2px solid #cd5c5c;
+  border: 2px solid var(--location-accent-color, #cd5c5c);
 }
 
 .county-material-header {
@@ -212,7 +212,7 @@
 
 .county-material-features h4,
 .county-material-benefits h4 {
-  color: #cd5c5c;
+  color: var(--location-accent-color, #cd5c5c);
   margin-bottom: 1rem;
   font-size: 1.1rem;
 }
@@ -236,7 +236,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #cd5c5c;
+  color: var(--location-accent-color, #cd5c5c);
   font-weight: bold;
 }
 
@@ -246,8 +246,7 @@
   background: #f8f9fa;
 }
 
-.bethlehem-weather-section {
-  padding: 80px 0;
+.county-weather-challenges.white-bg {
   background: white;
 }
 
@@ -276,6 +275,8 @@
   font-size: 3rem;
   margin-bottom: 1rem;
   color: #34495e;
+  display: inline-block;
+  line-height: 1;
 }
 
 .county-weather-card h3 {
@@ -290,7 +291,7 @@
 }
 
 .county-weather-card strong {
-  color: #cd5c5c;
+  color: var(--location-accent-color, #cd5c5c);
   font-weight: 600;
 }
 
@@ -333,7 +334,7 @@
 }
 
 .county-season-input:checked + .county-season-label {
-  background: #cd5c5c;
+  background: var(--location-accent-color, #cd5c5c);
   color: white;
 }
 
@@ -345,20 +346,10 @@
   margin: 0 auto;
 }
 
-/* Season tab visibility for each page */
-.county-season-input#berks-summer:checked ~ .county-summer-content,
-.county-season-input#berks-winter:checked ~ .county-winter-content,
-.county-season-input#berks-transition:checked ~ .county-transition-content,
-.county-season-input#lehigh-summer:checked ~ .county-summer-content,
-.county-season-input#lehigh-winter:checked ~ .county-winter-content,
-.county-season-input#lehigh-transition:checked ~ .county-transition-content,
-.county-season-input#northampton-summer:checked ~ .county-summer-content,
-.county-season-input#northampton-winter:checked ~ .county-winter-content,
-.county-season-input#northampton-transition:checked
-  ~ .county-transition-content,
-.county-season-input#bethlehem-summer:checked ~ .county-summer-content,
-.county-season-input#bethlehem-winter:checked ~ .county-winter-content,
-.county-season-input#bethlehem-transition:checked ~ .county-transition-content {
+/* Universal season tab functionality - works with any ID prefix */
+.county-season-input[id$='-summer']:checked ~ .county-summer-content,
+.county-season-input[id$='-winter']:checked ~ .county-winter-content,
+.county-season-input[id$='-transition']:checked ~ .county-transition-content {
   display: block;
 }
 
@@ -374,7 +365,7 @@
 }
 
 .county-season-content h4 {
-  color: #cd5c5c;
+  color: var(--location-accent-color, #cd5c5c);
   margin-bottom: 1rem;
 }
 
@@ -405,7 +396,7 @@
   background: #f8f9fa;
   border-radius: 12px;
   padding: 2rem;
-  border-left: 4px solid #cd5c5c;
+  border-left: 4px solid var(--location-accent-color, #cd5c5c);
 }
 
 .county-location-card h3 {
@@ -458,7 +449,11 @@
   flex: 1;
   max-width: 150px;
   height: var(--height);
-  background: linear-gradient(to top, #cd5c5c, #8b0000);
+  background: linear-gradient(
+    to top,
+    var(--location-accent-color, #cd5c5c),
+    var(--location-dark-color, #8b0000)
+  );
   border-radius: 8px 8px 0 0;
   position: relative;
   margin: 0 10px;
@@ -498,6 +493,195 @@
   text-decoration: none;
   font-weight: normal;
   cursor: default;
+}
+
+/* Architecture Section */
+.county-architecture-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.county-architecture-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.county-arch-category {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.county-arch-category h3 {
+  color: var(--location-accent-color, #cd5c5c);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--location-accent-color, #cd5c5c);
+  padding-bottom: 0.5rem;
+}
+
+.county-arch-type {
+  margin-bottom: 2rem;
+}
+
+.county-arch-type h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.county-arch-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.county-feature-item {
+  background: white;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border-left: 3px solid var(--location-accent-color, #cd5c5c);
+  font-size: 0.9rem;
+  color: #555;
+  transition: all 0.2s ease;
+}
+
+.county-feature-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Building Codes Section */
+.county-building-codes {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.county-codes-container {
+  display: grid;
+  gap: 3rem;
+}
+
+.county-code-requirements {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.county-code-requirements h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.county-requirement-card {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.county-requirement-card h4 {
+  color: var(--location-accent-color, #cd5c5c);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.county-requirement-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.county-requirement-card li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #555;
+}
+
+.county-requirement-card li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--location-accent-color, #cd5c5c);
+  font-weight: bold;
+}
+
+.county-highlight {
+  color: var(--location-accent-color, #cd5c5c);
+  font-weight: 600;
+}
+
+.county-wind-standards {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.county-wind-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.county-wind-location {
+  color: #555;
+}
+
+.county-wind-speed {
+  color: var(--location-accent-color, #cd5c5c);
+  font-weight: 600;
+}
+
+.county-municipal-differences {
+  margin-top: 3rem;
+}
+
+.county-municipal-differences h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.county-municipality-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.county-municipality {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.county-municipality h4 {
+  color: var(--location-accent-color, #cd5c5c);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.county-municipality ul {
+  list-style: none;
+  padding: 0;
+}
+
+.county-municipality li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.county-municipality li:last-child {
+  border-bottom: none;
 }
 
 /* Installation Section */
@@ -800,7 +984,7 @@
 }
 
 .county-service-category h3 {
-  color: #cd5c5c;
+  color: var(--location-accent-color, #cd5c5c);
   margin-bottom: 1.5rem;
   font-size: 1.4rem;
 }
@@ -823,7 +1007,7 @@
 }
 
 .county-service-list li:hover {
-  color: #cd5c5c;
+  color: var(--location-accent-color, #cd5c5c);
   padding-left: 10px;
 }
 
@@ -885,234 +1069,16 @@
   color: #2c3e50;
 }
 
-/* Architecture Section (for Berks/Lehigh/Northampton) */
-.county-architecture-section {
-  padding: 80px 0;
-  background: #f8f9fa;
-}
-
-.county-architecture-showcase {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 3rem;
-}
-
-.county-arch-category {
-  background: white;
-  border-radius: 12px;
-  padding: 2.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.county-arch-category h3 {
-  color: #cd5c5c;
-  margin-bottom: 2rem;
-  font-size: 1.6rem;
-  text-align: center;
-}
-
-.county-arch-type {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-}
-
-.county-arch-type h4 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.county-arch-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0.75rem;
-}
-
-.county-feature-item {
-  background: white;
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  color: #555;
-  border: 1px solid #e0e0e0;
-  transition: all 0.2s ease;
-}
-
-.county-feature-item:hover {
-  background: #cd5c5c;
-  color: white;
-  border-color: #cd5c5c;
-}
-
-/* Building Codes Section (for Berks/Lehigh/Northampton) */
-.county-building-codes {
-  padding: 80px 0;
-  background: white;
-}
-
-.county-codes-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-}
-
-.county-requirement-card {
-  background: #f8f9fa;
-  border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-}
-
-.county-requirement-card h4 {
-  color: #2c3e50;
-  margin-bottom: 1.5rem;
-  font-size: 1.3rem;
-}
-
-.county-requirement-card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.county-requirement-card li {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #e0e0e0;
-  color: #555;
-}
-
-.county-requirement-card li:last-child {
-  border-bottom: none;
-}
-
-.county-highlight {
-  color: #cd5c5c;
-  font-weight: 600;
-}
-
-.county-wind-standards {
-  display: grid;
-  gap: 1rem;
-}
-
-.county-wind-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background: white;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-}
-
-.county-wind-location {
-  color: #666;
-}
-
-.county-wind-speed {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #cd5c5c;
-}
-
-.county-municipality-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.county-municipality {
-  background: #f8f9fa;
-  border-radius: 8px;
-  padding: 1.5rem;
-}
-
-.county-municipality h4 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-}
-
-.county-municipality ul {
-  list-style: none;
-  padding: 0;
-}
-
-.county-municipality li {
-  padding: 0.5rem 0;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* Why Choose Us Section (for Berks/Lehigh/Northampton) */
-.county-why-choose-us {
-  padding: 80px 0;
-  background: #f8f9fa;
-}
-
-.county-credentials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-}
-
-.county-credential-box {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.county-credential-box h3 {
-  color: #2c3e50;
-  margin-bottom: 1.5rem;
-  font-size: 1.4rem;
-  text-align: center;
-}
-
-.county-credential-box ul,
-.county-credential-box ol {
-  list-style: none;
-  padding: 0;
-}
-
-.county-credential-box li {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #e0e0e0;
-  color: #555;
-}
-
-.county-credential-box li:last-child {
-  border-bottom: none;
-}
-
-.county-credential-box li strong {
-  color: #2c3e50;
-}
-
 /* CTA Section */
 .county-cta-section {
   padding: 80px 0;
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  background: linear-gradient(
+    135deg,
+    var(--location-dark-color, #2c3e50) 0%,
+    var(--location-accent-color, #34495e) 100%
+  );
   color: white;
   text-align: center;
-}
-
-.berks-county-cta {
-  background: linear-gradient(135deg, #8b0000 0%, #cd5c5c 100%);
-}
-
-.lehigh-county-cta {
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-}
-
-.northampton-county-cta {
-  background: linear-gradient(135deg, #1b5e20 0%, #43a047 100%);
-}
-
-.bethlehem-cta {
-  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
 }
 
 .county-cta-section h2 {
@@ -1225,130 +1191,188 @@
 }
 
 /* ===========================
-   COLOR OVERRIDES BY LOCATION
+   LOCATION-SPECIFIC STYLES
    =========================== */
 
-/* Berks County - Red Theme */
-#berks-county-roofing .county-section-title:after,
-#berks-county-roofing .county-weather-card strong,
-#berks-county-roofing .county-highlight,
-#berks-county-roofing .county-wind-speed,
-#berks-county-roofing .county-season-content h4,
-#berks-county-roofing .county-arch-category h3,
-#berks-county-roofing .county-material-features h4,
-#berks-county-roofing .county-material-benefits h4,
-#berks-county-roofing .county-material-features li:before,
-#berks-county-roofing .county-material-benefits li:before,
-#berks-county-roofing .county-service-category h3,
-#berks-county-roofing .county-service-list li:hover {
-  color: #cd5c5c;
+/* Color Themes - Use CSS Variables */
+:root {
+  /* Default theme */
+  --default-accent: #cd5c5c;
+  --default-dark: #8b0000;
+
+  /* County themes */
+  --berks-accent: #cd5c5c;
+  --berks-dark: #8b0000;
+
+  --lehigh-accent: #2a5298;
+  --lehigh-dark: #1e3c72;
+
+  --northampton-accent: #43a047;
+  --northampton-dark: #1b5e20;
+
+  /* City themes (using parent county colors) */
+  --bethlehem-accent: #34495e;
+  --bethlehem-dark: #2c3e50;
+
+  --allentown-accent: #2a5298;
+  --allentown-dark: #1e3c72;
 }
 
-#berks-county-roofing .county-section-title:after,
-#berks-county-roofing .county-season-input:checked + .county-season-label,
-#berks-county-roofing .county-feature-item:hover {
-  background: #cd5c5c;
+/* Apply themes to specific page IDs */
+#berks-county-roofing {
+  --location-accent-color: var(--berks-accent);
+  --location-dark-color: var(--berks-dark);
 }
 
-#berks-county-roofing .county-location-card,
-#berks-county-roofing .county-material-card.county-featured {
-  border-left-color: #cd5c5c;
+#lehigh-county-roofing {
+  --location-accent-color: var(--lehigh-accent);
+  --location-dark-color: var(--lehigh-dark);
 }
 
-#berks-county-roofing .county-elevation-bar {
-  background: linear-gradient(to top, #cd5c5c, #8b0000);
+#northampton-county-roofing {
+  --location-accent-color: var(--northampton-accent);
+  --location-dark-color: var(--northampton-dark);
 }
 
-/* Lehigh County - Blue Theme */
-#lehigh-county-roofing .county-section-title:after,
-#lehigh-county-roofing .county-weather-card strong,
-#lehigh-county-roofing .county-highlight,
-#lehigh-county-roofing .county-wind-speed,
-#lehigh-county-roofing .county-season-content h4,
-#lehigh-county-roofing .county-arch-category h3,
-#lehigh-county-roofing .county-material-features h4,
-#lehigh-county-roofing .county-material-benefits h4,
-#lehigh-county-roofing .county-material-features li:before,
-#lehigh-county-roofing .county-material-benefits li:before,
-#lehigh-county-roofing .county-service-category h3,
-#lehigh-county-roofing .county-service-list li:hover {
-  color: #2a5298;
+/* City-specific themes */
+#bethlehem-roofing,
+#roofing-bethlehem-pa {
+  --location-accent-color: var(--bethlehem-accent);
+  --location-dark-color: var(--bethlehem-dark);
 }
 
-#lehigh-county-roofing .county-section-title:after,
-#lehigh-county-roofing .county-season-input:checked + .county-season-label,
-#lehigh-county-roofing .county-feature-item:hover {
-  background: #2a5298;
+#allentown-roofing,
+#roofing-allentown-pa {
+  --location-accent-color: var(--allentown-accent);
+  --location-dark-color: var(--allentown-dark);
 }
 
-#lehigh-county-roofing .county-location-card,
-#lehigh-county-roofing .county-material-card.county-featured {
-  border-left-color: #2a5298;
+#emmaus-roofing,
+#macungie-roofing,
+#catasauqua-roofing,
+#whitehall-roofing,
+#fogelsville-roofing,
+#orefield-roofing,
+#coopersburg-roofing,
+#alburtis-roofing,
+#new-tripoli-roofing {
+  --location-accent-color: var(--lehigh-accent);
+  --location-dark-color: var(--lehigh-dark);
 }
 
-#lehigh-county-roofing .county-elevation-bar {
-  background: linear-gradient(to top, #2a5298, #1e3c72);
+#easton-roofing,
+#northampton-roofing,
+#hellertown-roofing,
+#nazareth-roofing,
+#bath-roofing,
+#wind-gap-roofing,
+#bangor-roofing {
+  --location-accent-color: var(--northampton-accent);
+  --location-dark-color: var(--northampton-dark);
 }
 
-/* Northampton County - Green Theme */
-#northampton-county-roofing .county-section-title:after,
-#northampton-county-roofing .county-weather-card strong,
-#northampton-county-roofing .county-highlight,
-#northampton-county-roofing .county-wind-speed,
-#northampton-county-roofing .county-season-content h4,
-#northampton-county-roofing .county-arch-category h3,
-#northampton-county-roofing .county-material-features h4,
-#northampton-county-roofing .county-material-benefits h4,
-#northampton-county-roofing .county-material-features li:before,
-#northampton-county-roofing .county-material-benefits li:before,
-#northampton-county-roofing .county-service-category h3,
-#northampton-county-roofing .county-service-list li:hover {
-  color: #43a047;
+#reading-roofing,
+#wyomissing-roofing,
+#shillington-roofing,
+#wernersville-roofing,
+#kutztown-roofing,
+#birdsboro-roofing,
+#boyertown-roofing,
+#hamburg-roofing,
+#fleetwood-roofing {
+  --location-accent-color: var(--berks-accent);
+  --location-dark-color: var(--berks-dark);
 }
 
-#northampton-county-roofing .county-section-title:after,
-#northampton-county-roofing .county-season-input:checked + .county-season-label,
-#northampton-county-roofing .county-feature-item:hover {
-  background: #43a047;
+/* Extended service areas - use default theme */
+#scranton-roofing,
+#stroudsburg-roofing,
+#honesdale-roofing,
+#hawley-roofing,
+#tannersville-roofing,
+#lake-ariel-roofing {
+  --location-accent-color: var(--default-accent);
+  --location-dark-color: var(--default-dark);
 }
 
-#northampton-county-roofing .county-location-card,
-#northampton-county-roofing .county-material-card.county-featured {
-  border-left-color: #43a047;
+/* Hero Background Images - Add these as needed */
+.berks-county-hero {
+  background: linear-gradient(
+    135deg,
+    var(--berks-dark) 0%,
+    var(--berks-accent) 100%
+  );
 }
 
-#northampton-county-roofing .county-elevation-bar {
-  background: linear-gradient(to top, #43a047, #1b5e20);
+.lehigh-county-hero {
+  background: linear-gradient(
+    135deg,
+    var(--lehigh-dark) 0%,
+    var(--lehigh-accent) 100%
+  );
 }
 
-/* Bethlehem - Dark Slate Theme */
-#bethlehem-roofing .county-section-title:after,
-#bethlehem-roofing .county-weather-card strong,
-#bethlehem-roofing .county-highlight,
-#bethlehem-roofing .county-wind-speed,
-#bethlehem-roofing .county-season-content h4,
-#bethlehem-roofing .county-material-features h4,
-#bethlehem-roofing .county-material-benefits h4,
-#bethlehem-roofing .county-material-features li:before,
-#bethlehem-roofing .county-material-benefits li:before,
-#bethlehem-roofing .county-service-category h3,
-#bethlehem-roofing .county-service-list li:hover {
-  color: #34495e;
+.northampton-county-hero {
+  background: linear-gradient(
+    135deg,
+    var(--northampton-dark) 0%,
+    var(--northampton-accent) 100%
+  );
 }
 
-#bethlehem-roofing .county-section-title:after,
-#bethlehem-roofing .county-season-input:checked + .county-season-label,
-#bethlehem-roofing .county-feature-item:hover {
-  background: #34495e;
+.bethlehem-hero {
+  background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(52, 73, 94, 0.7)),
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/c.%20service-areas.html/Area%20Specific%20Landing%20Pages/Roofing%20Bethlehem%20PA/bethlehem-hero-1920x1080.jpg')
+      center/cover no-repeat;
 }
 
-#bethlehem-roofing .county-location-card,
-#bethlehem-roofing .county-material-card.county-featured {
-  border-left-color: #34495e;
+.allentown-hero {
+  background: linear-gradient(rgba(30, 60, 114, 0.7), rgba(42, 82, 152, 0.7)),
+    url('https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/c.%20service-areas.html/Area%20Specific%20Landing%20Pages/Roofing%20Allentown%20PA/allentown-hero-1920x1080.jpg')
+      center/cover no-repeat;
 }
 
-#bethlehem-roofing .county-elevation-bar {
-  background: linear-gradient(to top, #34495e, #2c3e50);
+/* Add more hero backgrounds as needed for each location */
+
+/* CTA Section Background Overrides */
+.berks-county-cta {
+  background: linear-gradient(
+    135deg,
+    var(--berks-dark) 0%,
+    var(--berks-accent) 100%
+  );
+}
+
+.lehigh-county-cta {
+  background: linear-gradient(
+    135deg,
+    var(--lehigh-dark) 0%,
+    var(--lehigh-accent) 100%
+  );
+}
+
+.northampton-county-cta {
+  background: linear-gradient(
+    135deg,
+    var(--northampton-dark) 0%,
+    var(--northampton-accent) 100%
+  );
+}
+
+.bethlehem-cta {
+  background: linear-gradient(
+    135deg,
+    var(--bethlehem-dark) 0%,
+    var(--bethlehem-accent) 100%
+  );
+}
+
+.allentown-cta {
+  background: linear-gradient(
+    135deg,
+    var(--allentown-dark) 0%,
+    var(--allentown-accent) 100%
+  );
 }
 
 /* ===========================
@@ -1393,21 +1417,15 @@
   .county-cost-breakdown,
   .county-services-grid,
   .county-warranty-grid,
-  .county-credentials-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .county-codes-container {
-    grid-template-columns: 1fr;
-  }
-
-  .county-architecture-showcase {
+  .county-architecture-showcase,
+  .county-codes-container,
+  .county-municipality-grid {
     grid-template-columns: 1fr;
   }
 
   .county-elevation-chart {
     height: 250px;
-    padding: 1rem 0.5rem 5rem; /* Extra padding bottom for descriptions */
+    padding: 1rem 0.5rem 5rem;
   }
 
   .county-elevation-bar {
@@ -1419,11 +1437,10 @@
     bottom: -30px;
   }
 
-  /* Show descriptions as text below labels on mobile */
   .county-elevation-desc {
     position: absolute;
     top: auto !important;
-    bottom: -50px !important; /* BELOW the label which is at -30px */
+    bottom: -50px !important;
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.6rem;

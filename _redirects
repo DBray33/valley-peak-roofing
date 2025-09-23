@@ -1,190 +1,159 @@
 # Fix WordPress legacy URL
 /?page_id=10    /    301!
 
-# MAIN PAGES - All variations redirect to clean URLs
-# Contact Page
-/contact/                    /contact                         301
-/contact.html                /contact                         301
-/contact.html/               /contact                         301
+# MAIN PAGES - Remove trailing slashes from .html pages
+/contact/                    /contact.html                    301
+/our-company/                /our-company.html                301
+/design-your-roof/           /design-your-roof.html           301
+/service-areas/              /service-areas.html              301
+/budget-roof-cost/           /budget-roof-cost.html           301
+/our-work/                   /our-work.html                   301
+/privacy-policy/             /privacy-policy.html             301
+/terms/                      /terms.html                      301
+/thank-you/                  /thank-you.html                  301
+/our-blog/                   /our-blog.html                   301
+/back-the-blue/              /back-the-blue.html              301
 
-# Our Company
-/our-company/                /our-company                     301
-/our-company.html            /our-company                     301
-/our-company.html/           /our-company                     301
+# Service Pages - Remove trailing slashes
+/roof-replacement-installation/     /roof-replacement-installation.html      301
+/residential-roof-repairs/          /residential-roof-repairs.html           301
+/commercial-roofing/                /commercial-roofing.html                 301
+/siding-installation/               /siding-installation.html                301
+/gutter-maintenance-installation/   /gutter-maintenance-installation.html    301
+/skylight-installation-and-repair/  /skylight-installation-and-repair.html   301
+/james-hardie/                      /james-hardie.html                       301
+/roofing-siding-gutter-faqs/        /roofing-siding-gutter-faqs.html        301
+/roof-financing-options/            /roof-financing-options.html             301
 
-# Design Your Roof
-/design-your-roof/           /design-your-roof                301
-/design-your-roof.html       /design-your-roof                301
-/design-your-roof.html/      /design-your-roof                301
+# Old URLs to current structure
+/contact                    /contact.html                    301
+/our-company                /our-company.html                301
+/design-your-roof           /design-your-roof.html           301
+/service-areas              /service-areas.html              301
+/budget-roof-cost           /budget-roof-cost.html           301
+/our-work                   /our-work.html                   301
+/privacy-policy             /privacy-policy.html             301
+/terms                      /terms.html                      301
+/thank-you                  /thank-you.html                  301
+/our-blog                   /our-blog.html                   301
+/back-the-blue              /back-the-blue.html              301
+/roof-replacement-installation      /roof-replacement-installation.html      301
+/residential-roof-repairs           /residential-roof-repairs.html           301
+/commercial-roofing                 /commercial-roofing.html                 301
+/siding-installation                /siding-installation.html                301
+/gutter-maintenance-installation    /gutter-maintenance-installation.html    301
+/skylight-installation-and-repair   /skylight-installation-and-repair.html   301
+/james-hardie                       /james-hardie.html                       301
+/roofing-siding-gutter-faqs         /roofing-siding-gutter-faqs.html        301
+/roof-financing-options             /roof-financing-options.html             301
 
-# Service Areas
-/service-areas/              /service-areas                   301
-/service-areas.html          /service-areas                   301
-/service-areas.html/         /service-areas                   301
+# Service Area Pages - County Level
+/lehigh-county/              /service-areas/roofing-services-in-lehigh-county.html        301
+/northampton-county/         /service-areas/roofing-services-in-northampton-county.html   301
+/berks-county/               /service-areas/roofing-services-in-berks-county.html         301
+/roofing-services-in-lehigh-county      /service-areas/roofing-services-in-lehigh-county.html    301
+/roofing-services-in-northampton-county  /service-areas/roofing-services-in-northampton-county.html 301
+/roofing-services-in-berks-county       /service-areas/roofing-services-in-berks-county.html     301
+/roofing-services-in-lehigh-county.html    /service-areas/roofing-services-in-lehigh-county.html    301
+/roofing-services-in-northampton-county.html /service-areas/roofing-services-in-northampton-county.html 301
+/roofing-services-in-berks-county.html     /service-areas/roofing-services-in-berks-county.html     301
 
-# Budget/Roof Cost
-/roof-cost/                  /budget-roof-cost                301
-/roof-cost.html              /budget-roof-cost                301
-/budget-roof-cost.html       /budget-roof-cost                301
-/budget-roof-cost/           /budget-roof-cost                301
+# City Pages - Redirect old city URLs to new structure
+/allentown-pa/               /service-areas/roofing-allentown-pa.html        301
+/bethlehem-pa/               /service-areas/roofing-bethlehem-pa.html        301
+/catasauqua-pa/              /service-areas/roofing-catasauqua-pa.html       301
+/coopersburg-pa/             /service-areas/roofing-coopersburg-pa.html      301
+/emmaus-pa/                  /service-areas/roofing-emmaus-pa.html           301
+/macungie-pa/                /service-areas/roofing-macungie-pa.html         301
+/alburtis-pa/                /service-areas/roofing-alburtis-pa.html         301
+/whitehall-pa/               /service-areas/roofing-whitehall-pa.html        301
+/orefield-pa/                /service-areas/roofing-orefield-pa.html         301
+/new-tripoli-pa/             /service-areas/roofing-new-tripoli-pa.html      301
+/fogelsville-pa/             /service-areas/roofing-fogelsville-pa.html      301
+/reading-pa/                 /service-areas/roofing-reading-pa.html          301
 
-# Our Work
-/our-work/                   /our-work                        301
-/our-work.html               /our-work                        301
-/our-work.html/              /our-work                        301
+# Blog redirects - Old URLs to new blog folder structure (all your blog posts ARE .html)
+/7-tips-to-choose-the-best-roofing-contractor-in-bethlehem-pennsylvania/    /blog/choosing-roofing-contractor-bethlehem.html    301
+/how-to-know-whether-to-repair-or-replace-your-roof/                        /blog/roof-repair-or-replace-guide.html             301
+/roof-terms-to-know-when-working-with-a-roofing-company/                    /blog/roof-terms-to-know-when-working-with-a-roofing-company.html    301
+/does-your-home-need-roof-ventilation/                                      /blog/does-your-home-need-roof-ventilation.html     301
+/why-asphalt-shingles-are-the-best-choice-for-your-roof/                   /blog/why-asphalt-shingles-are-the-best-choice-for-your-roof.html    301
+/what-are-those-black-streaks-running-down-my-roof/                        /blog/black-streaks-on-roof-causes.html             301
+/replacing-your-roof-on-a-budget/                                          /blog/replacing-your-roof-on-a-budget.html          301
+/what-to-look-for-in-a-roof-when-buying-a-home-in-bethlehem-pennsylvania/  /blog/roof-inspection-home-buying-bethlehem.html    301
+/what-to-do-after-suffering-hail-damage-to-your-roof-next-steps/           /blog/hail-damage-roof-repair-steps.html            301
+/what-is-the-best-month-to-replace-your-roof/                              /blog/best-month-roof-replacement.html               301
+/is-it-time-to-replace-your-roof/                                          /blog/is-it-time-to-replace-your-roof.html          301
+/roof-repairs-vs-replacement/                                               /blog/roof-repairs-vs-replacement.html               301
+/how-lehigh-valleys-weather-affects-your-roof-and-what-you-can-do-about-it/    /blog/lehigh-valley-weather-roof-protection.html    301
 
-# Privacy Policy
-/privacy-policy/             /privacy-policy                  301
-/privacy-policy.html         /privacy-policy                  301
-/privacy-policy.html/        /privacy-policy                  301
+# Blog posts - Redirect non-.html versions to .html versions
+/blog/august-roof-inspection-checklist-lehigh-valley  /blog/august-roof-inspection-checklist-lehigh-valley.html  301
+/blog/lehigh-valley-weather-roof-protection          /blog/lehigh-valley-weather-roof-protection.html          301
+/blog/roof-repairs-vs-replacement                    /blog/roof-repairs-vs-replacement.html                    301
+/blog/is-it-time-to-replace-your-roof               /blog/is-it-time-to-replace-your-roof.html               301
+/blog/replacing-your-roof-on-a-budget               /blog/replacing-your-roof-on-a-budget.html               301
+/blog/roof-inspection-home-buying-bethlehem         /blog/roof-inspection-home-buying-bethlehem.html         301
+/blog/hail-damage-roof-repair-steps                 /blog/hail-damage-roof-repair-steps.html                 301
+/blog/best-month-roof-replacement                   /blog/best-month-roof-replacement.html                   301
+/blog/choosing-roofing-contractor-bethlehem         /blog/choosing-roofing-contractor-bethlehem.html         301
+/blog/roof-repair-or-replace-guide                  /blog/roof-repair-or-replace-guide.html                  301
+/blog/roof-terms-to-know-when-working-with-a-roofing-company  /blog/roof-terms-to-know-when-working-with-a-roofing-company.html  301
+/blog/does-your-home-need-roof-ventilation          /blog/does-your-home-need-roof-ventilation.html          301
+/blog/why-asphalt-shingles-are-the-best-choice-for-your-roof  /blog/why-asphalt-shingles-are-the-best-choice-for-your-roof.html  301
+/blog/black-streaks-on-roof-causes                  /blog/black-streaks-on-roof-causes.html                  301
+/blog/commercial-roof-repair-emergency-signs        /blog/commercial-roof-repair-emergency-signs.html        301
 
-# Terms
-/terms-and-conditions/       /terms                           301
-/terms-and-conditions.html   /terms                           301
-/terms.html                  /terms                           301
-/terms/                      /terms                           301
+# Fix 404 errors from SEMrush audit
+/blog/budget-roof-cost.html                        /budget-roof-cost.html                     301
+/blog/choosing-the-right-roofing-material.html     /blog/choosing-roofing-contractor-bethlehem.html  301
+/blog/how-often-should-you-inspect-your-roof.html  /blog/august-roof-inspection-checklist-lehigh-valley.html  301
+/blog/roof-financing-options.html                  /roof-financing-options.html               301
+/blog/signs-you-need-a-new-roof.html              /blog/is-it-time-to-replace-your-roof.html  301
+/blog/what-to-look-for-in-a-roof.html             /blog/roof-inspection-home-buying-bethlehem.html  301
+/financing.html                                    /roof-financing-options.html               301
 
-# Services (anchor)
+# Legacy redirects
+/roof-cost/                  /budget-roof-cost.html                301
+/roof-cost.html              /budget-roof-cost.html                301
+/roof-cost                   /budget-roof-cost.html                301
+/terms-and-conditions/       /terms.html                           301
+/terms-and-conditions.html   /terms.html                           301
+/terms-and-conditions        /terms.html                           301
+
+# Services redirects (to homepage anchor)
 /our-services/               /#services                       301
 /our-services.html           /#services                       301
+/our-services                /#services                       301
 /services/                   /#services                       301
 /services.html               /#services                       301
-
-# James Hardie
-/james-hardie/               /james-hardie                    301
-/james-hardie.html           /james-hardie                    301
-/james-hardie.html/          /james-hardie                    301
-
-# Our Blog
-/our-blog/                   /our-blog                        301
-/our-blog.html               /our-blog                        301
-/our-blog.html/              /our-blog                        301
-
-# Roof Replacement
-/roof-replacement-installation/     /roof-replacement-installation      301
-/roof-replacement-installation.html /roof-replacement-installation      301
-/roof-replacement-installation.html/ /roof-replacement-installation     301
-
-# Residential Repairs
-/residential-roof-repairs/          /residential-roof-repairs           301
-/residential-roof-repairs.html      /residential-roof-repairs           301
-/residential-roof-repairs.html/     /residential-roof-repairs           301
-
-# Commercial Roofing
-/commercial-roofing/                /commercial-roofing                 301
-/commercial-roofing.html            /commercial-roofing                 301
-/commercial-roofing.html/           /commercial-roofing                 301
-
-# Siding
-/siding-installation/               /siding-installation                301
-/siding-installation.html           /siding-installation                301
-/siding-installation.html/          /siding-installation                301
-/siding/                            /siding-installation                301
-
-# Gutters
-/gutter-maintenance-installation/   /gutter-maintenance-installation    301
-/gutter-maintenance-installation.html /gutter-maintenance-installation  301
-/gutter-maintenance-installation.html/ /gutter-maintenance-installation 301
-
-# Skylights
-/skylight-installation-and-repair/  /skylight-installation-and-repair   301
-/skylight-installation-and-repair.html /skylight-installation-and-repair 301
-/skylight-installation-and-repair.html/ /skylight-installation-and-repair 301
-
-# Back the Blue
-/back-the-blue/              /back-the-blue                   301
-/back-the-blue.html          /back-the-blue                   301
-/back-the-blue.html/         /back-the-blue                   301
-
-# Thank You
-/thank-you/                  /thank-you                       301
-/thank-you.html              /thank-you                       301
-/thank-you.html/             /thank-you                       301
-
-# FAQs
-/roofing-siding-gutter-faqs.html    /roofing-siding-gutter-faqs    301
-/roofing-siding-gutter-faqs/        /roofing-siding-gutter-faqs    301
-/roofing-siding-gutter-faqs.html/   /roofing-siding-gutter-faqs    301
-
-# Service Area Pages
-/lehigh-county/              /roofing-services-in-lehigh-county        301
-/northampton-county/         /roofing-services-in-northampton-county   301
-/berks-county/               /roofing-services-in-berks-county         301
-/roofing-services-in-lehigh-county.html    /roofing-services-in-lehigh-county    301
-/roofing-services-in-northampton-county.html /roofing-services-in-northampton-county 301
-/roofing-services-in-berks-county.html     /roofing-services-in-berks-county     301
-
-# Blog Posts (moving to /blog/ folder without .html)
-/7-tips-to-choose-the-best-roofing-contractor-in-bethlehem-pennsylvania/    /blog/choosing-roofing-contractor-bethlehem    301
-/how-to-know-whether-to-repair-or-replace-your-roof/                        /blog/roof-repair-or-replace-guide             301
-/roof-terms-to-know-when-working-with-a-roofing-company/                    /blog/roof-terms-to-know-when-working-with-a-roofing-company    301
-/does-your-home-need-roof-ventilation/                                      /blog/does-your-home-need-roof-ventilation     301
-/why-asphalt-shingles-are-the-best-choice-for-your-roof/                   /blog/why-asphalt-shingles-are-the-best-choice-for-your-roof    301
-/what-are-those-black-streaks-running-down-my-roof/                        /blog/black-streaks-on-roof-causes             301
-/replacing-your-roof-on-a-budget/                                          /blog/replacing-your-roof-on-a-budget          301
-/what-to-look-for-in-a-roof-when-buying-a-home-in-bethlehem-pennsylvania/  /blog/roof-inspection-home-buying-bethlehem    301
-/what-to-do-after-suffering-hail-damage-to-your-roof-next-steps/           /blog/hail-damage-roof-repair-steps            301
-/what-is-the-best-month-to-replace-your-roof/                              /blog/best-month-roof-replacement               301
-/is-it-time-to-replace-your-roof/                                          /blog/is-it-time-to-replace-your-roof          301
-/roof-repairs-vs-replacement/                                               /blog/roof-repairs-vs-replacement               301
-/how-lehigh-valleys-weather-affects-your-roof-and-what-you-can-do-about-it/    /blog/lehigh-valley-weather-roof-protection    301
-
-# FIX THE 404 ERRORS FROM SEMRUSH - These URLs don't exist but are being linked to
-/blog/budget-roof-cost.html                        /budget-roof-cost                     301
-/blog/choosing-the-right-roofing-material.html     /blog/choosing-roofing-contractor-bethlehem  301
-/blog/how-often-should-you-inspect-your-roof.html  /blog/august-roof-inspection-checklist-lehigh-valley  301
-/blog/roof-financing-options.html                  /roof-financing-options               301
-/blog/signs-you-need-a-new-roof.html              /blog/is-it-time-to-replace-your-roof  301
-/blog/what-to-look-for-in-a-roof.html             /blog/roof-inspection-home-buying-bethlehem  301
-/financing.html                                    /roof-financing-options               301
-
-# Handle .html versions of blog posts (redirect to clean URLs)
-/blog/august-roof-inspection-checklist-lehigh-valley.html  /blog/august-roof-inspection-checklist-lehigh-valley  301
-/blog/lehigh-valley-weather-roof-protection.html          /blog/lehigh-valley-weather-roof-protection          301
-/blog/roof-repairs-vs-replacement.html                    /blog/roof-repairs-vs-replacement                    301
-/blog/is-it-time-to-replace-your-roof.html               /blog/is-it-time-to-replace-your-roof               301
-/blog/replacing-your-roof-on-a-budget.html               /blog/replacing-your-roof-on-a-budget               301
-/blog/roof-inspection-home-buying-bethlehem.html         /blog/roof-inspection-home-buying-bethlehem         301
-/blog/hail-damage-roof-repair-steps.html                 /blog/hail-damage-roof-repair-steps                 301
-/blog/best-month-roof-replacement.html                   /blog/best-month-roof-replacement                   301
-/blog/choosing-roofing-contractor-bethlehem.html         /blog/choosing-roofing-contractor-bethlehem         301
-/blog/roof-repair-or-replace-guide.html                  /blog/roof-repair-or-replace-guide                  301
-/blog/roof-terms-to-know-when-working-with-a-roofing-company.html  /blog/roof-terms-to-know-when-working-with-a-roofing-company  301
-/blog/does-your-home-need-roof-ventilation.html          /blog/does-your-home-need-roof-ventilation          301
-/blog/why-asphalt-shingles-are-the-best-choice-for-your-roof.html  /blog/why-asphalt-shingles-are-the-best-choice-for-your-roof  301
-/blog/black-streaks-on-roof-causes.html                  /blog/black-streaks-on-roof-causes                  301
+/services                    /#services                       301
 
 # FAQ Consolidation
-/roofing-faq/                /roofing-siding-gutter-faqs    301
-/siding-faq/                 /roofing-siding-gutter-faqs    301
-/gutter-faq/                 /roofing-siding-gutter-faqs    301
+/roofing-faq/                /roofing-siding-gutter-faqs.html    301
+/siding-faq/                 /roofing-siding-gutter-faqs.html    301
+/gutter-faq/                 /roofing-siding-gutter-faqs.html    301
+/roofing-faq                 /roofing-siding-gutter-faqs.html    301
+/siding-faq                  /roofing-siding-gutter-faqs.html    301
+/gutter-faq                  /roofing-siding-gutter-faqs.html    301
 
-# Removed/Deprecated Pages
-/roof-installation/          /roof-replacement-installation  301
-/architectural-shingles/     /roof-replacement-installation  301
-/metal-roof-installation/    /roof-replacement-installation  301
+# Deprecated/Removed Pages
+/roof-installation/          /roof-replacement-installation.html  301
+/roof-installation           /roof-replacement-installation.html  301
+/architectural-shingles/     /roof-replacement-installation.html  301
+/architectural-shingles      /roof-replacement-installation.html  301
+/metal-roof-installation/    /roof-replacement-installation.html  301
+/metal-roof-installation     /roof-replacement-installation.html  301
 
-# City Pages (redirect to service areas)
-/allentown-pa/               /roofing-services-in-lehigh-county        301
-/bath-pa/                    /roofing-services-in-northampton-county   301
-/nazareth-pa/                /roofing-services-in-northampton-county   301
-/alburtis-pa/                /roofing-services-in-lehigh-county        301
-/bethlehem-pa/               /roofing-services-in-northampton-county   301
-/catasauqua-pa/              /roofing-services-in-lehigh-county        301
-/coopersburg-pa/             /roofing-services-in-lehigh-county        301
-/easton-pa/                  /roofing-services-in-northampton-county   301
-/emmaus-pa/                  /roofing-services-in-lehigh-county        301
-/hellertown-pa/              /roofing-services-in-northampton-county   301
-/macungie-pa/                /roofing-services-in-lehigh-county        301
-
-# New redirects for 404 fixes
-/our-services.html           /#services                             301
-/gutter-maintenece          /gutter-maintenance-installation        301
-/financing                  /roof-financing-options                 301
-/pick-your-color            /design-your-roof                       301
-/poconos                    /service-areas                          301
-/residentialroofs           /residential-roof-repairs               301
-/pick-your-color/           /design-your-roof                       301
+# Misc redirects
+/gutter-maintenece          /gutter-maintenance-installation.html   301
+/financing                  /roof-financing-options.html            301
+/pick-your-color            /design-your-roof.html                  301
+/pick-your-color/           /design-your-roof.html                  301
+/poconos                    /service-areas.html                     301
+/residentialroofs           /residential-roof-repairs.html          301
+/siding/                    /siding-installation.html               301
+/siding                     /siding-installation.html               301
 
 # Handle www to non-www (if not handled by Netlify domain settings)
 https://www.valleypeakroof.com/* https://valleypeakroof.com/:splat 301!

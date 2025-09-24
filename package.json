@@ -1,0 +1,22 @@
+{
+  "name": "valley-peak-roofing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tree": "tree -f -I 'node_modules|.git|.DS_Store' > site-structure.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbray33/valley-peak-roofing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dbray33/valley-peak-roofing/issues"
+  },
+  "homepage": "https://github.com/dbray33/valley-peak-roofing#readme"
+}

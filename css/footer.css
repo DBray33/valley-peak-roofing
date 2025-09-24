@@ -432,3 +432,17 @@ address {
   color: var(--white); /* or pick another hover color */
   text-decoration: none;
 }
+/* === Force county/extended headings size & color === */
+.footer .footer-service-areas-row .footer-service-areas-col h5,
+.footer .footer-service-areas-row .footer-service-areas-col h5 a {
+  font-size: 16px !important; /* bump size */
+  color: rgba(255, 255, 255, 0.95) !important; /* heading color */
+  line-height: 1.3;
+}
+
+/* (Optional) keep the main "Service Areas" H4 clearly larger */
+.footer .footer-service-areas-row h4,
+.footer .footer-service-areas-row h4 a {
+  font-size: 20px !important;
+  color: var(--primary-color) !important;
+}

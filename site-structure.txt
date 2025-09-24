@@ -40,6 +40,8 @@
 ├── ./our-company.html
 ├── ./our-work.html
 ├── ./package.json
+├── ./partials
+│   └── ./partials/footer-service-areas.html
 ├── ./privacy-policy.html
 ├── ./residential-roof-repairs.html
 ├── ./robots.txt
@@ -90,4 +92,4 @@
 ├── ./terms.html
 └── ./thank-you.html
 
-5 directories, 86 files
+6 directories, 87 files

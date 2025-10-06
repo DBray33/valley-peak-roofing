@@ -198,6 +198,15 @@
 /services.html               /#services                       301
 /services                    /#services                       301
 
+# Old /services/ subpages from WordPress
+/services/roof-installation/                      /roof-replacement-installation    301
+/services/gutter-maintenance/                     /gutter-maintenance-installation  301
+/services/gutter-maintenance-installation/        /gutter-maintenance-installation  301
+/services/roof-replacement/                       /roof-replacement-installation    301
+/services/residential-roof-repairs/               /residential-roof-repairs         301
+/services/commercial-roofing/                     /commercial-roofing               301
+/services/siding-installation/                    /siding-installation              301
+
 # FAQ Consolidation
 /roofing-faq/                /roofing-siding-gutter-faqs    301
 /siding-faq/                 /roofing-siding-gutter-faqs    301

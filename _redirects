@@ -233,10 +233,52 @@
 /tile-roof/                  /roof-replacement-installation  301
 /tile-roof                   /roof-replacement-installation  301
 
+# Old city page URL patterns (without /service-areas/ path)
+/roofing-services-in-bangor-pa        /service-areas/roofing-bangor-pa          301
+/roofing-services-in-reading-pa       /service-areas/roofing-reading-pa         301
+/roofing-services-in-alburtis-pa      /service-areas/roofing-alburtis-pa        301
+/roofing-services-in-bethlehem-pa     /service-areas/roofing-bethlehem-pa       301
+/roofing-emmaus-pa                    /service-areas/roofing-emmaus-pa          301
+/roofing-coopersburg-pa               /service-areas/roofing-coopersburg-pa     301
+/roofing-fogelsville-pa               /service-areas/roofing-fogelsville-pa     301
+/roofing-macungie-pa                  /service-areas/roofing-macungie-pa        301
+/roofing-orefield-pa.html             /service-areas/roofing-orefield-pa        301
+
+# Old blog URL patterns
+/post/*                               /blog/:splat                              301
+/blog/                                /our-blog                                 301
+/blog                                 /our-blog                                 301
+
+# Old service URL patterns
+/roof-replacement/                    /roof-replacement-installation            301
+/roof-replacement                     /roof-replacement-installation            301
+/gutter-maintenance/                  /gutter-maintenance-installation          301
+/gutter-maintenance                   /gutter-maintenance-installation          301
+/siding                               /siding-installation                      301
+/siding/                              /siding-installation                      301
+
+# WordPress legacy URLs
+/author/*                             /our-blog                                 301
+/portfolio-items/*                    /our-work                                 301
+/product/*                            /                                         301
+/wp-content/*                         /                                         301
+
+# Misc file paths
+/service-areas/index.html             /service-areas                            301
+/service-areas/budget-roof-cost.html  /budget-roof-cost                         301
+
+# Geographic redirects
+/lehigh-valley                        /service-areas/roofing-services-in-lehigh-county     301
+/lehigh-valley/                       /service-areas/roofing-services-in-lehigh-county     301
+/poconos                              /service-areas                            301
+/poconos/                             /service-areas                            301
+
 # Misc redirects
 /gutter-maintenece          /gutter-maintenance-installation   301
 /gutter-maintenece/         /gutter-maintenance-installation   301
 /financing                  /roof-financing-options            301
+/pick-your-color            /design-your-roof                  301
+/coming-soon-03             /                                  301
 /financing/                 /roof-financing-options            301
 /pick-your-color            /design-your-roof                  301
 /pick-your-color/           /design-your-roof                  301

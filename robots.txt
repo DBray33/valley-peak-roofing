@@ -16,14 +16,7 @@ Disallow: /*?s=
 Disallow: /*?feed=
 Disallow: /*?p=
 
-# Old URL patterns (without .html)
-Disallow: /privacy-policy
-Disallow: /terms
-Disallow: /james-hardie/
-Disallow: /services/
-Disallow: /pick-your-color/
-
-# Old blog URLs
+# Old WordPress blog URLs (redirected to /blog/ folder)
 Disallow: /7-tips-to-choose-the-best-roofing-contractor-in-bethlehem-pennsylvania/
 Disallow: /replacing-your-roof-on-a-budget/
 Disallow: /what-are-those-black-streaks-running-down-my-roof/

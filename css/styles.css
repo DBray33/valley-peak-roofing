@@ -7627,27 +7627,19 @@ a.city-item:hover .city-name {
  */
 
 /* Hero Section */
+/* ========================================
+   CREATIVE HERO SECTION
+   ======================================== */
+
 .roof-replacement-hero {
   position: relative;
-  min-height: 500px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 160px 0 80px;
+  padding: 120px 0 80px;
   color: white;
   overflow: hidden;
-}
-
-@media (max-width: 768px) {
-  .roof-replacement-hero {
-    min-height: 400px;
-  }
-}
-
-@media (max-width: 480px) {
-  .roof-replacement-hero {
-    padding: 140px 0 60px;
-  }
+  background: #0a0a0a;
 }
 
 /* Video Background Wrapper */
@@ -7657,11 +7649,10 @@ a.city-item:hover .city-name {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2;
+  z-index: 0;
   overflow: hidden;
 }
 
-/* Dark gradient overlay to mask pixelation and improve text readability */
 .roof-hero-video-wrapper::after {
   content: '';
   position: absolute;
@@ -7670,23 +7661,15 @@ a.city-item:hover .city-name {
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0.35) 50%,
-    rgba(0, 0, 0, 0.65) 100%
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.6) 100%
   );
   pointer-events: none;
   z-index: 1;
 }
 
-@media (max-width: 768px) {
-  /* Keep video visible on mobile */
-  .roof-hero-video-wrapper {
-    display: block;
-  }
-}
-
-/* Video Element */
 .roof-hero-video {
   position: absolute;
   top: 50%;
@@ -7695,195 +7678,624 @@ a.city-item:hover .city-name {
   min-height: 100%;
   width: auto;
   height: auto;
-  transform: translate(-50%, -50%) scale(1.02);
+  transform: translate(-50%, -50%);
   object-fit: cover;
-
-  /* Subtle blur and contrast adjustment to smooth pixelation */
-  filter: blur(0.4px) contrast(1.08) brightness(0.97);
-
-  /* Force high-quality rendering */
-  -webkit-backface-visibility: hidden;
-  -webkit-transform: translate3d(-50%, -50%, 0) scale(1.02);
-  transform: translate3d(-50%, -50%, 0) scale(1.02);
-  will-change: transform, filter;
+  filter: brightness(0.9);
 }
 
-@media (max-width: 768px) {
-  /* Ensure video doesn't cause horizontal scroll */
-  .roof-hero-video {
-    max-width: 100vw;
-  }
-
-  /* Slightly stronger overlay on mobile for better text readability */
-  .roof-hero-video-wrapper::after {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      rgba(0, 0, 0, 0.7) 100%
-    );
-  }
+/* Diagonal Accent Element */
+.hero-diagonal-accent {
+  position: absolute;
+  top: 0;
+  right: -10%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(179, 168, 133, 0.15) 0%, rgba(179, 168, 133, 0.05) 100%);
+  transform: skewX(-15deg);
+  z-index: 1;
+  pointer-events: none;
 }
 
-/* Content stays on top */
+/* Content Layout - Split Design */
 .roof-hero-content {
   position: relative;
-  text-align: center;
-  max-width: 900px;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1400px;
   margin: 0 auto;
-  z-index: 1;
+  width: 100%;
+}
+
+/* Left Side - Main Content */
+.hero-left {
+  max-width: 600px;
 }
 
 .roof-hero-title {
-  font-size: 3rem;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0 0 30px 0;
+  letter-spacing: -2px;
+  color: #fff;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero-title-gradient {
+  background: linear-gradient(135deg, #b3a885 0%, #c7bda0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 35px;
+}
+
+/* CTA Buttons */
+.hero-cta-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 36px;
+  border-radius: 50px;
   font-weight: 700;
-  margin: 0;
-  line-height: 1.2;
-  letter-spacing: -1px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .roof-hero-title {
-    font-size: 2.5rem;
-  }
+.hero-btn-primary {
+  background: linear-gradient(135deg, #b3a885, #c7bda0);
+  color: #000;
+  box-shadow: 0 8px 25px rgba(179, 168, 133, 0.4);
 }
 
-@media (max-width: 480px) {
-  .roof-hero-title {
-    font-size: 2rem;
-  }
+.hero-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(179, 168, 133, 0.6);
 }
 
-.roof-hero-subtitle {
-  color: #000000; /* Black text */
-  font-size: 1.8rem;
-  font-weight: 400; /* Slightly heavier for better readability on background */
-  opacity: 1;
-  display: inline-block;
-  margin-top: 1rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+.hero-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
+}
+
+/* Right Side - Floating Cards Layout */
+.hero-right {
   position: relative;
-  z-index: 1;
-  transition: text-shadow 0.3s ease 1.5s;
+  width: 100%;
+  max-width: 600px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (max-width: 768px) {
-  .roof-hero-subtitle {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .roof-hero-subtitle {
-    font-size: 1.2rem;
-  }
-}
-
-/* Remove text shadow after background appears */
-.roof-hero-title.fade-in.visible .roof-hero-subtitle {
-  text-shadow: none;
-}
-
-/* Highlight slide animation with 3D effect */
-.roof-hero-subtitle.highlight-slide {
-  position: relative;
-  padding: 0.3em 0.6em;
-  display: inline-block;
-  transform-style: preserve-3d;
-}
-
-/* Main background with gradient and 3D effect */
-.roof-hero-subtitle.highlight-slide::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: linear-gradient(135deg, #b3a885 0%, #c7bda0 50%, #b3a885 100%);
-  z-index: -1;
-  transition: none;
-  border-radius: 6px;
-  box-shadow: 0 4px 20px rgba(179, 168, 133, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2),
-    inset 0 2px 2px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 2px rgba(0, 0, 0, 0.1);
-  transform: skewX(-2deg);
-}
-
-/* Bottom shadow for depth */
-.roof-hero-subtitle.highlight-slide::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 2px;
-  width: 0;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: -2;
-  transition: none;
-  border-radius: 6px;
-  filter: blur(6px);
-  transform: skewX(-2deg) scaleY(0.3);
-}
-
-/* Animation that triggers on page load */
-.roof-hero-title.fade-in.visible .roof-hero-subtitle.highlight-slide::before,
-.roof-hero-title.fade-in.visible .roof-hero-subtitle.highlight-slide::after {
-  animation: slideHighlight3D 1.5s ease-in-out 0.8s forwards;
-}
-
-@keyframes slideHighlight3D {
-  0% {
-    width: 0;
-    left: 0;
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  50% {
-    width: 100%;
-    left: 0;
-  }
-  100% {
-    width: 100%;
-    left: 0;
-  }
-}
-
-/* Hover effect for interactivity */
-.roof-hero-subtitle.highlight-slide:hover::before {
-  transform: skewX(-2deg) translateY(-2px);
-  box-shadow: 0 6px 25px rgba(179, 168, 133, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3),
-    inset 0 2px 2px rgba(255, 255, 255, 0.4),
-    inset 0 -2px 2px rgba(0, 0, 0, 0.15);
+/* Base Card Styles */
+.hero-card {
+  background: rgba(30, 35, 45, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease;
 }
 
-/* Alternative animation that slides through */
-.roof-hero-subtitle.highlight-slide-through::before,
-.roof-hero-subtitle.highlight-slide-through::after {
-  animation: slideThroughHighlight3D 2s ease-in-out 0.8s forwards !important;
+.hero-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+  border-color: rgba(179, 168, 133, 0.3);
 }
 
-@keyframes slideThroughHighlight3D {
-  0% {
-    width: 0;
-    left: 0;
-    opacity: 0;
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.card-header i {
+  font-size: 1.1rem;
+  color: #b3a885;
+}
+
+/* MAIN LARGE CARD - Center */
+.hero-main-card {
+  position: relative;
+  z-index: 1;
+  padding: 25px;
+  background: rgba(30, 35, 45, 0.98);
+  border: 2px solid rgba(179, 168, 133, 0.3);
+  max-width: 500px;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.hero-main-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FLOATING SMALL CARDS - Absolute Positioning */
+.hero-floating-card {
+  position: absolute;
+  z-index: 2;
+  padding: 18px;
+  max-width: 260px;
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+.hero-floating-card.animate-in {
+  opacity: 1;
+}
+
+/* Top Right Card - Google Review */
+.card-top-right {
+  top: -85px;
+  right: 5px;
+  max-width: 187px;
+  padding: 12px;
+  transform: translate(30px, -30px);
+}
+
+.card-top-right.animate-in {
+  transform: translate(0, 0);
+}
+
+.google-logo {
+  margin-bottom: 6px;
+}
+
+.google-logo svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Bottom Left Card - Warranty */
+.card-bottom-left {
+  bottom: calc(-20px - 1rem);
+  left: -60px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  max-width: 220px;
+  background: linear-gradient(135deg, rgba(179, 168, 133, 0.3), rgba(179, 168, 133, 0.15));
+  border: 2px solid rgba(179, 168, 133, 0.5);
+  transform: translate(-30px, 30px);
+}
+
+.card-bottom-left.animate-in {
+  transform: translate(0, 0);
+}
+
+/* Bottom Right Card - BBB */
+.card-bottom-right {
+  bottom: -30px;
+  right: -40px;
+  max-width: 180px;
+  text-align: center;
+  transform: translate(30px, 30px);
+}
+
+.card-bottom-right.animate-in {
+  transform: translate(0, 0);
+}
+
+/* Star Rating */
+.star-rating {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+
+.star-rating i {
+  color: #ffd700;
+  font-size: 0.6rem;
+}
+
+.review-text-small {
+  font-size: 0.6rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 6px;
+  font-style: italic;
+}
+
+.review-author {
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.large-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.large-card-header i {
+  font-size: 1.1rem;
+  color: #b3a885;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.benefit-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.benefit-icon {
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, rgba(179, 168, 133, 0.2), rgba(179, 168, 133, 0.1));
+  border: 2px solid rgba(179, 168, 133, 0.4);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefit-icon i {
+  font-size: 1.2rem;
+  color: #b3a885;
+}
+
+.benefit-content {
+  flex: 1;
+  text-align: left;
+}
+
+.benefit-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #b3a885, #c7bda0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.benefit-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* ROI Bar */
+.roi-bar {
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.roi-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.roi-progress {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  height: 32px;
+  overflow: hidden;
+}
+
+.roi-fill {
+  position: relative;
+  background: linear-gradient(90deg, #b3a885 0%, #c7bda0 100%);
+  height: 100%;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+  transition: width 1.5s ease;
+}
+
+.roi-value {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #000;
+}
+
+/* Warranty Card Styles */
+.warranty-icon-small {
+  font-size: 2rem;
+  color: #b3a885;
+}
+
+.warranty-text-small {
+  line-height: 1.1;
+}
+
+.warranty-title-small {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #b3a885;
+}
+
+.warranty-subtitle-small {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+/* BBB Card Styles */
+.bbb-badge {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bbb-rating {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #b3a885, #c7bda0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.bbb-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.trust-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.trust-check i {
+  color: #4ade80;
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1200px) {
+  .roof-hero-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
   }
-  20% {
-    opacity: 1;
+
+  .hero-left {
+    max-width: 100%;
   }
-  50% {
+
+  .hero-right {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .roof-replacement-hero {
+    min-height: auto;
+    padding: 100px 0 60px;
+  }
+
+  .roof-hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-diagonal-accent {
+    display: none;
+  }
+
+  .hero-right {
+    min-height: 450px;
+    margin-top: 40px;
+  }
+
+  .hero-main-card {
+    padding: 30px 25px;
+  }
+
+  .benefits-grid {
+    gap: 12px;
+  }
+
+  .benefit-card {
+    padding: 18px;
+  }
+
+  .benefit-value {
+    font-size: 1.5rem;
+  }
+
+  /* Adjust floating card positions for tablet */
+  .card-top-right {
+    top: -50px;
+    right: -15px;
+    max-width: 220px;
+  }
+
+  .card-bottom-left {
+    bottom: calc(-15px - 1rem);
+    left: -40px;
+  }
+
+  .card-bottom-right {
+    bottom: -20px;
+    right: -30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .roof-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+  }
+
+  .hero-btn {
     width: 100%;
-    left: 0;
+    justify-content: center;
   }
-  100% {
-    width: 0;
-    left: 100%;
-    opacity: 0;
+
+  .hero-right {
+    min-height: 550px;
+    padding: 0 20px;
+  }
+
+  .hero-main-card {
+    padding: 25px 20px;
+    max-width: 100%;
+  }
+
+  /* Stack floating cards on mobile with smaller offsets */
+  .card-top-right {
+    top: -40px;
+    right: -5px;
+    max-width: 190px;
+    padding: 14px;
+  }
+
+  .card-bottom-left {
+    bottom: calc(-15px - 1rem);
+    left: -10px;
+    max-width: 180px;
+    padding: 15px;
+  }
+
+  .card-bottom-right {
+    bottom: -15px;
+    right: -10px;
+    max-width: 150px;
+    padding: 15px;
+  }
+
+  .warranty-title-small {
+    font-size: 1.1rem;
+  }
+
+  .warranty-icon-small {
+    font-size: 1.6rem;
+  }
+
+  .bbb-rating {
+    font-size: 1.8rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .benefit-card {
+    padding: 18px;
+  }
+
+  .benefit-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .benefit-icon i {
+    font-size: 1.2rem;
+  }
+
+  .benefit-value {
+    font-size: 1.4rem;
+  }
+
+  .benefit-label {
+    font-size: 0.8rem;
+  }
+
+  .roi-progress {
+    height: 32px;
+  }
+
+  .roi-value {
+    font-size: 1rem;
+  }
+
+  .review-text-small {
+    font-size: 0.7rem;
+  }
+
+  .review-author {
+    font-size: 0.65rem;
+  }
+
+  .star-rating i {
+    font-size: 0.7rem;
   }
 }
 

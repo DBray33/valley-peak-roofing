@@ -246,6 +246,42 @@ const ModalSystem = {
             setTimeout(() => firstInput.focus(), 100);
           }
         },
+        onClose: function (modal) {
+          console.log('Estimate modal closing - resetting form and button');
+
+          // Reset form and button state when modal closes
+          const form = document.getElementById('estimate-form');
+          if (form) {
+            form.reset();
+            form.style.display = '';
+
+            // Hide success message if showing
+            const successMessage = modal.querySelector(
+              '.estimate-success-message'
+            );
+            if (successMessage) {
+              successMessage.style.display = 'none';
+            }
+
+            // Reset button state
+            const submitButton = form.querySelector('.submit-button');
+            if (submitButton) {
+              submitButton.disabled = false;
+              submitButton.removeAttribute('disabled');
+              const buttonText = submitButton.querySelector('.button-text');
+              const buttonLoading = submitButton.querySelector('.button-loading');
+              if (buttonText) {
+                buttonText.style.display = 'inline-flex';
+                buttonText.style.display = '';
+              }
+              if (buttonLoading) {
+                buttonLoading.style.display = 'none';
+              }
+            }
+          }
+
+          console.log('Estimate modal reset complete');
+        },
       });
 
       // Set up form handling
@@ -271,7 +307,9 @@ const ModalSystem = {
         !e.target.closest('form'); // Exclude clicks within forms
 
       if (estimateLink || isEstimateButton) {
+        console.log('Estimate trigger clicked, opening modal');
         e.preventDefault();
+        e.stopPropagation();
         modalSystem.open('estimate-modal');
       }
     });

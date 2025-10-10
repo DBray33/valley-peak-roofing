@@ -8486,10 +8486,10 @@ a.city-item:hover .city-name {
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   background: #000;
-  max-width: 220px;
+  max-width: 350px;
   margin: 0 auto;
   aspect-ratio: 9 / 16;
-  height: auto;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8634,6 +8634,11 @@ a.city-item:hover .city-name {
 @media (max-width: 768px) {
   .home-video-section {
     padding: 60px 0;
+  }
+
+  .home-video-section .video-container {
+    max-width: 220px;
+    height: auto;
   }
 
   .home-video-section .video-section-title {
@@ -18023,5 +18028,252 @@ body {
     width: 40px;
     height: 40px;
     font-size: 14px;
+  }
+}
+
+/* ========================================
+   MOBILE BOTTOM NAVIGATION
+   ======================================== */
+
+.mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    padding: 8px 0;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .bottom-nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #2c3e50;
+    padding: 8px 4px;
+    transition: all 0.3s ease;
+    font-size: 0.75rem;
+    font-weight: 500;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .bottom-nav-item i {
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+  }
+
+  .bottom-nav-item span {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .bottom-nav-item:hover,
+  .bottom-nav-item:active {
+    color: #b3a885;
+  }
+
+  .bottom-nav-item:hover i,
+  .bottom-nav-item:active i {
+    transform: scale(1.1);
+  }
+
+  /* Call button - primary action */
+  .bottom-nav-call {
+    color: #b3a885;
+  }
+
+  .bottom-nav-call i {
+    background: linear-gradient(135deg, #b3a885, #c7bda0);
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(179, 168, 133, 0.3);
+    font-size: 1.1rem;
+  }
+
+  .bottom-nav-call:hover i,
+  .bottom-nav-call:active i {
+    background: linear-gradient(135deg, #c7bda0, #d4cbb3);
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(179, 168, 133, 0.4);
+  }
+
+  /* Add padding to body to prevent content from being hidden behind bottom nav */
+  body {
+    padding-bottom: 70px;
+  }
+
+  /* Adjust back to top button position */
+  .back-to-top {
+    bottom: 85px !important;
+  }
+
+  /* Mobile Services Modal */
+  .mobile-services-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(50, 71, 91, 0.95);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .mobile-services-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+  }
+
+  .mobile-services-modal-content {
+    width: 100%;
+    padding: 60px 20px 20px;
+    max-height: 100vh;
+    overflow-y: auto;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.4s ease;
+  }
+
+  .mobile-services-modal.active .mobile-services-modal-content {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .mobile-services-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .mobile-services-header h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .mobile-services-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 5px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-services-close:active {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .mobile-service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    gap: 8px;
+    text-align: center;
+    min-height: 80px;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .mobile-services-modal.active .mobile-service-card {
+    animation: fadeInUp 0.4s ease forwards;
+  }
+
+  .mobile-services-modal.active .mobile-service-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .mobile-services-modal.active .mobile-service-card:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .mobile-services-modal.active .mobile-service-card:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .mobile-services-modal.active .mobile-service-card:nth-child(4) {
+    animation-delay: 0.25s;
+  }
+
+  .mobile-services-modal.active .mobile-service-card:nth-child(5) {
+    animation-delay: 0.3s;
+  }
+
+  .mobile-services-modal.active .mobile-service-card:nth-child(6) {
+    animation-delay: 0.35s;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-service-card i {
+    font-size: 1.6rem;
+    color: #ffffff;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-service-card span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .mobile-service-card:active {
+    transform: scale(0.95);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
   }
 }

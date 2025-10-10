@@ -1557,3 +1557,262 @@
     font-size: 0.85rem;
   }
 }
+
+/* ===========================
+   VIDEO SECTION
+   =========================== */
+.county-video-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.county-video-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(179, 168, 133, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.video-section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.video-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #d97a3f, #c7712e);
+  color: white;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(217, 122, 63, 0.3);
+}
+
+.video-badge i {
+  margin-right: 6px;
+}
+
+.video-section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.video-section-subtitle {
+  font-size: 1.15rem;
+  color: #7f8c8d;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.video-content-wrapper {
+  width: 100%;
+}
+
+.video-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: stretch;
+  margin-bottom: 50px;
+}
+
+.video-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  background: #000;
+  max-width: 220px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.video-highlights {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.video-cta-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.highlights-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+.highlight-item {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  border-left: 4px solid #b3a885;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.highlight-icon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #b3a885, #c7bda0);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.4rem;
+}
+
+.highlight-content h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 6px 0;
+}
+
+.highlight-content p {
+  font-size: 0.95rem;
+  color: #7f8c8d;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.video-cta {
+  padding: 30px 50px;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border-radius: 16px;
+  text-align: center;
+  display: inline-block;
+}
+
+.video-cta-button {
+  display: inline-block;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #b3a885, #c7bda0);
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(179, 168, 133, 0.4);
+  transition: all 0.3s ease;
+}
+
+.video-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(179, 168, 133, 0.6);
+}
+
+.video-cta-button i {
+  margin-right: 8px;
+}
+
+.video-cta-text {
+  color: white;
+  font-size: 0.95rem;
+  margin: 15px 0 0 0;
+  opacity: 0.9;
+  text-align: center;
+  width: 100%;
+}
+
+/* Responsive Video Section */
+@media (max-width: 1024px) {
+  .video-content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .video-section-title {
+    font-size: 2.2rem;
+  }
+
+  .video-cta {
+    padding: 25px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .county-video-section {
+    padding: 60px 0;
+  }
+
+  .video-section-title {
+    font-size: 1.8rem;
+  }
+
+  .video-section-subtitle {
+    font-size: 1rem;
+  }
+
+  .highlights-title {
+    font-size: 1.5rem;
+  }
+
+  .highlight-item {
+    padding: 15px;
+  }
+
+  .highlight-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  .highlight-content h4 {
+    font-size: 1rem;
+  }
+
+  .highlight-content p {
+    font-size: 0.9rem;
+  }
+
+  .video-cta {
+    padding: 25px 30px;
+  }
+
+  .video-cta-button {
+    display: inline-block;
+    padding: 14px 30px;
+  }
+}

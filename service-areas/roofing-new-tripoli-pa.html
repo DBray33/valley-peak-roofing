@@ -508,6 +508,81 @@
         </div>
       </section>
 
+      <!-- Video Section - Why Fall is Perfect for Roof Replacement -->
+      <section class="county-video-section fall-roofing-video">
+        <div class="county-content-wrapper">
+          <div class="video-section-header">
+            <span class="video-badge"><i class="fas fa-leaf"></i> Fall Roofing Season</span>
+            <h2 class="video-section-title">Why Fall is Perfect for Roof Replacement in New Tripoli</h2>
+            <p class="video-section-subtitle">Important seasonal information for New Tripoli homeowners considering a new roof</p>
+          </div>
+
+          <div class="video-content-wrapper">
+            <div class="video-content-grid">
+              <div class="video-container">
+                <video controls width="100%" preload="metadata" class="fall-video">
+                  <source src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/videos/fall-roof-replacement-reel.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div class="video-highlights">
+                <h3 class="highlights-title">Fall Installation Benefits</h3>
+
+                <div class="highlight-item">
+                  <div class="highlight-icon">
+                    <i class="fas fa-temperature-low"></i>
+                  </div>
+                  <div class="highlight-content">
+                    <h4>Mild Temperatures</h4>
+                    <p>Ideal weather conditions allow our crew to work efficiently and safely</p>
+                  </div>
+                </div>
+
+                <div class="highlight-item">
+                  <div class="highlight-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                  </div>
+                  <div class="highlight-content">
+                    <h4>Stable Weather Conditions</h4>
+                    <p>Consistent fall weather means fewer delays and faster completion</p>
+                  </div>
+                </div>
+
+                <div class="highlight-item">
+                  <div class="highlight-icon">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <div class="highlight-content">
+                    <h4>Immediate Shingle Sealing</h4>
+                    <p>New roof shingles seal almost immediately in optimal fall temperatures</p>
+                  </div>
+                </div>
+
+                <div class="highlight-item">
+                  <div class="highlight-icon">
+                    <i class="fas fa-calendar-check"></i>
+                  </div>
+                  <div class="highlight-content">
+                    <h4>Beat the Spring Rush</h4>
+                    <p>Get your roof addressed before winter and avoid the 2026 spring backlog</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="video-cta-wrapper">
+              <div class="video-cta">
+                <a href="tel:4846026863" class="video-cta-button">
+                  <i class="fas fa-phone-alt"></i> Call (484) 602-6863
+                </a>
+                <p class="video-cta-text">Free estimate • Professional assessment • Fall appointments available</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Introduction -->
       <section class="county-page-intro">
         <div class="county-content-wrapper">
@@ -2105,5 +2180,21 @@
     <!-- Scripts -->
     <script src="../js/scripts.js"></script>
     <script src="../js/modal.js"></script>
+    <script>
+      // Set video poster frame to 3 seconds but play from beginning
+      document.addEventListener('DOMContentLoaded', function() {
+        var video = document.querySelector('.fall-video');
+        if (video) {
+          video.addEventListener('loadedmetadata', function() {
+            this.currentTime = 3;
+          });
+          video.addEventListener('play', function() {
+            if (Math.abs(this.currentTime - 3) < 0.5) {
+              this.currentTime = 0;
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>

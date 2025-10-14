@@ -78,7 +78,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 
     <!-- Preload LCP image -->
     <link
@@ -135,6 +134,30 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     </noscript>
+    <style>
+      /* Override Font Awesome font-face to add font-display: swap */
+      @font-face {
+        font-family: "Font Awesome 6 Free";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2");
+      }
+      @font-face {
+        font-family: "Font Awesome 6 Free";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2");
+      }
+      @font-face {
+        font-family: "Font Awesome 6 Brands";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-brands-400.woff2) format("woff2");
+      }
+    </style>
 
     <!-- Google Fonts - Girassol, Saira -->
     <link
@@ -3209,9 +3232,9 @@
       </div>
     </div>
 
-    <script src="js/scripts.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/scripts.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <script src="js/carousel.js" defer></script>
 
     <!-- YouTube Video Lazy Loading - Loads iframe only when thumbnail is clicked -->
     <script>

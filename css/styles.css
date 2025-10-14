@@ -18267,6 +18267,10 @@ body {
     animation-delay: 0.35s;
   }
 
+  .mobile-services-modal.active .mobile-service-card:nth-child(7) {
+    animation-delay: 0.4s;
+  }
+
   @keyframes fadeInUp {
     to {
       opacity: 1;

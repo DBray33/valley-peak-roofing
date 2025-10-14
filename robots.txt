@@ -73,8 +73,5 @@ Disallow: /aged-copper-2/
 Disallow: /sand-dune-2/
 Disallow: /bourbon-2/
 
-# External domain (shouldn't be crawled from your site)
-Disallow: https://www.valleypeakroof.com/
-
 # Sitemap location
 Sitemap: https://valleypeakroof.com/sitemap.xml

@@ -403,6 +403,70 @@
         }
       }
     </script>
+    <style>
+      @media (max-width: 1200px) and (min-width: 969px) {
+        .repairs-hero .roof-hero-content {
+          grid-template-columns: 1.2fr 0.8fr !important;
+          gap: 40px !important;
+        }
+      }
+
+      @media (max-width: 968px) {
+        .repairs-hero .hero-right {
+          display: none;
+        }
+      }
+
+      /* Mobile Contact Form */
+      .mobile-contact-form-wrapper {
+        display: none;
+        margin-bottom: 3rem;
+      }
+
+      @media (max-width: 968px) {
+        .mobile-contact-form-wrapper {
+          display: block;
+        }
+      }
+
+      .mobile-contact-form-card {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .mobile-contact-form-card h3 {
+        margin-bottom: 0.5rem;
+        color: #1a1a1a;
+        font-size: 1.5rem;
+      }
+
+      .mobile-contact-form-card > p {
+        margin-bottom: 1.5rem;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .mobile-contact-form-card form input,
+      .mobile-contact-form-card form select {
+        width: 100%;
+        padding: 0.875rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+
+      .mobile-contact-form-card form button {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+    </style>
   </head>
   <body>
     <!-- Floating Logo - Place this BEFORE the Navigation -->
@@ -603,36 +667,81 @@
 
     <!-- Hero Section -->
     <section class="repairs-hero">
+      <!-- Content -->
       <div class="container">
-        <div class="repairs-hero-content">
-          <h1 class="repairs-hero-title fade-in">
-            Professional Home Roof Repairs in PA
-          </h1>
-          <p class="repairs-hero-subtitle fade-in-delay">
-            Fast, Reliable Roof Repair Services in Bethlehem and The Lehigh
-            Valley
-          </p>
-          <div class="repairs-hero-features fade-in-delay-2">
-            <div class="repairs-feature-item">
-              <i class="fas fa-clock"></i>
-              <span>Same-Day Service</span>
-            </div>
-            <div class="repairs-feature-item">
-              <i class="fas fa-shield-alt"></i>
-              <span>Lifetime Warranty</span>
-            </div>
-            <div class="repairs-feature-item">
-              <i class="fas fa-award"></i>
-              <span>BBB A+ Rated</span>
+        <div class="roof-hero-content">
+          <!-- Left Side: Main Content -->
+          <div class="hero-left">
+            <h1 class="roof-hero-title">
+              PROFESSIONAL ROOF<br/>
+              <span class="hero-title-gradient">REPAIRS</span>
+            </h1>
+            <p class="hero-description">
+              Fast, reliable roof repair services in Bethlehem and The Lehigh Valley. From minor leaks to storm damage, we provide same-day service with lifetime warranty. BBB A+ rated, 100+ 5-star reviews.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#estimate" class="btn btn-primary">Get Free Repair Estimate</a>
+              <a href="tel:4846026863" class="btn btn-secondary">
+                <i class="fas fa-phone-alt"></i> (484) 602-6863
+              </a>
             </div>
           </div>
-          <div class="repairs-hero-cta fade-in-delay-3">
-            <a href="#estimate" class="btn btn-primary btn-large">
-              <i class="fas fa-calendar-check"></i> Get Free Repair Estimate
-            </a>
-            <a href="tel:484-602-6863" class="btn btn-secondary btn-large">
-              <i class="fas fa-phone"></i> (484) 602-6863
-            </a>
+
+          <!-- Right Side: Contact Form -->
+          <div class="hero-right">
+            <div class="hero-contact-form">
+              <form
+                name="repairs-hero-contact"
+                method="POST"
+                data-netlify="true">
+                <input
+                  type="hidden"
+                  name="form-name"
+                  value="repairs-hero-contact" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  required
+                  aria-label="Name" />
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  aria-label="Email" />
+
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  required
+                  aria-label="Phone Number" />
+
+                <select name="service" required aria-label="Select a service">
+                  <option value="" disabled selected>
+                    ✓ Select a service
+                  </option>
+                  <option value="roof-replacement">Roof Replacement</option>
+                  <option value="roof-repair">Roof Repair</option>
+                  <option value="new-construction">New Construction</option>
+                  <option value="storm-damage">
+                    Storm Damage Assessment
+                  </option>
+                  <option value="roof-maintenance">Roof Maintenance</option>
+                  <option value="gutters">Gutters</option>
+                  <option value="siding">Siding</option>
+                  <option value="inspection">
+                    Not Sure - Need Inspection
+                  </option>
+                </select>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                  Get Free Estimate
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -641,6 +750,65 @@
     <!-- Introduction Section -->
     <section class="repairs-intro-section">
       <div class="container">
+        <!-- Mobile Contact Form - Only shows when hero form is hidden -->
+        <div class="mobile-contact-form-wrapper">
+          <div class="mobile-contact-form-card">
+            <h3>Get Your Free Repair Estimate</h3>
+            <p>Submit your information and we'll get back to you within 24 hours</p>
+            <form
+              name="repairs-mobile-contact"
+              method="POST"
+              data-netlify="true">
+              <input
+                type="hidden"
+                name="form-name"
+                value="repairs-mobile-contact" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                aria-label="Name" />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                aria-label="Email" />
+
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                required
+                aria-label="Phone Number" />
+
+              <select name="service" required aria-label="Select a service">
+                <option value="" disabled selected>
+                  ✓ Select a service
+                </option>
+                <option value="roof-replacement">Roof Replacement</option>
+                <option value="roof-repair">Roof Repair</option>
+                <option value="new-construction">New Construction</option>
+                <option value="storm-damage">
+                  Storm Damage Assessment
+                </option>
+                <option value="roof-maintenance">Roof Maintenance</option>
+                <option value="gutters">Gutters</option>
+                <option value="siding">Siding</option>
+                <option value="inspection">
+                  Not Sure - Need Inspection
+                </option>
+              </select>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Get Free Estimate
+              </button>
+            </form>
+          </div>
+        </div>
+
         <div class="repairs-intro-grid">
           <div class="repairs-intro-content slide-in-left">
             <h2>Expert Roof Repairs When You Need Them Most</h2>
@@ -1876,13 +2044,16 @@
         <i class="fas fa-tools"></i>
         <span>Services</span>
       </button>
-      <a href="tel:4846026863" class="bottom-nav-item bottom-nav-call">
+      <a href="tel:4846026863" class="bottom-nav-call">
         <i class="fas fa-phone-alt"></i>
-        <span>Call</span>
       </a>
+      <button class="bottom-nav-item" id="mobile-about-btn">
+        <i class="fas fa-info-circle"></i>
+        <span>About</span>
+      </button>
       <a href="#estimate" class="bottom-nav-item">
-        <i class="fas fa-file-invoice-dollar"></i>
-        <span>Quote</span>
+        <i class="fas fa-envelope"></i>
+        <span>Message</span>
       </a>
     </nav>
 
@@ -1924,6 +2095,40 @@
       </div>
     </div>
 
+    <!-- Mobile About Modal -->
+    <div id="mobile-about-modal" class="mobile-services-modal">
+      <div class="mobile-services-modal-content">
+        <div class="mobile-services-header">
+          <h3>About Us</h3>
+          <button class="mobile-services-close" id="close-about-modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="mobile-services-grid">
+          <a href="/our-company.html" class="mobile-service-card">
+            <i class="fas fa-building"></i>
+            <span>Our Company</span>
+          </a>
+          <a href="/our-work.html" class="mobile-service-card">
+            <i class="fas fa-briefcase"></i>
+            <span>Our Work</span>
+          </a>
+          <a href="/roofing-siding-gutter-faqs.html" class="mobile-service-card">
+            <i class="fas fa-question-circle"></i>
+            <span>FAQs</span>
+          </a>
+          <a href="/our-blog.html" class="mobile-service-card">
+            <i class="fas fa-newspaper"></i>
+            <span>Blog</span>
+          </a>
+          <a href="/contact.html" class="mobile-service-card">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <script>
       // Mobile Services Modal
       document.addEventListener('DOMContentLoaded', function() {
@@ -1950,6 +2155,34 @@
         servicesModal.addEventListener('click', function(e) {
           if (e.target === servicesModal) {
             servicesModal.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+
+        // Mobile About Modal
+        const aboutBtn = document.getElementById('mobile-about-btn');
+        const aboutModal = document.getElementById('mobile-about-modal');
+        const closeAboutBtn = document.getElementById('close-about-modal');
+
+        if (aboutBtn) {
+          aboutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            aboutModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          });
+        }
+
+        if (closeAboutBtn) {
+          closeAboutBtn.addEventListener('click', function() {
+            aboutModal.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        }
+
+        // Close when clicking outside
+        aboutModal.addEventListener('click', function(e) {
+          if (e.target === aboutModal) {
+            aboutModal.classList.remove('active');
             document.body.style.overflow = '';
           }
         });

@@ -18093,27 +18093,42 @@ body {
 
   /* Call button - primary action */
   .bottom-nav-call {
-    color: #b3a885;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform: translateY(-20px);
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .bottom-nav-call:focus {
+    outline: none !important;
   }
 
   .bottom-nav-call i {
     background: linear-gradient(135deg, #b3a885, #c7bda0);
     color: #fff;
-    width: 44px;
-    height: 44px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(179, 168, 133, 0.3);
-    font-size: 1.1rem;
+    box-shadow: 0 6px 20px rgba(179, 168, 133, 0.4);
+    font-size: 1.4rem;
+    border: 4px solid #ffffff;
   }
 
   .bottom-nav-call:hover i,
   .bottom-nav-call:active i {
     background: linear-gradient(135deg, #c7bda0, #d4cbb3);
-    transform: scale(1.05);
-    box-shadow: 0 6px 16px rgba(179, 168, 133, 0.4);
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(179, 168, 133, 0.5);
   }
 
   /* Add padding to body to prevent content from being hidden behind bottom nav */

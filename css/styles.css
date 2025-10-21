@@ -18010,8 +18010,25 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Hide mobile-only elements on desktop */
+.mobile-services-modal,
+.mobile-about-modal,
+.bottom-nav {
+  display: none !important;
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
+  /* Show mobile elements on mobile */
+  .mobile-services-modal,
+  .mobile-about-modal,
+  .bottom-nav {
+    display: block !important;
+  }
+
+  .bottom-nav {
+    display: flex !important;
+  }
   .back-to-top {
     bottom: 20px;
     right: 20px;

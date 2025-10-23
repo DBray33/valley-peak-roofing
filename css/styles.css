@@ -18013,22 +18013,18 @@ body {
 /* Hide mobile-only elements on desktop */
 .mobile-services-modal,
 .mobile-about-modal,
-.bottom-nav {
-  display: none !important;
+.mobile-bottom-nav {
+  display: none;
 }
 
 /* Mobile styles */
 @media (max-width: 768px) {
-  /* Show mobile elements on mobile */
-  .mobile-services-modal,
-  .mobile-about-modal,
-  .bottom-nav {
-    display: block !important;
+  /* Show mobile bottom nav on mobile */
+  .mobile-bottom-nav {
+    display: flex;
   }
 
-  .bottom-nav {
-    display: flex !important;
-  }
+  /* Mobile modals start hidden and show via .active class */
   .back-to-top {
     bottom: 20px;
     right: 20px;

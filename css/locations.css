@@ -96,27 +96,97 @@
 .county-hero-content {
   position: relative;
   z-index: 2;
-  text-align: center;
+  width: 100%;
   padding: 40px 20px;
 }
 
+/* Two-column flex layout */
+.county-hero-flex {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Left side - Text content */
+.county-hero-text {
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
+}
+
+/* Right side - Form */
+.county-hero-form {
+  flex: 0 0 380px;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
 .county-page-title {
-  font-size: 3.5rem;
+  font-size: 2.75rem;
   font-weight: 700;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .county-highlight-name {
   color: #ffd700;
-  display: inline-block;
-  position: relative;
+  display: inline;
 }
 
 .county-hero-tagline {
-  font-size: 1.5rem;
-  margin-bottom: 3rem;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
   opacity: 0.95;
+}
+
+/* Features list */
+.county-hero-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.county-hero-features li {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.county-hero-features i {
+  color: #ffd700;
+  font-size: 1.1rem;
+}
+
+/* Hero CTA */
+.county-hero-cta {
+  margin-bottom: 1.5rem;
+}
+
+/* Hero badges */
+.county-hero-badges {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.county-hero-badges span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.county-hero-badges i {
+  color: #ffd700;
 }
 
 .county-hero-stats {
@@ -144,6 +214,95 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   opacity: 0.9;
+}
+
+/* Form styling */
+.county-hero-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.county-hero-form input,
+.county-hero-form select {
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.county-hero-form input:focus,
+.county-hero-form select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.county-hero-form select {
+  cursor: pointer;
+  appearance: none;
+  background: white url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+  background-size: 20px;
+}
+
+.county-hero-form .btn-block {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .county-hero-flex {
+    gap: 40px;
+  }
+
+  .county-hero-form {
+    flex: 0 0 340px;
+  }
+
+  .county-page-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .county-hero-flex {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .county-hero-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .county-hero-form {
+    flex: 1;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .county-hero-features {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .county-hero-badges {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .county-page-title {
+    font-size: 1.85rem;
+  }
+
+  .county-hero-tagline {
+    font-size: 1.1rem;
+  }
 }
 
 /* ===========================

@@ -354,6 +354,8 @@
 
   .county-hero-form.mobile-only {
     display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .county-hero-features {

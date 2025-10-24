@@ -480,32 +480,200 @@
     <!-- Honesdale PA Roofing Services Page Content -->
     <div id="honesdale-roofing" class="county-roofing-page">
       <!-- Hero Section -->
-      <section class="county-page-hero wayne-county-hero">
+      <section class="county-page-hero lehigh-county-hero honesdale-hero-video">
+        <video autoplay muted loop playsinline class="honesdale-hero-video-bg">
+          <source src="" type="video/mp4">
+          <!-- TODO: Add video -->
+        </video>
         <div class="county-hero-overlay"></div>
         <div class="county-hero-content">
-          <h1 class="county-page-title fade-in">
-            Professional Roofing Services in
-            <span class="county-highlight-name">Honesdale, PA</span>
-          </h1>
-          <p class="county-hero-tagline fade-in-delay">
-            Valley Peak Roofing - Your Trusted Local Contractor Since 2020
-          </p>
-          <div class="county-hero-stats">
-            <div class="county-stat-item fade-in-delay">
-              <span class="county-stat-number">42</span>
-              <span class="county-stat-label">Freeze-Thaw Cycles</span>
+          <div class="county-hero-flex">
+              <!-- Left side - Text content -->
+              <div class="county-hero-text">
+                <h1 class="county-page-title fade-in">
+                  YOUR RELIABLE <span class="county-highlight-name">HONESDALE</span> ROOFING CONTRACTOR
+                </h1>
+
+                <!-- Mobile Contact Form - Shows only on mobile right after h1 -->
+                <div class="county-hero-form mobile-only fade-in-delay-2">
+                  <form name="honesdale-hero-contact-mobile" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="honesdale-hero-contact-mobile" />
+                    <input type="hidden" name="page" value="Honesdale PA Mobile" />
+
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                      required
+                      aria-label="Name" />
+
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      required
+                      aria-label="Email" />
+
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone Number"
+                      required
+                      aria-label="Phone Number" />
+
+                    <select
+                      name="service"
+                      required
+                      aria-label="Select a service">
+                      <option value="" disabled selected>
+                        ✓ Select a service
+                      </option>
+                      <option value="roof-replacement">Roof Replacement</option>
+                      <option value="roof-repair">Roof Repair</option>
+                      <option value="new-construction">New Construction</option>
+                      <option value="storm-damage">Storm Damage Assessment</option>
+                      <option value="roof-maintenance">Roof Maintenance</option>
+                      <option value="gutters">Gutters</option>
+                      <option value="siding">Siding</option>
+                      <option value="inspection">Not Sure - Need Inspection</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                      Get Free Estimate
+                    </button>
+                  </form>
+                </div>
+
+                <p class="county-hero-tagline fade-in-delay">
+                  Local Honesdale Roofer for Expert Roof Repairs & Replacements
+                </p>
+
+                <ul class="county-hero-features fade-in-delay-2">
+                  <li><i class="fas fa-check-circle"></i> Free Inspection Within One Week</li>
+                  <li><i class="fas fa-check-circle"></i> New Roof Within Two Weeks</li>
+                  <li><i class="fas fa-check-circle"></i> Lifetime Material Warranty</li>
+                </ul>
+
+                <div class="county-hero-cta fade-in-delay-3">
+                  <a href="tel:4846026863" class="btn btn-primary btn-large">
+                    <i class="fas fa-phone"></i> Call For Free Estimate
+                  </a>
+                </div>
+
+                <div class="county-hero-badges fade-in-delay-3">
+                  <span><i class="fas fa-star"></i> 5/5 Stars (109 Google Reviews)</span>
+                  <span><i class="fas fa-shield-alt"></i> Lifetime Warranty</span>
+                </div>
+
+                <div class="hero-social-links">
+                  <a
+                    href="https://g.co/kgs/TMR51P8"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Find us on Google">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="currentColor">
+                      <path
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                      <path
+                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                      <path
+                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                      <path
+                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/VPRCO/"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Follow us on Facebook">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="currentColor">
+                      <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/valleypeakroofing/"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Follow us on Instagram">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="currentColor">
+                      <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right side - Contact form -->
+              <div class="county-hero-form fade-in-delay-3">
+                <form name="honesdale-hero-contact" method="POST" data-netlify="true">
+                  <input type="hidden" name="form-name" value="honesdale-hero-contact" />
+                  <input type="hidden" name="page" value="Honesdale PA" />
+
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    required
+                    aria-label="Name" />
+
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    aria-label="Email" />
+
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number"
+                    required
+                    aria-label="Phone Number" />
+
+                  <select name="service" required aria-label="Select a service">
+                    <option value="" disabled selected>✓ Select a service</option>
+                    <option value="roof-replacement">Roof Replacement</option>
+                    <option value="roof-repair">Roof Repair</option>
+                    <option value="new-construction">New Construction</option>
+                    <option value="storm-damage">Storm Damage Assessment</option>
+                    <option value="roof-maintenance">Roof Maintenance</option>
+                    <option value="gutters">Gutters</option>
+                    <option value="siding">Siding</option>
+                    <option value="inspection">Not Sure - Need Inspection</option>
+                  </select>
+
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Get Free Estimate
+                  </button>
+                </form>
+              </div>
             </div>
-            <div class="county-stat-item fade-in-delay-2">
-              <span class="county-stat-number">34"</span>
-              <span class="county-stat-label">Annual Precipitation</span>
-            </div>
-            <div class="county-stat-item fade-in-delay-3">
-              <span class="county-stat-number">1829</span>
-              <span class="county-stat-label">Founded</span>
-            </div>
-          </div>
         </div>
       </section>
+
+      <!-- Hidden form for Netlify -->
+      <form name="honesdale-hero-contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <select name="service">
+          <option value="roof-replacement">Roof Replacement</option>
+        </select>
+      </form>
 
       <!-- Introduction -->
       <section class="county-page-intro">

@@ -503,6 +503,57 @@
                 <h1 class="county-page-title fade-in">
                   Reliable Roofing Services in <span class="county-highlight-name">Orefield, PA</span> & the Greater Lehigh Valley
                 </h1>
+
+                <!-- Mobile Contact Form - Shows only on mobile right after h1 -->
+                <div class="county-hero-form mobile-only fade-in-delay-2">
+                  <form name="orefield-hero-contact-mobile" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="orefield-hero-contact-mobile" />
+                    <input type="hidden" name="page" value="Orefield PA Mobile" />
+
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                      required
+                      aria-label="Name" />
+
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      required
+                      aria-label="Email" />
+
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone Number"
+                      required
+                      aria-label="Phone Number" />
+
+                    <select
+                      name="service"
+                      required
+                      aria-label="Select a service">
+                      <option value="" disabled selected>
+                        ✓ Select a service
+                      </option>
+                      <option value="roof-replacement">Roof Replacement</option>
+                      <option value="roof-repair">Roof Repair</option>
+                      <option value="new-construction">New Construction</option>
+                      <option value="storm-damage">Storm Damage Assessment</option>
+                      <option value="roof-maintenance">Roof Maintenance</option>
+                      <option value="gutters">Gutters</option>
+                      <option value="siding">Siding</option>
+                      <option value="inspection">Not Sure - Need Inspection</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                      Get Free Estimate
+                    </button>
+                  </form>
+                </div>
+
                 <p class="county-hero-tagline fade-in-delay">
                   Your Locally Owned, Honest Contractor for a Better and Warmer Roof
                 </p>

@@ -2,6 +2,15 @@
 // Add new blog posts to the TOP of this array
 const blogPosts = [
   {
+    title: "Winter Roof Prep Guide for Pennsylvania Homeowners",
+    url: "blog/winter-roof-preparation-pennsylvania-guide.html",
+    date: "2025-10",
+    dateDisplay: "October 2025",
+    excerpt: "Start winter roof preparation in September to avoid $1,100+ repair costs. Complete DIY guide for PA homeowners: prevent ice dams, snow damage & more.",
+    image: "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/d.%20our-blog.html/Winter%20Roof%20Prep%20Guide%20for%20Pennsylvania%20Homeowners/winter-roof-prep-thumbnail.webp",
+    featured: true
+  },
+  {
     title: "5 Signs Your Pennsylvania Business Needs Emergency Commercial Roof Repair",
     url: "blog/commercial-roof-repair-emergency-signs.html",
     date: "2025-08",
@@ -26,15 +35,6 @@ const blogPosts = [
     dateDisplay: "July 2025",
     excerpt: "Those black streaks aren't dirt—they're gloeocapsa magma algae eating your shingles. Learn causes, removal methods, and prevention strategies.",
     image: "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/d.%20our-blog.html/Blog%20Post%20Page%20Images/black-streaks-running-down-roof.webp"
-  },
-  {
-    title: "Winter Roof Prep Guide for Pennsylvania Homeowners",
-    url: "blog/winter-roof-preparation-pennsylvania-guide.html",
-    date: "2025-01",
-    dateDisplay: "January 2025",
-    excerpt: "Start winter roof preparation in September to avoid $1,100+ repair costs. Complete DIY guide for PA homeowners: prevent ice dams, snow damage & more.",
-    image: "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/d.%20our-blog.html/Winter%20Roof%20Prep%20Guide%20for%20Pennsylvania%20Homeowners/winter-roof-prep-thumbnail.webp",
-    featured: true
   },
   {
     title: "What Is the Best Month to Replace Your Roof?",

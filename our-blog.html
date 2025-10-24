@@ -1842,8 +1842,39 @@
 
         // Clear the grid and re-append sorted posts
         blogGrid.innerHTML = '';
-        blogPosts.forEach((post) => {
+
+        // Remove old animation classes and add staggered delay based on position
+        blogPosts.forEach((post, index) => {
+          // Remove any existing fade classes
+          post.classList.remove('fade-in', 'fade-in-delay', 'fade-in-delay-2', 'fade-in-delay-3');
+
+          // Add fade-in class
+          post.classList.add('fade-in');
+
+          // Set custom animation delay based on index (0.1s per card)
+          post.style.animationDelay = `${index * 0.1}s`;
+
           blogGrid.appendChild(post);
+        });
+
+        // Setup Intersection Observer for scroll-triggered animations
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, observerOptions);
+
+        // Observe all blog cards
+        blogPosts.forEach(card => {
+          observer.observe(card);
         });
       });
     </script>

@@ -7298,6 +7298,13 @@ a.city-item:hover .city-name {
   min-height: 300px;
 }
 
+/* Tablet to desktop - floating buttons visible (navbar 80px + buttons 55px = 135px) */
+@media (max-width: 1485px) and (min-width: 769px) {
+  .blog-page-hero {
+    padding: 165px 0 50px;
+  }
+}
+
 /* Mobile adjustments for floating buttons */
 @media (max-width: 768px) {
   .blog-page-hero {

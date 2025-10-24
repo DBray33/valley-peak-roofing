@@ -16,7 +16,7 @@ const blogPosts = [
     date: "2025-08",
     dateDisplay: "August 2025",
     excerpt: "Every hour you wait to address commercial roof damage costs thousands. Learn the critical warning signs—from ponding water to membrane failure—that demand immediate commercial roofing contractor intervention.",
-    image: "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/d.%20our-blog.html/Blog%20Thumbnail%20Images/commercial-roof-repair-emergency-signs-small.webp",
+    image: "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/d.%20our-blog.html/Blog%20Thumbnail%20Images/commercial-roof-emergency-signs-pennsylvania-thumbnail.webp",
     featured: true
   },
   {

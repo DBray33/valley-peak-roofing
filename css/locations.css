@@ -115,11 +115,46 @@
 
 /* Right side - Form */
 .county-hero-form {
-  flex: 0 0 380px;
-  background: white;
+  flex: 0 0 420px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--primary-color);
+  border-radius: 16px;
   padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  margin-top: -2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.county-hero-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(181, 168, 129, 0.08) 20%,
+    rgba(181, 168, 129, 0.15) 50%,
+    rgba(181, 168, 129, 0.08) 80%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmer 3s infinite linear;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .county-page-title {
@@ -137,8 +172,18 @@
 
 .county-hero-tagline {
   font-size: 1.25rem;
+  color: white;
   margin-bottom: 2rem;
-  opacity: 0.95;
+  line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  max-width: fit-content;
+  width: auto;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 20px 24px;
+  backdrop-filter: blur(10px);
+  margin-top: 2rem;
 }
 
 /* Features list */
@@ -217,29 +262,43 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  position: relative;
+  z-index: 2;
 }
 
 .county-hero-form input,
 .county-hero-form select {
-  padding: 14px 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
   width: 100%;
-  transition: border-color 0.3s ease;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(181, 168, 129, 0.3);
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--dark-blue);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .county-hero-form input:focus,
 .county-hero-form select:focus {
   outline: none;
   border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(181, 168, 129, 0.1);
+  background: white;
+}
+
+.county-hero-form input::placeholder {
+  color: rgba(20, 22, 23, 0.5);
 }
 
 .county-hero-form select {
   cursor: pointer;
   appearance: none;
-  background: white url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
-  background-size: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23141617' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .county-hero-form .btn-block {
@@ -1600,6 +1659,9 @@
 
   .county-hero-tagline {
     font-size: 1.1rem;
+    padding: 15px 18px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .county-hero-stats {
@@ -1694,6 +1756,7 @@
 
   .county-hero-tagline {
     font-size: 1rem;
+    padding: 12px 15px;
   }
 
   .county-stat-number {

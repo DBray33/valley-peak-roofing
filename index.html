@@ -555,6 +555,9 @@
   </head>
 
   <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Floating Logo - Place this BEFORE the Navigation -->
     <div class="floating-logo">
       <a href="/">
@@ -580,7 +583,8 @@
           width="16"
           height="16"
           viewBox="0 0 24 24"
-          fill="currentColor">
+          fill="currentColor"
+          aria-hidden="true">
           <path
             d="M9.29 15.88L13.17 12 9.29 8.12a.996.996 0 1 1 1.41-1.41l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3a.996.996 0 0 1-1.41 0c-.38-.39-.39-1.03 0-1.42z" />
         </svg>
@@ -595,18 +599,18 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
       <div class="nav-container">
         <div class="nav-menu">
           <!-- Home Button -->
           <div class="nav-item">
-            <a href="index.html" class="home-button" title="Home">
+            <a href="index.html" class="home-button" aria-label="Home">
               <i class="fas fa-home"></i>
             </a>
           </div>
 
           <div class="nav-item dropdown">
-            <a href="#" class="nav-link"
+            <a href="#" class="nav-link" aria-expanded="false" aria-haspopup="true"
               >About <i class="fas fa-chevron-down"></i
             ></a>
             <div class="dropdown-content">
@@ -618,7 +622,7 @@
           </div>
 
           <div class="nav-item dropdown">
-            <a href="#" class="nav-link"
+            <a href="#" class="nav-link" aria-expanded="false" aria-haspopup="true"
               >Services <i class="fas fa-chevron-down"></i
             ></a>
             <div class="dropdown-content">
@@ -666,15 +670,15 @@
 
         <div class="nav-mobile-controls">
           <!-- Mobile Home Button -->
-          <a href="index.html" class="mobile-home-button" title="Home">
+          <a href="index.html" class="mobile-home-button" aria-label="Home">
             <i class="fas fa-home"></i>
           </a>
 
-          <div class="hamburger">
+          <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
         </div>
       </div>
     </nav>
@@ -696,7 +700,7 @@
 
       <div class="mobile-menu-content">
         <div class="mobile-nav-item">
-          <button class="mobile-dropdown-toggle">
+          <button class="mobile-dropdown-toggle" aria-expanded="false">
             About <i class="fas fa-chevron-down"></i>
           </button>
           <div class="mobile-dropdown-content">
@@ -708,7 +712,7 @@
         </div>
 
         <div class="mobile-nav-item">
-          <button class="mobile-dropdown-toggle">
+          <button class="mobile-dropdown-toggle" aria-expanded="false">
             Services <i class="fas fa-chevron-down"></i>
           </button>
           <div class="mobile-dropdown-content">
@@ -766,7 +770,7 @@
 
     <!-- Hero Section -->
     <div class="hero-wrapper">
-      <section class="hero">
+      <section class="hero" id="main-content">
         <div class="hero-content">
           <div class="container">
             <div class="hero-flex-container">
@@ -845,7 +849,8 @@
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
-                      fill="currentColor">
+                      fill="currentColor"
+                      aria-hidden="true">
                       <path
                         d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
                     </svg>
@@ -857,7 +862,8 @@
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
-                      fill="currentColor">
+                      fill="currentColor"
+                      aria-hidden="true">
                       <path
                         d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z" />
                     </svg>
@@ -875,7 +881,8 @@
                         class="icon-inline"
                         width="16"
                         height="16"
-                        viewBox="0 0 640 640">
+                        viewBox="0 0 640 640"
+                        aria-hidden="true">
                         <path
                           fill="#b5a881"
                           d="M377 105L329 153C319.6 162.4 304.4 162.4 295.1 153C285.8 143.6 285.7 128.4 295.1 119.1L343 71C352.4 61.6 367.6 61.6 376.9 71C386.2 80.4 386.3 95.6 376.9 104.9zM234.4 221.4C243.2 203.5 268.7 203.5 277.5 221.4L323.8 315.4L427.3 330.5C447 333.4 454.8 357.5 440.6 371.4L365.7 444.6L383.4 547.9C386.8 567.5 366.2 582.5 348.6 573.2L256 524.4L163.4 573.2C145.8 582.5 125.2 567.5 128.6 547.9L146.2 444.6L71.3 371.4C57 357.5 64.9 333.3 84.6 330.5L188.1 315.4L234.4 221.4zM569 263C578.4 272.4 578.4 287.6 569 296.9L521 344.9C511.6 354.3 496.4 354.3 487.1 344.9C477.8 335.5 477.7 320.3 487.1 311L535.1 263C544.5 253.6 559.7 253.6 569 263zM569 105L425 249C415.6 258.4 400.4 258.4 391.1 249C381.8 239.6 381.7 224.4 391.1 215.1L535 71C544.4 61.6 559.6 61.6 568.9 71C578.2 80.4 578.3 95.6 568.9 104.9z" />
@@ -887,7 +894,8 @@
                         class="icon-inline"
                         width="16"
                         height="16"
-                        viewBox="0 0 640 640">
+                        viewBox="0 0 640 640"
+                        aria-hidden="true">
                         <path
                           fill="#b5a881"
                           d="M298.2 72.6C310.5 61.2 329.5 61.2 341.7 72.6L432 156.3L432 144C432 126.3 446.3 112 464 112L496 112C513.7 112 528 126.3 528 144L528 245.5L565.8 280.6C575.4 289.6 578.6 303.5 573.8 315.7C569 327.9 557.2 336 544 336L528 336L528 512C528 547.3 499.3 576 464 576L176 576C140.7 576 112 547.3 112 512L112 336L96 336C82.8 336 71 327.9 66.2 315.7C61.4 303.5 64.6 289.5 74.2 280.6L298.2 72.6zM313.6 311.5C302.5 296.7 285.1 288 266.7 288C234.3 288 208 314.3 208 346.7L208 352C208 401.1 273.8 450.1 304.5 470.3C314 476.5 326 476.5 335.4 470.3C366.1 450.1 431.9 401 431.9 352L431.9 346.7C431.9 314.3 405.6 288 373.2 288C354.7 288 337.3 296.7 326.3 311.5L319.9 320L313.5 311.5z" />
@@ -899,7 +907,8 @@
                         class="icon-inline"
                         width="16"
                         height="16"
-                        viewBox="0 0 640 640">
+                        viewBox="0 0 640 640"
+                        aria-hidden="true">
                         <path
                           fill="#b5a881"
                           d="M320 64C324.6 64 329.2 65 333.4 66.9L521.8 146.8C543.8 156.1 560.2 177.8 560.1 204C559.6 303.2 518.8 484.7 346.5 567.2C329.8 575.2 310.4 575.2 293.7 567.2C121.3 484.7 80.6 303.2 80.1 204C80 177.8 96.4 156.1 118.4 146.8L306.7 66.9C310.9 65 315.4 64 320 64z" />
@@ -919,7 +928,8 @@
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
-                      fill="currentColor">
+                      fill="currentColor"
+                      aria-hidden="true">
                       <path
                         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
                       <path
@@ -939,7 +949,8 @@
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
-                      fill="currentColor">
+                      fill="currentColor"
+                      aria-hidden="true">
                       <path
                         d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                     </svg>
@@ -953,7 +964,8 @@
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
-                      fill="currentColor">
+                      fill="currentColor"
+                      aria-hidden="true">
                       <path
                         d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
                     </svg>
@@ -1320,6 +1332,10 @@
             <div
               class="video-wrapper"
               onclick="loadYouTubeVideo(this)"
+              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();loadYouTubeVideo(this)}"
+              role="button"
+              tabindex="0"
+              aria-label="Play Valley Peak Real Client Experience video"
               style="position: relative; cursor: pointer">
               <img
                 data-src="https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/a.%20index.html/video-thumbnail.webp?v=2"
@@ -1985,11 +2001,11 @@
 
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
-      <span class="lightbox-close">&times;</span>
-      <img class="lightbox-content" id="lightbox-img" />
+      <button type="button" class="lightbox-close" aria-label="Close lightbox">&times;</button>
+      <img class="lightbox-content" id="lightbox-img" alt="" />
       <div class="lightbox-caption"></div>
-      <button type="button" class="lightbox-prev">&#10094;</button>
-      <button type="button" class="lightbox-next">&#10095;</button>
+      <button type="button" class="lightbox-prev" aria-label="Previous image">&#10094;</button>
+      <button type="button" class="lightbox-next" aria-label="Next image">&#10095;</button>
       <div class="lightbox-counter"></div>
     </div>
 
@@ -2060,7 +2076,7 @@
 
         <div class="faq-grid">
           <div class="faq-item fade-in">
-            <button class="faq-question">
+            <button class="faq-question" aria-expanded="false">
               <span>How do you protect my property during installation?</span>
               <i class="fas fa-plus"></i>
             </button>
@@ -2075,7 +2091,7 @@
           </div>
 
           <div class="faq-item fade-in">
-            <button class="faq-question">
+            <button class="faq-question" aria-expanded="false">
               <span>How much does a new roof cost?</span>
               <i class="fas fa-plus"></i>
             </button>
@@ -2090,7 +2106,7 @@
           </div>
 
           <div class="faq-item fade-in">
-            <button class="faq-question">
+            <button class="faq-question" aria-expanded="false">
               <span
                 >Will my homeowner's insurance cover roof or siding
                 replacement?</span
@@ -2109,7 +2125,7 @@
           </div>
 
           <div class="faq-item fade-in">
-            <button class="faq-question">
+            <button class="faq-question" aria-expanded="false">
               <span>How long does installation take?</span>
               <i class="fas fa-plus"></i>
             </button>
@@ -2125,7 +2141,7 @@
           </div>
 
           <div class="faq-item fade-in">
-            <button class="faq-question">
+            <button class="faq-question" aria-expanded="false">
               <span>What warranties do you offer?</span>
               <i class="fas fa-plus"></i>
             </button>
@@ -2141,7 +2157,7 @@
           </div>
 
           <div class="faq-item fade-in">
-            <button class="faq-question">
+            <button class="faq-question" aria-expanded="false">
               <span>Can I stay in my home during the project?</span>
               <i class="fas fa-plus"></i>
             </button>
@@ -2866,8 +2882,8 @@
                 placeholder="Please describe any issues you're experiencing, when you need the work done, or any other details that would help us prepare for your inspection..."></textarea>
             </div>
 
-            <div class="form-group">
-              <label for="preferredContact">Preferred Contact Method</label>
+            <fieldset class="form-group">
+              <legend>Preferred Contact Method</legend>
               <div class="radio-group">
                 <label class="radio-label">
                   <input
@@ -2886,7 +2902,7 @@
                   <span>Text</span>
                 </label>
               </div>
-            </div>
+            </fieldset>
 
             <button
               type="submit"
@@ -2942,7 +2958,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h3><i class="fas fa-layer-group"></i> Architectural Shingles</h3>
-          <button class="close-modal close-shingles-modal">
+          <button class="close-modal close-shingles-modal" aria-label="Close modal">
             <i class="fas fa-times"></i>
           </button>
         </div>
@@ -3045,7 +3061,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h3><i class="fas fa-industry"></i> Metal Roofs</h3>
-          <button class="close-modal close-metal-roof-modal">
+          <button class="close-modal close-metal-roof-modal" aria-label="Close modal">
             <i class="fas fa-times"></i>
           </button>
         </div>
@@ -3208,19 +3224,19 @@
     </script>
 
     <!-- Mobile Bottom Navigation -->
-    <nav class="mobile-bottom-nav">
+    <nav class="mobile-bottom-nav" aria-label="Mobile quick actions">
       <a href="/" class="bottom-nav-item">
         <i class="fas fa-home"></i>
         <span>Home</span>
       </a>
-      <button class="bottom-nav-item" id="mobile-services-btn">
+      <button class="bottom-nav-item" id="mobile-services-btn" aria-expanded="false">
         <i class="fas fa-tools"></i>
         <span>Services</span>
       </button>
       <a href="tel:4846026863" class="bottom-nav-call">
         <i class="fas fa-phone-alt"></i>
       </a>
-      <button class="bottom-nav-item" id="mobile-about-btn">
+      <button class="bottom-nav-item" id="mobile-about-btn" aria-expanded="false">
         <i class="fas fa-info-circle"></i>
         <span>About</span>
       </button>

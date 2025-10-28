@@ -464,6 +464,21 @@ body.modal-open {
   font-size: 14px;
 }
 
+/* Fieldset styling to match form-group */
+fieldset.form-group {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+fieldset.form-group legend {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  font-size: 14px;
+  padding: 0;
+}
+
 /* Form Inputs */
 .form-group input,
 .form-group select,

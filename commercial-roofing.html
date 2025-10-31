@@ -372,6 +372,99 @@
         }
       }
     </script>
+    <style>
+      @media (max-width: 1200px) and (min-width: 969px) {
+        .commercial-hero .roof-hero-content {
+          grid-template-columns: 1.2fr 0.8fr !important;
+          gap: 40px !important;
+        }
+      }
+
+      @media (max-width: 968px) {
+        .commercial-hero .hero-right {
+          display: none;
+        }
+      }
+
+      /* Mobile Contact Form */
+      .mobile-contact-form-wrapper {
+        display: none;
+        margin-bottom: 3rem;
+      }
+
+      @media (max-width: 968px) {
+        .mobile-contact-form-wrapper {
+          display: block;
+        }
+      }
+
+      .mobile-contact-form-card {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .mobile-contact-form-card h3 {
+        color: var(--text-dark);
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      .mobile-contact-form-card form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .mobile-contact-form-card input,
+      .mobile-contact-form-card select {
+        padding: 0.875rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      .mobile-contact-form-card input:focus,
+      .mobile-contact-form-card select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+
+      .mobile-contact-form-card button {
+        margin-top: 0.5rem;
+      }
+
+      /* Hero alignment - left on large screens, center on small */
+      .commercial-hero .roof-hero-title {
+        text-align: left;
+      }
+
+      .commercial-hero .hero-description {
+        text-align: left;
+      }
+
+      .commercial-hero .hero-cta-group {
+        justify-content: flex-start;
+      }
+
+      @media (max-width: 968px) {
+        .commercial-hero .roof-hero-title {
+          text-align: center;
+        }
+
+        .commercial-hero .hero-description {
+          text-align: center;
+        }
+
+        .commercial-hero .hero-cta-group {
+          justify-content: center;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Floating Logo - Place this BEFORE the Navigation -->
@@ -572,36 +665,79 @@
 
     <!-- Hero Section -->
     <section class="commercial-hero">
+      <!-- Content -->
       <div class="container">
-        <div class="commercial-hero-content">
-          <h1 class="commercial-hero-title fade-in">
-            Expert Commercial Roofing Services
-          </h1>
-          <p class="commercial-hero-subtitle fade-in-delay">
-            Professional Commercial Roof Installation & Repair in Bethlehem and
-            The Lehigh Valley
-          </p>
-          <div class="commercial-hero-features fade-in-delay-2">
-            <div class="commercial-feature-item">
-              <i class="fas fa-building"></i>
-              <span>Commercial Specialists</span>
-            </div>
-            <div class="commercial-feature-item">
-              <i class="fas fa-shield-alt"></i>
-              <span>Lifetime Warranty</span>
-            </div>
-            <div class="commercial-feature-item">
-              <i class="fas fa-clock"></i>
-              <span>Emergency Service</span>
+        <div class="roof-hero-content">
+          <!-- Left Side: Main Content -->
+          <div class="hero-left">
+            <h1 class="roof-hero-title">
+              EXPERT COMMERCIAL<br/>
+              <span class="hero-title-gradient">ROOFING</span>
+            </h1>
+            <p class="hero-description">
+              Professional commercial roof installation & repair in Bethlehem and The Lehigh Valley. Minimize business disruption with our efficient service. BBB A+ rated, fully insured, lifetime warranty.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#estimate" class="btn btn-primary">Free Commercial Estimate</a>
+              <a href="tel:4846026863" class="btn btn-secondary">
+                <i class="fas fa-phone-alt"></i> (484) 602-6863
+              </a>
             </div>
           </div>
-          <div class="commercial-hero-cta fade-in-delay-3">
-            <a href="#estimate" class="btn btn-primary btn-large">
-              <i class="fas fa-calculator"></i> Get Free Commercial Estimate
-            </a>
-            <a href="tel:484-602-6863" class="btn btn-secondary btn-large">
-              <i class="fas fa-phone"></i> (484) 602-6863
-            </a>
+
+          <!-- Right Side: Contact Form -->
+          <div class="hero-right">
+            <div class="hero-contact-form">
+              <form
+                name="commercial-hero-contact"
+                method="POST"
+                data-netlify="true">
+                <input
+                  type="hidden"
+                  name="form-name"
+                  value="commercial-hero-contact" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  required
+                  aria-label="Name" />
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  aria-label="Email" />
+
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  required
+                  aria-label="Phone Number" />
+
+                <select name="service" required aria-label="Select a service">
+                  <option value="" disabled selected>
+                    ✓ Select a service
+                  </option>
+                  <option value="commercial-roof-replacement">Commercial Roof Replacement</option>
+                  <option value="commercial-roof-repair">Commercial Roof Repair</option>
+                  <option value="new-commercial-construction">New Construction</option>
+                  <option value="storm-damage">
+                    Storm Damage Assessment
+                  </option>
+                  <option value="roof-maintenance">Roof Maintenance</option>
+                  <option value="inspection">
+                    Not Sure - Need Inspection
+                  </option>
+                </select>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                  Free Estimate
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -610,6 +746,63 @@
     <!-- Introduction Section -->
     <section class="commercial-intro-section">
       <div class="container">
+        <!-- Mobile Contact Form - Only shows when hero form is hidden -->
+        <div class="mobile-contact-form-wrapper">
+          <div class="mobile-contact-form-card">
+            <h3>Get Your Free Commercial Estimate</h3>
+            <p style="text-align: center; margin-bottom: 1.5rem; color: #666;">Submit your information and we'll get back to you within 24 hours</p>
+            <form
+              name="commercial-mobile-contact"
+              method="POST"
+              data-netlify="true">
+              <input
+                type="hidden"
+                name="form-name"
+                value="commercial-mobile-contact" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                aria-label="Name" />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                aria-label="Email" />
+
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                required
+                aria-label="Phone Number" />
+
+              <select name="service" required aria-label="Select a service">
+                <option value="" disabled selected>
+                  ✓ Select a service
+                </option>
+                <option value="commercial-roof-replacement">Commercial Roof Replacement</option>
+                <option value="commercial-roof-repair">Commercial Roof Repair</option>
+                <option value="new-commercial-construction">New Construction</option>
+                <option value="storm-damage">
+                  Storm Damage Assessment
+                </option>
+                <option value="roof-maintenance">Roof Maintenance</option>
+                <option value="inspection">
+                  Not Sure - Need Inspection
+                </option>
+              </select>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Free Estimate
+              </button>
+            </form>
+          </div>
+        </div>
+
         <div class="commercial-intro-grid">
           <div class="commercial-intro-content">
             <div class="section-header slide-in-left">

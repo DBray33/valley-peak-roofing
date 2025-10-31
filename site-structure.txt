@@ -1,4 +1,5 @@
 .
+├── ./BLOG-README.md
 ├── ./_redirects
 ├── ./back-the-blue.html
 ├── ./blog
@@ -16,7 +17,8 @@
 │   ├── ./blog/roof-repair-or-replace-guide.html
 │   ├── ./blog/roof-repairs-vs-replacement.html
 │   ├── ./blog/roof-terms-to-know-when-working-with-a-roofing-company.html
-│   └── ./blog/why-asphalt-shingles-are-the-best-choice-for-your-roof.html
+│   ├── ./blog/why-asphalt-shingles-are-the-best-choice-for-your-roof.html
+│   └── ./blog/winter-roof-preparation-pennsylvania-guide.html
 ├── ./budget-roof-cost.html
 ├── ./commercial-roofing.html
 ├── ./contact.html
@@ -33,6 +35,8 @@
 ├── ./index.html
 ├── ./james-hardie.html
 ├── ./js
+│   ├── ./js/blog-data.js
+│   ├── ./js/blog-loader.js
 │   ├── ./js/carousel.js
 │   ├── ./js/modal.js
 │   └── ./js/scripts.js
@@ -49,6 +53,13 @@
 ├── ./roof-replacement-installation.html
 ├── ./roofing-siding-gutter-faqs.html
 ├── ./service-areas
+│   ├── ./service-areas/pexels-location-images
+│   │   ├── ./service-areas/pexels-location-images/bethlehem.jpg
+│   │   ├── ./service-areas/pexels-location-images/easton.jpg
+│   │   ├── ./service-areas/pexels-location-images/emmaus.jpg
+│   │   ├── ./service-areas/pexels-location-images/kutztown.jpg
+│   │   ├── ./service-areas/pexels-location-images/macungie.jpg
+│   │   └── ./service-areas/pexels-location-images/tannersville.jpg
 │   ├── ./service-areas/roofing-alburtis-pa.html
 │   ├── ./service-areas/roofing-allentown-pa.html
 │   ├── ./service-areas/roofing-bangor-pa.html
@@ -92,4 +103,4 @@
 ├── ./terms.html
 └── ./thank-you.html
 
-6 directories, 87 files
+7 directories, 97 files

@@ -137,6 +137,22 @@
   margin-bottom: 0.75rem; /* Reduced from 1.5rem */
 }
 
+.blog-body p a,
+.blog-section p a {
+  color: #495057;
+  text-decoration: underline;
+  text-decoration-color: #495057;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: all 0.3s ease;
+}
+
+.blog-body p a:hover,
+.blog-section p a:hover {
+  color: #212529;
+  text-decoration-color: #212529;
+}
+
 .blog-body .lead {
   font-size: 1.25rem;
   font-weight: 300;

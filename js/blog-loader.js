@@ -16,11 +16,14 @@
       return;
     }
 
-    // Load featured posts (top 3 with images)
+    // Load featured posts (top 3 with images) - for homepage
     loadFeaturedPosts();
 
-    // Load additional posts list
+    // Load additional posts list - for homepage
     loadAdditionalPosts();
+
+    // Load all blog posts - for our-blog.html page
+    loadAllBlogPosts();
   }
 
   function loadFeaturedPosts() {
@@ -100,5 +103,80 @@
     `;
 
     return link;
+  }
+
+  function loadAllBlogPosts() {
+    const blogGrid = document.getElementById('blogGrid');
+    if (!blogGrid) return; // Not on our-blog.html page
+
+    // Clear existing content
+    blogGrid.innerHTML = '';
+
+    // Create card for each blog post
+    blogPosts.forEach((post, index) => {
+      const card = createBlogPageCard(post, index);
+      blogGrid.appendChild(card);
+    });
+
+    // Setup intersection observer for scroll animations
+    setupScrollAnimations();
+  }
+
+  function createBlogPageCard(post, index) {
+    const article = document.createElement('article');
+    article.className = 'blog-page-card fade-in';
+    article.setAttribute('data-date', post.date);
+    article.style.cursor = 'pointer';
+    article.style.animationDelay = `${index * 0.1}s`;
+
+    // Add click handler
+    article.onclick = function() {
+      window.location.href = post.url;
+    };
+
+    // Use placeholder image if no image provided
+    const imageUrl = post.image || 'https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/blog/newly-replaced-roof-pennsylvania.webp';
+
+    article.innerHTML = `
+      <div class="blog-page-image">
+        <img
+          src="${imageUrl}"
+          alt="${post.title}" />
+      </div>
+      <div class="blog-page-content">
+        <span class="blog-page-date">
+          <i class="far fa-calendar-alt"></i> ${post.dateDisplay}
+        </span>
+        <h3>${post.title}</h3>
+        <p>${post.excerpt}</p>
+        <span class="blog-page-link">
+          Read Full Post <i class="fas fa-arrow-right"></i>
+        </span>
+      </div>
+    `;
+
+    return article;
+  }
+
+  function setupScrollAnimations() {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all blog cards
+    const cards = document.querySelectorAll('.blog-page-card');
+    cards.forEach(card => {
+      observer.observe(card);
+    });
   }
 })();

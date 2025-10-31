@@ -2,6 +2,15 @@
 // Add new blog posts to the TOP of this array
 const blogPosts = [
   {
+    title: "How to Prevent Ice Dams and Roof Leaks This Winter in Pennsylvania",
+    url: "blog/ice-dam-prevention-roof-leaks-pennsylvania.html",
+    date: "2025-11",
+    dateDisplay: "November 2025",
+    excerpt: "Learn how to prevent ice dams and winter roof leaks in the Lehigh Valley. Expert tips from local roofing professionals serving Allentown, Bethlehem, and Reading.",
+    image: "https://storage.googleapis.com/kws-clientele/Valley%20Peak%20Roofing%20Co/d.%20our-blog.html/How%20to%20Prevent%20Ice%20Dams%20and%20Roof%20Leaks%20This%20Winter%20in%20Pennsylvania/ice-dam-prevention-thumbnail.webp",
+    featured: true
+  },
+  {
     title: "Winter Roof Prep Guide for Pennsylvania Homeowners",
     url: "blog/winter-roof-preparation-pennsylvania-guide.html",
     date: "2025-10",

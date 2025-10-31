@@ -499,6 +499,23 @@ body {
   margin-top: 2rem;
 }
 
+/* Hero paragraph links */
+.hero-text p.fade-in-delay a {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.hero-text p.fade-in-delay a:hover {
+  color: var(--primary-color);
+  text-decoration-color: white;
+  text-shadow: 0 0 8px rgba(181, 168, 129, 0.5);
+}
+
 @media (max-width: 1398px) {
   .hero-text p.fade-in-delay {
     font-size: 18px;
@@ -1210,6 +1227,21 @@ body {
   opacity: 0.9;
 }
 
+.problem-item p a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 1px;
+  transition: all 0.3s ease;
+}
+
+.problem-item p a:hover {
+  color: white;
+  border-bottom-color: white;
+  text-shadow: 0 0 8px rgba(181, 168, 129, 0.5);
+}
+
 /* Responsive breakpoints for problem grid */
 @media (max-width: 1200px) {
   .problem-grid {
@@ -1362,6 +1394,20 @@ body {
 .solution-point span {
   color: var(--text-dark);
   line-height: 1.6;
+}
+
+.solution-point span a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 1px;
+  transition: all 0.3s ease;
+}
+
+.solution-point span a:hover {
+  color: var(--orange-accent);
+  border-bottom-color: var(--orange-accent);
 }
 
 .solution-image img {
@@ -1954,6 +2000,23 @@ body {
   }
 }
 
+/* Service card internal links */
+.card-back p a {
+  color: #2c3e50;
+  text-decoration: underline;
+  text-decoration-color: #2c3e50;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.card-back p a:hover {
+  color: white;
+  text-decoration-color: white;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
 .card-back ul {
   list-style: none;
   padding: 0;
@@ -2495,6 +2558,22 @@ a.city-item:hover .city-name {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+.google-reviews-subtitle a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.google-reviews-subtitle a:hover {
+  color: white;
+  text-decoration-color: white;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
 /* Elfsight Widget Container Styling */
 .elfsight-app-3dabbda4-9e23-4bbd-ae8e-e07e5ce45b2a {
   margin: 0 auto;
@@ -2790,6 +2869,21 @@ a.city-item:hover .city-name {
 .faq-section .section-header p a:hover {
   color: var(--orange-light);
   text-decoration: underline;
+}
+
+/* FAQ Answer Links */
+.faq-section .faq-answer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 2px;
+}
+
+.faq-section .faq-answer a:hover {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary-dark);
 }
 
 /* Mobile Responsive Adjustments */
@@ -8588,9 +8682,8 @@ a.city-item:hover .city-name {
 
 /* Seasonal Banner */
 .seasonal-banner {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: relative;
+  top: 0;
   background: linear-gradient(135deg, #d97a3f, #c7712e);
   color: white;
   padding: 12px 30px;
@@ -8601,8 +8694,11 @@ a.city-item:hover .city-name {
   box-shadow: 0 4px 20px rgba(217, 122, 63, 0.4);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   z-index: 10;
+  margin: 0 auto 30px;
+  width: fit-content;
 }
 
 .seasonal-banner i {
@@ -8807,8 +8903,6 @@ a.city-item:hover .city-name {
   }
 
   .seasonal-banner {
-    top: 10px;
-    right: 10px;
     font-size: 0.75rem;
     padding: 10px 20px;
   }
@@ -8867,13 +8961,6 @@ a.city-item:hover .city-name {
     padding: 14px 30px;
   }
 
-  .seasonal-banner {
-    position: relative;
-    top: 0;
-    right: 0;
-    margin: 0 auto 30px;
-    width: fit-content;
-  }
 }
 
 /* Introduction Section */

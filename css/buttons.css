@@ -415,7 +415,7 @@
  */
 .floating-financing {
   position: fixed;
-  top: 100px;
+  bottom: 20px;
   left: 20px;
   z-index: 999;
   animation: slideInLeft 0.8s ease-out;
@@ -607,7 +607,7 @@
   }
 
   .floating-financing {
-    top: 90px;
+    bottom: 15px;
     left: 15px;
   }
 }
@@ -648,6 +648,11 @@
     max-width: calc(100% - 20px);
   }
 
+  /* Move financing button above mobile bottom nav */
+  .floating-financing {
+    bottom: 85px;
+  }
+
   .floating-phone-link,
   .floating-financing-link {
     padding: 8px 14px;
@@ -658,6 +663,11 @@
     max-width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  .floating-financing-link {
+    padding: 6px 10px;
+    font-size: 11px;
   }
 
   /* Remove hover on mobile */
@@ -702,6 +712,7 @@
   }
 
   .floating-financing {
+    bottom: 85px;
     left: 10px;
   }
 
@@ -710,6 +721,11 @@
     padding: 8px 12px;
     font-size: 12px;
     max-width: 100%;
+  }
+
+  .floating-financing-link {
+    padding: 5px 8px;
+    font-size: 10px;
   }
 
   /* General buttons */

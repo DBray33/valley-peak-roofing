@@ -451,13 +451,21 @@
       }
 
       .mobile-contact-form-card form input,
-      .mobile-contact-form-card form select {
+      .mobile-contact-form-card form select,
+      .mobile-contact-form-card form textarea {
         width: 100%;
         padding: 0.875rem;
         margin-bottom: 1rem;
         border: 1px solid #ddd;
         border-radius: 6px;
         font-size: 1rem;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        box-sizing: border-box;
+      }
+
+      .mobile-contact-form-card form textarea {
+        resize: vertical;
+        min-height: 80px;
       }
 
       .mobile-contact-form-card form button {
@@ -465,6 +473,8 @@
         padding: 1rem;
         font-size: 1rem;
         font-weight: 600;
+        display: block;
+        margin: 0 auto;
       }
     </style>
   </head>
@@ -732,10 +742,18 @@
                   <option value="roof-maintenance">Roof Maintenance</option>
                   <option value="gutters">Gutters</option>
                   <option value="siding">Siding</option>
+                  <option value="skylight">Skylight Repair/Installation</option>
                   <option value="inspection">
                     Not Sure - Need Inspection
                   </option>
+                  <option value="other">Other</option>
                 </select>
+
+                <textarea
+                  name="message"
+                  placeholder="Your location & what you need"
+                  rows="3"
+                  aria-label="Message"></textarea>
 
                 <button type="submit" class="btn btn-primary btn-block">
                   Get Free Estimate
@@ -797,10 +815,18 @@
                 <option value="roof-maintenance">Roof Maintenance</option>
                 <option value="gutters">Gutters</option>
                 <option value="siding">Siding</option>
+                <option value="skylight">Skylight Repair/Installation</option>
                 <option value="inspection">
                   Not Sure - Need Inspection
                 </option>
+                <option value="other">Other</option>
               </select>
+
+              <textarea
+                name="message"
+                placeholder="Your location & what you need"
+                rows="3"
+                aria-label="Message"></textarea>
 
               <button type="submit" class="btn btn-primary btn-block">
                 Get Free Estimate

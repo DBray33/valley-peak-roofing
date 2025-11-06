@@ -24,6 +24,12 @@
   width: auto;
 }
 
+.company-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .company-name {
   font-family: 'girassol', serif;
   font-size: 28px;
@@ -34,7 +40,7 @@
   margin-top: 5px;
   letter-spacing: 3px;
   /* Embossed 3D effect */
-  text-shadow: 
+  text-shadow:
     /* Light from top-left */ -1px -1px 1px rgba(255, 255, 255, 0.8),
     /* Shadow to bottom-right */ 1px 1px 1px rgba(0, 0, 0, 0.5),
     2px 2px 2px rgba(0, 0, 0, 0.4), 3px 3px 3px rgba(0, 0, 0, 0.3),
@@ -45,6 +51,15 @@
   font-size: 1.4em;
   font-weight: 700;
   display: inline-block;
+}
+
+.company-phone-mobile {
+  display: none;
+  font-family: 'girassol', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  letter-spacing: 1px;
 }
 
 /* Hide company name at certain breakpoints */
@@ -61,17 +76,27 @@
     left: 15px;
   }
 
+  .floating-logo a {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
   .floating-logo img {
     height: 50px;
   }
 
   .company-name {
-    display: inline;
+    display: block;
     font-size: 22px;
   }
 
   .large-letter {
     font-size: 1.3em;
+  }
+
+  .company-phone-mobile {
+    display: block;
+    font-size: 13px;
   }
 }
 
@@ -83,9 +108,13 @@
   .company-name {
     font-size: 20px;
   }
+
+  .company-phone-mobile {
+    font-size: 12px;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 499px) {
   .floating-logo {
     left: 10px;
   }
@@ -98,12 +127,23 @@
     font-size: 16.5px;
     margin-left: -10px;
     /* Reduced embossed 3D effect for mobile */
-    text-shadow: 
+    text-shadow:
       /* Light from top-left (reduced) */ -0.5px -0.5px 0.5px rgba(255, 255, 255, 0.6),
       /* Shadow to bottom-right (smaller layers) */ 0.5px 0.5px 0.5px
         rgba(0, 0, 0, 0.4),
       1px 1px 1px rgba(0, 0, 0, 0.3),
       /* Subtle deep shadow */ 2px 2px 3px rgba(0, 0, 0, 0.15);
+  }
+
+  .company-phone-mobile {
+    font-size: 11px;
+    margin-left: -10px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1020px) {
+  .floating-logo {
+    top: 5px;
   }
 }
 

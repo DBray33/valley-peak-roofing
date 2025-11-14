@@ -1332,6 +1332,62 @@ body {
     font-size: 13px;
   }
 }
+
+/* Mobile Carousel - 500px and below */
+@media (max-width: 500px) {
+  .problem-section .container {
+    position: relative;
+  }
+
+  /* Scroll indicator */
+  .problem-section .container::after {
+    content: '← Swipe →';
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .problem-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+    padding: 0 20px 20px 20px;
+    margin: 0 -20px;
+    position: relative;
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .problem-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .problem-item {
+    flex: 0 0 calc(100% - 40px);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    max-width: 400px;
+  }
+
+  /* Disable scroll animations for carousel items */
+  .problem-item.fade-in,
+  .problem-item.fade-in-delay,
+  .problem-item.fade-in-delay-2,
+  .problem-item.fade-in-delay-3 {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
 /* #endregion */
 /* #endregion */
 /* #endregion */
@@ -1719,6 +1775,68 @@ body {
   .services-grid {
     grid-template-columns: 1fr;
     gap: 25px;
+  }
+}
+
+/* Services Mobile Carousel - 500px and below */
+@media (max-width: 500px) {
+  .services-section .container {
+    position: relative;
+  }
+
+  /* Scroll indicator - above the CTA button */
+  .services-cta::before {
+    content: '← Swipe →';
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .services-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+    padding: 40px 20px 20px 20px;
+    margin: 0 -20px;
+    position: relative;
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .services-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .service-card {
+    flex: 0 0 calc(100% - 40px);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    max-width: 400px;
+  }
+
+  /* Disable scroll animations for carousel items */
+  .service-card.fade-in,
+  .service-card.fade-in-delay,
+  .service-card.fade-in-delay-2,
+  .service-card.fade-in-delay-3 {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Move paragraph text up on card backs */
+  .card-back p {
+    margin-top: -10px;
+    margin-bottom: 15px;
   }
 }
 
@@ -2134,13 +2252,13 @@ a.city-item:hover .city-name {
   background: var(--white);
 }
 
-.benefits-grid {
+.benefits-section .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
 
-.benefit-item {
+.benefits-section .benefit-item {
   background: var(--white);
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -2148,7 +2266,7 @@ a.city-item:hover .city-name {
   transition: var(--transition);
 }
 
-.benefit-item:hover {
+.benefits-section .benefit-item:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
 }
@@ -2181,8 +2299,72 @@ a.city-item:hover .city-name {
 }
 
 @media (max-width: 1024px) {
-  .benefits-grid {
+  .benefits-section .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits-section .benefits-grid {
     grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+/* Benefits Mobile Carousel - 500px and below */
+@media (max-width: 500px) {
+  .benefits-section .container {
+    position: relative;
+  }
+
+  /* Scroll indicator */
+  .benefits-section .container::after {
+    content: '← Swipe →';
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .benefits-section .benefits-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+    padding: 0 20px 20px 20px;
+    margin: 0 -20px;
+    position: relative;
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .benefits-section .benefits-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .benefits-section .benefit-item {
+    flex: 0 0 calc(100% - 40px);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    max-width: 400px;
+  }
+
+  /* Disable scroll animations for carousel items */
+  .benefits-section .benefit-item.fade-in,
+  .benefits-section .benefit-item.fade-in-delay,
+  .benefits-section .benefit-item.fade-in-delay-2,
+  .benefits-section .benefit-item.fade-in-delay-3 {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
   }
 }
 /* #endregion */
@@ -2250,12 +2432,8 @@ a.city-item:hover .city-name {
   display: flex;
   align-items: flex-end;
   padding: 30px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.portfolio-item:hover .portfolio-overlay {
   opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .portfolio-info {
@@ -2476,6 +2654,62 @@ a.city-item:hover .city-name {
   .lightbox-prev,
   .lightbox-next {
     display: none; /* Hide navigation on very small screens */
+  }
+}
+
+/* Portfolio Mobile Carousel - 500px and below */
+@media (max-width: 500px) {
+  .portfolio-section .container {
+    position: relative;
+  }
+
+  /* Scroll indicator - above the CTA button */
+  .portfolio-section .portfolio-cta::before {
+    content: '← Swipe →';
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .portfolio-section .portfolio-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+    padding: 0 20px 20px 20px;
+    margin: 0 -20px;
+    position: relative;
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .portfolio-section .portfolio-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .portfolio-section .portfolio-item {
+    flex: 0 0 calc(100% - 40px);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    max-width: 400px;
+  }
+
+  /* Disable scroll animations for carousel items */
+  .portfolio-section .portfolio-item.fade-in,
+  .portfolio-section .portfolio-item.fade-in-delay,
+  .portfolio-section .portfolio-item.fade-in-delay-2,
+  .portfolio-section .portfolio-item.fade-in-delay-3 {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
   }
 }
 
@@ -2936,14 +3170,14 @@ a.city-item:hover .city-name {
   background: var(--light-bg);
 }
 
-.blog-grid {
+.blog-section .blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 40px;
   margin-bottom: 50px;
 }
 
-.blog-card {
+.blog-section .blog-card {
   background: var(--white);
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -2953,7 +3187,7 @@ a.city-item:hover .city-name {
   flex-direction: column;
 }
 
-.blog-card:hover {
+.blog-section .blog-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
 }
@@ -3161,7 +3395,7 @@ a.city-item:hover .city-name {
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-  .blog-grid {
+  .blog-section .blog-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -3171,7 +3405,7 @@ a.city-item:hover .city-name {
     padding: 60px 0;
   }
 
-  .blog-grid {
+  .blog-section .blog-grid {
     grid-template-columns: 1fr;
     gap: 30px;
     margin-bottom: 40px;
@@ -3217,7 +3451,7 @@ a.city-item:hover .city-name {
     padding: 50px 0;
   }
 
-  .blog-grid {
+  .blog-section .blog-grid {
     gap: 25px;
     margin-bottom: 30px;
   }
@@ -3246,6 +3480,63 @@ a.city-item:hover .city-name {
 
   .blog-link {
     font-size: 15px;
+  }
+}
+
+/* Blog Mobile Carousel - 500px and below */
+@media (max-width: 500px) {
+  .blog-section .container {
+    position: relative;
+  }
+
+  /* Scroll indicator - below the section header */
+  .blog-section .section-header::after {
+    content: '← Swipe →';
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 2rem;
+    margin-bottom: -2.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .blog-section .blog-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+    padding: 0 20px 20px 20px;
+    margin: 0 -20px 50px -20px;
+    position: relative;
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .blog-section .blog-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .blog-section .blog-card {
+    flex: 0 0 calc(100% - 40px);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    max-width: 400px;
+  }
+
+  /* Disable scroll animations for carousel items */
+  .blog-section .blog-card.fade-in,
+  .blog-section .blog-card.fade-in-delay,
+  .blog-section .blog-card.fade-in-delay-2,
+  .blog-section .blog-card.fade-in-delay-3 {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
   }
 }
 /* #endregion */
